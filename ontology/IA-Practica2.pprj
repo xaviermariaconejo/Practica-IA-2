@@ -1,4 +1,4 @@
-; Wed Nov 12 12:11:23 CET 2014
+; Wed Nov 12 15:28:28 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[IA-Practica2_ProjectKB_Class84]
-		[IA-Practica2_ProjectKB_Class85]
-		[IA-Practica2_ProjectKB_Class86]))
+		[IA-Practica2_ProjectKB_Class81]
+		[IA-Practica2_ProjectKB_Class82]
+		[IA-Practica2_ProjectKB_Class83]))
 
 ([CLSES_TAB] of  Widget
 
@@ -44,7 +44,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class2])
-	(widget_class_name "TGViztab.TGVizTab"))
+	(widget_class_name "se.liu.ida.JessTab.JessTab"))
 
 ([IA-Practica2_ProjectKB_Class10] of  Property_List
 )
@@ -57,7 +57,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class12])
-	(widget_class_name "edu.stanford.smi.protegex.evaluation.MetaAnalysis"))
+	(widget_class_name "ca.uvic.csr.shrimp.jambalaya.JambalayaTab"))
 
 ([IA-Practica2_ProjectKB_Class12] of  Property_List
 )
@@ -66,7 +66,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class14])
-	(widget_class_name "edu.stanford.smi.RemoteKBTab.WordNetTab"))
+	(widget_class_name "ezpal.EZPalTab"))
 
 ([IA-Practica2_ProjectKB_Class14] of  Property_List
 )
@@ -75,7 +75,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class16])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.metadatatab.OWLMetadataTab"))
+	(widget_class_name "edu.stanford.smi.protegex.server_changes.prompt.UsersTab"))
 
 ([IA-Practica2_ProjectKB_Class16] of  Property_List
 )
@@ -84,7 +84,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class18])
-	(widget_class_name "edu.stanford.smi.protegex.changes.ChangesTab"))
+	(widget_class_name "edu.stanford.smi.protege.widget.instance_tree.InstanceTreeTab"))
 
 ([IA-Practica2_ProjectKB_Class18] of  Property_List
 )
@@ -93,7 +93,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class20])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.OWLFormsTab"))
+	(widget_class_name "edu.stanford.smi.protegex.widget.pal.PalConstraintsTab"))
 
 ([IA-Practica2_ProjectKB_Class2] of  Property_List
 )
@@ -105,7 +105,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class22])
-	(widget_class_name "ezpal.EZPalTab"))
+	(widget_class_name "edu.stanford.smi.RemoteKBTab.WordNetTab"))
 
 ([IA-Practica2_ProjectKB_Class22] of  Property_List
 )
@@ -114,7 +114,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class24])
-	(widget_class_name "edu.stanford.smi.protegex.owl.swrl.ui.tab.SWRLTab"))
+	(widget_class_name "uk.ac.man.ac.mig.coode.individuals.ui.OWLDLIndividualsTab"))
 
 ([IA-Practica2_ProjectKB_Class24] of  Property_List
 )
@@ -123,7 +123,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class26])
-	(widget_class_name "edu.stanford.smi.protegex.fctab.FacetConstraintsTab"))
+	(widget_class_name "edu.stanford.smi.protege.widget.ClsesAndInstancesTab"))
 
 ([IA-Practica2_ProjectKB_Class26] of  Property_List
 )
@@ -132,7 +132,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class28])
-	(widget_class_name "edu.stanford.smi.protegex.changes.changesKBViewTab.ChangesKBViewTab"))
+	(widget_class_name "org.protege.owl.mm.protege3.MappingMasterTab"))
 
 ([IA-Practica2_ProjectKB_Class28] of  Property_List
 )
@@ -141,13 +141,13 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class30])
-	(widget_class_name "edu.stanford.smi.protegex.xml.tab.XMLTab"))
+	(widget_class_name "edu.stanford.smi.protegex.evaluation.MetaAnalysis"))
 
 ([IA-Practica2_ProjectKB_Class3] of  Widget
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class4])
-	(widget_class_name "dfki.protege.ontoviz_tab.OntovizTab"))
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.metadatatab.OWLMetadataTab"))
 
 ([IA-Practica2_ProjectKB_Class30] of  Property_List
 )
@@ -156,7 +156,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class32])
-	(widget_class_name "edu.stanford.smi.protegex.prompt.PromptTab"))
+	(widget_class_name "edu.stanford.smi.protege.query.LuceneQueryPlugin"))
 
 ([IA-Practica2_ProjectKB_Class32] of  Property_List
 )
@@ -165,7 +165,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class34])
-	(widget_class_name "edu.stanford.smi.protege.widget.KAToolTab"))
+	(widget_class_name "uk.ac.man.cs.mig.coode.owlviz.ui.OWLVizTab"))
 
 ([IA-Practica2_ProjectKB_Class34] of  Property_List
 )
@@ -174,7 +174,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class36])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.properties.OWLPropertiesTab"))
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.cls.OWLClassesTab"))
 
 ([IA-Practica2_ProjectKB_Class36] of  Property_List
 )
@@ -183,7 +183,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class38])
-	(widget_class_name "edu.stanford.smi.protege.widget.ProtegePropertiesTab"))
+	(widget_class_name "edu.stanford.smi.RemoteKBTab.UMLSTab"))
 
 ([IA-Practica2_ProjectKB_Class38] of  Property_List
 )
@@ -192,7 +192,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class40])
-	(widget_class_name "edu.stanford.smi.protegex.widget.pal.PalConstraintsTab"))
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.individuals.OWLIndividualsTab"))
 
 ([IA-Practica2_ProjectKB_Class4] of  Property_List
 )
@@ -204,7 +204,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class42])
-	(widget_class_name "edu.stanford.smi.protege.widget.instance_tree.KnowledgeTreeTab"))
+	(widget_class_name "edu.stanford.smi.protegex.changeanalysis.ChangeAnalysisTab"))
 
 ([IA-Practica2_ProjectKB_Class42] of  Property_List
 )
@@ -213,7 +213,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class44])
-	(widget_class_name "edu.stanford.smi.protege.widget.instance_tree.InstanceTreeTab"))
+	(widget_class_name "org.algernon.kb.okbc.protege.plugins.AlgernonTab"))
 
 ([IA-Practica2_ProjectKB_Class44] of  Property_List
 )
@@ -222,7 +222,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class46])
-	(widget_class_name "edu.stanford.smi.protegex.changes.stats.ChangeStatisticsTab"))
+	(widget_class_name "TGViztab.TGVizTab"))
 
 ([IA-Practica2_ProjectKB_Class46] of  Property_List
 )
@@ -231,7 +231,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class48])
-	(widget_class_name "ca.uvic.csr.shrimp.jambalaya.JambalayaTab"))
+	(widget_class_name "edu.stanford.smi.protegex.changes.changesKBViewTab.ChangesKBViewTab"))
 
 ([IA-Practica2_ProjectKB_Class48] of  Property_List
 )
@@ -240,13 +240,13 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class50])
-	(widget_class_name "se.liu.ida.JessTab.JessTab"))
+	(widget_class_name "edu.stanford.smi.protege.widget.KAToolTab"))
 
 ([IA-Practica2_ProjectKB_Class5] of  Widget
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class6])
-	(widget_class_name "script.ProtegeScriptTab"))
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.properties.OWLPropertiesTab"))
 
 ([IA-Practica2_ProjectKB_Class50] of  Property_List
 )
@@ -255,7 +255,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class52])
-	(widget_class_name "edu.stanford.smi.protege.query.LuceneQueryPlugin"))
+	(widget_class_name "edu.stanford.smi.protegex.xml.tab.XMLTab"))
 
 ([IA-Practica2_ProjectKB_Class52] of  Property_List
 )
@@ -264,7 +264,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class54])
-	(widget_class_name "edu.stanford.smi.protegex.datamaster.DataMasterTab"))
+	(widget_class_name "edu.stanford.smi.protegex.chatPlugin.ChatTab"))
 
 ([IA-Practica2_ProjectKB_Class54] of  Property_List
 )
@@ -273,7 +273,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class56])
-	(widget_class_name "edu.stanford.smi.protegex.changeanalysis.ChangeAnalysisTab"))
+	(widget_class_name "edu.stanford.smi.protegex.widget.pal.PalQueriesTab"))
 
 ([IA-Practica2_ProjectKB_Class56] of  Property_List
 )
@@ -282,7 +282,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class58])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.individuals.OWLIndividualsTab"))
+	(widget_class_name "org.protege.owl.axiome.ui.AxiomeTab"))
 
 ([IA-Practica2_ProjectKB_Class58] of  Property_List
 )
@@ -291,7 +291,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class60])
-	(widget_class_name "uk.ac.man.cs.mig.coode.debugger.test.DebuggerTestTab"))
+	(widget_class_name "edu.stanford.smi.protege.keywordsearch.StringSearch"))
 
 ([IA-Practica2_ProjectKB_Class6] of  Property_List
 )
@@ -303,7 +303,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class62])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.cls.OWLClassesTab"))
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.OWLFormsTab"))
 
 ([IA-Practica2_ProjectKB_Class62] of  Property_List
 )
@@ -312,7 +312,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class64])
-	(widget_class_name "org.protege.owl.axiome.ui.AxiomeTab"))
+	(widget_class_name "script.ProtegeScriptTab"))
 
 ([IA-Practica2_ProjectKB_Class64] of  Property_List
 )
@@ -321,7 +321,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class66])
-	(widget_class_name "edu.stanford.smi.protegex.widget.pal.PalQueriesTab"))
+	(widget_class_name "edu.stanford.smi.protegex.changes.ChangesTab"))
 
 ([IA-Practica2_ProjectKB_Class66] of  Property_List
 )
@@ -330,7 +330,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class68])
-	(widget_class_name "org.algernon.kb.okbc.protege.plugins.AlgernonTab"))
+	(widget_class_name "edu.stanford.smi.protegex.owl.swrl.ui.tab.SWRLTab"))
 
 ([IA-Practica2_ProjectKB_Class68] of  Property_List
 )
@@ -339,13 +339,13 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class70])
-	(widget_class_name "edu.stanford.smi.protegex.chatPlugin.ChatTab"))
+	(widget_class_name "edu.stanford.smi.protegex.fctab.FacetConstraintsTab"))
 
 ([IA-Practica2_ProjectKB_Class7] of  Widget
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class8])
-	(widget_class_name "edu.stanford.smi.protege.widget.ClsesAndInstancesTab"))
+	(widget_class_name "edu.stanford.smi.protege.widget.ProtegePropertiesTab"))
 
 ([IA-Practica2_ProjectKB_Class70] of  Property_List
 )
@@ -354,7 +354,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class72])
-	(widget_class_name "edu.stanford.smi.RemoteKBTab.UMLSTab"))
+	(widget_class_name "edu.stanford.smi.protege.widget.instance_tree.KnowledgeTreeTab"))
 
 ([IA-Practica2_ProjectKB_Class72] of  Property_List
 )
@@ -363,7 +363,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class74])
-	(widget_class_name "edu.stanford.smi.protegex.server_changes.prompt.UsersTab"))
+	(widget_class_name "edu.stanford.smi.protegex.datamaster.DataMasterTab"))
 
 ([IA-Practica2_ProjectKB_Class74] of  Property_List
 )
@@ -372,7 +372,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class76])
-	(widget_class_name "uk.ac.man.ac.mig.coode.individuals.ui.OWLDLIndividualsTab"))
+	(widget_class_name "dfki.protege.ontoviz_tab.OntovizTab"))
 
 ([IA-Practica2_ProjectKB_Class76] of  Property_List
 )
@@ -381,7 +381,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class78])
-	(widget_class_name "org.protege.owl.mm.protege3.MappingMasterTab"))
+	(widget_class_name "edu.stanford.smi.protegex.changes.stats.ChangeStatisticsTab"))
 
 ([IA-Practica2_ProjectKB_Class78] of  Property_List
 )
@@ -390,7 +390,7 @@
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class80])
-	(widget_class_name "uk.ac.man.cs.mig.coode.owlviz.ui.OWLVizTab"))
+	(widget_class_name "edu.stanford.smi.protegex.prompt.PromptTab"))
 
 ([IA-Practica2_ProjectKB_Class8] of  Property_List
 )
@@ -398,26 +398,26 @@
 ([IA-Practica2_ProjectKB_Class80] of  Property_List
 )
 
-([IA-Practica2_ProjectKB_Class84] of  String
+([IA-Practica2_ProjectKB_Class81] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([IA-Practica2_ProjectKB_Class85] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([IA-Practica2_ProjectKB_Class86] of  String
+([IA-Practica2_ProjectKB_Class82] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
+
+([IA-Practica2_ProjectKB_Class83] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
 
 ([IA-Practica2_ProjectKB_Class9] of  Widget
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class10])
-	(widget_class_name "edu.stanford.smi.protege.keywordsearch.StringSearch"))
+	(widget_class_name "uk.ac.man.cs.mig.coode.debugger.test.DebuggerTestTab"))
 
 ([INSTANCE_ANNOTATION_FORM_WIDGET] of  Widget
 
@@ -442,7 +442,7 @@
 
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
-([KB_166248_Class0] of  Map
+([KB_295504_Class0] of  Map
 )
 
 ([KB_435256_Class0] of  String
@@ -628,10 +628,10 @@
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
-		[STANDARD_FACET_FORM_WIDGET]
 		[STANDARD_SLOT_FORM_WIDGET]
-		[STANDARD_CLASS_FORM_WIDGET]
-		[PAL_FORM_WIDGET])
+		[STANDARD_FACET_FORM_WIDGET]
+		[PAL_FORM_WIDGET]
+		[STANDARD_CLASS_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")
 	(default_facet_metaclass ":STANDARD-FACET")
 	(default_instance_widget_class_name "edu.stanford.smi.protege.widget.FormWidget")

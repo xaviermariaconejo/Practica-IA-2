@@ -1,4 +1,4 @@
-; Wed Nov 12 12:11:23 CET 2014
+; Wed Nov 12 15:28:28 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -6,7 +6,15 @@
 
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
-	(role abstract))
+	(role abstract)
+	(single-slot IA-Practica2_Class1
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Nom
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
 
 (defclass Activitat
 	(is-a USER)
@@ -18,7 +26,11 @@
 
 (defclass Ciutat
 	(is-a USER)
-	(role concrete))
+	(role concrete)
+	(single-slot Nom
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
 
 (defclass Europa
 	(is-a Ciutat)
