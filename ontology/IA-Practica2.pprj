@@ -1,4 +1,4 @@
-; Wed Nov 12 15:28:28 CET 2014
+; Thu Nov 13 16:51:25 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -405,13 +405,13 @@
 
 ([IA-Practica2_ProjectKB_Class82] of  String
 
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
 
 ([IA-Practica2_ProjectKB_Class83] of  String
 
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
 
 ([IA-Practica2_ProjectKB_Class9] of  Widget
 
@@ -442,7 +442,7 @@
 
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
-([KB_295504_Class0] of  Map
+([KB_147293_Class0] of  Map
 )
 
 ([KB_435256_Class0] of  String
@@ -628,8 +628,8 @@
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
-		[STANDARD_SLOT_FORM_WIDGET]
 		[STANDARD_FACET_FORM_WIDGET]
+		[STANDARD_SLOT_FORM_WIDGET]
 		[PAL_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")

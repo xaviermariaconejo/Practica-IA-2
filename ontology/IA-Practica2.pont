@@ -1,4 +1,4 @@
-; Wed Nov 12 15:28:28 CET 2014
+; Thu Nov 13 16:51:25 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -14,6 +14,10 @@
 	(single-slot Nom
 		(type STRING)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot Activitats
+		(type INSTANCE)
+;+		(allowed-classes Activitat)
 		(create-accessor read-write)))
 
 (defclass Activitat
@@ -27,6 +31,10 @@
 (defclass Ciutat
 	(is-a USER)
 	(role concrete)
+	(multislot Activitats
+		(type INSTANCE)
+;+		(allowed-classes Activitat)
+		(create-accessor read-write))
 	(single-slot Nom
 		(type STRING)
 ;+		(cardinality 1 1)
