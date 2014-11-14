@@ -1,4 +1,250 @@
-; Fri Nov 14 18:20:47 CET 2014
+; Fri Nov 14 20:23:14 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
+
+([IA-Practica2_Class10001] of  Central
+
+	(Activitats [IA-Practica2_Class10003])
+	(Nom "Paris"))
+
+([IA-Practica2_Class10003] of  Culturals
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Museu Louvre")
+	(preu-activitat 12))
+
+([IA-Practica2_Class10004] of  Mediterrania
+
+	(Activitats [IA-Practica2_Class10067])
+	(Allotjaments
+		[IA-Practica2_Class10068]
+		[IA-Practica2_Class10069])
+	(Nom "Barcelona"))
+
+([IA-Practica2_Class10005] of  EEUU
+)
+
+([IA-Practica2_Class10006] of  EEUU
+)
+
+([IA-Practica2_Class10007] of  EEUU
+)
+
+([IA-Practica2_Class10011] of  Mediterrania
+
+	(Nom "Roma"))
+
+([IA-Practica2_Class10012] of  Viatege
+
+	(desti [IA-Practica2_Class10011])
+	(origen [IA-Practica2_Class10004])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class10014] of  Nort
+
+	(Nom "Toronto"))
+
+([IA-Practica2_Class10015] of  Nort
+
+	(Nom "Ciudad de Mexico"))
+
+([IA-Practica2_Class10017] of  Nort
+
+	(Nom "Los Angeles"))
+
+([IA-Practica2_Class10019] of  Sud
+
+	(Nom "Buenos Aires"))
+
+([IA-Practica2_Class10020] of  Sud
+
+	(Nom "Rio de Janeiro"))
+
+([IA-Practica2_Class10021] of  Asia_Oriental
+
+	(Nom "Tokio"))
+
+([IA-Practica2_Class10022] of  Asia_Oriental
+
+	(Nom "Hong Kong"))
+
+([IA-Practica2_Class10023] of  Australia
+
+	(Nom "Sidney"))
+
+([IA-Practica2_Class10024] of  Australia
+
+	(Nom "Melbourne"))
+
+([IA-Practica2_Class10025] of  Australia
+
+	(Nom "Canberra"))
+
+([IA-Practica2_Class10026] of  Central
+
+	(Nom "Berlin"))
+
+([IA-Practica2_Class10027] of  Central
+
+	(Nom "Viena"))
+
+([IA-Practica2_Class10028] of  Central
+
+	(Nom "Copenhagen"))
+
+([IA-Practica2_Class10029] of  Central
+
+	(Nom "Londres"))
+
+([IA-Practica2_Class10030] of  Nort
+
+	(Nom "Nueva York"))
+
+([IA-Practica2_Class10031] of  Asia_Oriental
+
+	(Nom "Beijing"))
+
+([IA-Practica2_Class10032] of  Asia_Oriental
+
+	(Nom "Singapur"))
+
+([IA-Practica2_Class10033] of  Asia_Oriental
+
+	(Nom "Shanghai"))
+
+([IA-Practica2_Class10034] of  Nort
+
+	(Nom "Chicago"))
+
+([IA-Practica2_Class10035] of  Asia_Oriental
+
+	(Nom "Seul"))
+
+([IA-Practica2_Class10036] of  Mediterrania
+
+	(Nom "Lisboa"))
+
+([IA-Practica2_Class10037] of  Central
+
+	(Nom "Edimburgo"))
+
+([IA-Practica2_Class10038] of  Central
+
+	(Nom "Ambsterdam"))
+
+([IA-Practica2_Class10039] of  Nordica
+
+	(Nom "Estocolmo"))
+
+([IA-Practica2_Class10040] of  Nordica
+
+	(Nom "San Petersburgo"))
+
+([IA-Practica2_Class10042] of  Central
+
+	(Nom "Cracovia"))
+
+([IA-Practica2_Class10043] of  Mediterrania
+
+	(Nom "Florencia"))
+
+([IA-Practica2_Class10045] of  Mediterrania
+
+	(Nom "Montecarlo"))
+
+([IA-Practica2_Class10046] of  Mediterrania
+
+	(Nom "Venecia"))
+
+([IA-Practica2_Class10047] of  Nort
+
+	(Nom "Cancun"))
+
+([IA-Practica2_Class10048] of  Orient_Proxim
+
+	(Nom "Dubai"))
+
+([IA-Practica2_Class10049] of  Nort
+
+	(Nom "Las Vegas"))
+
+([IA-Practica2_Class10050] of  Central
+
+	(Nom "Praga"))
+
+([IA-Practica2_Class10051] of  Nort
+
+	(Nom "Miami"))
+
+([IA-Practica2_Class10052] of  Nordica
+
+	(Nom "Moscu"))
+
+([IA-Practica2_Class10053] of  Nort
+
+	(Nom "San Francisco"))
+
+([IA-Practica2_Class10054] of  Mediterrania
+
+	(Nom "Milan"))
+
+([IA-Practica2_Class10055] of  Nort
+
+	(Nom "Orlando"))
+
+([IA-Practica2_Class10056] of  Central
+
+	(Nom "Munich"))
+
+([IA-Practica2_Class10057] of  Viatege
+
+	(desti [IA-Practica2_Class10026])
+	(origen [IA-Practica2_Class10001])
+	(preu-viatge 70)
+	(transport avio))
+
+([IA-Practica2_Class10058] of  Asia_Oriental
+
+	(Nom "Bangkok"))
+
+([IA-Practica2_Class10059] of  Asia_Oriental
+
+	(Nom "Kuala Lumpur"))
+
+([IA-Practica2_Class10062] of  Africa_Mediterrania
+
+	(Nom "Marrakech"))
+
+([IA-Practica2_Class10063] of  Asia_Oriental
+
+	(Nom "Taipei"))
+
+([IA-Practica2_Class10064] of  Orient_Proxim
+
+	(Nom "Meca"))
+
+([IA-Practica2_Class10065] of  Sudafrica
+
+	(Nom "Ciudad del Cabo"))
+
+([IA-Practica2_Class10066] of  Sudafrica
+
+	(Nom "Johannesburgo"))
+
+([IA-Practica2_Class10067] of  Culturals
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Sagrada_Familia")
+	(preu-activitat 23))
+
+([IA-Practica2_Class10068] of  5+Estrella
+
+	(nom-allotjament "Majestic Hotel")
+	(preu-allotjament 150))
+
+([IA-Practica2_Class10069] of  5+Estrella
+
+	(nom-allotjament "Juan Carlos I")
+	(preu-allotjament 160))

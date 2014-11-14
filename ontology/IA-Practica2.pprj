@@ -1,4 +1,4 @@
-; Fri Nov 14 18:20:47 CET 2014
+; Fri Nov 14 20:23:14 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -20,9 +20,15 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[IA-Practica2_ProjectKB_Class81]
-		[IA-Practica2_ProjectKB_Class82]
-		[IA-Practica2_ProjectKB_Class83]))
+		[IA-Practica2_ProjectKB_Class10349]
+		[IA-Practica2_ProjectKB_Class10350]
+		[IA-Practica2_ProjectKB_Class10351]
+		[IA-Practica2_ProjectKB_Class10352]
+		[IA-Practica2_ProjectKB_Class10353]
+		[IA-Practica2_ProjectKB_Class10354]
+		[IA-Practica2_ProjectKB_Class10355]
+		[IA-Practica2_ProjectKB_Class10356]
+		[IA-Practica2_ProjectKB_Class10357]))
 
 ([CLSES_TAB] of  Widget
 
@@ -48,6 +54,51 @@
 
 ([IA-Practica2_ProjectKB_Class10] of  Property_List
 )
+
+([IA-Practica2_ProjectKB_Class10349] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([IA-Practica2_ProjectKB_Class10350] of  String
+
+	(name "Ciutat")
+	(string_value "Nom"))
+
+([IA-Practica2_ProjectKB_Class10351] of  String
+
+	(name "Activitat")
+	(string_value "nom-activitat"))
+
+([IA-Practica2_ProjectKB_Class10352] of  String
+
+	(name "Viatege")
+	(string_value "origen{-%3E}desti"))
+
+([IA-Practica2_ProjectKB_Class10353] of  String
+
+	(name "Sudafrica")
+	(string_value "Nom"))
+
+([IA-Practica2_ProjectKB_Class10354] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([IA-Practica2_ProjectKB_Class10355] of  String
+
+	(name "Mediterrania")
+	(string_value "Nom"))
+
+([IA-Practica2_ProjectKB_Class10356] of  String
+
+	(name "Allotjament")
+	(string_value "nom-allotjament"))
+
+([IA-Practica2_ProjectKB_Class10357] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
 
 ([IA-Practica2_ProjectKB_Class107] of  String
 
@@ -398,21 +449,6 @@
 ([IA-Practica2_ProjectKB_Class80] of  Property_List
 )
 
-([IA-Practica2_ProjectKB_Class81] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([IA-Practica2_ProjectKB_Class82] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([IA-Practica2_ProjectKB_Class83] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
 ([IA-Practica2_ProjectKB_Class9] of  Widget
 
 	(is_hidden TRUE)
@@ -542,7 +578,7 @@
 ([KB_435256_Class99] of  Property_List
 )
 
-([KB_493716_Class0] of  Map
+([KB_900755_Class0] of  Map
 )
 
 ([LAYOUT_PROPERTIES] of  Property_List
@@ -627,9 +663,9 @@
 
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
-		[INSTANCE_ANNOTATION_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET]
 		[STANDARD_SLOT_FORM_WIDGET]
+		[INSTANCE_ANNOTATION_FORM_WIDGET]
 		[STANDARD_FACET_FORM_WIDGET]
 		[PAL_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")

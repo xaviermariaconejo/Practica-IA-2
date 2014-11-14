@@ -1,4 +1,4 @@
-; Fri Nov 14 18:20:47 CET 2014
+; Fri Nov 14 20:23:14 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -169,7 +169,7 @@
 	(is-a Ciutat)
 	(role concrete))
 
-(defclass EEUU
+(defclass Nort
 	(is-a America)
 	(role concrete))
 
@@ -189,16 +189,20 @@
 	(is-a Asia)
 	(role concrete))
 
-(defclass Japo
-	(is-a Asia_Oriental)
-	(role concrete))
-
 (defclass Australia
 	(is-a Ciutat)
 	(role concrete))
 
 (defclass Africa
 	(is-a Ciutat)
+	(role concrete))
+
+(defclass Africa_Mediterrania
+	(is-a Africa)
+	(role concrete))
+
+(defclass Sudafrica
+	(is-a Africa)
 	(role concrete))
 
 (defclass Viatege
