@@ -1,1 +1,6 @@
-
+; Input <- User
+; Output -> Tipus viatge = {Cultural, Diversió, Negocis, Romàntic, Relax, Aventura}
+;           Nivell vida = {Molt alt, alt, mig, baix}
+;			Restriccions = {preu_min, preu_max}
+;           Tipus client = {Grup amics, Fi de curs, Familia, Parella, Individual}
+;           Preferències = {...}

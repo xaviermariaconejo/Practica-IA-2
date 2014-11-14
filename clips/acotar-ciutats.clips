@@ -1,1 +1,2 @@
-
+;Input <- output(determinar-usuari)
+;Output -> Llista de ciutats desordenades que es poden visitar, per cada ciutat es guarden els hotels i les activitats rellevants 
