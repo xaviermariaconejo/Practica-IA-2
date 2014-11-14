@@ -1,2 +1,30 @@
 ;Input <- output(determinar-usuari)
-;Output -> Llista de ciutats desordenades que es poden visitar, per cada ciutat es guarden els hotels i les activitats rellevants 
+;Output -> Tipus Ciutat(Molt Conueguda, Coneguda, Desconeguda)
+;;         Cualitat Hotels(Alta,Mitja, Baixa) 
+;;         Tipus Activitats(Cultural, Aventura, Diversio, Relax)
+;;
+;;		Templates 
+;;
+(deftemplate tipus-ciutats "Arquetip de ciutats"
+	(slot tipus)
+)
+
+(deftemplate cualitat-hotels "Arquetip de hotels"
+	(slot tipus)
+)
+
+(deftemplate tipus-activitat "Arquetip d'activitat"
+	(slot tipus)
+)
+;;
+;;		Inicialitzacions
+;;
+(deffacts init
+	(tipus-ciutats(tipus indefinit))
+	(cualitat-hotels (tipus indefinit))
+	(tipus-activitats (tipus indefinit))
+)
+
+;;
+;;		Regles
+;;
