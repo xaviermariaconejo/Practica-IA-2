@@ -1,4 +1,4 @@
-; Fri Nov 14 19:50:57 CET 2014
+; Fri Nov 14 20:04:42 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -195,6 +195,14 @@
 
 (defclass Africa
 	(is-a Ciutat)
+	(role concrete))
+
+(defclass Africa_Mediterrania
+	(is-a Africa)
+	(role concrete))
+
+(defclass Sudafrica
+	(is-a Africa)
 	(role concrete))
 
 (defclass Viatege

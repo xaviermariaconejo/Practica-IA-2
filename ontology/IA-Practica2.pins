@@ -1,4 +1,4 @@
-; Fri Nov 14 19:50:57 CET 2014
+; Fri Nov 14 20:04:42 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -200,3 +200,31 @@
 	(origen [IA-Practica2_Class10001])
 	(preu-viatge 70)
 	(transport avio))
+
+([IA-Practica2_Class10058] of  Asia_Oriental
+
+	(Nom "Bangkok"))
+
+([IA-Practica2_Class10059] of  Asia_Oriental
+
+	(Nom "Kuala Lumpur"))
+
+([IA-Practica2_Class10062] of  Africa_Mediterrania
+
+	(Nom "Marrakech"))
+
+([IA-Practica2_Class10063] of  Asia_Oriental
+
+	(Nom "Taipei"))
+
+([IA-Practica2_Class10064] of  Orient_Proxim
+
+	(Nom "Meca"))
+
+([IA-Practica2_Class10065] of  Sudafrica
+
+	(Nom "Ciudad del Cabo"))
+
+([IA-Practica2_Class10066] of  Sudafrica
+
+	(Nom "Johannesburgo"))
