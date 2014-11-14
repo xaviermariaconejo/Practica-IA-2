@@ -4,6 +4,7 @@
 
 ; Input <- User
 ; Output -> Tipus viatge = {Cultural, Diversió, Negocis, Romàntic, Relax, Aventura}
+;			Edat mitjana = {jove, adult, jubilats, variada}
 ;           Nivell vida = {Molt alt, alt, mig, baix}
 ;			Restriccions = {preu_min, preu_max}
 ;           Tipus client = {Grup amics, institut, Familia, Parella, Individual, Coworkers}
@@ -23,17 +24,23 @@
 (deftemplate tipus-viatge "Arquetip de viatge"
 	(slot tipus)
 )
+
+(deftemplate edat-client "Categories d'edat"
+	(slot edat)
+)
+
 ;;
 ;;		Inicialitzacions
 ;;
 (deffacts init
 	(num-persones (num -1))
+	(edat-client (edat indefinit))
 	(tipus-client (tipus indefinit))
 	(tipus-viatge (tipus indefinit))
 )
 
 ;;
-;;		Regles
+;;		Regles per determinar el tipus de client
 ;;
 (defrule determinar-num-persones "Pregunta el nombre de persones a l'usuari"
 	?c <-(num-persones (num -1))
@@ -42,38 +49,113 @@
 	(modify ?c (num ?response))
 )
 
-(defrule determinar-parella 
+(defrule determinar-parella "Decideix si el viatge és de parella. Altrament podria ser de negocis amb 2 persones"
 	(num-persones (num 2))
 	?c<-(tipus-client (tipus indefinit))
 	?v<-(tipus-viatge (tipus ?))
-
+	?e <-(edat-client (edat ?))
 =>
 	(if (si-o-no-p "És un viatge de parella?")
 		then 
 			(modify ?c (tipus parella) )
+			; Les parelles joves solen tenir unes preferències semblants a les dels adults quan viatgen
+			; @nota Vale, m'ho he inventat... però simplifica les coses, al cap i a la fi no soc un expert -setzer22
+			(modify ?e (edat adult) )
 	else (if (si-o-no-p "Viatja per negocis?")
 		then
 			(modify ?v (tipus negocis))
 			(modify ?c (tipus coworkers))
+			(modify ?e (edat adult) )
 	))
 )
 
 ;; @TODO Aquest 15 és completament arbitrari, quin numero hi posem? -setzer22
-(defrule fi-de-curs "Si viatgen més de 15 persones probablement es tracti d'un viatge de fi de curs"
+(defrule institut "Si viatgen més de 15 persones probablement es tracti d'un viatge d'institut"
 	(num-persones (num ?x&:(>= ?x 15))) 
 	?c<-(tipus-client (tipus indefinit))
-	?v<-(tipus-viatge (tipus ?))
+	?e <-(edat-client (edat ?))
 =>
 	(if (si-o-no-p "És un viatge per un institut?")
 		then 
 			(modify ?c (tipus institut) )
-			;Els viatges d'institut solen ser de cultura o diversió
-			(bind ?response (ask-question "L'enfoc del viatge és cultural o de diversio? Respon: {cultural, diversio, cap_dels_dos}" 
-				cultural diversio cap_dels_dos))
-			(if (neq ?response cap_dels_dos) then (modify ?v (tipus ?response)))
+			(modify ?e (edat jove) )
 		
 		else 
 		(modify ?c (tipus grup_indefinit))
+	)
+)
+
+
+;; @TODO Aquest 7 és completament arbitrari, quin numero hi posem? -setzer22
+(defrule grups-grans "Pels grups grans mirem d'esbrinar quin és el tipus de grup amb el que estem tractant"
+	(num-persones (num ?x&:(>= ?x 7))) 
+	?c<-(tipus-client (tipus indefinit))
+	?e <-(edat-client (edat ?))
+=>
+	(if (si-o-no-p "Sou un grup d'amics?") 
+		then 
+			(if (si-o-no-p "Menors de 25 anys?") then 
+				(modify ?c (tipus grup_amics))
+				(modify ?e (edat jove))
+			 else (if (si-o-no-p "Jubilats?") then 
+			 	(modify ?c (tipus grup_amics))
+			 	(modify ?e (edat jubilats)
+			 )))
+		else 
+			(if (si-o-no-p "Formeu part d'una organitzacio: equip de futbol, colla castellera...? (s/n)") then (modify ?c (tipus grup_organitzat)))
+	)
+)
+
+(defrule edat-grup-organitzat "Pels grups organitzats convé saber si hi entren nens"
+	(tipus-client (tipus grup_organitzat))
+	?e<-(edat-client (edat indefinit))
+=>
+	(if (si-o-no-p "Hi ha nens al grup? (s/n)")
+		then (modify ?e (edat variada))
+		else (modify ?e (edat adult))
+	)
+)
+
+(defrule families "Determinar si el grup és una familia amb fills"
+	(num-persones (num ?x&:(> ?x 2)))
+	?c<-(tipus-client (tipus indefinit))
+	?e <-(edat-client (edat ?))
+=>
+	(if (si-o-no-p "Viatja en familia?") 
+		then 
+			(modify ?c (tipus familia))
+			(modify ?e (edat variada))
+	)
+)
+
+(defrule negocis "Preguntarem si el viatge és d'empresa"
+	(num-persones (num ?x&:(!= ?x -1)))
+	?c<-(tipus-client (tipus indefinit))
+	?e <-(edat-client (edat ?))
+=>
+	(if (si-o-no-p "És un viatge d'empresa?") 
+		then 
+			(modify ?c (tipus coworkers))
+			(modify ?e (edat adults))
+	)
+)
+
+
+
+;;
+;;		Regles per determinar l'objectiu del viatge
+;;
+(defrule tipus-institut "Els viatges d'institut solen ser enfocats a la cultura o a la diversió"
+	(tipus-client (tipus institut))
+	?v<-(tipus-viatge (tipus indefinit))
+=>
+	(bind ?response (ask-question "L'objectiu del viatge és d'aprenentatge o de diversio? Respon: {cultural, diversio, cap_dels_dos}" 
+		cultural diversio cap_dels_dos))
+	(if (neq ?response cap_dels_dos) 
+		then (modify ?v (tipus ?response))
+	; Una altra preferencia menys comú son els viatges d'aventura
+	else (if (si-o-no-p "Preferiu un viatge d'aventura?")
+		then (modify ?v (tipus aventura)))
 	)
 )
 
