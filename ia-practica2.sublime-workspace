@@ -1,0 +1,892 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Urho",
+				"Urho3D_ATTRIBUTE_field	Urho3DAttribute"
+			],
+			[
+				"Urh",
+				"Urho3D_ATTRIBUTE_field	Urho3DAttribute"
+			],
+			[
+				"URh",
+				"Urho3D_ATTRIBUTE_field	Urho3DAttribute"
+			],
+			[
+				"AS",
+				"AS_method_overload	Urho3DRegisterAPIMethodOverride"
+			],
+			[
+				"way",
+				"waypoints"
+			],
+			[
+				"Posi",
+				"positionTreshold"
+			],
+			[
+				"wa",
+				"waypointIndex"
+			],
+			[
+				"event",
+				"eventData"
+			],
+			[
+				"Unit",
+				"UnitMovement"
+			],
+			[
+				"Uh",
+				"Urho3D_ATTRIBUTE_field	Urho3DAttribute"
+			],
+			[
+				"path",
+				"pathInfo"
+			],
+			[
+				"for",
+				"for	For Loop"
+			],
+			[
+				"inc",
+				"inc	#include \"…\""
+			],
+			[
+				"in",
+				"inc	#include \"…\""
+			],
+			[
+				"Path",
+				"PathfinderInfo"
+			],
+			[
+				"sh",
+				"shared	sharedPointer2"
+			],
+			[
+				"In",
+				"IntVector2"
+			],
+			[
+				"sc",
+				"normalizedScreenPos"
+			],
+			[
+				"tile",
+				"tileSize"
+			],
+			[
+				"sens",
+				"sensorOrigin"
+			],
+			[
+				"Deb",
+				"DebugRenderer"
+			],
+			[
+				"Map",
+				"MapMouseToTile"
+			],
+			[
+				"tileS",
+				"tileSizeX"
+			],
+			[
+				"tileSi",
+				"tileSizeX"
+			],
+			[
+				"senso",
+				"sensorOrigin"
+			],
+			[
+				"URH",
+				"Urho3D_ATTRIBUTE_field	Urho3DAttribute"
+			],
+			[
+				"Ge",
+				"GetComponent"
+			],
+			[
+				"parse",
+				"parseMapData"
+			],
+			[
+				"rea",
+				"read_sth"
+			],
+			[
+				"numDa",
+				"numDataIt"
+			],
+			[
+				"map",
+				"mapData"
+			],
+			[
+				"MA",
+				"MapData"
+			],
+			[
+				"Resource",
+				"ResourceCache"
+			],
+			[
+				"terrai",
+				"terrainTexture"
+			],
+			[
+				"curr",
+				"currentData"
+			],
+			[
+				"orig",
+				"originalData"
+			],
+			[
+				"en",
+				"endl"
+			],
+			[
+				"terra",
+				"terrainMaterial"
+			],
+			[
+				"e",
+				"enum	Enumeration"
+			],
+			[
+				"scr",
+				"scriptEngine"
+			],
+			[
+				"Li",
+				"LogicComponent"
+			],
+			[
+				"Mate",
+				"Material"
+			],
+			[
+				"ori",
+				"originalData"
+			],
+			[
+				"sha",
+				"shaderParameters"
+			],
+			[
+				"shaderParameter",
+				"shaderParameterNames"
+			],
+			[
+				"XML",
+				"XMLFile"
+			],
+			[
+				"rend",
+				"renderPath"
+			],
+			[
+				"move",
+				"moveDir"
+			],
+			[
+				"c",
+				"chivato	chivato"
+			],
+			[
+				"nu",
+				"numeroMoltLLargQueFaMandraEscriure"
+			],
+			[
+				"loo",
+				"lookAtPoint"
+			],
+			[
+				"attr",
+				"attribute_name"
+			],
+			[
+				"uniform",
+				"uniform_mvp"
+			],
+			[
+				"creat",
+				"create_vbo"
+			],
+			[
+				"vbo_cu",
+				"vbo_cube_colors"
+			],
+			[
+				"vbo_",
+				"vbo_cube_vertices"
+			],
+			[
+				"vbo",
+				"vbo_verts"
+			],
+			[
+				"att",
+				"attribute_verts"
+			],
+			[
+				"scre",
+				"screen_height"
+			],
+			[
+				"sce",
+				"screen_height"
+			],
+			[
+				"GLUT",
+				"GLUT_ELAPSED_TIME"
+			],
+			[
+				"scree",
+				"screen_height"
+			],
+			[
+				"cube",
+				"cube_colors"
+			],
+			[
+				"unifo",
+				"uniform_m_transform"
+			],
+			[
+				"unif",
+				"uniform_fade"
+			],
+			[
+				"uni",
+				"uniform_m_transform"
+			],
+			[
+				"tria",
+				"triangle_vertices"
+			],
+			[
+				"log",
+				"log_length"
+			],
+			[
+				"lo",
+				"log_length"
+			],
+			[
+				"row",
+				"row_count"
+			],
+			[
+				"Bu",
+				"Button"
+			],
+			[
+				"Butt",
+				"ButtonMapper"
+			],
+			[
+				"Button",
+				"ButtonMapper"
+			],
+			[
+				"Butto",
+				"ButtonMapper"
+			],
+			[
+				"ke",
+				"keyboardAxisMappings"
+			],
+			[
+				"presse",
+				"pressedJoy"
+			],
+			[
+				"key",
+				"keyboardMappings"
+			],
+			[
+				"B",
+				"ButtonMapper"
+			],
+			[
+				"joyst",
+				"joystickMappings"
+			],
+			[
+				"texture",
+				"textureCache"
+			],
+			[
+				"tex",
+				"texture"
+			],
+			[
+				"tect",
+				"textureCache"
+			],
+			[
+				"tet",
+				"textureCache"
+			],
+			[
+				"tec",
+				"textureCache"
+			],
+			[
+				"textu",
+				"textureCache"
+			],
+			[
+				"te",
+				"textureCache"
+			],
+			[
+				"share",
+				"shared_ptr"
+			],
+			[
+				"spri",
+				"spritesPath"
+			],
+			[
+				"t",
+				"tp	template <typename ${1:_InputIter}>"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "clips/acotar-ciutats.clips",
+			"settings":
+			{
+				"buffer_size": 167,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "; Input <- User\n; Output -> Tipus viatge = {Cultural, Diversió, Negocis, Romàntic, Relax, Aventura}\n;           Nivell vida = {Molt alt, alt, mig, baix}\n;			Restriccions = {preu_min, preu_max}\n;           Tipus client = {Grup amics, Fi de curs, Familia, Parella, Individual}\n;           Preferències = {...}\n\n",
+			"file": "clips/determinar-usuari.clips",
+			"file_size": 311,
+			"file_write_time": 1415960360000000,
+			"settings":
+			{
+				"buffer_size": 309,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 232.0,
+		"selected_items":
+		[
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package 	",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control add",
+				"Package Control: Add Repository"
+			],
+			[
+				"Package ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: Add",
+				"Package Control: Add Repository"
+			],
+			[
+				"Package C",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: iN",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Contr",
+				"Package Control: List Packages"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"Snippet: ",
+				"Snippet: for (…) {…}"
+			],
+			[
+				"mov",
+				"Snippet: for (…) {…} (Improved Native For-Loop)"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/josep/Projects/IA-Practica2/clips/acotar-ciutats.clips",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Source/Components/Map/Data/MapData.cpp",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Source/CustomPlayer/CustomComponents.h",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Scripts/Learning/TestMapGraphics.as",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Source/Components/Map/Pathfinder/MapPathfinder.cpp",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Scripts/Learning/Character.as",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Source/CustomPlayer/CustomComponents.cpp",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Scripts/Subsystems/MapGraphics.as",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Source/Components/Map/Mouse/MapMouseToTile.h",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Source/Components/Map/Graphics/MapGraphics.cpp",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Source/Components/Unit/UnitMovement.h",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Source/Components/Unit/UnitMovement.cpp",
+		"/home/josep/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Source/Classes/Path/PathfinderInfo.cpp",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Source/Enums/GlobalEnums.h",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Source/Classes/Path/PathfinderInfo.h",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Source/Components/Map/Graphics/MapGraphics.h",
+		"/home/josep/Projects/ProjectGrid/Iteration2/Source/Components/Map/Pathfinder/MapPathfinder.h",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/Components/Map/Pathfinder/MapPathfinder.cpp",
+		"/home/josep/repos/Urho3D/Source/Engine/Script/GraphicsAPI.cpp",
+		"/home/josep/code/IDI/opengl/Makefile",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/Components/Map/Graphics/MapGraphics.cpp",
+		"/home/josep/projects/ProjectGrid/Iteration2/Scripts/Learning/TestMapGraphics.as",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/Components/Map/Mouse/MapMouseToTile.cpp",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/Components/Map/Mouse/MapMouseToTile.h",
+		"/home/josep/repos/Urho3D/Source/Engine/Graphics/OctreeQuery.h",
+		"/home/josep/repos/Urho3D/Source/Engine/Graphics/OctreeQuery",
+		"/home/josep/repos/Urho3D/Source/Engine/Graphics/Octree.h",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/Components/Map/Properties/MapProperties.h",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/Components/Map/Properties/MapProperties.cpp",
+		"/home/josep/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/josep/.config/sublime-text-3/Packages/User/Urho3DComponent.sublime-snippet",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/Components/Map/Graphics/MapGraphics.h",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/Components/Map/Data/MapData.cpp",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/Components/Map/Data/MapData.h",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/CustomPlayer/CustomComponents.cpp",
+		"/home/josep/.config/sublime-text-3/Packages/User/Snippets/Urho3D/Urho3DAttribute.sublime-snippet",
+		"/home/josep/.config/sublime-text-3/Packages/User/Urho3DRegisterAPIMethod.sublime-snippet",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/Utils/FakeAddRef.h",
+		"/home/josep/repos/Urho3D/Source/Engine/Physics/CollisionShape.cpp",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/CustomPlayer/CustomComponents.h",
+		"/home/josep/repos/Urho3D/Source/Engine/Scene/Scene.cpp",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/Enums/GlobalEnums.h",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/CustomPlayer/Urho3DPlayer.cpp",
+		"/home/josep/repos/Urho3D/Source/Engine/Graphics/OpenGL/OGLTexture2D.h",
+		"/home/josep/repos/Urho3D/Source/Engine/Graphics/OpenGL/OGLTexture2D.cpp",
+		"/home/josep/repos/Urho3D/Source/Engine/Graphics/Texture2D.h",
+		"/home/josep/repos/penya-app/app/src/main/res/values/strings.xml",
+		"/home/josep/projects/ProjectGrid/Iteration2/Scripts/Subsystems/MapGraphics_SCRIPT.as",
+		"/home/josep/repos/Urho3D/Source/Engine/Graphics/OpenGL/OGLTexture.cpp",
+		"/home/josep/repos/Urho3D/Source/Engine/Resource/Image.cpp",
+		"/home/josep/repos/Urho3D/Source/Engine/Math/Color.cpp",
+		"/home/josep/repos/Urho3D/Source/Engine/Core/Attribute.h",
+		"/home/josep/repos/Urho3D/Source/Engine/Scene/Serializable.h",
+		"/home/josep/repos/Urho3D/Source/Engine/Scene/Serializable.cpp",
+		"/home/josep/repos/Urho3D/Source/Engine/Graphics/Light.cpp",
+		"/home/josep/repos/Urho3D/Source/Samples/19_VehicleDemo/Vehicle.h",
+		"/home/josep/repos/Urho3D/Source/Samples/19_VehicleDemo/Vehicle.cpp",
+		"/home/josep/repos/Urho3D/Source/Engine/Core/Variant.h",
+		"/home/josep/repos/Urho3D/Source/Engine/Script/ScriptInstance.cpp",
+		"/home/josep/projects/ProjectGrid/Iteration2/Scripts/Subsystems/MapGraphics.as",
+		"/home/josep/projects/ProjectGrid/Iteration2/Scripts/Learning/Character",
+		"/home/josep/repos/Urho3D/Source/Engine/Graphics/Material.h",
+		"/home/josep/repos/Urho3D/Source/Engine/Graphics/Material.cpp",
+		"/home/josep/repos/Urho3D/Source/Engine/Core/Variant.",
+		"/home/josep/repos/Urho3D/Source/Engine/Scene/Serializable.",
+		"/home/josep/repos/Urho3D/Source/Samples/18_CharacterDemo/Character.cpp",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/CustomComponents.h",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/CustomComponents.cpp",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/Urho3DPlayer.cpp",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/MapGraphics.h",
+		"/home/josep/projects/ProjectGrid/Iteration2/Source/MapGraphics.cpp",
+		"/home/josep/projects/ProjectGrid/Iteration2/Scripts/Subsystems/MapGraphics.h",
+		"/home/josep/projects/ProjectGrid/Iteration2/Scripts/Subsystems/MapGraphics.cpp",
+		"/home/josep/repos/Urho3D/Bin/Data/Scripts/Learning/HelloWorld.as",
+		"/home/josep/repos/Urho3D/Bin/Data/Scripts/09_MultipleViewports.as",
+		"/home/josep/repos/Urho3D/Bin/Data/Scripts/Learning/Character.as",
+		"/home/josep/repos/Urho3D/Bin/Data/Scripts/18_CharacterDemo.as",
+		"/home/josep/repos/Urho3D/Bin/Data/Scripts/19_VehicleDemo.as",
+		"/home/josep/repos/Urho3D/Source/Engine/Physics/CollisionShape.h",
+		"/home/josep/repos/Urho3D/Bin/Data/Scripts/Rotator.as",
+		"/home/josep/projects/ProjectGrid/Iteration2/Materials/GridedTerrain.xml",
+		"/home/josep/.PlayOnLinux/wineprefix/Unity3D/dosdevices/z:/media/josep/06363B95363B84A9/Users/jsf/Documents/Iteration0/Assets/Materials/MapShader/ToonTerrainFirstPass.shader",
+		"/home/josep/.PlayOnLinux/wineprefix/Unity3D/dosdevices/z:/media/josep/06363B95363B84A9/Users/jsf/Documents/Iteration0/Assets/Materials/MapShader/MapShader.shader",
+		"/home/josep/code/prova/prova.cpp",
+		"/home/josep/code/OpenGL/makefile",
+		"/home/josep/code/OpenGL/vertex.glsl",
+		"/home/josep/code/OpenGL/fragment.glsl",
+		"/home/josep/code/OpenGL/shader_utils.hpp",
+		"/home/josep/code/OpenGL/shader_utils.cpp",
+		"/home/josep/code/OpenGL/cube.cpp",
+		"/home/josep/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/josep/code/SFML/shader_v.glsl",
+		"/home/josep/code/SFML/shader_f.glsl",
+		"/home/josep/code/SFML/shader_utils.cpp",
+		"/home/josep/code/SFML/makefile",
+		"/home/josep/code/SFML/main.cpp",
+		"/home/josep/code/OpenGL/tut04/tut03_com/triangle.v.glsl",
+		"/home/josep/code/OpenGL/tut04/tut03_com/triangle.f.glsl",
+		"/home/josep/code/OpenGL/tut04/tut03_com/cube.v.glsl",
+		"/home/josep/code/OpenGL/tut04/tut03_com/cube.f.glsl",
+		"/home/josep/code/OpenGL/tut04/tut03_com/cube.cpp",
+		"/home/josep/code/OpenGL/tut04/tut03_com/triangle.cpp",
+		"/home/josep/code/OpenGL/triangle.c",
+		"/home/josep/code/OpenGL/tut04/tut03_com/triangle",
+		"/home/josep/.PlayOnLinux/wineprefix/Unity3D/dosdevices/e:/TBS_Project2/Assets/map.xml",
+		"/home/josep/.PlayOnLinux/wineprefix/Unity3D/dosdevices/e:/TBS_Project2/Assets/GridComponentData.cs",
+		"/home/josep/.PlayOnLinux/wineprefix/Unity3D/dosdevices/e:/TBS_Project2/Assets/GridComponentGraphics.cs",
+		"/home/josep/code/cplus/designpatterns/Component.h",
+		"/usr/share/applications/banshee-audiocd.desktop",
+		"/home/josep/Drivers/NVIDIA/331_79/NVIDIA-Linux-x86_64-331.79.run",
+		"/home/josep/code/cplus/designpatterns/game_main.cpp",
+		"/home/josep/code/html/qacurs.html",
+		"/home/josep/code/cplus/designpatterns/NotSuchFile.h",
+		"/home/josep/code/cplus/designpatterns/NotSuchFileException.h",
+		"/home/josep/code/cplus/designpatterns/ButtonMapper.cpp",
+		"/home/josep/code/cplus/designpatterns/WindowManager.h",
+		"/usr/share/applications/Unity 3D.desktop",
+		"/home/josep/code/Haskell/test.in",
+		"/home/josep/code/Haskell/compstring.hs",
+		"/home/josep/code/Haskell/func.hs",
+		"/home/josep/code/Haskell/hello_world.hi",
+		"/home/josep/code/cplus/designpatterns/ResourceManager.cpp",
+		"/home/josep/.config/sublime-text-3/Packages/User/shared_pointer.sublime-snippet",
+		"/home/josep/.config/sublime-text-3/Packages/User/sharedPointer2.sublime-snippet",
+		"/home/josep/.config/sublime-text-3/Packages/User/chivato.sublime-snippet",
+		"/home/josep/.config/sublime-text-3/Packages/User/untitled.sublime-snippet",
+		"/home/josep/code/cplus/sfml/makefile"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"UnitStast",
+			"onGround_",
+			"false",
+			"MaterialGetShaderParameterNames",
+			"shaderParameterNames",
+			"MaterialGetShaderParameterNames",
+			"Material",
+			"MapPathfinder",
+			"Vector<Vector<float>>",
+			"vdq",
+			"propertiesComponent",
+			"mapProperties",
+			"mapProperties.Height",
+			"mapProperties.Width",
+			"Length",
+			"Vector2i",
+			"List",
+			"Height",
+			"x",
+			"Vector2i",
+			"> ",
+			"};\n",
+			"IntVector2",
+			"BindScriptMethods",
+			"m<ResourceCache>();\n    m",
+			"m",
+			"MapProperties",
+			"values",
+			"Start",
+			"(?! ([0-9]*|\\ ))",
+			"(?! ([0-9]|\\ )*)",
+			"(?! ([0-9]|\\ ))",
+			"FakeAddRef",
+			"MapProperties",
+			"FakeAddRef",
+			"MapProperties",
+			"MapGraphics",
+			"GetResourceRef",
+			"GetModelAttr",
+			"MapProperties",
+			"null",
+			"Length",
+			"static ",
+			"public ",
+			"MapData",
+			"MyComponent",
+			"pos",
+			"currentData.",
+			"delete",
+			"SetData",
+			"Data",
+			"AM_DEFAULT",
+			"FakeAddRef",
+			"FakeAddRef(void* ptr)",
+			"FakeAddRe",
+			"FakeAddRef",
+			"ObjectBehaviour",
+			"Light",
+			"currentData->",
+			"MaterialGetShaderParameterNames",
+			"vector",
+			"Vector",
+			"Material",
+			"dimensions",
+			"SharedPointer",
+			"originalData.height",
+			"originalData.width",
+			"animation",
+			"cameraNode",
+			"input",
+			"Chara",
+			"Charaf",
+			"INAIR_T",
+			"softGro",
+			"scriptFile",
+			"Terrain",
+			"cameraNode",
+			"timeSt",
+			"triangle",
+			"io",
+			"sio"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"UnitStats",
+			"onGround",
+			"PathfinderInfo",
+			"vector<vector<float>>",
+			"propertiesComponent",
+			"mapProperties.Height()",
+			"mapProperties.Width()",
+			"Size()",
+			"IntVector2",
+			"Vector",
+			"x_",
+			"",
+			"x_",
+			"IntVector2",
+			"tileMap",
+			"DelayedStart",
+			"MapData",
+			"MapProperties",
+			"MapData",
+			"NULL",
+			"Size()",
+			"",
+			"MapProperties",
+			"MapData",
+			"paint_position",
+			"currentData->",
+			"AM_EDIT",
+			"currentData.",
+			"Vector",
+			"grid_dim",
+			"SharedPtr",
+			"originalData->GetHeight()",
+			"originalData->GetWidth()",
+			"cameraNodeBis",
+			"cube"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "clips/acotar-ciutats.clips",
+					"settings":
+					{
+						"buffer_size": 167,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								167,
+								167
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CLIPS Rules/Syntaxes/CLIPS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "clips/determinar-usuari.clips",
+					"settings":
+					{
+						"buffer_size": 309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								309,
+								309
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CLIPS Rules/Syntaxes/CLIPS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 27.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"ser",
+				"~/code/nodejs/onlinegametut/server.js"
+			],
+			[
+				"inde",
+				"~/code/nodejs/onlinegametut/index.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/projects/ProjectGrid/Iteration2/Source/projectgrid.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 169.0,
+	"status_bar_visible": true
+}
