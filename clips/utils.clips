@@ -1,3 +1,9 @@
+;;; Pregunta per un enter
+(deffunction ask-integer (?question)
+   (printout t ?question)
+   (bind ?answer (read))
+   ?answer)
+
 ;;; Obtiene una respuesta de entre un conjunto de respuestas posibles
 (deffunction ask-question (?question $?allowed-values)
    (printout t ?question)

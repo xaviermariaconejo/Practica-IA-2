@@ -1,1 +1,7 @@
 ;; Mòdul principal, imprimeix el missatge de benvinguda i activa els diferents mòduls
+
+;;
+;;    Includes
+;;
+(load utils.clips)
+(load determinar-usuari.clips)
