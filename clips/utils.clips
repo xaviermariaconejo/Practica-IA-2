@@ -1,3 +1,6 @@
+(defmodule utils "Funcions d'utilitat"
+	(export deffunction ?ALL))
+
 ;;; Pregunta per un enter
 (deffunction ask-integer (?question)
    (printout t ?question)

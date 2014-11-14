@@ -3,29 +3,34 @@
 ; @author Josep Sanchez Ferreres
 
 ; Input <- User
-; Output -> Tipus viatge = {Cultural, Diversió, Negocis, Romàntic, Relax, Aventura}
+; Output -> Tipus viatge = {cultural, diversio, negocis, romantic, relax, aventura}
 ;			Edat mitjana = {jove, adult, jubilats, variada}
-;           Nivell vida = {Molt alt, alt, mig, baix}
+;           Nivell vida = {molt_alt, alt, mig, baix}
 ;			Restriccions = {preu_min, preu_max}
-;           Tipus client = {Grup amics, institut, Familia, Parella, Individual, Coworkers}
+;           Tipus client = {grup_organitzat, grup_amics, institut, familia, parella, individual, coworkers}
 ;           Preferències = {...}
 
 ;;
 ;;		Templates 
 ;;
+
+(defmodule tipus_usuari "Tipus d'usuari, nivell de vida i preferències" 
+	(export deftemplate ?ALL)
+	(import utils deffunction ?ALL))
+
 (deftemplate num-persones "Nombre de persones en el viatge"
 	(slot num (type INTEGER))
 )
 
-(deftemplate tipus-client "Arquetip de client"
+(deftemplate tipus_client "Arquetip de client"
 	(slot tipus)
 )
 
-(deftemplate tipus-viatge "Arquetip de viatge"
+(deftemplate tipus_viatge "Arquetip de viatge"
 	(slot tipus)
 )
 
-(deftemplate edat-client "Categories d'edat"
+(deftemplate edat_client "Categories d'edat"
 	(slot edat)
 )
 
@@ -34,9 +39,9 @@
 ;;
 (deffacts init
 	(num-persones (num -1))
-	(edat-client (edat indefinit))
-	(tipus-client (tipus indefinit))
-	(tipus-viatge (tipus indefinit))
+	(edat_client (edat indefinit))
+	(tipus_client (tipus indefinit))
+	(tipus_viatge (tipus indefinit))
 )
 
 ;;
@@ -51,9 +56,9 @@
 
 (defrule determinar-parella "Decideix si el viatge és de parella. Altrament podria ser de negocis amb 2 persones"
 	(num-persones (num 2))
-	?c<-(tipus-client (tipus indefinit))
-	?v<-(tipus-viatge (tipus ?))
-	?e <-(edat-client (edat ?))
+	?c<-(tipus_client (tipus indefinit))
+	?v<-(tipus_viatge (tipus ?))
+	?e <-(edat_client (edat ?))
 =>
 	(if (si-o-no-p "És un viatge de parella?")
 		then 
@@ -72,8 +77,8 @@
 ;; @TODO Aquest 15 és completament arbitrari, quin numero hi posem? -setzer22
 (defrule institut "Si viatgen més de 15 persones probablement es tracti d'un viatge d'institut"
 	(num-persones (num ?x&:(>= ?x 15))) 
-	?c<-(tipus-client (tipus indefinit))
-	?e <-(edat-client (edat ?))
+	?c<-(tipus_client (tipus indefinit))
+	?e <-(edat_client (edat ?))
 =>
 	(if (si-o-no-p "És un viatge per un institut?")
 		then 
@@ -89,8 +94,8 @@
 ;; @TODO Aquest 7 és completament arbitrari, quin numero hi posem? -setzer22
 (defrule grups-grans "Pels grups grans mirem d'esbrinar quin és el tipus de grup amb el que estem tractant"
 	(num-persones (num ?x&:(>= ?x 7))) 
-	?c<-(tipus-client (tipus indefinit))
-	?e <-(edat-client (edat ?))
+	?c<-(tipus_client (tipus indefinit|grup_indefinit))
+	?e <-(edat_client (edat ?))
 =>
 	(if (si-o-no-p "Sou un grup d'amics?") 
 		then 
@@ -107,8 +112,8 @@
 )
 
 (defrule edat-grup-organitzat "Pels grups organitzats convé saber si hi entren nens"
-	(tipus-client (tipus grup_organitzat))
-	?e<-(edat-client (edat indefinit))
+	(tipus_client (tipus grup_organitzat))
+	?e<-(edat_client (edat indefinit))
 =>
 	(if (si-o-no-p "Hi ha nens al grup? (s/n)")
 		then (modify ?e (edat variada))
@@ -118,8 +123,8 @@
 
 (defrule families "Determinar si el grup és una familia amb fills"
 	(num-persones (num ?x&:(> ?x 2)))
-	?c<-(tipus-client (tipus indefinit))
-	?e <-(edat-client (edat ?))
+	?c<-(tipus_client (tipus indefinit))
+	?e <-(edat_client (edat ?))
 =>
 	(if (si-o-no-p "Viatja en familia?") 
 		then 
@@ -130,8 +135,8 @@
 
 (defrule negocis "Preguntarem si el viatge és d'empresa"
 	(num-persones (num ?x&:(!= ?x -1)))
-	?c<-(tipus-client (tipus indefinit))
-	?e <-(edat-client (edat ?))
+	?c<-(tipus_client (tipus indefinit))
+	?e <-(edat_client (edat ?))
 =>
 	(if (si-o-no-p "És un viatge d'empresa?") 
 		then 
@@ -145,9 +150,9 @@
 ;;
 ;;		Regles per determinar l'objectiu del viatge
 ;;
-(defrule tipus-institut "Els viatges d'institut solen ser enfocats a la cultura o a la diversió"
-	(tipus-client (tipus institut))
-	?v<-(tipus-viatge (tipus indefinit))
+(defrule tipus_institut "Els viatges d'institut solen ser enfocats a la cultura o a la diversió"
+	(tipus_client (tipus institut))
+	?v<-(tipus_viatge (tipus indefinit))
 =>
 	(bind ?response (ask-question "L'objectiu del viatge és d'aprenentatge o de diversio? Respon: {cultural, diversio, cap_dels_dos}" 
 		cultural diversio cap_dels_dos))
@@ -159,3 +164,56 @@
 	)
 )
 
+(defrule client-identificat "S'activarà quan s'hagi identificat el client"
+	(not (tipus_client (tipus indefinit)))
+	;(not (tipus_viatge (tipus indefinit)))
+	(not (edat_client (edat indefinit)))
+=>
+	(focus preferencies)
+)
+
+
+
+;;
+;;		Restriccins i preferèncie de l'usuari
+;;
+
+(defmodule preferencies "Estableix les preferencies de l'usuari"
+	(export deftemplate ?ALL)
+	(import tipus_usuari deftemplate ?ALL)
+	(import utils deffunction ?ALL))
+
+(deftemplate pressupost "Pressupost del viatge"
+	(slot preu_min (type INTEGER))
+	(slot preu_max (type INTEGER))
+)
+
+(deftemplate num_dies "Pressupost del viatge"
+	(slot dies_min (type INTEGER))
+	(slot dies_max (type INTEGER))
+)
+
+(deffacts init-prefs
+	(pressupost 
+		(preu_min -1)
+		(preu_max -1))
+
+	(num_dies
+		(dies_min -1)
+		(dies_max -1))
+)
+
+(defrule minmax-dies
+	?n <- (num_dies (dies_max -1) (dies_min -1))
+=>
+	; @TODO La pregunta és molt lletja... -setzer22
+	(printout t "Quin nombre minim i maxim de dies vols viatjar?")
+	(modify ?n (dies_max (read)))
+	(modify ?n (dies_min (read))) 
+)
+
+(defrule stop
+	(num_dies (dies_max ?x&:(> ?x -1)))
+=>
+	(si-o-no-p "caca")
+)
