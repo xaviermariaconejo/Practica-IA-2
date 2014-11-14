@@ -1,4 +1,4 @@
-; Fri Nov 14 20:04:42 CET 2014
+; Fri Nov 14 20:23:14 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -16,6 +16,10 @@
 
 ([IA-Practica2_Class10004] of  Mediterrania
 
+	(Activitats [IA-Practica2_Class10067])
+	(Allotjaments
+		[IA-Practica2_Class10068]
+		[IA-Practica2_Class10069])
 	(Nom "Barcelona"))
 
 ([IA-Practica2_Class10005] of  EEUU
@@ -228,3 +232,19 @@
 ([IA-Practica2_Class10066] of  Sudafrica
 
 	(Nom "Johannesburgo"))
+
+([IA-Practica2_Class10067] of  Culturals
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Sagrada_Familia")
+	(preu-activitat 23))
+
+([IA-Practica2_Class10068] of  5+Estrella
+
+	(nom-allotjament "Majestic Hotel")
+	(preu-allotjament 150))
+
+([IA-Practica2_Class10069] of  5+Estrella
+
+	(nom-allotjament "Juan Carlos I")
+	(preu-allotjament 160))
