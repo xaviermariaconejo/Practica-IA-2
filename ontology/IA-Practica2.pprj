@@ -1,4 +1,4 @@
-; Fri Nov 14 18:20:47 CET 2014
+; Fri Nov 14 19:50:57 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -20,9 +20,14 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[IA-Practica2_ProjectKB_Class81]
-		[IA-Practica2_ProjectKB_Class82]
-		[IA-Practica2_ProjectKB_Class83]))
+		[IA-Practica2_ProjectKB_Class10244]
+		[IA-Practica2_ProjectKB_Class10245]
+		[IA-Practica2_ProjectKB_Class10246]
+		[IA-Practica2_ProjectKB_Class10247]
+		[IA-Practica2_ProjectKB_Class10248]
+		[IA-Practica2_ProjectKB_Class10249]
+		[IA-Practica2_ProjectKB_Class10250]
+		[IA-Practica2_ProjectKB_Class10251]))
 
 ([CLSES_TAB] of  Widget
 
@@ -48,6 +53,46 @@
 
 ([IA-Practica2_ProjectKB_Class10] of  Property_List
 )
+
+([IA-Practica2_ProjectKB_Class10244] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([IA-Practica2_ProjectKB_Class10245] of  String
+
+	(name "Ciutat")
+	(string_value "Nom"))
+
+([IA-Practica2_ProjectKB_Class10246] of  String
+
+	(name "Activitat")
+	(string_value "nom-activitat"))
+
+([IA-Practica2_ProjectKB_Class10247] of  String
+
+	(name "Viatege")
+	(string_value "origen{-%3E}desti"))
+
+([IA-Practica2_ProjectKB_Class10248] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([IA-Practica2_ProjectKB_Class10249] of  String
+
+	(name "Mediterrania")
+	(string_value "Nom"))
+
+([IA-Practica2_ProjectKB_Class10250] of  String
+
+	(name "Allotjament")
+	(string_value "nom-allotjament"))
+
+([IA-Practica2_ProjectKB_Class10251] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
 
 ([IA-Practica2_ProjectKB_Class107] of  String
 
@@ -398,21 +443,6 @@
 ([IA-Practica2_ProjectKB_Class80] of  Property_List
 )
 
-([IA-Practica2_ProjectKB_Class81] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([IA-Practica2_ProjectKB_Class82] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([IA-Practica2_ProjectKB_Class83] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
 ([IA-Practica2_ProjectKB_Class9] of  Widget
 
 	(is_hidden TRUE)
@@ -542,7 +572,7 @@
 ([KB_435256_Class99] of  Property_List
 )
 
-([KB_493716_Class0] of  Map
+([KB_900755_Class0] of  Map
 )
 
 ([LAYOUT_PROPERTIES] of  Property_List
@@ -627,9 +657,9 @@
 
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
-		[INSTANCE_ANNOTATION_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET]
 		[STANDARD_SLOT_FORM_WIDGET]
+		[INSTANCE_ANNOTATION_FORM_WIDGET]
 		[STANDARD_FACET_FORM_WIDGET]
 		[PAL_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")
