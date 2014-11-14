@@ -1,4 +1,4 @@
-; Fri Nov 14 18:09:08 CET 2014
+; Fri Nov 14 18:20:47 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[IA-Practica2_ProjectKB_Class84]
-		[IA-Practica2_ProjectKB_Class85]
-		[IA-Practica2_ProjectKB_Class86]))
+		[IA-Practica2_ProjectKB_Class81]
+		[IA-Practica2_ProjectKB_Class82]
+		[IA-Practica2_ProjectKB_Class83]))
 
 ([CLSES_TAB] of  Widget
 
@@ -398,17 +398,17 @@
 ([IA-Practica2_ProjectKB_Class80] of  Property_List
 )
 
-([IA-Practica2_ProjectKB_Class84] of  String
+([IA-Practica2_ProjectKB_Class81] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([IA-Practica2_ProjectKB_Class85] of  String
+([IA-Practica2_ProjectKB_Class82] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([IA-Practica2_ProjectKB_Class86] of  String
+([IA-Practica2_ProjectKB_Class83] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
@@ -542,7 +542,7 @@
 ([KB_435256_Class99] of  Property_List
 )
 
-([KB_835849_Class0] of  Map
+([KB_493716_Class0] of  Map
 )
 
 ([LAYOUT_PROPERTIES] of  Property_List
