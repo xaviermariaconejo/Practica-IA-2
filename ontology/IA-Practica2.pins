@@ -1,4 +1,4 @@
-; Fri Nov 14 20:23:14 CET 2014
+; Sun Nov 16 00:38:34 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -6,6 +6,7 @@
 ([IA-Practica2_Class10001] of  Central
 
 	(Activitats [IA-Practica2_Class10003])
+	(Importancia molt_coneguda)
 	(Nom "Paris"))
 
 ([IA-Practica2_Class10003] of  Culturals
@@ -20,6 +21,7 @@
 	(Allotjaments
 		[IA-Practica2_Class10068]
 		[IA-Practica2_Class10069])
+	(Importancia molt_coneguda)
 	(Nom "Barcelona"))
 
 ([IA-Practica2_Class10005] of  EEUU
@@ -33,6 +35,7 @@
 
 ([IA-Practica2_Class10011] of  Mediterrania
 
+	(Importancia molt_coneguda)
 	(Nom "Roma"))
 
 ([IA-Practica2_Class10012] of  Viatege
@@ -44,158 +47,197 @@
 
 ([IA-Practica2_Class10014] of  Nort
 
+	(Importancia coneguda)
 	(Nom "Toronto"))
 
 ([IA-Practica2_Class10015] of  Nort
 
+	(Importancia molt_coneguda)
 	(Nom "Ciudad de Mexico"))
 
 ([IA-Practica2_Class10017] of  Nort
 
+	(Importancia molt_coneguda)
 	(Nom "Los Angeles"))
 
 ([IA-Practica2_Class10019] of  Sud
 
+	(Importancia molt_coneguda)
 	(Nom "Buenos Aires"))
 
 ([IA-Practica2_Class10020] of  Sud
 
+	(Importancia molt_coneguda)
 	(Nom "Rio de Janeiro"))
 
 ([IA-Practica2_Class10021] of  Asia_Oriental
 
+	(Importancia molt_coneguda)
 	(Nom "Tokio"))
 
 ([IA-Practica2_Class10022] of  Asia_Oriental
 
+	(Importancia molt_coneguda)
 	(Nom "Hong Kong"))
 
 ([IA-Practica2_Class10023] of  Australia
 
+	(Importancia molt_coneguda)
 	(Nom "Sidney"))
 
 ([IA-Practica2_Class10024] of  Australia
 
+	(Importancia coneguda)
 	(Nom "Melbourne"))
 
 ([IA-Practica2_Class10025] of  Australia
 
+	(Importancia coneguda)
 	(Nom "Canberra"))
 
 ([IA-Practica2_Class10026] of  Central
 
+	(Importancia molt_coneguda)
 	(Nom "Berlin"))
 
 ([IA-Practica2_Class10027] of  Central
 
+	(Importancia molt_coneguda)
 	(Nom "Viena"))
 
 ([IA-Practica2_Class10028] of  Central
 
+	(Importancia coneguda)
 	(Nom "Copenhagen"))
 
 ([IA-Practica2_Class10029] of  Central
 
+	(Importancia molt_coneguda)
 	(Nom "Londres"))
 
 ([IA-Practica2_Class10030] of  Nort
 
+	(Importancia molt_coneguda)
 	(Nom "Nueva York"))
 
 ([IA-Practica2_Class10031] of  Asia_Oriental
 
+	(Importancia molt_coneguda)
 	(Nom "Beijing"))
 
 ([IA-Practica2_Class10032] of  Asia_Oriental
 
+	(Importancia coneguda)
 	(Nom "Singapur"))
 
 ([IA-Practica2_Class10033] of  Asia_Oriental
 
+	(Importancia coneguda)
 	(Nom "Shanghai"))
 
 ([IA-Practica2_Class10034] of  Nort
 
+	(Importancia coneguda)
 	(Nom "Chicago"))
 
 ([IA-Practica2_Class10035] of  Asia_Oriental
 
+	(Importancia coneguda)
 	(Nom "Seul"))
 
 ([IA-Practica2_Class10036] of  Mediterrania
 
+	(Importancia coneguda)
 	(Nom "Lisboa"))
 
 ([IA-Practica2_Class10037] of  Central
 
+	(Importancia coneguda)
 	(Nom "Edimburgo"))
 
 ([IA-Practica2_Class10038] of  Central
 
+	(Importancia molt_coneguda)
 	(Nom "Ambsterdam"))
 
 ([IA-Practica2_Class10039] of  Nordica
 
+	(Importancia coneguda)
 	(Nom "Estocolmo"))
 
 ([IA-Practica2_Class10040] of  Nordica
 
+	(Importancia coneguda)
 	(Nom "San Petersburgo"))
 
 ([IA-Practica2_Class10042] of  Central
 
+	(Importancia coneguda)
 	(Nom "Cracovia"))
 
 ([IA-Practica2_Class10043] of  Mediterrania
 
+	(Importancia molt_coneguda)
 	(Nom "Florencia"))
 
 ([IA-Practica2_Class10045] of  Mediterrania
 
+	(Importancia molt_coneguda)
 	(Nom "Montecarlo"))
 
 ([IA-Practica2_Class10046] of  Mediterrania
 
+	(Importancia molt_coneguda)
 	(Nom "Venecia"))
 
 ([IA-Practica2_Class10047] of  Nort
 
+	(Importancia molt_coneguda)
 	(Nom "Cancun"))
 
 ([IA-Practica2_Class10048] of  Orient_Proxim
 
+	(Importancia molt_coneguda)
 	(Nom "Dubai"))
 
 ([IA-Practica2_Class10049] of  Nort
 
+	(Importancia molt_coneguda)
 	(Nom "Las Vegas"))
 
 ([IA-Practica2_Class10050] of  Central
 
+	(Importancia molt_coneguda)
 	(Nom "Praga"))
 
 ([IA-Practica2_Class10051] of  Nort
 
+	(Importancia molt_coneguda)
 	(Nom "Miami"))
 
 ([IA-Practica2_Class10052] of  Nordica
 
+	(Importancia molt_coneguda)
 	(Nom "Moscu"))
 
 ([IA-Practica2_Class10053] of  Nort
 
+	(Importancia coneguda)
 	(Nom "San Francisco"))
 
 ([IA-Practica2_Class10054] of  Mediterrania
 
+	(Importancia coneguda)
 	(Nom "Milan"))
 
 ([IA-Practica2_Class10055] of  Nort
 
+	(Importancia coneguda)
 	(Nom "Orlando"))
 
 ([IA-Practica2_Class10056] of  Central
 
+	(Importancia molt_coneguda)
 	(Nom "Munich"))
 
 ([IA-Practica2_Class10057] of  Viatege
@@ -207,14 +249,17 @@
 
 ([IA-Practica2_Class10058] of  Asia_Oriental
 
+	(Importancia coneguda)
 	(Nom "Bangkok"))
 
 ([IA-Practica2_Class10059] of  Asia_Oriental
 
+	(Importancia coneguda)
 	(Nom "Kuala Lumpur"))
 
 ([IA-Practica2_Class10062] of  Africa_Mediterrania
 
+	(Importancia molt_coneguda)
 	(Nom "Marrakech"))
 
 ([IA-Practica2_Class10063] of  Asia_Oriental
@@ -223,14 +268,17 @@
 
 ([IA-Practica2_Class10064] of  Orient_Proxim
 
+	(Importancia coneguda)
 	(Nom "Meca"))
 
 ([IA-Practica2_Class10065] of  Sudafrica
 
+	(Importancia molt_coneguda)
 	(Nom "Ciudad del Cabo"))
 
 ([IA-Practica2_Class10066] of  Sudafrica
 
+	(Importancia coneguda)
 	(Nom "Johannesburgo"))
 
 ([IA-Practica2_Class10067] of  Culturals

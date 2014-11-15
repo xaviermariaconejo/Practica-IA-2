@@ -3,6 +3,13 @@
 ;;         Cualitat Hotels(Alta,Mitja, Baixa) 
 ;;         Tipus Activitats(Cultural, Aventura, Diversio, Relax)
 ;;
+
+(defmodule tipus_ciutat "Tipus de ciutat, cualitat hotels i activitatss" 
+	(export deftemplate ?ALL)
+    (import tipus_usuari deftemplate ?ALL)
+    (import utils deffunction ?ALL)
+)
+;;
 ;;		Templates 
 ;;
 (deftemplate tipus-ciutats "Arquetip de ciutats"
@@ -28,3 +35,34 @@
 ;;
 ;;		Regles
 ;;
+
+;           Tipus viatge = {cultural, diversio, negocis, romantic, relax, aventura}
+;			Edat mitjana = {jove, adult, jubilats, variada}
+;           (encara no) Nivell vida = {molt_alt, alt, mig, baix}
+;			Restriccions = {preu_min, preu_max}
+;           Tipus client = {grup_organitzat, grup_amics, institut, familia, parella, individual, coworkers}
+;           Preferències = {...}
+
+
+(defrule determinar-tipus-ciutat-institut "Tipus de viatge cultural institut o grup organitzat"
+    (tipus_viatge(tipus cultural))
+    (tipus_client(or(tipus institut) (tipus grup_organitzat)))
+	?c <-(tipus-ciutats(tipus indefinit))
+    ?p <-(tipus-activitat(tipus indefinit))
+=>
+	(modify ?c (tipus molt_coneguda))
+    (modify ?p (tipus cultural))
+)
+
+(defrule determinar-tipus-ciutat-institut "Tipus de viatge cultural"
+    (tipus_viatge(tipus cultural))
+    (tipus_client(not(or(tipus institut) (tipus grup_organitzat))))
+	?c <-(tipus-ciutats(tipus indefinit))
+    ?p <-(tipus-activitat(tipus indefinit))
+=>
+    (modify ?p (tipus cultural))
+    (if (si-o-no-p "Ciutats molt conegudes?") then 
+				(modify ?c (tipus molt_coneguda))
+			 else (modify ?c (tipus coneguda)))
+    
+)

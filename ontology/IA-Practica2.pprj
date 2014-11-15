@@ -1,4 +1,4 @@
-; Fri Nov 14 20:23:14 CET 2014
+; Sun Nov 16 00:38:34 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -20,15 +20,15 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[IA-Practica2_ProjectKB_Class10349]
-		[IA-Practica2_ProjectKB_Class10350]
-		[IA-Practica2_ProjectKB_Class10351]
-		[IA-Practica2_ProjectKB_Class10352]
-		[IA-Practica2_ProjectKB_Class10353]
-		[IA-Practica2_ProjectKB_Class10354]
-		[IA-Practica2_ProjectKB_Class10355]
-		[IA-Practica2_ProjectKB_Class10356]
-		[IA-Practica2_ProjectKB_Class10357]))
+		[IA-Practica2_ProjectKB_Class10249]
+		[IA-Practica2_ProjectKB_Class10250]
+		[IA-Practica2_ProjectKB_Class10251]
+		[IA-Practica2_ProjectKB_Class10252]
+		[IA-Practica2_ProjectKB_Class10253]
+		[IA-Practica2_ProjectKB_Class10254]
+		[IA-Practica2_ProjectKB_Class10255]
+		[IA-Practica2_ProjectKB_Class10256]
+		[IA-Practica2_ProjectKB_Class10257]))
 
 ([CLSES_TAB] of  Widget
 
@@ -55,47 +55,47 @@
 ([IA-Practica2_ProjectKB_Class10] of  Property_List
 )
 
-([IA-Practica2_ProjectKB_Class10349] of  String
+([IA-Practica2_ProjectKB_Class10249] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([IA-Practica2_ProjectKB_Class10350] of  String
+([IA-Practica2_ProjectKB_Class10250] of  String
 
 	(name "Ciutat")
 	(string_value "Nom"))
 
-([IA-Practica2_ProjectKB_Class10351] of  String
+([IA-Practica2_ProjectKB_Class10251] of  String
 
 	(name "Activitat")
 	(string_value "nom-activitat"))
 
-([IA-Practica2_ProjectKB_Class10352] of  String
+([IA-Practica2_ProjectKB_Class10252] of  String
 
 	(name "Viatege")
 	(string_value "origen{-%3E}desti"))
 
-([IA-Practica2_ProjectKB_Class10353] of  String
+([IA-Practica2_ProjectKB_Class10253] of  String
 
 	(name "Sudafrica")
 	(string_value "Nom"))
 
-([IA-Practica2_ProjectKB_Class10354] of  String
+([IA-Practica2_ProjectKB_Class10254] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([IA-Practica2_ProjectKB_Class10355] of  String
+([IA-Practica2_ProjectKB_Class10255] of  String
 
 	(name "Mediterrania")
 	(string_value "Nom"))
 
-([IA-Practica2_ProjectKB_Class10356] of  String
+([IA-Practica2_ProjectKB_Class10256] of  String
 
 	(name "Allotjament")
 	(string_value "nom-allotjament"))
 
-([IA-Practica2_ProjectKB_Class10357] of  String
+([IA-Practica2_ProjectKB_Class10257] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
@@ -478,6 +478,9 @@
 
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
+([KB_301656_Class0] of  Map
+)
+
 ([KB_435256_Class0] of  String
 
 	(name "factory_class_name")
@@ -576,9 +579,6 @@
 )
 
 ([KB_435256_Class99] of  Property_List
-)
-
-([KB_900755_Class0] of  Map
 )
 
 ([LAYOUT_PROPERTIES] of  Property_List

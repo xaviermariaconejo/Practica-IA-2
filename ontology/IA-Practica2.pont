@@ -1,4 +1,4 @@
-; Fri Nov 14 20:23:14 CET 2014
+; Sun Nov 16 00:38:34 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -25,6 +25,15 @@
 		(type INSTANCE)
 ;+		(allowed-classes Allotjament)
 		(create-accessor read-write))
+	(single-slot preu-activitat
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot origen
+		(type INSTANCE)
+;+		(allowed-classes Ciutat)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot Nom
 		(type STRING)
 ;+		(cardinality 1 1)
@@ -41,6 +50,11 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot Importancia
+		(type SYMBOL)
+		(allowed-values molt_coneguda coneguda poc_coneguda)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot durada-activitat
 		(type SYMBOL)
 		(allowed-values mig-dia un-dia)
@@ -52,15 +66,6 @@
 		(create-accessor read-write))
 	(single-slot preu-allotjament
 		(type INTEGER)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot preu-activitat
-		(type INTEGER)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot origen
-		(type INSTANCE)
-;+		(allowed-classes Ciutat)
 ;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
@@ -136,6 +141,11 @@
 (defclass Ciutat
 	(is-a USER)
 	(role concrete)
+	(single-slot Importancia
+		(type SYMBOL)
+		(allowed-values molt_coneguda coneguda poc_coneguda)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(multislot Allotjaments
 		(type INSTANCE)
 ;+		(allowed-classes Allotjament)
@@ -227,3 +237,11 @@
 		(type INTEGER)
 ;+		(cardinality 1 1)
 		(create-accessor read-write)))
+
+(defclass %3AUNDEFINED
+	(is-a USER)
+	(role concrete))
+
+(defclass EEUU
+	(is-a %3AUNDEFINED)
+	(role concrete))
