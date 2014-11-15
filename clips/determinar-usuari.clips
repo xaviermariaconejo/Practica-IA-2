@@ -5,7 +5,7 @@
 ; Input <- User
 ; Output -> Tipus viatge = {cultural, diversio, negocis, romantic, relax, aventura}
 ;			Edat mitjana = {jove, adult, jubilats, variada}
-;           Nivell vida = {molt_alt, alt, mig, baix}
+;           (encara no) Nivell vida = {molt_alt, alt, mig, baix}
 ;			Restriccions = {preu_min, preu_max}
 ;           Tipus client = {grup_organitzat, grup_amics, institut, familia, parella, individual, coworkers}
 ;           Preferències = {...}
@@ -160,13 +160,63 @@
 		then (modify ?v (tipus ?response))
 	; Una altra preferencia menys comú son els viatges d'aventura
 	else (if (si-o-no-p "Preferiu un viatge d'aventura?")
-		then (modify ?v (tipus aventura)))
+		then (modify ?v (tipus aventura))
+		else (assert (obj_no_def)))
 	)
 )
 
-(defrule client-identificat "S'activarà quan s'hagi identificat el client"
+(defrule objectiu_parella "Les parelles solen voler viatges romàntics"
+	(tipus_client (tipus parella))
+	?v <- (tipus_viatge (tipus indefinit))
+=>
+	(if (si-o-no-p "Li agradaria un viatge romàntic?")
+		then
+		(modify ?v (tipus romantic))
+		else 
+		(modify ?v (tipus relax))
+	)
+)
+
+(defrule objectiu_empresa "Les empreses fan viatges d'empresa"
+	(tipus_client (tipus coworkers))
+	?v <- (tipus_viatge (tipus indefinit))
+=>
+	(modify ?v (tipus empresa))
+)
+
+(defrule grup_amics "Els grups joves busquen aventura o diversio"
+	(tipus_client (tipus grup_amics))
+	(edat_client (edat jove))
+	?v <- (tipus_viatge (tipus indefinit))
+=>
+	(if (si-o-no-p "Us agradaria visitar parcs tematics?") then
+		(modify ?v (tipus diversio))
+	 else (modify ?v (tipus aventura)))
+)
+
+
+(defrule objectiu_amics "Els grups de jubilats busquen relax"
+	(tipus_client (tipus grup_amics))
+	(edat_client (edat jubilats))
+	?v <- (tipus_viatge (tipus indefinit))
+=>
+	(modify ?v (tipus relax))
+)
+
+(defrule grups_organitzats "Un grup organitzat sol tenir una temàtica molt concreta en ment"
+	(tipus_client (tipus grup_organitzat))
+	?v <- (tipus_viatge (tipus indefinit))
+=>
+	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu? (aventura, diversio, relax)" aventura diversio relax))
+	(modify ?v (tipus ?response))
+)
+
+;
+;		Extra
+;
+(defrule client-identificat "Un cop s'hagi identificat el client se salta al modul de preferències amb aquesta regla"
 	(not (tipus_client (tipus indefinit)))
-	;(not (tipus_viatge (tipus indefinit)))
+	(not (tipus_viatge (tipus indefinit)))
 	(not (edat_client (edat indefinit)))
 =>
 	(focus preferencies)
@@ -175,7 +225,7 @@
 
 
 ;;
-;;		Restriccins i preferèncie de l'usuari
+;;		[MODUL] Restriccins i preferèncie de l'usuari
 ;;
 
 (defmodule preferencies "Estableix les preferencies de l'usuari"
@@ -193,6 +243,14 @@
 	(slot dies_max (type INTEGER))
 )
 
+(deftemplate num_ciutats "Numero de ciutats a visitar"
+	(slot min (type INTEGER))
+	(slot max (type INTEGER))
+)
+
+(deftemplate llocs_exotics "Preferencies de llocs exotics"
+	(slot valor ))
+
 (deffacts init-prefs
 	(pressupost 
 		(preu_min -1)
@@ -201,6 +259,12 @@
 	(num_dies
 		(dies_min -1)
 		(dies_max -1))
+
+	(num_ciutats
+		(min -1)
+		(max -1))
+
+	(llocs_exotics (valor indefinit))
 )
 
 (defrule minmax-dies
@@ -208,12 +272,30 @@
 =>
 	; @TODO La pregunta és molt lletja... -setzer22
 	(printout t "Quin nombre minim i maxim de dies vols viatjar?")
-	(modify ?n (dies_max (read)))
-	(modify ?n (dies_min (read))) 
+	(modify ?n (dies_max (ask-integer "minim: ")) (dies_min (ask-integer "maxim: "))) 
 )
 
-(defrule stop
-	(num_dies (dies_max ?x&:(> ?x -1)))
+(defrule minmax-preu
+	?n <- (pressupost (preu_min -1) (preu_max -1))
 =>
-	(si-o-no-p "caca")
+	; @TODO La pregunta és molt lletja... -setzer22
+	(printout t "Indiqui pressupost minim i maxim pel viatge (preus per persona)")
+	(modify ?n (preu_min (ask-integer "minim: ")) (preu_max (ask-integer "maxim: "))) 
+)
+(defrule minmax-ciutats
+	?n <- (num_ciutats (min -1) (max -1))
+=>
+	(if (si-o-no-p "Prefereix centrar el seu viatge a una única ciutat") 
+		then
+			(modify ?n (min 1) (max 1))
+		else
+			(modify ?n (min (ask-integer "minim: ")) (max (ask-integer "maxim: "))) 
+	)
+)
+
+(defrule exotics
+	?n <- (llocs_exotics (valor indefinit))
+=>
+	; @TODO La pregunta és molt lletja... -setzer22
+	(modify ?n (valor (si-o-no-p "Li agradaria viatjar per ciutats poc conegudes?")))
 )

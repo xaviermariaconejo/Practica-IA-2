@@ -1,7 +1,11 @@
 ;; Mòdul principal, imprimeix el missatge de benvinguda i activa els diferents mòduls
 
-;;
 ;;    Includes
-;;
 (load utils.clips)
 (load determinar-usuari.clips)
+
+; Carreguem el modul de preguntes a l'usuari.
+(deffunction run-main () "Executa el programa"
+	(reset)
+	(focus tipus_usuari)
+	(run))
