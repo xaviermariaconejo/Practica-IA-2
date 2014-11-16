@@ -3,6 +3,7 @@
 ;;    Includes
 (load utils.clips)
 (load determinar-usuari.clips)
+(load acotar-ciutats.clips)
 
 ; Carreguem el modul de preguntes a l'usuari.
 (deffunction run-main () "Executa el programa"

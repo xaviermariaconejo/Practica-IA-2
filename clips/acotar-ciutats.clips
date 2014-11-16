@@ -20,7 +20,7 @@
 	(slot tipus)
 )
 
-(deftemplate tipus-activitat "Arquetip d'activitat"
+(deftemplate tipus-activitats "Arquetip d'activitat"
 	(slot tipus)
 )
 ;;
@@ -46,19 +46,19 @@
 
 (defrule determinar-tipus-ciutat-institut "Tipus de viatge cultural institut o grup organitzat"
     (tipus_viatge(tipus cultural))
-    (tipus_client(tipus(or(institut)(grup_organitzat))))
+    (or(tipus_client(tipus institut))(tipus_client(tipus grup_organitzat)))
 	?c <-(tipus-ciutats(tipus indefinit))
-    ?p <-(tipus-activitat(tipus indefinit))
+    ?p <-(tipus-activitats(tipus indefinit))
 =>
 	(modify ?c (tipus molt_coneguda))
     (modify ?p (tipus cultural))
 )
 
-(defrule determinar-tipus-ciutat-institut "Tipus de viatge cultural"
+(defrule determinar-tipus-ciutat-cultural "Tipus de viatge cultural"
     (tipus_viatge(tipus cultural))
-    (tipus_client(not(or(tipus institut) (tipus grup_organitzat))))
+    (not(or(tipus_client(tipus institut)) (tipus_client (tipus grup_organitzat))))
 	?c <-(tipus-ciutats(tipus indefinit))
-    ?p <-(tipus-activitat(tipus indefinit))
+    ?p <-(tipus-activitats(tipus indefinit))
 =>
     (modify ?p (tipus cultural))
     (if (si-o-no-p "Ciutats molt conegudes?") then 
