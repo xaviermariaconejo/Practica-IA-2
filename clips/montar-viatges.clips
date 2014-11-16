@@ -1,2 +1,101 @@
 ; Input <- output(acotar-ciutats)
 ; Output -> Dos viatges montats amb el format de l'enunciat
+
+
+;;		Declaracions i Inicialitzacions
+
+(defmodule fer-solucio "Fa una instancia de solucio" 
+	(export deftemplate ?ALL)
+	(import tipus_ciutat deftemplate ?ALL)
+    (import tipus_usuari deftemplate ?ALL)
+    (import utils deffunction ?ALL))
+
+
+(make-instance sol of Solucio)
+
+
+;;		Funcions
+
+(deffunction triar-ciutats (?li ?sl ?n)
+ (if (> ?n (length ?li)) then
+ 	(bind ?min (length ?li))
+ 	else (bind ?min ?n))
+ (loop-for-count (?i 1 ?min)
+   (bind ?v (send (nth$ ?i ?li) ?sl)))
+ (return ?v)
+)
+
+(deffunction es-troba (?li ?sl ?a)
+ (bind ?b FALSE)
+ (bind ?i 1)
+ (while (and (<= ?i (length ?li)) (not ?b))
+ 	do
+ 	(bind ?b (eq (send (nth$ ?i ?li) ?sl) ?a))
+ 	(bind ?i (+ ?i 1))
+ )
+ (return ?b))
+
+ (deffunction es-troba-aux (?li ?a)
+ (bind ?b FALSE)
+ (bind ?i 1)
+ (while (and (<= ?i (length ?li)) (not ?b))
+ 	do
+ 	(bind ?b (eq (nth$ ?i ?li) ?a))
+ 	(bind ?i (+ ?i 1))
+ )
+ (return ?b))
+
+(deffunction buscar-hotel (?c ?ch)
+	(bind ?a (send ?c get-Allotjaments))
+	(switch ?ch
+		(case alta then
+			(bind ?h (find-all-instances ((?aux1 5 Estrella) (?aux1 4 Estrella)) TRUE)))
+		(case mitja then
+			(bind ?h (find-all-instances ((?aux1 4 Estrella) (?aux1 3 Estrella) (?aux1 2 Estrella)) TRUE)))
+		(case baixa then
+			(bind ?h (find-all-instances ((?aux1 2 Estrella) (?aux1 1 Estrella)) TRUE)))
+	)
+	(bind ?b FALSE)
+ 	(bind ?i 1)
+ 	(while (and (<= ?i (length ?li)) (not ?b))
+ 		do
+ 		(bind ?b (es-troba-aux ?h (nth$ ?i ?a)))
+ 		(bind ?v (nth$ ?i ?a))
+ 		(bind ?i (+ ?i 1))
+	 )
+	 (return ?v)
+ )
+
+;;		Regles
+
+;		Tria de ciutats
+
+(defrule determinar-ciutat "Determinar una ciutat"
+	declare (salience 10)
+	?x <- (object (is-a Solucio))
+	?tc <- (tipus_ciutats (tipus))
+	?ta <- (tipus_activitats (tipus))
+	?ch <- (cualitat_hotels (tipus))
+	=>
+		(switch ?tc
+			(case molt_coneguda then
+				(bind ?c (find-all-instances ((?a Ciutat))
+				(eq ?a:Importancia "molt_coneguda") (es-troba ?a:activitats get-nom-activitat ?ta)))
+			)
+			(case coneguda then
+				(bind ?c (find-all-instances ((?a Ciutat))
+				(eq ?a:Importancia "coneguda") (es-troba ?a:activitats get-nom-activitat ?ta)))
+			)
+			(case desconeguda then
+				(bind ?c (find-all-instances ((?a Ciutat))
+				(eq ?a:Importancia "desconeguda") (es-troba ?a:activitats get-nom-activitat ?ta)))
+			)
+		)
+		(bind ?r (triar-ciutats ?c get-nom (num_ciutats(min))))
+		(loop-for-count (?i 1 (length ?r))
+   			(make-instance aux of Total_viatge
+   			(ciutat (nth$ ?i ?r)) (dies (/ (num_dies(dies_min)) num_ciutats(min)))
+   			(activitats ?ta) (hotel (buscar-hotel (nth$ ?i ?r) ?ch)))
+   			(slot-insert$ ?x  estancies ?i aux)
+  		)
+)
