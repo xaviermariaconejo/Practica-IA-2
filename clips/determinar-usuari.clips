@@ -248,8 +248,11 @@
 	(slot max (type INTEGER))
 )
 
+(deftemplate nivell_vida "Nivell de vida de l'usuari"
+	(slot valor))
+
 (deftemplate llocs_exotics "Preferencies de llocs exotics"
-	(slot valor ))
+	(slot valor))
 
 (deffacts init-prefs
 	(pressupost 
@@ -265,7 +268,15 @@
 		(max -1))
 
 	(llocs_exotics (valor indefinit))
+
+	(nivell_vida (valor indefinit))
+
 )
+
+(defrule init-preu
+=>
+(assert (importa_preu indefinit)))
+
 
 (defrule minmax-dies
 	?n <- (num_dies (dies_max -1) (dies_min -1))
@@ -275,13 +286,32 @@
 	(modify ?n (dies_max (ask-integer "minim: ")) (dies_min (ask-integer "maxim: "))) 
 )
 
+;@TODO afegir normes perquè si el pressupost no és coherent amb el perfil determinat faci preguntes addicionals per corregir
+(defrule importa_el_preu "Determinem si a l'usuari li importa el preu"
+	?n <- (nivell_vida (valor indefinit))
+	?i <- (importa_preu indefinit)
+=>
+	(if (si-o-no-p "Li importa el preu del viatge?") then
+		(retract ?i)
+		(assert (importa_preu si))
+		(if (si-o-no-p "Està disposat a sacrificar en qualitat per tal d'ajustar al màxim el pressupost?")
+			then (modify ?n (valor baix))
+			else (modify ?n (valor mig)))
+	else
+		(assert (importa_preu no))
+		(retract ?i)
+		(modify ?n (valor alt))
+	)
+)
+
 (defrule minmax-preu
 	?n <- (pressupost (preu_min -1) (preu_max -1))
+	(importa_preu si)
 =>
-	; @TODO La pregunta és molt lletja... -setzer22
 	(printout t "Indiqui pressupost minim i maxim pel viatge (preus per persona)")
 	(modify ?n (preu_min (ask-integer "minim: ")) (preu_max (ask-integer "maxim: "))) 
 )
+
 (defrule minmax-ciutats
 	?n <- (num_ciutats (min -1) (max -1))
 =>
