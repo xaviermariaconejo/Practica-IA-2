@@ -1,4 +1,4 @@
-; Sun Nov 16 16:52:25 CET 2014
+; Sun Nov 16 16:54:36 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -81,6 +81,10 @@
 		(type SYMBOL)
 		(allowed-values mig-dia un-dia)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot preu
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot Activitats
 		(type INSTANCE)
@@ -282,6 +286,10 @@
 	(single-slot hotel
 		(type INSTANCE)
 ;+		(allowed-classes Allotjament)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot preu
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot activitats
