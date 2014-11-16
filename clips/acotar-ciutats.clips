@@ -46,7 +46,7 @@
 
 (defrule determinar-tipus-ciutat-institut "Tipus de viatge cultural institut o grup organitzat"
     (tipus_viatge(tipus cultural))
-    (tipus_client(or(tipus institut) (tipus grup_organitzat)))
+    (tipus_client(tipus(or(institut)(grup_organitzat))))
 	?c <-(tipus-ciutats(tipus indefinit))
     ?p <-(tipus-activitat(tipus indefinit))
 =>
