@@ -1,4 +1,4 @@
-; Sun Nov 16 12:54:35 CET 2014
+; Sun Nov 16 16:54:36 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -43,6 +43,10 @@
 ;+		(allowed-classes Ciutat)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(multislot viatges
+		(type INSTANCE)
+;+		(allowed-classes Viatege)
+		(create-accessor read-write))
 	(single-slot ciutat
 		(type INSTANCE)
 ;+		(allowed-classes Ciutat)
@@ -77,6 +81,10 @@
 		(type SYMBOL)
 		(allowed-values mig-dia un-dia)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot preu
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot Activitats
 		(type INSTANCE)
@@ -280,6 +288,10 @@
 ;+		(allowed-classes Allotjament)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot preu
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(multislot activitats
 		(type INSTANCE)
 ;+		(allowed-classes Activitat)
@@ -293,6 +305,10 @@
 (defclass Solucio
 	(is-a USER)
 	(role concrete)
+	(multislot viatges
+		(type INSTANCE)
+;+		(allowed-classes Viatege)
+		(create-accessor read-write))
 	(multislot estancies
 		(type INSTANCE)
 ;+		(allowed-classes Total_viatge)

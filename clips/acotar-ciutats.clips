@@ -7,29 +7,30 @@
 (defmodule tipus_ciutat "Tipus de ciutat, cualitat hotels i activitatss" 
 	(export deftemplate ?ALL)
     (import tipus_usuari deftemplate ?ALL)
+    (import preferencies deftemplate ?ALL)
     (import utils deffunction ?ALL)
 )
 ;;
 ;;		Templates 
 ;;
-(deftemplate tipus-ciutats "Arquetip de ciutats"
+(deftemplate tipus_ciutats "Arquetip de ciutats"
 	(slot tipus)
 )
 
-(deftemplate cualitat-hotels "Arquetip de hotels"
+(deftemplate cualitat_hotels "Arquetip de hotels"
 	(slot tipus)
 )
 
-(deftemplate tipus-activitat "Arquetip d'activitat"
+(deftemplate tipus_activitats "Arquetip d'activitat"
 	(slot tipus)
 )
 ;;
 ;;		Inicialitzacions
 ;;
 (deffacts init
-	(tipus-ciutats(tipus indefinit))
-	(cualitat-hotels (tipus indefinit))
-	(tipus-activitats (tipus indefinit))
+	(tipus_ciutats(tipus indefinit))
+	(cualitat_hotels (tipus indefinit))
+	(tipus_activitats (tipus indefinit))
 )
 
 ;;
@@ -46,23 +47,36 @@
 
 (defrule determinar-tipus-ciutat-institut "Tipus de viatge cultural institut o grup organitzat"
     (tipus_viatge(tipus cultural))
-    (tipus_client(tipus(or(institut)(grup_organitzat))))
-	?c <-(tipus-ciutats(tipus indefinit))
-    ?p <-(tipus-activitat(tipus indefinit))
+    (or(tipus_client(tipus institut))(tipus_client(tipus grup_organitzat)))
+	?c <-(tipus_ciutats(tipus indefinit))
+    ?p <-(tipus_activitats(tipus indefinit))
 =>
 	(modify ?c (tipus molt_coneguda))
-    (modify ?p (tipus cultural))
 )
 
-(defrule determinar-tipus-ciutat-institut "Tipus de viatge cultural"
+(defrule determinar-tipus-ciutat-cultural "Tipus de viatge cultural"
     (tipus_viatge(tipus cultural))
-    (tipus_client(not(or(tipus institut) (tipus grup_organitzat))))
-	?c <-(tipus-ciutats(tipus indefinit))
-    ?p <-(tipus-activitat(tipus indefinit))
+    (not(or(tipus_client(tipus institut)) (tipus_client (tipus grup_organitzat))))
+	?c <-(tipus_ciutats(tipus indefinit))
+    ?p <-(tipus_activitats(tipus indefinit))
 =>
-    (modify ?p (tipus cultural))
     (if (si-o-no-p "Ciutats molt conegudes?") then 
 				(modify ?c (tipus molt_coneguda))
 			 else (modify ?c (tipus coneguda)))
     
+)
+
+(defrule tipus-ciutat-desconeguda "Viatge a citutata desconeguda"
+    ?c <- (tipus_ciutats(tipus indefinit))
+    (llocs_exotics(valor si))
+=>
+    (modify ?c (tipus desconeguda))
+) 
+
+(defrule tipus-activitats "Viatge amb activitats tipus"
+    ?c <- (tipus_activitats(tipus indefinit))
+    (not(tipus_viatge(tipus indefinit)))
+    (tipus_viatge(tipus ?p))
+=>
+    (modify ?c (tipus ?p))
 )
