@@ -1,4 +1,4 @@
-; Sun Nov 16 00:38:34 CET 2014
+; Sun Nov 16 12:54:35 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -25,6 +25,15 @@
 		(type INSTANCE)
 ;+		(allowed-classes Allotjament)
 		(create-accessor read-write))
+	(single-slot dies
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot hotel
+		(type INSTANCE)
+;+		(allowed-classes Allotjament)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot preu-activitat
 		(type INTEGER)
 ;+		(cardinality 1 1)
@@ -33,6 +42,15 @@
 		(type INSTANCE)
 ;+		(allowed-classes Ciutat)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot ciutat
+		(type INSTANCE)
+;+		(allowed-classes Ciutat)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot estancies
+		(type INSTANCE)
+;+		(allowed-classes Total_viatge)
 		(create-accessor read-write))
 	(single-slot Nom
 		(type STRING)
@@ -67,6 +85,10 @@
 	(single-slot preu-allotjament
 		(type INTEGER)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot activitats
+		(type INSTANCE)
+;+		(allowed-classes Activitat)
 		(create-accessor read-write)))
 
 (defclass Activitat
@@ -245,3 +267,33 @@
 (defclass EEUU
 	(is-a %3AUNDEFINED)
 	(role concrete))
+
+(defclass Total_viatge
+	(is-a USER)
+	(role concrete)
+	(single-slot dies
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot hotel
+		(type INSTANCE)
+;+		(allowed-classes Allotjament)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot activitats
+		(type INSTANCE)
+;+		(allowed-classes Activitat)
+		(create-accessor read-write))
+	(single-slot ciutat
+		(type INSTANCE)
+;+		(allowed-classes Ciutat)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Solucio
+	(is-a USER)
+	(role concrete)
+	(multislot estancies
+		(type INSTANCE)
+;+		(allowed-classes Total_viatge)
+		(create-accessor read-write)))
