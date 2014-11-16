@@ -49,11 +49,11 @@
 	(bind ?a (send ?c get-Allotjaments))
 	(switch ?ch
 		(case alta then
-			(bind ?h (find-all-instances ((?aux1 5 Estrella) (?aux1 4 Estrella)) TRUE)))
+			(bind ?h (find-all-instances ((?aux1 5Estrella) (?aux1 4Estrella)) TRUE)))
 		(case mitja then
-			(bind ?h (find-all-instances ((?aux1 4 Estrella) (?aux1 3 Estrella) (?aux1 2 Estrella)) TRUE)))
+			(bind ?h (find-all-instances ((?aux1 4Estrella) (?aux1 3Estrella) (?aux1 2Estrella)) TRUE)))
 		(case baixa then
-			(bind ?h (find-all-instances ((?aux1 2 Estrella) (?aux1 1 Estrella)) TRUE)))
+			(bind ?h (find-all-instances ((?aux1 2Estrella) (?aux1 1Estrella)) TRUE)))
 	)
 	(bind ?b FALSE)
  	(bind ?i 1)
@@ -66,12 +66,18 @@
 	 (return ?v)
  )
 
+ (deffunction calcular-preu (?a ?h)
+ 	(bind ?pa (send ?a get-preu-activitat))
+ 	(bind ?ph (send ?h get-preu-allotjmanet))
+ 	(return (+ ?pa ?ph))
+ )
+
 ;;		Regles
 
 ;		Tria de ciutats
 
-(defrule determinar-ciutat "Determinar una ciutat"
-	declare (salience 10)
+(defrule determinar-ciutat "Determinar les ciutats del viatge"
+	(declare (salience 10))
 	?x <- (object (is-a Solucio))
 	?tc <- (tipus_ciutats (tipus))
 	?ta <- (tipus_activitats (tipus))
@@ -93,9 +99,70 @@
 		)
 		(bind ?r (triar-ciutats ?c get-nom (num_ciutats(min))))
 		(loop-for-count (?i 1 (length ?r))
+			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch))
    			(make-instance aux of Total_viatge
    			(ciutat (nth$ ?i ?r)) (dies (/ (num_dies(dies_min)) num_ciutats(min)))
-   			(activitats ?ta) (hotel (buscar-hotel (nth$ ?i ?r) ?ch)))
+   			(activitats ?ta) (hotel ?h) (preu (calcular-preu ?ta ?h)))
    			(slot-insert$ ?x  estancies ?i aux)
   		)
 )
+
+(defrule determinar-viatge "Determina els viatges entre les ciutats"
+	(declare (salience 0))
+	?x <- (object (is-a Solucio))
+	=>
+		(bind ?c (send ?x get-estancies))
+		(loop-for-count (?i 2 (lenght ?c))
+			(bind ?o (nth$ (- ?i 1) ?c))
+			(bind ?d (nth$ ?i ?c))
+			(bind ?v (find-instance ((?aux Viatege)) (eq ?aux:origen ?o) (ew ?aux:desti ?d)))
+			(slot-insert$ ?x viatges ?v)
+		)
+)
+
+;;(defrule presentacion "regla que presenta al sistema"
+;; (declare (salience -10))
+;;  =>
+;;  (printout t "------------------------------" crlf)
+;;  (printout t "------------ Viatge ----------" crlf)
+;;  (printout t "------------------------------" crlf)
+;;  (printout t crlf)
+;;  (printout t "Precio total (persona): ")
+;;  (printout t "Precio total (persona):")
+  ;;1(printout t " euros" crlf)
+;;)
+
+;;; ----------------
+;;; Message handler para imprimir el resultado
+
+;;; Recorre todos los elementos del slot que recibe como parametro
+;;(deffunction imprime-todo (?v)
+;;  (if (> (length$ ?v) 0) then
+   ;;(loop-for-count (?i 1 (length ?v))
+     ;;(send (nth$ ?i ?v) print)
+	 ;;(p1rintout t crlf)
+   ;;)
+ ;;)
+;;)
+
+;;; Message handler para la clase PC, 
+;;; imprime todos los slots de la clase
+;;(defmessage-handler PC imprime primary ()
+ ;;(printout t "Procesador: " crlf)
+ ;;(send ?self:Procesador print)
+ ;;(printout t crlf) 
+ ;;(printout t "Placa Base: " crlf)
+ ;;(send ?self:Placa print)
+ ;;(printout t crlf) 
+;; (printout t "Memoria: " ?self:Memoria crlf crlf)
+ ;;(printout t "Software: " crlf)
+ ;;(imprime-todo ?self:Software)
+ ;;(printout t "Dispositivos de almacenamiento: " crlf)
+ ;;(imprime-todo ?self:Dispositivos_de_Almacenamiento)
+ ;;(printout t "Dispositivos de entrada: " crlf)
+ ;;(imprime-todo ?self:Dispositivos_de_Entrada)
+ ;;(printout t "Dispositivos de salida:" crlf)
+ ;;(imprime-todo ?self:Dispositivos_de_Salida)
+ ;;(printout t "Dispositivos de comunicacion: " crlf)
+ ;;(imprime-todo ?self:Dispositivos_de_Comunicacion)
+;;)
