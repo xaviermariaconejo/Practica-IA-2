@@ -329,3 +329,8 @@
 	; @TODO La pregunta és molt lletja... -setzer22
 	(modify ?n (valor (si-o-no-p "Li agradaria viatjar per ciutats poc conegudes?")))
 )
+
+(defrule fi-modul
+(declare (salience -10))
+=>
+(focus tipus_ciutat))
