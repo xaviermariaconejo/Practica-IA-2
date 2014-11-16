@@ -1,6 +1,6 @@
 ;Input <- output(determinar-usuari)
 ;Output -> Tipus Ciutat(Molt Conueguda, Coneguda, Desconeguda)
-;;         Cualitat Hotels(Alta,Mitja, Baixa) 
+;;         Cualitat Hotels(alta,mitja, baixa) 
 ;;         Tipus Activitats(Cultural, Aventura, Diversio, Relax)
 ;;
 
@@ -37,12 +37,9 @@
 ;;		Regles
 ;;
 
-;           Tipus viatge = {cultural, diversio, negocis, romantic, relax, aventura}
-;			Edat mitjana = {jove, adult, jubilats, variada}
-;           (encara no) Nivell vida = {molt_alt, alt, mig, baix}
-;			Restriccions = {preu_min, preu_max}
-;           Tipus client = {grup_organitzat, grup_amics, institut, familia, parella, individual, coworkers}
-;           Preferències = {...}
+;;
+;;TIPUS CIUTAT
+;;
 
 
 (defrule determinar-tipus-ciutat-institut "Tipus de viatge cultural institut o grup organitzat"
@@ -71,7 +68,13 @@
     (llocs_exotics(valor si))
 =>
     (modify ?c (tipus desconeguda))
-) 
+)
+
+ 
+;;
+;;TIPUS D'ACTIVITATS
+;;
+
 
 (defrule tipus-activitats "Viatge amb activitats tipus"
     ?c <- (tipus_activitats(tipus indefinit))
@@ -79,4 +82,37 @@
     (tipus_viatge(tipus ?p))
 =>
     (modify ?c (tipus ?p))
+)
+
+;;
+;;CUALITAT HOTELS
+;;
+
+(defrule cualitat-hotel-ric "Hotel de persones que no importa el preu"
+    (nivell_vida (valor alt))
+    ?n <- (cualitat_hotels (tipus indefinit))
+=>
+    (modify ?n (tipus alt))
+)
+
+(defrule cualitat-hotel-mix "Hotel de persones que no importa una mica el preu"
+    (nivell_vida (valor mig))
+    ?n <- (cualitat_hotels (tipus indefinit))
+    (pressupost(preu_min ?p))
+    (num_dies(dies_min ?d))
+=>
+    (if (<(/ ?p ?d) 1500)
+        then (modify ?n (tipus mitja))
+        else (modify ?n (tipus alta)))
+)
+
+(defrule cualitat-hotel-baix "Hotel de persones que no importa una mica el preu"
+    (nivell_vida (valor baix))
+    ?n <- (cualitat_hotels (tipus indefinit))
+    (pressupost(preu_min ?p))
+    (num_dies(dies_min ?d))
+=>
+    (if (<(/ ?p ?d) 750)
+        then (modify ?n (tipus baixa))
+        else (modify ?n (tipus mitja)))
 )
