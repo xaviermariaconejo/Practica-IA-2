@@ -92,7 +92,7 @@
     (nivell_vida (valor alt))
     ?n <- (cualitat_hotels (tipus indefinit))
 =>
-    (modify ?n (tipus alt))
+    (modify ?n (tipus alta))
 )
 
 (defrule cualitat-hotel-mix "Hotel de persones que no importa una mica el preu"
@@ -116,3 +116,9 @@
         then (modify ?n (tipus baixa))
         else (modify ?n (tipus mitja)))
 )
+
+
+(defrule fi-modul-ciutat
+(declare (salience -10))
+=>
+(focus fer-solucio))

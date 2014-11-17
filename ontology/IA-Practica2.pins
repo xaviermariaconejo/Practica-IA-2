@@ -1,4 +1,4 @@
-; Sun Nov 16 16:54:36 CET 2014
+; Mon Nov 17 11:09:23 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -287,12 +287,12 @@
 	(nom-activitat "Sagrada_Familia")
 	(preu-activitat 23))
 
-([IA-Practica2_Class10068] of  5+Estrella
+([IA-Practica2_Class10068] of  5Estrella
 
 	(nom-allotjament "Majestic Hotel")
 	(preu-allotjament 150))
 
-([IA-Practica2_Class10069] of  5+Estrella
+([IA-Practica2_Class10069] of  5Estrella
 
 	(nom-allotjament "Juan Carlos I")
 	(preu-allotjament 160))

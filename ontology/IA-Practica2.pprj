@@ -1,4 +1,4 @@
-; Sun Nov 16 16:54:36 CET 2014
+; Mon Nov 17 11:09:23 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -20,15 +20,15 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[IA-Practica2_ProjectKB_Class90]
-		[IA-Practica2_ProjectKB_Class91]
-		[IA-Practica2_ProjectKB_Class92]
-		[IA-Practica2_ProjectKB_Class93]
-		[IA-Practica2_ProjectKB_Class94]
-		[IA-Practica2_ProjectKB_Class95]
-		[IA-Practica2_ProjectKB_Class96]
-		[IA-Practica2_ProjectKB_Class97]
-		[IA-Practica2_ProjectKB_Class98]))
+		[IA-Practica2_ProjectKB_Class81]
+		[IA-Practica2_ProjectKB_Class82]
+		[IA-Practica2_ProjectKB_Class83]
+		[IA-Practica2_ProjectKB_Class84]
+		[IA-Practica2_ProjectKB_Class85]
+		[IA-Practica2_ProjectKB_Class86]
+		[IA-Practica2_ProjectKB_Class87]
+		[IA-Practica2_ProjectKB_Class88]
+		[IA-Practica2_ProjectKB_Class89]))
 
 ([CLSES_TAB] of  Widget
 
@@ -404,56 +404,56 @@
 ([IA-Practica2_ProjectKB_Class80] of  Property_List
 )
 
+([IA-Practica2_ProjectKB_Class81] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([IA-Practica2_ProjectKB_Class82] of  String
+
+	(name "Ciutat")
+	(string_value "Nom"))
+
+([IA-Practica2_ProjectKB_Class83] of  String
+
+	(name "Activitat")
+	(string_value "nom-activitat"))
+
+([IA-Practica2_ProjectKB_Class84] of  String
+
+	(name "Viatege")
+	(string_value "origen{-%3E}desti"))
+
+([IA-Practica2_ProjectKB_Class85] of  String
+
+	(name "Sudafrica")
+	(string_value "Nom"))
+
+([IA-Practica2_ProjectKB_Class86] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([IA-Practica2_ProjectKB_Class87] of  String
+
+	(name "Mediterrania")
+	(string_value "Nom"))
+
+([IA-Practica2_ProjectKB_Class88] of  String
+
+	(name "Allotjament")
+	(string_value "nom-allotjament"))
+
+([IA-Practica2_ProjectKB_Class89] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
 ([IA-Practica2_ProjectKB_Class9] of  Widget
 
 	(is_hidden TRUE)
 	(property_list [IA-Practica2_ProjectKB_Class10])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.cls.OWLClassesTab"))
-
-([IA-Practica2_ProjectKB_Class90] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([IA-Practica2_ProjectKB_Class91] of  String
-
-	(name "Ciutat")
-	(string_value "Nom"))
-
-([IA-Practica2_ProjectKB_Class92] of  String
-
-	(name "Activitat")
-	(string_value "nom-activitat"))
-
-([IA-Practica2_ProjectKB_Class93] of  String
-
-	(name "Viatege")
-	(string_value "origen{-%3E}desti"))
-
-([IA-Practica2_ProjectKB_Class94] of  String
-
-	(name "Sudafrica")
-	(string_value "Nom"))
-
-([IA-Practica2_ProjectKB_Class95] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([IA-Practica2_ProjectKB_Class96] of  String
-
-	(name "Mediterrania")
-	(string_value "Nom"))
-
-([IA-Practica2_ProjectKB_Class97] of  String
-
-	(name "Allotjament")
-	(string_value "nom-allotjament"))
-
-([IA-Practica2_ProjectKB_Class98] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
 
 ([INSTANCE_ANNOTATION_FORM_WIDGET] of  Widget
 
@@ -478,7 +478,7 @@
 
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
-([KB_091542_Class0] of  Map
+([KB_341432_Class0] of  Map
 )
 
 ([KB_435256_Class0] of  String
