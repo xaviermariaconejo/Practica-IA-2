@@ -11,7 +11,7 @@
     (import utils deffunction ?ALL))
 
 
-(make-instance sol of Solucio)
+(make-instance [s] of Solucio)
 
 
 ;;		Funcions
@@ -120,6 +120,33 @@
 		)
 )
 
+(deftemplate solucio-pd "Preu i duracio total"
+	(slot preu-total)
+	(slot duracio-total))
+
+(deffacts inicialitzacio
+ (solucio-pd (preu-total -1) (duracio-total -1)))
+
+ (defrule determinar-preu-duracio "Determina el preu i la duracio total"
+	?x <- (object (is-a Solucio))
+	?p <-(solucio-pd (preu-total -1))
+	?d <-(solucio-pd (duracio-total -1))
+	=>
+		(modify ?p (preu-total0)) 
+		(modify ?d (duracio-total 0)) 
+		(bind ?c (send ?x get-estancies))
+		(loop-for-count (?i 1 (lenght ?c))
+			(bind ?aux (nth$ ?i ?c))
+			(modify ?p (preu-total (+ preu-total (send ?aux get-preu))))
+			(modify ?d (duracio-total (+ duracio-total (send ?aux get-dies))))
+		)
+		(bind ?c (send ?x get-viatges))
+		(loop-for-count (?i 1 (lenght ?c))
+			(bind ?aux (nth$ ?i ?c))
+			(modify ?p (preu-total (+ preu-total (send ?aux get-preu-viatge))))
+		)
+)
+
 ;;(defrule presentacion "regla que presenta al sistema"
 ;; (declare (salience -10))
 ;;  =>
@@ -131,6 +158,8 @@
 ;;  (printout t "Precio total (persona):")
   ;;1(printout t " euros" crlf)
 ;;)
+
+
 
 ;;; ----------------
 ;;; Message handler para imprimir el resultado
