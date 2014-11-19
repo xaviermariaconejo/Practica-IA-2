@@ -1,0 +1,610 @@
+; Ontologia exportada de Protégé
+
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+	(is-a USER)
+	(role abstract)
+	(single-slot desti
+		(type INSTANCE)
+;+		(allowed-classes Ciutat)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot nom-activitat
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot Allotjaments
+		(type INSTANCE)
+;+		(allowed-classes Allotjament)
+		(create-accessor read-write))
+	(single-slot nom-allotjament
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot origen
+		(type INSTANCE)
+;+		(allowed-classes Ciutat)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Importancia
+		(type SYMBOL)
+		(allowed-values molt_coneguda coneguda poc_coneguda)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot preu-activitat
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot dies
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot transport
+		(type SYMBOL)
+		(allowed-values avio tren autobus vaixell)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot Activitats
+		(type INSTANCE)
+;+		(allowed-classes Activitat)
+		(create-accessor read-write))
+	(single-slot preu-allotjament
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot estancies
+		(type INSTANCE)
+;+		(allowed-classes Total_viatge)
+		(create-accessor read-write))
+	(single-slot Nom
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot ciutat
+		(type INSTANCE)
+;+		(allowed-classes Ciutat)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot durada-activitat
+		(type SYMBOL)
+		(allowed-values mig-dia un-dia)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot hotel
+		(type INSTANCE)
+;+		(allowed-classes Allotjament)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot viatges
+		(type INSTANCE)
+;+		(allowed-classes Viatege)
+		(create-accessor read-write))
+	(single-slot preu-viatge
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot preu
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot IA-Practica2_Class1
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot activitats
+		(type INSTANCE)
+;+		(allowed-classes Activitat)
+		(create-accessor read-write)))
+
+(defclass Activitat
+	(is-a USER)
+	(role concrete)
+	(single-slot durada-activitat
+		(type SYMBOL)
+		(allowed-values mig-dia un-dia)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot nom-activitat
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot preu-activitat
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Romantiques
+	(is-a Activitat)
+	(role concrete))
+
+(defclass Aventura
+	(is-a Activitat)
+	(role concrete))
+
+(defclass Diversio
+	(is-a Activitat)
+	(role concrete))
+
+(defclass Culturals
+	(is-a Activitat)
+	(role concrete))
+
+(defclass Relax
+	(is-a Activitat)
+	(role concrete))
+
+(defclass Allotjament
+	(is-a USER)
+	(role concrete)
+	(single-slot nom-allotjament
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot preu-allotjament
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass 5Estrella
+	(is-a Allotjament)
+	(role concrete))
+
+(defclass 4Estrella
+	(is-a Allotjament)
+	(role concrete))
+
+(defclass 3Estrella
+	(is-a Allotjament)
+	(role concrete))
+
+(defclass 2Estrella
+	(is-a Allotjament)
+	(role concrete))
+
+(defclass 1Estrella
+	(is-a Allotjament)
+	(role concrete))
+
+(defclass Ciutat
+	(is-a USER)
+	(role concrete)
+	(single-slot Nom
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot Activitats
+		(type INSTANCE)
+;+		(allowed-classes Activitat)
+		(create-accessor read-write))
+	(single-slot Importancia
+		(type SYMBOL)
+		(allowed-values molt_coneguda coneguda poc_coneguda)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot Allotjaments
+		(type INSTANCE)
+;+		(allowed-classes Allotjament)
+		(create-accessor read-write)))
+
+(defclass Europa
+	(is-a Ciutat)
+	(role concrete))
+
+(defclass Mediterrania
+	(is-a Europa)
+	(role concrete))
+
+(defclass Nordica
+	(is-a Europa)
+	(role concrete))
+
+(defclass Central
+	(is-a Europa)
+	(role concrete))
+
+(defclass America
+	(is-a Ciutat)
+	(role concrete))
+
+(defclass Nort
+	(is-a America)
+	(role concrete))
+
+(defclass Sud
+	(is-a America)
+	(role concrete))
+
+(defclass Asia
+	(is-a Ciutat)
+	(role concrete))
+
+(defclass Orient_Proxim
+	(is-a Asia)
+	(role concrete))
+
+(defclass Asia_Oriental
+	(is-a Asia)
+	(role concrete))
+
+(defclass Australia
+	(is-a Ciutat)
+	(role concrete))
+
+(defclass Africa
+	(is-a Ciutat)
+	(role concrete))
+
+(defclass Africa_Mediterrania
+	(is-a Africa)
+	(role concrete))
+
+(defclass Sudafrica
+	(is-a Africa)
+	(role concrete))
+
+(defclass Viatege
+	(is-a USER)
+	(role concrete)
+	(single-slot desti
+		(type INSTANCE)
+;+		(allowed-classes Ciutat)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot transport
+		(type SYMBOL)
+		(allowed-values avio tren autobus vaixell)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot origen
+		(type INSTANCE)
+;+		(allowed-classes Ciutat)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot preu-viatge
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass %3AUNDEFINED
+	(is-a USER)
+	(role concrete))
+
+(defclass EEUU
+	(is-a %3AUNDEFINED)
+	(role concrete))
+
+(defclass Total_viatge
+	(is-a USER)
+	(role concrete)
+	(single-slot ciutat
+		(type INSTANCE)
+;+		(allowed-classes Ciutat)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot hotel
+		(type INSTANCE)
+;+		(allowed-classes Allotjament)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot dies
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot activitats
+		(type INSTANCE)
+;+		(allowed-classes Activitat)
+		(create-accessor read-write))
+	(single-slot preu
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Solucio
+	(is-a USER)
+	(role concrete)
+	(multislot viatges
+		(type INSTANCE)
+;+		(allowed-classes Viatege)
+		(create-accessor read-write))
+	(multislot estancies
+		(type INSTANCE)
+;+		(allowed-classes Total_viatge)
+		(create-accessor read-write)))
+
+; Wed Nov 19 11:06:21 CET 2014
+; 
+;+ (version "3.4.8")
+;+ (build "Build 629")
+
+([IA-Practica2_Class10001] of  Central
+
+	(Activitats [IA-Practica2_Class10003])
+	(Importancia molt_coneguda)
+	(Nom "Paris"))
+
+([IA-Practica2_Class10003] of  Culturals
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Museu Louvre")
+	(preu-activitat 12))
+
+([IA-Practica2_Class10004] of  Mediterrania
+
+	(Activitats [IA-Practica2_Class10067])
+	(Allotjaments
+		[IA-Practica2_Class10068]
+		[IA-Practica2_Class10069])
+	(Importancia molt_coneguda)
+	(Nom "Barcelona"))
+
+([IA-Practica2_Class10005] of  EEUU
+)
+
+([IA-Practica2_Class10006] of  EEUU
+)
+
+([IA-Practica2_Class10007] of  EEUU
+)
+
+([IA-Practica2_Class10011] of  Mediterrania
+
+	(Importancia molt_coneguda)
+	(Nom "Roma"))
+
+([IA-Practica2_Class10012] of  Viatege
+
+	(desti [IA-Practica2_Class10011])
+	(origen [IA-Practica2_Class10004])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class10014] of  Nort
+
+	(Importancia coneguda)
+	(Nom "Toronto"))
+
+([IA-Practica2_Class10015] of  Nort
+
+	(Importancia molt_coneguda)
+	(Nom "Ciudad de Mexico"))
+
+([IA-Practica2_Class10017] of  Nort
+
+	(Importancia molt_coneguda)
+	(Nom "Los Angeles"))
+
+([IA-Practica2_Class10019] of  Sud
+
+	(Importancia molt_coneguda)
+	(Nom "Buenos Aires"))
+
+([IA-Practica2_Class10020] of  Sud
+
+	(Importancia molt_coneguda)
+	(Nom "Rio de Janeiro"))
+
+([IA-Practica2_Class10021] of  Asia_Oriental
+
+	(Importancia molt_coneguda)
+	(Nom "Tokio"))
+
+([IA-Practica2_Class10022] of  Asia_Oriental
+
+	(Importancia molt_coneguda)
+	(Nom "Hong Kong"))
+
+([IA-Practica2_Class10023] of  Australia
+
+	(Importancia molt_coneguda)
+	(Nom "Sidney"))
+
+([IA-Practica2_Class10024] of  Australia
+
+	(Importancia coneguda)
+	(Nom "Melbourne"))
+
+([IA-Practica2_Class10025] of  Australia
+
+	(Importancia coneguda)
+	(Nom "Canberra"))
+
+([IA-Practica2_Class10026] of  Central
+
+	(Importancia molt_coneguda)
+	(Nom "Berlin"))
+
+([IA-Practica2_Class10027] of  Central
+
+	(Importancia molt_coneguda)
+	(Nom "Viena"))
+
+([IA-Practica2_Class10028] of  Central
+
+	(Importancia coneguda)
+	(Nom "Copenhagen"))
+
+([IA-Practica2_Class10029] of  Central
+
+	(Importancia molt_coneguda)
+	(Nom "Londres"))
+
+([IA-Practica2_Class10030] of  Nort
+
+	(Importancia molt_coneguda)
+	(Nom "Nueva York"))
+
+([IA-Practica2_Class10031] of  Asia_Oriental
+
+	(Importancia molt_coneguda)
+	(Nom "Beijing"))
+
+([IA-Practica2_Class10032] of  Asia_Oriental
+
+	(Importancia coneguda)
+	(Nom "Singapur"))
+
+([IA-Practica2_Class10033] of  Asia_Oriental
+
+	(Importancia coneguda)
+	(Nom "Shanghai"))
+
+([IA-Practica2_Class10034] of  Nort
+
+	(Importancia coneguda)
+	(Nom "Chicago"))
+
+([IA-Practica2_Class10035] of  Asia_Oriental
+
+	(Importancia coneguda)
+	(Nom "Seul"))
+
+([IA-Practica2_Class10036] of  Mediterrania
+
+	(Importancia coneguda)
+	(Nom "Lisboa"))
+
+([IA-Practica2_Class10037] of  Central
+
+	(Importancia coneguda)
+	(Nom "Edimburgo"))
+
+([IA-Practica2_Class10038] of  Central
+
+	(Importancia molt_coneguda)
+	(Nom "Ambsterdam"))
+
+([IA-Practica2_Class10039] of  Nordica
+
+	(Importancia coneguda)
+	(Nom "Estocolmo"))
+
+([IA-Practica2_Class10040] of  Nordica
+
+	(Importancia coneguda)
+	(Nom "San Petersburgo"))
+
+([IA-Practica2_Class10042] of  Central
+
+	(Importancia coneguda)
+	(Nom "Cracovia"))
+
+([IA-Practica2_Class10043] of  Mediterrania
+
+	(Importancia molt_coneguda)
+	(Nom "Florencia"))
+
+([IA-Practica2_Class10045] of  Mediterrania
+
+	(Importancia molt_coneguda)
+	(Nom "Montecarlo"))
+
+([IA-Practica2_Class10046] of  Mediterrania
+
+	(Importancia molt_coneguda)
+	(Nom "Venecia"))
+
+([IA-Practica2_Class10047] of  Nort
+
+	(Importancia molt_coneguda)
+	(Nom "Cancun"))
+
+([IA-Practica2_Class10048] of  Orient_Proxim
+
+	(Importancia molt_coneguda)
+	(Nom "Dubai"))
+
+([IA-Practica2_Class10049] of  Nort
+
+	(Importancia molt_coneguda)
+	(Nom "Las Vegas"))
+
+([IA-Practica2_Class10050] of  Central
+
+	(Importancia molt_coneguda)
+	(Nom "Praga"))
+
+([IA-Practica2_Class10051] of  Nort
+
+	(Importancia molt_coneguda)
+	(Nom "Miami"))
+
+([IA-Practica2_Class10052] of  Nordica
+
+	(Importancia molt_coneguda)
+	(Nom "Moscu"))
+
+([IA-Practica2_Class10053] of  Nort
+
+	(Importancia coneguda)
+	(Nom "San Francisco"))
+
+([IA-Practica2_Class10054] of  Mediterrania
+
+	(Importancia coneguda)
+	(Nom "Milan"))
+
+([IA-Practica2_Class10055] of  Nort
+
+	(Importancia coneguda)
+	(Nom "Orlando"))
+
+([IA-Practica2_Class10056] of  Central
+
+	(Importancia molt_coneguda)
+	(Nom "Munich"))
+
+([IA-Practica2_Class10057] of  Viatege
+
+	(desti [IA-Practica2_Class10026])
+	(origen [IA-Practica2_Class10001])
+	(preu-viatge 70)
+	(transport avio))
+
+([IA-Practica2_Class10058] of  Asia_Oriental
+
+	(Importancia coneguda)
+	(Nom "Bangkok"))
+
+([IA-Practica2_Class10059] of  Asia_Oriental
+
+	(Importancia coneguda)
+	(Nom "Kuala Lumpur"))
+
+([IA-Practica2_Class10062] of  Africa_Mediterrania
+
+	(Importancia molt_coneguda)
+	(Nom "Marrakech"))
+
+([IA-Practica2_Class10063] of  Asia_Oriental
+
+	(Nom "Taipei"))
+
+([IA-Practica2_Class10064] of  Orient_Proxim
+
+	(Importancia coneguda)
+	(Nom "Meca"))
+
+([IA-Practica2_Class10065] of  Sudafrica
+
+	(Importancia molt_coneguda)
+	(Nom "Ciudad del Cabo"))
+
+([IA-Practica2_Class10066] of  Sudafrica
+
+	(Importancia coneguda)
+	(Nom "Johannesburgo"))
+
+([IA-Practica2_Class10067] of  Culturals
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Sagrada_Familia")
+	(preu-activitat 23))
+
+([IA-Practica2_Class10068] of  5Estrella
+
+	(nom-allotjament "Majestic Hotel")
+	(preu-allotjament 150))
+
+([IA-Practica2_Class10069] of  5Estrella
+
+	(nom-allotjament "Juan Carlos I")
+	(preu-allotjament 160))
