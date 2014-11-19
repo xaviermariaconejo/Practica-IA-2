@@ -1,4 +1,4 @@
-; Wed Nov 19 12:08:47 CET 2014
+; Wed Nov 19 11:06:21 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -99,7 +99,7 @@
 ;+		(allowed-classes Activitat)
 		(create-accessor read-write)))
 
-(defclass Activitat "Aquesta classe descriu una activitat que es pot realitzar en una ciutat. Les activitats tenen un nom que les identifica i un preu, sempre especificat com a preu per persona.\n\nAddicionalment també considerem la durada de l'activitat classificant-la en dos categories: Mig dia o dia sencer.\n\nAixí doncs en un dia es poden fer dos activitats d'un dia o una de mig dia."
+(defclass Activitat
 	(is-a USER)
 	(role concrete)
 	(single-slot durada-activitat
