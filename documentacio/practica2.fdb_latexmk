@@ -1,0 +1,22 @@
+# Fdb version 3
+["pdflatex"] 1416394373 "practica2.tex" "practica2.pdf" "practica2" 1416394373
+  "/usr/share/texmf-dist/tex/generic/babel-catalan/catalan.ldf" 1407968440 10113 2e7f3b4656572a71a9061a5e27e11e94 ""
+  "/usr/share/texmf-dist/tex/generic/babel-english/english.ldf" 1407968440 6963 2e0cb3d93aa64508bdb0db58ae900d97 ""
+  "/usr/share/texmf-dist/tex/generic/babel/babel.def" 1407968440 49536 e1475dd245ff2196764ba5b91ac63714 ""
+  "/usr/share/texmf-dist/tex/generic/babel/babel.sty" 1407968440 13162 52453613e672419375f5bc44def13451 ""
+  "/usr/share/texmf-dist/tex/latex/base/article.cls" 1407968439 20496 66dd832c447553f6776fbeac03bb0580 ""
+  "/usr/share/texmf-dist/tex/latex/base/inputenc.sty" 1407968439 5295 be5d5092b838cbeebda7de24a3ab9dd2 ""
+  "/usr/share/texmf-dist/tex/latex/base/omscmr.fd" 1407968439 2044 e100908319f12bdc42d217e63116726d ""
+  "/usr/share/texmf-dist/tex/latex/base/omsenc.dfu" 1407968439 1793 7bb4e1cf8d618812dcf05cd85cccb71d ""
+  "/usr/share/texmf-dist/tex/latex/base/ot1enc.dfu" 1407968439 2545 afa23f923cc3519eb0b895cbf3dadfb5 ""
+  "/usr/share/texmf-dist/tex/latex/base/size11.clo" 1407968439 8983 e08a9a7009d9a8f8c6507333f96e336e ""
+  "/usr/share/texmf-dist/tex/latex/base/t1enc.dfu" 1407968439 7405 c70c194719f79b7d070eeb68af109b09 ""
+  "/usr/share/texmf-dist/tex/latex/base/utf8.def" 1407968439 6275 ac89e3d1c95578574b0b11f34248899e ""
+  "practica2.aux" 1416394373 883 987dd91d314e0fa80e7bf1bc2b42bc2e ""
+  "practica2.tex" 1416394372 12603 238f973f6e8dac8bff56c408e8e24b0c ""
+  "practica2.toc" 1416394373 580 35064f6d168985d4603d6bdaf0b42dd8 ""
+  (generated)
+  "practica2.log"
+  "practica2.pdf"
+  "practica2.aux"
+  "practica2.toc"

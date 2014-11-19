@@ -1,0 +1,9 @@
+\select@language {catalan}
+\contentsline {section}{\numberline {1}An\IeC {\`a}lisi del problema}{3}
+\contentsline {subsection}{\numberline {1.1}Identificaci\IeC {\'o}}{3}
+\contentsline {subsection}{\numberline {1.2}Conceptualitzaci\IeC {\'o}}{4}
+\contentsline {subsection}{\numberline {1.3}Formalitzaci\IeC {\'o}}{4}
+\contentsline {subsection}{\numberline {1.4}Implementaci\IeC {\'o}}{5}
+\contentsline {subsection}{\numberline {1.5}Prova}{6}
+\contentsline {section}{\numberline {2}Documentaci\IeC {\'o} de l'ontologia}{6}
+\contentsline {section}{\numberline {3}Jocs de proves}{7}
