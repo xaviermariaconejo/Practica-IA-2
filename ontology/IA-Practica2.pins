@@ -1,4 +1,4 @@
-; Thu Nov 20 16:33:09 CET 2014
+; Thu Nov 20 16:50:49 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -45,17 +45,17 @@
 	(preu-viatge 65)
 	(transport avio))
 
-([IA-Practica2_Class10014] of  Nort
+([IA-Practica2_Class10014] of  Nord
 
 	(Importancia coneguda)
 	(Nom "Toronto"))
 
-([IA-Practica2_Class10015] of  Nort
+([IA-Practica2_Class10015] of  Nord
 
 	(Importancia molt_coneguda)
 	(Nom "Ciudad de Mexico"))
 
-([IA-Practica2_Class10017] of  Nort
+([IA-Practica2_Class10017] of  Nord
 
 	(Importancia molt_coneguda)
 	(Nom "Los Angeles"))
@@ -115,7 +115,7 @@
 	(Importancia molt_coneguda)
 	(Nom "Londres"))
 
-([IA-Practica2_Class10030] of  Nort
+([IA-Practica2_Class10030] of  Nord
 
 	(Importancia molt_coneguda)
 	(Nom "Nueva York"))
@@ -135,7 +135,7 @@
 	(Importancia coneguda)
 	(Nom "Shanghai"))
 
-([IA-Practica2_Class10034] of  Nort
+([IA-Practica2_Class10034] of  Nord
 
 	(Importancia coneguda)
 	(Nom "Chicago"))
@@ -190,7 +190,7 @@
 	(Importancia molt_coneguda)
 	(Nom "Venecia"))
 
-([IA-Practica2_Class10047] of  Nort
+([IA-Practica2_Class10047] of  Nord
 
 	(Importancia molt_coneguda)
 	(Nom "Cancun"))
@@ -200,7 +200,7 @@
 	(Importancia molt_coneguda)
 	(Nom "Dubai"))
 
-([IA-Practica2_Class10049] of  Nort
+([IA-Practica2_Class10049] of  Nord
 
 	(Importancia molt_coneguda)
 	(Nom "Las Vegas"))
@@ -210,7 +210,7 @@
 	(Importancia molt_coneguda)
 	(Nom "Praga"))
 
-([IA-Practica2_Class10051] of  Nort
+([IA-Practica2_Class10051] of  Nord
 
 	(Importancia molt_coneguda)
 	(Nom "Miami"))
@@ -220,7 +220,7 @@
 	(Importancia molt_coneguda)
 	(Nom "Moscu"))
 
-([IA-Practica2_Class10053] of  Nort
+([IA-Practica2_Class10053] of  Nord
 
 	(Importancia coneguda)
 	(Nom "San Francisco"))
@@ -230,7 +230,7 @@
 	(Importancia coneguda)
 	(Nom "Milan"))
 
-([IA-Practica2_Class10055] of  Nort
+([IA-Practica2_Class10055] of  Nord
 
 	(Importancia coneguda)
 	(Nom "Orlando"))

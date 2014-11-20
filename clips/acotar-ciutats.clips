@@ -22,7 +22,7 @@
 )
 
 (deftemplate tipus_activitats "Arquetip d'activitat"
-	(slot tipus)
+	(slot tipus) ; @TODO canviar això per una llista -setzer22
 )
 ;;
 ;;		Inicialitzacions

@@ -1,4 +1,4 @@
-; Thu Nov 20 16:33:08 CET 2014
+; Thu Nov 20 16:50:49 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -20,9 +20,8 @@
 		(type STRING)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot hotel
-		(type INSTANCE)
-;+		(allowed-classes Allotjament)
+	(single-slot preu-total
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot ciutat
@@ -38,13 +37,14 @@
 		(type INSTANCE)
 ;+		(allowed-classes Activitat)
 		(create-accessor read-write))
-	(single-slot dies
-		(type INTEGER)
+	(single-slot allotjament
+		(type INSTANCE)
+;+		(allowed-classes Allotjament)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot estancies
-		(type INSTANCE)
-;+		(allowed-classes Total_viatge)
+	(single-slot duracio
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot transport
 		(type SYMBOL)
@@ -55,6 +55,10 @@
 		(type INSTANCE)
 ;+		(allowed-classes Ciutat)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot ciutats
+		(type INSTANCE)
+;+		(allowed-classes Solucio-P)
 		(create-accessor read-write))
 	(multislot viatges
 		(type INSTANCE)
@@ -80,6 +84,10 @@
 	(single-slot preu-activitat
 		(type INTEGER)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot duracio-total
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot Activitats
 		(type INSTANCE)
@@ -213,7 +221,7 @@
 	(is-a Ciutat)
 	(role concrete))
 
-(defclass Nort
+(defclass Nord
 	(is-a America)
 	(role concrete))
 
@@ -280,14 +288,18 @@
 	(is-a %3AUNDEFINED)
 	(role concrete))
 
-(defclass Total_viatge
+(defclass Solucio-P
 	(is-a USER)
 	(role concrete)
 	(single-slot preu
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot hotel
+	(single-slot duracio
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allotjament
 		(type INSTANCE)
 ;+		(allowed-classes Allotjament)
 ;+		(cardinality 0 1)
@@ -300,24 +312,24 @@
 	(multislot activitats
 		(type INSTANCE)
 ;+		(allowed-classes Activitat)
-		(create-accessor read-write))
-	(single-slot dies
-		(type INTEGER)
-;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass Solucio
+(defclass Solucio-F
 	(is-a USER)
 	(role concrete)
+	(single-slot duracio-total
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot ciutats
+		(type INSTANCE)
+;+		(allowed-classes Solucio-P)
+		(create-accessor read-write))
 	(multislot viatges
 		(type INSTANCE)
 ;+		(allowed-classes Viatge)
 		(create-accessor read-write))
-	(single-slot IA-Practica2_Class0
-		(type STRING)
+	(single-slot preu-total
+		(type INTEGER)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot estancies
-		(type INSTANCE)
-;+		(allowed-classes Total_viatge)
 		(create-accessor read-write)))
