@@ -315,6 +315,7 @@
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
 
+(definstances ontologia
 ([IA-Practica2_Class10001] of  Central
 
 	(Activitats [IA-Practica2_Class10003])
@@ -608,3 +609,4 @@
 
 	(nom-allotjament "Juan Carlos I")
 	(preu-allotjament 160))
+)
