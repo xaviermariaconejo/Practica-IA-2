@@ -22,7 +22,7 @@
 )
 
 (deftemplate tipus_activitats "Arquetip d'activitat"
-	(slot tipus) ; @TODO canviar això per una llista -setzer22
+	(multislot tipus) ; @TODO canviar això per una llista -setzer22
 )
 ;;
 ;;		Inicialitzacions
@@ -44,9 +44,8 @@
 
 (defrule determinar-tipus-ciutat-institut "Tipus de viatge cultural institut o grup organitzat"
     (tipus_viatge(tipus cultural))
-    (or(tipus_client(tipus institut))(tipus_client(tipus grup_organitzat)))
+    (or(tipus_client(tipus institut)) (tipus_client (tipus grup_organitzat)))
 	?c <-(tipus_ciutats(tipus indefinit))
-    ?p <-(tipus_activitats(tipus indefinit))
 =>
 	(modify ?c (tipus molt_coneguda))
 )
@@ -55,19 +54,93 @@
     (tipus_viatge(tipus cultural))
     (not(or(tipus_client(tipus institut)) (tipus_client (tipus grup_organitzat))))
 	?c <-(tipus_ciutats(tipus indefinit))
-    ?p <-(tipus_activitats(tipus indefinit))
+    (llocs_exotics (valor ?e))
 =>
-    (if (si-o-no-p "Ciutats molt conegudes?") then 
-				(modify ?c (tipus molt_coneguda))
+    (if (eq ?e TRUE) then 
+			(modify ?c (tipus coneguda))
+			 else (modify ?c (tipus molt_coneguda)))
+    
+)
+
+(defrule determinar-tipus-ciutat-diversio "Tipus de viatge diversio"
+    (tipus_viatge(tipus diversio))
+	?c <-(tipus_ciutats(tipus indefinit))
+    (llocs_exotics (valor ?e))
+=>
+    (if (eq ?e TRUE) then 
+			(modify ?c (tipus coneguda))
+			 else (modify ?c (tipus molt_coneguda)))
+    
+)
+
+(defrule determinar-tipus-ciutat-negocis "Tipus de viatge negocis"
+    (tipus_viatge(tipus negocis))
+	?c <-(tipus_ciutats(tipus indefinit))
+    (llocs_exotics (valor ?e))
+=>
+    (if (eq ?e TRUE) then 
+			(modify ?c (tipus desconeguda))
+			 else (modify ?c (tipus molt_coneguda)))
+    
+)
+
+(defrule determinar-tipus-ciutat-romantic "Tipus de viatge romantic"
+    (tipus_viatge(tipus romantic))
+	?c <-(tipus_ciutats(tipus indefinit))
+    (llocs_exotics (valor ?e))
+=>
+    (if(eq ?e TRUE) then 
+			(modify ?c (tipus desconeguda))
+			 else (modify ?c (tipus molt_coneguda)))
+    
+)
+
+(defrule determinar-tipus-ciutat-relax "Tipus de viatge relax"
+    (tipus_viatge(tipus relax))
+    (or(tipus_client(tipus parella)) (tipus_client (tipus individual)))
+	?c <-(tipus_ciutats(tipus indefinit))
+    (llocs_exotics (valor ?e))
+=>
+    (if (eq ?e TRUE) then 
+			(modify ?c (tipus desconeguda))
+			 else (modify ?c (tipus molt_coneguda)))
+    
+)
+
+(defrule determinar-tipus-ciutat-relax-dif "Tipus de viatge relax"
+    (tipus_viatge(tipus relax))
+    (not(or(tipus_client(tipus parella)) (tipus_client (tipus individual))))
+	?c <-(tipus_ciutats(tipus indefinit))
+    (llocs_exotics (valor ?e))
+=>
+    (if (eq ?e TRUE) then 
+			(modify ?c (tipus coneguda))
+			 else (modify ?c (tipus molt_coneguda)))
+    
+)
+
+(defrule determinar-tipus-ciutat-aventura "Tipus de viatge aventura"
+    (tipus_viatge(tipus aventura))
+	?c <-(tipus_ciutats(tipus indefinit))
+    (llocs_exotics (valor ?e))
+=>
+    (if (eq ?e TRUE) then 
+			(modify ?c (tipus desconeguda))
 			 else (modify ?c (tipus coneguda)))
     
 )
 
+
+
+
 (defrule tipus-ciutat-desconeguda "Viatge a citutata desconeguda"
+    (declare (salience -1))    
     ?c <- (tipus_ciutats(tipus indefinit))
-    (llocs_exotics(valor si))
+    (llocs_exotics(valor ?p))  
 =>
+    (if (eq ?p TRUE) then 
     (modify ?c (tipus desconeguda))
+    else (modify ?c (tipus molt_coneguda)))
 )
 
  
