@@ -43,7 +43,7 @@
 
 
 (defrule determinar-tipus-ciutat-institut "Tipus de viatge cultural institut o grup organitzat"
-    (tipus_viatge(tipus cultural))
+    (tipus_viatge(tipus Cultural))
     (or(tipus_client(tipus institut)) (tipus_client (tipus grup_organitzat)))
 	?c <-(tipus_ciutats(tipus indefinit))
 =>
@@ -51,7 +51,7 @@
 )
 
 (defrule determinar-tipus-ciutat-cultural "Tipus de viatge cultural"
-    (tipus_viatge(tipus cultural))
+    (tipus_viatge(tipus Cultural))
     (not(or(tipus_client(tipus institut)) (tipus_client (tipus grup_organitzat))))
 	?c <-(tipus_ciutats(tipus indefinit))
     (llocs_exotics (valor ?e))
@@ -63,7 +63,7 @@
 )
 
 (defrule determinar-tipus-ciutat-diversio "Tipus de viatge diversio"
-    (tipus_viatge(tipus diversio))
+    (tipus_viatge(tipus Diversio))
 	?c <-(tipus_ciutats(tipus indefinit))
     (llocs_exotics (valor ?e))
 =>
@@ -74,7 +74,7 @@
 )
 
 (defrule determinar-tipus-ciutat-negocis "Tipus de viatge negocis"
-    (tipus_viatge(tipus negocis))
+    (tipus_viatge(tipus Negoci))
 	?c <-(tipus_ciutats(tipus indefinit))
     (llocs_exotics (valor ?e))
 =>
@@ -85,7 +85,7 @@
 )
 
 (defrule determinar-tipus-ciutat-romantic "Tipus de viatge romantic"
-    (tipus_viatge(tipus romantic))
+    (tipus_viatge(tipus Romantic))
 	?c <-(tipus_ciutats(tipus indefinit))
     (llocs_exotics (valor ?e))
 =>
@@ -96,7 +96,7 @@
 )
 
 (defrule determinar-tipus-ciutat-relax "Tipus de viatge relax"
-    (tipus_viatge(tipus relax))
+    (tipus_viatge(tipus Relax))
     (or(tipus_client(tipus parella)) (tipus_client (tipus individual)))
 	?c <-(tipus_ciutats(tipus indefinit))
     (llocs_exotics (valor ?e))
@@ -108,7 +108,7 @@
 )
 
 (defrule determinar-tipus-ciutat-relax-dif "Tipus de viatge relax"
-    (tipus_viatge(tipus relax))
+    (tipus_viatge(tipus Relax))
     (not(or(tipus_client(tipus parella)) (tipus_client (tipus individual))))
 	?c <-(tipus_ciutats(tipus indefinit))
     (llocs_exotics (valor ?e))
@@ -120,7 +120,7 @@
 )
 
 (defrule determinar-tipus-ciutat-aventura "Tipus de viatge aventura"
-    (tipus_viatge(tipus aventura))
+    (tipus_viatge(tipus Aventura))
 	?c <-(tipus_ciutats(tipus indefinit))
     (llocs_exotics (valor ?e))
 =>
