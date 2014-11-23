@@ -68,7 +68,7 @@
 			(modify ?e (edat adult) )
 	else (if (si-o-no-p "Viatja per negocis?")
 		then
-			(modify ?v (tipus negocis))
+			(modify ?v (tipus Negoci))
 			(modify ?c (tipus coworkers))
 			(modify ?e (edat adult) )
 	))
@@ -154,13 +154,13 @@
 	(tipus_client (tipus institut))
 	?v<-(tipus_viatge (tipus indefinit))
 =>
-	(bind ?response (ask-question "L'objectiu del viatge és d'aprenentatge o de diversio? Respon: {cultural, diversio, cap_dels_dos}" 
-		cultural diversio cap_dels_dos))
+	(bind ?response (ask-question "L'objectiu del viatge és d'aprenentatge o de diversio? Respon: {Cultural, Diversio, cap_dels_dos}" 
+		Cultural Diversio cap_dels_dos))
 	(if (neq ?response cap_dels_dos) 
 		then (modify ?v (tipus ?response))
 	; Una altra preferencia menys comú son els viatges d'aventura
 	else (if (si-o-no-p "Preferiu un viatge d'aventura?")
-		then (modify ?v (tipus aventura))
+		then (modify ?v (tipus Aventura))
 		else (assert (obj_no_def)))
 	)
 )
@@ -171,9 +171,9 @@
 =>
 	(if (si-o-no-p "Li agradaria un viatge romàntic?")
 		then
-		(modify ?v (tipus romantic))
+		(modify ?v (tipus Romantic))
 		else 
-		(modify ?v (tipus relax))
+		(modify ?v (tipus Relax))
 	)
 )
 
@@ -181,7 +181,7 @@
 	(tipus_client (tipus coworkers))
 	?v <- (tipus_viatge (tipus indefinit))
 =>
-	(modify ?v (tipus empresa))
+	(modify ?v (tipus Negoci))
 )
 
 (defrule grup_amics "Els grups joves busquen aventura o diversio"
@@ -190,8 +190,8 @@
 	?v <- (tipus_viatge (tipus indefinit))
 =>
 	(if (si-o-no-p "Us agradaria visitar parcs tematics?") then
-		(modify ?v (tipus diversio))
-	 else (modify ?v (tipus aventura)))
+		(modify ?v (tipus Diversio))
+	 else (modify ?v (tipus Aventura)))
 )
 
 
@@ -200,14 +200,14 @@
 	(edat_client (edat jubilats))
 	?v <- (tipus_viatge (tipus indefinit))
 =>
-	(modify ?v (tipus relax))
+	(modify ?v (tipus Relax))
 )
 
 (defrule grups_organitzats "Un grup organitzat sol tenir una temàtica molt concreta en ment"
 	(tipus_client (tipus grup_organitzat))
 	?v <- (tipus_viatge (tipus indefinit))
 =>
-	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu? (aventura, diversio, relax)" aventura diversio relax))
+	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu? (Aventura, Diversio, Relax)" aventura diversio relax))
 	(modify ?v (tipus ?response))
 )
 

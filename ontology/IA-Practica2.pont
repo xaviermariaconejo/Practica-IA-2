@@ -1,4 +1,4 @@
-; Thu Nov 20 16:50:49 CET 2014
+; Sun Nov 23 22:42:09 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -7,43 +7,13 @@
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
 	(role abstract)
-	(single-slot origen
+	(single-slot desti
 		(type INSTANCE)
 ;+		(allowed-classes Ciutat)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot nom-allotjament
+	(single-slot nom-activitat
 		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Nom
-		(type STRING)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot preu-total
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot ciutat
-		(type INSTANCE)
-;+		(allowed-classes Ciutat)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot Allotjaments
-		(type INSTANCE)
-;+		(allowed-classes Allotjament)
-		(create-accessor read-write))
-	(multislot activitats
-		(type INSTANCE)
-;+		(allowed-classes Activitat)
-		(create-accessor read-write))
-	(single-slot allotjament
-		(type INSTANCE)
-;+		(allowed-classes Allotjament)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot duracio
-		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot transport
@@ -51,21 +21,61 @@
 		(allowed-values avio tren autobus vaixell)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot desti
+	(multislot Allotjaments
+		(type INSTANCE)
+;+		(allowed-classes Allotjament)
+		(create-accessor read-write))
+	(single-slot preu-total
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot preu-activitat
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot origen
 		(type INSTANCE)
 ;+		(allowed-classes Ciutat)
 ;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(multislot ciutats
-		(type INSTANCE)
-;+		(allowed-classes Solucio-P)
 		(create-accessor read-write))
 	(multislot viatges
 		(type INSTANCE)
 ;+		(allowed-classes Viatge)
 		(create-accessor read-write))
+	(single-slot ciutat
+		(type INSTANCE)
+;+		(allowed-classes Ciutat)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Nom
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot preu-viatge
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot nom-allotjament
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot IA-Practica2_Class1
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Importancia
+		(type SYMBOL)
+		(allowed-values molt_coneguda coneguda poc_coneguda)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot durada-activitat
+		(type SYMBOL)
+		(allowed-values mig-dia un-dia)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot allotjament
+		(type INSTANCE)
+;+		(allowed-classes Allotjament)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot IA-Practica2_Class0
@@ -76,38 +86,28 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Importancia
-		(type SYMBOL)
-		(allowed-values molt_coneguda coneguda poc_coneguda)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot preu-activitat
-		(type INTEGER)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot duracio-total
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot Activitats
 		(type INSTANCE)
 ;+		(allowed-classes Activitat)
-		(create-accessor read-write))
-	(single-slot preu-viatge
-		(type INTEGER)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot durada-activitat
-		(type SYMBOL)
-		(allowed-values mig-dia un-dia)
-;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot preu-allotjament
 		(type INTEGER)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot nom-activitat
-		(type STRING)
+	(single-slot duracio
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot ciutats
+		(type INSTANCE)
+;+		(allowed-classes Solucio-P)
+		(create-accessor read-write))
+	(multislot activitats
+		(type INSTANCE)
+;+		(allowed-classes Activitat)
+		(create-accessor read-write))
+	(single-slot duracio-total
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -118,17 +118,17 @@
 		(type INTEGER)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot nom-activitat
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot durada-activitat
 		(type SYMBOL)
 		(allowed-values mig-dia un-dia)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot nom-activitat
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass Romantiques
+(defclass Romantic
 	(is-a Activitat)
 	(role concrete))
 
@@ -140,11 +140,15 @@
 	(is-a Activitat)
 	(role concrete))
 
-(defclass Culturals
+(defclass Cultural
 	(is-a Activitat)
 	(role concrete))
 
 (defclass Relax
+	(is-a Activitat)
+	(role concrete))
+
+(defclass Negoci
 	(is-a Activitat)
 	(role concrete))
 
@@ -183,10 +187,6 @@
 (defclass Ciutat
 	(is-a USER)
 	(role concrete)
-	(multislot Activitats
-		(type INSTANCE)
-;+		(allowed-classes Activitat)
-		(create-accessor read-write))
 	(single-slot Importancia
 		(type SYMBOL)
 		(allowed-values molt_coneguda coneguda poc_coneguda)
@@ -199,6 +199,10 @@
 	(single-slot Nom
 		(type STRING)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot Activitats
+		(type INSTANCE)
+;+		(allowed-classes Activitat)
 		(create-accessor read-write)))
 
 (defclass Europa
@@ -260,15 +264,6 @@
 (defclass Viatge
 	(is-a USER)
 	(role concrete)
-	(single-slot origen
-		(type INSTANCE)
-;+		(allowed-classes Ciutat)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot preu-viatge
-		(type INTEGER)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot transport
 		(type SYMBOL)
 		(allowed-values avio tren autobus vaixell)
@@ -277,6 +272,15 @@
 	(single-slot desti
 		(type INSTANCE)
 ;+		(allowed-classes Ciutat)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot origen
+		(type INSTANCE)
+;+		(allowed-classes Ciutat)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot preu-viatge
+		(type INTEGER)
 ;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
@@ -291,6 +295,11 @@
 (defclass Solucio-P
 	(is-a USER)
 	(role concrete)
+	(single-slot allotjament
+		(type INSTANCE)
+;+		(allowed-classes Allotjament)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot preu
 		(type INTEGER)
 ;+		(cardinality 0 1)
@@ -299,25 +308,24 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot allotjament
+	(multislot activitats
 		(type INSTANCE)
-;+		(allowed-classes Allotjament)
-;+		(cardinality 0 1)
+;+		(allowed-classes Activitat)
 		(create-accessor read-write))
 	(single-slot ciutat
 		(type INSTANCE)
 ;+		(allowed-classes Ciutat)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot activitats
-		(type INSTANCE)
-;+		(allowed-classes Activitat)
 		(create-accessor read-write)))
 
 (defclass Solucio-F
 	(is-a USER)
 	(role concrete)
-	(single-slot duracio-total
+	(multislot viatges
+		(type INSTANCE)
+;+		(allowed-classes Viatge)
+		(create-accessor read-write))
+	(single-slot preu-total
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -325,11 +333,7 @@
 		(type INSTANCE)
 ;+		(allowed-classes Solucio-P)
 		(create-accessor read-write))
-	(multislot viatges
-		(type INSTANCE)
-;+		(allowed-classes Viatge)
-		(create-accessor read-write))
-	(single-slot preu-total
+	(single-slot duracio-total
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
