@@ -29,7 +29,9 @@
 	(bind ?i 1)
 	(while (and (<= ?i (length ?li)) (not ?b))
 		do
-		(bind ?b (eq (send (nth$ ?i ?li) ?sl) ?a))
+		(if (eq (send (nth$ ?i ?li) ?sl) ?a) then
+			(bind ?b TRUE)
+		)
 		(bind ?i (+ ?i 1))
 	)
 	(return ?b)
