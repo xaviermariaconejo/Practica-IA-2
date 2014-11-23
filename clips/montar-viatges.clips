@@ -287,7 +287,7 @@
 		)
 		(bind ?c (send ?x get-viatges))
 		(loop-for-count (?i 1 (length ?c))
-			(bind ?aux (nth$ ?i ?c))
+			(bind ?pc (nth$ ?i ?c))
 			(modify ?aux1 (+ ?aux1 (send ?pc get-preu-viatge)))
 		)
 		(send ?x put-preu-total ?aux1)
