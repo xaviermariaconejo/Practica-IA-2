@@ -24,12 +24,12 @@
 
 ;;		Funcions
 
-(deffunction comprovar-activitats (?li ?sl ?a)
+(deffunction comprovar-activitats (?li ?a)
 	(bind ?b FALSE)
 	(bind ?i 1)
 	(while (and (<= ?i (length ?li)) (not ?b))
 		do
-		(if (eq (send (nth$ ?i ?li) ?sl) ?a) then
+		(if (eq (class (nth$ ?i ?li)) ?a) then
 			(bind ?b TRUE)
 		)
 		(bind ?i (+ ?i 1))
@@ -209,7 +209,7 @@
 	(num_dies(dies_min ?num_dies_min))
 	=>
 		(bind ?c (find-all-instances ((?a Ciutat))
-		(and (eq ?a:Importancia ?tc) (comprovar-activitats ?a:Activitats get-nom-activitat ?ta))))
+		(and (eq ?a:Importancia ?tc) (comprovar-activitats ?a:Activitats ?ta))))
 		(bind ?r (triar-ciutats ?c ?num_ciutats_min))
 		(loop-for-count (?i 1 (length ?r))
 			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch ?ip))
