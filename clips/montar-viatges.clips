@@ -22,115 +22,6 @@
 )
 
 
-;;		Regles
-
-(defrule determinar-ciutat "Determinar les ciutats del viatge"
-	(declare (salience 20))
-	?x <- (object (is-a Solucio-F))
-	(tipus_ciutats (tipus ?tc))
-	(tipus_activitats (tipus ?ta))
-	(cualitat_hotels (tipus ?ch))
-	(importa_preu ?ip)
-	=>
-		(bind ?c (find-all-instances ((?a Ciutat))
-		(eq (str-cat (?a:Importancia)) ?tc) (comprobar-activitats ?a:activitats get-nom-activitat ?ta)))
-		(bind ?r (triar-ciutats ?c get-nom (num_ciutats(min))))
-		(loop-for-count (?i 1 (length ?r))
-			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch ?ip))
-   			(make-instance [aux] of Solucio-P
-   			(ciutat (nth$ ?i ?r)) (duracio (/ (num_dies(dies_min)) num_ciutats(min)))
-   			(activitats ?ta) (allotjament ?h) (preu (calcular-preu ?ta ?h)))
-   			(slot-insert$ ?x ciutats ?i aux)
-		)
-)
-
-(defrule determinar-viatge "Determina els viatges entre les ciutats"
-	(declare (salience 10))
-	?x <- (object (is-a Solucio-F))
-	(cualitat_hotels (tipus ?ch))
-	(importa_preu ?ip)
-	=>
-		(bind ?c (send ?x get-ciutats))
-		(if (eq ?ip no) then
-			(bind ?v (find-all-instances ((?aux Viatge)) (eq ?aux:origen Origen) (eq ?aux:desti (nth$ 1 ?c))))
-			(slot-insert$ ?x viatges 1 (viatge-alta(?v)))
-			(loop-for-count (?i 2 (+ (length ?c) -1))
-				(bind ?o (nth$ (+ ?i -1) ?c))
-				(bind ?d (nth$ ?i ?c))
-				(bind ?v (find-all-instances ((?aux Viatge)) (eq ?aux:origen ?o) (eq ?aux:desti ?d)))
-				(slot-insert$ ?x viatges ?i (viatge-alta(?v)))
-			)
-			(bind ?v (find-all-instances ((?aux Viatge)) 
-			(eq ?aux:origen (nth$ (length ?c) ?c)) (eq ?aux:desti Origen)))
-			(slot-insert$ ?x viatges (length ?c) (viatge-alta(?v)))
-		else
-			(switch ?ch
-				(case alta then
-					(bind ?v (find-all-instances ((?aux Viatge)) (eq ?aux:origen Origen) (eq ?aux:desti (nth$ 1 ?c))))
-					(slot-insert$ ?x viatges 1 (viatge-alta(?v)))
-					(loop-for-count (?i 2 (+ (length ?c) -1))
-						(bind ?o (nth$ (+ ?i -1) ?c))
-						(bind ?d (nth$ ?i ?c))
-						(bind ?v (find-all-instances ((?aux Viatge)) (eq ?aux:origen ?o) (eq ?aux:desti ?d)))
-						(slot-insert$ ?x viatges ?i (viatge-alta(?v)))
-					)
-					(bind ?v (find-all-instances ((?aux Viatge)) 
-					(eq ?aux:origen (nth$ (length ?c) ?c)) (eq ?aux:desti Origen)))
-					(slot-insert$ ?x viatges (length ?c) (viatge-alta(?v)))
-				)
-				(default
-					(bind ?v (find-all-instances ((?aux Viatge)) (eq ?aux:origen Origen) (eq ?aux:desti (nth$ 1 ?c))))
-					(slot-insert$ ?x viatges 1 (viatge-baixa(?v)))
-					(loop-for-count (?i 2 (+ (length ?c) -1))
-						(bind ?o (nth$ (+ ?i -1) ?c))
-						(bind ?d (nth$ ?i ?c))
-						(bind ?v (find-all-instances ((?aux Viatge)) (eq ?aux:origen ?o) (eq ?aux:desti ?d)))
-						(slot-insert$ ?x viatges ?i (viatge-baixa(?v)))
-					)
-					(bind ?v (find-all-instances ((?aux Viatge)) 
-					(eq ?aux:origen (nth$ (length ?c) ?c)) (eq ?aux:desti Origen)))
-					(slot-insert$ ?x viatges (length ?c) (viatge-baixa(?v)))
-				)
-			)
-		)
-)
-
-(defrule determinar-preu-duracio "Determina el preu i la duracio total"
-	(declare (salience 0))
-	?x <- (object (is-a Solucio-F))
-	=>
-		(bind ?c (send ?x get-ciutats))
-		(bind ?aux1 0)
-		(bind ?aux2 0)
-		(loop-for-count (?i 1 (length ?c))
-			(bind ?pc (nth$ ?i ?c))
-			(modify ?aux1 (+ ?aux1 (send ?pc get-preu)))
-			(modify ?aux2 (+ ?aux2 (send ?pc get-duracio)))
-		)
-		(bind ?c (send ?x get-viatges))
-		(loop-for-count (?i 1 (length ?c))
-			(bind ?aux (nth$ ?i ?c))
-			(modify ?aux1 (+ ?aux1 (send ?pc get-preu-viatge)))
-		)
-		(send ?x put-preu-total ?aux1)
-		(send ?x put-duracio-total ?aux2)
-)
-
-(deffunction escriure-solucio (?x)
-	(printout t ?x crlf crlf)
-	(send ?x imprimeix)
-	(printout t crlf)
-	(halt)
-)
-
-(defrule resultado-consejo "Regla salida de consejo"
-	(declare (salience -10))
-	?x <- (object (is-a Solucio-F))
-	=>
-		(escriure-solucio ?x)
-)
-
-
 ;;		Funcions
 
 (deffunction comprovar-activitats (?li ?sl ?a)
@@ -239,6 +130,13 @@
 	)
 )
 
+(deffunction escriure-solucio (?x)
+	(printout t ?x crlf crlf)
+	(send ?x imprimeix)
+	(printout t crlf)
+	(halt)
+)
+
 (deffunction imprimeix-ciutats (?c)
 	(loop-for-count (?i 1 (length ?c))
 		(send (nth$ ?i ?c) print)
@@ -294,8 +192,114 @@
 ;		(printout t ", ")
 ;   )
 ;)
-;
-;
+
+
+;;		Regles
+
+(defrule determinar-ciutat "Determinar les ciutats del viatge"
+	(declare (salience 20))
+	?x <- (object (is-a Solucio-F))
+	(tipus_ciutats (tipus ?tc))
+	(tipus_activitats (tipus ?ta))
+	(cualitat_hotels (tipus ?ch))
+	(importa_preu ?ip)
+	(num_ciutats(min ?num_ciutats_min))
+	(num_dies(dies_min ?num_dies_min))
+	=>
+		(bind ?c (find-all-instances ((?a Ciutat))
+		(and (eq ?a:Importancia ?tc) (comprovar-activitats ?a:activitats get-nom-activitat ?ta))))
+		(bind ?r (triar-ciutats ?c ?num_ciutats_min))
+		(loop-for-count (?i 1 (length ?r))
+			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch ?ip))
+   			(make-instance [aux] of Solucio-P
+   			(ciutat (nth$ ?i ?r)) (duracio (/ ?num_dies_min ?num_ciutats_min))
+   			(activitats ?ta) (allotjament ?h) (preu (calcular-preu ?ta ?h)))
+   			(slot-insert$ ?x ciutats ?i aux)
+		)
+)
+
+(defrule determinar-viatge "Determina els viatges entre les ciutats"
+	(declare (salience 10))
+	?x <- (object (is-a Solucio-F))
+	(cualitat_hotels (tipus ?ch))
+	(importa_preu ?ip)
+	=>
+		(bind ?c (send ?x get-ciutats))
+		(if (eq ?ip no) then
+			(bind ?v (find-all-instances ((?aux Viatge)) (and (eq ?aux:origen Origen) (eq ?aux:desti (nth$ 1 ?c)))))
+			(slot-insert$ ?x viatges 1 (viatge-alta ?v))
+			(loop-for-count (?i 2 (+ (length ?c) -1))
+				(bind ?o (nth$ (+ ?i -1) ?c))
+				(bind ?d (nth$ ?i ?c))
+				(bind ?v (find-all-instances ((?aux Viatge)) (and (eq ?aux:origen ?o) (eq ?aux:desti ?d))))
+				(slot-insert$ ?x viatges ?i (viatge-alta ?v))
+			)
+			(bind ?v (find-all-instances ((?aux Viatge)) 
+			(and (eq ?aux:origen (nth$ (length ?c) ?c)) (eq ?aux:desti Origen))))
+			(slot-insert$ ?x viatges (length ?c) (viatge-alta ?v))
+		else
+			(switch ?ch
+				(case alta then
+					(bind ?v (find-all-instances ((?aux Viatge)) 
+					(and (eq ?aux:origen Origen) (eq ?aux:desti (nth$ 1 ?c)))))
+					(slot-insert$ ?x viatges 1 (viatge-alta ?v))
+					(loop-for-count (?i 2 (+ (length ?c) -1))
+						(bind ?o (nth$ (+ ?i -1) ?c))
+						(bind ?d (nth$ ?i ?c))
+						(bind ?v (find-all-instances ((?aux Viatge)) (and (eq ?aux:origen ?o) (eq ?aux:desti ?d))))
+						(slot-insert$ ?x viatges ?i (viatge-alta ?v))
+					)
+					(bind ?v (find-all-instances ((?aux Viatge)) 
+					(and (eq ?aux:origen (nth$ (length ?c) ?c)) (eq ?aux:desti Origen))))
+					(slot-insert$ ?x viatges (length ?c) (viatge-alta ?v))
+				)
+				(default
+					(bind ?v (find-all-instances ((?aux Viatge)) 
+					(and (eq ?aux:origen Origen) (eq ?aux:desti (nth$ 1 ?c)))))
+					(slot-insert$ ?x viatges 1 (viatge-baixa ?v))
+					(loop-for-count (?i 2 (+ (length ?c) -1))
+						(bind ?o (nth$ (+ ?i -1) ?c))
+						(bind ?d (nth$ ?i ?c))
+						(bind ?v (find-all-instances ((?aux Viatge)) (and (eq ?aux:origen ?o) (eq ?aux:desti ?d))))
+						(slot-insert$ ?x viatges ?i (viatge-baixa ?v))
+					)
+					(bind ?v (find-all-instances ((?aux Viatge)) 
+					(and (eq ?aux:origen (nth$ (length ?c) ?c)) (eq ?aux:desti Origen))))
+					(slot-insert$ ?x viatges (length ?c) (viatge-baixa ?v))
+				)
+			)
+		)
+)
+
+(defrule determinar-preu-duracio "Determina el preu i la duracio total"
+	(declare (salience 0))
+	?x <- (object (is-a Solucio-F))
+	=>
+		(bind ?c (send ?x get-ciutats))
+		(bind ?aux1 0)
+		(bind ?aux2 0)
+		(loop-for-count (?i 1 (length ?c))
+			(bind ?pc (nth$ ?i ?c))
+			(modify ?aux1 (+ ?aux1 (send ?pc get-preu)))
+			(modify ?aux2 (+ ?aux2 (send ?pc get-duracio)))
+		)
+		(bind ?c (send ?x get-viatges))
+		(loop-for-count (?i 1 (length ?c))
+			(bind ?aux (nth$ ?i ?c))
+			(modify ?aux1 (+ ?aux1 (send ?pc get-preu-viatge)))
+		)
+		(send ?x put-preu-total ?aux1)
+		(send ?x put-duracio-total ?aux2)
+)
+
+(defrule resultado-consejo "Regla salida de consejo"
+	(declare (salience -10))
+	?x <- (object (is-a Solucio-F))
+	=>
+		(escriure-solucio ?x)
+)
+
+
 ;;		Handlers
 
 (defmessage-handler Solucio-F imprimeix primary ()
