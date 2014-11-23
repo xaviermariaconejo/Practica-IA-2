@@ -30,12 +30,13 @@
 	(tipus_ciutats (tipus ?tc))
 	(tipus_activitats (tipus ?ta))
 	(cualitat_hotels (tipus ?ch))
+	(importa_preu ?ip)
 	=>
 		(bind ?c (find-all-instances ((?a Ciutat))
-		(eq ?a:Importancia ?tc) (comprobar-activitats ?a:activitats get-nom-activitat ?ta)))
+		(eq (str-cat (?a:Importancia)) ?tc) (comprobar-activitats ?a:activitats get-nom-activitat ?ta)))
 		(bind ?r (triar-ciutats ?c get-nom (num_ciutats(min))))
 		(loop-for-count (?i 1 (length ?r))
-			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch))
+			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch ?ip))
    			(make-instance [aux] of Solucio-P
    			(ciutat (nth$ ?i ?r)) (duracio (/ (num_dies(dies_min)) num_ciutats(min)))
    			(activitats ?ta) (allotjament ?h) (preu (calcular-preu ?ta ?h)))
@@ -47,12 +48,13 @@
 	(declare (salience 10))
 	?x <- (object (is-a Solucio-F))
 	(cualitat_hotels (tipus ?ch))
+	(importa_preu ?ip)
 	=>
 		(bind ?c (send ?x get-ciutats))
-		(if (importa_preu no) then
+		(if (eq ?ip no) then
 			(bind ?v (find-all-instances ((?aux Viatge)) (eq ?aux:origen Origen) (eq ?aux:desti (nth$ 1 ?c))))
 			(slot-insert$ ?x viatges 1 (viatge-alta(?v)))
-			(loop-for-count (?i 2 (+ (lenght ?c) -1))
+			(loop-for-count (?i 2 (+ (length ?c) -1))
 				(bind ?o (nth$ (+ ?i -1) ?c))
 				(bind ?d (nth$ ?i ?c))
 				(bind ?v (find-all-instances ((?aux Viatge)) (eq ?aux:origen ?o) (eq ?aux:desti ?d)))
@@ -66,7 +68,7 @@
 				(case alta then
 					(bind ?v (find-all-instances ((?aux Viatge)) (eq ?aux:origen Origen) (eq ?aux:desti (nth$ 1 ?c))))
 					(slot-insert$ ?x viatges 1 (viatge-alta(?v)))
-					(loop-for-count (?i 2 (+ (lenght ?c) -1))
+					(loop-for-count (?i 2 (+ (length ?c) -1))
 						(bind ?o (nth$ (+ ?i -1) ?c))
 						(bind ?d (nth$ ?i ?c))
 						(bind ?v (find-all-instances ((?aux Viatge)) (eq ?aux:origen ?o) (eq ?aux:desti ?d)))
@@ -79,7 +81,7 @@
 				(default
 					(bind ?v (find-all-instances ((?aux Viatge)) (eq ?aux:origen Origen) (eq ?aux:desti (nth$ 1 ?c))))
 					(slot-insert$ ?x viatges 1 (viatge-baixa(?v)))
-					(loop-for-count (?i 2 (+ (lenght ?c) -1))
+					(loop-for-count (?i 2 (+ (length ?c) -1))
 						(bind ?o (nth$ (+ ?i -1) ?c))
 						(bind ?d (nth$ ?i ?c))
 						(bind ?v (find-all-instances ((?aux Viatge)) (eq ?aux:origen ?o) (eq ?aux:desti ?d)))
@@ -100,13 +102,13 @@
 		(bind ?c (send ?x get-ciutats))
 		(bind ?aux1 0)
 		(bind ?aux2 0)
-		(loop-for-count (?i 1 (lenght ?c))
+		(loop-for-count (?i 1 (length ?c))
 			(bind ?pc (nth$ ?i ?c))
 			(modify ?aux1 (+ ?aux1 (send ?pc get-preu)))
 			(modify ?aux2 (+ ?aux2 (send ?pc get-duracio)))
 		)
 		(bind ?c (send ?x get-viatges))
-		(loop-for-count (?i 1 (lenght ?c))
+		(loop-for-count (?i 1 (length ?c))
 			(bind ?aux (nth$ ?i ?c))
 			(modify ?aux1 (+ ?aux1 (send ?pc get-preu-viatge)))
 		)
@@ -149,10 +151,10 @@
 	)
 )
 
-(deffunction buscar-hotel (?c ?ch)
+(deffunction buscar-hotel (?c ?ch ?ip)
 	(bind ?a (send ?c get-Allotjaments))
-	(if (importa_preu no) then
-		(if (> (lenght ?c) 0) then
+	(if (eq ?ip no) then
+		(if (> (length ?c) 0) then
 			(bind ?h (nth$ 1 ?a))
 			(loop-for-count (?i 2 (length ?a))
 				(if (> (send (nth$ ?i ?a) get-preu-allotjament) (send ?h get-preu-allotjament))
@@ -164,7 +166,7 @@
 		(bind ?b FALSE)
 		(switch ?ch
 			(case alta then
-				(while (and (<= ?i (length ?li)) (not ?b))
+				(while (and (<= ?i (length ?a)) (not ?b))
 					do
 					(if (or (eq (str-cat (class (nth$ ?i ?a))) "5Estrella") 
 							(eq (str-cat (class (nth$ ?i ?a))) "4Estrella")) then
@@ -175,7 +177,7 @@
 				)
 			)
 			(case mitja then
-				(while (and (<= ?i (length ?li)) (not ?b))
+				(while (and (<= ?i (length ?a)) (not ?b))
 					do
 					(if (or (eq (str-cat (class (nth$ ?i ?a))) "4Estrella") 
 							(eq (str-cat (class (nth$ ?i ?a))) "3Estrella")
@@ -187,7 +189,7 @@
 				)
 			)
 			(case baixa then
-				(while (and (<= ?i (length ?li)) (not ?b))
+				(while (and (<= ?i (length ?a)) (not ?b))
 					do
 					(if (or (eq (str-cat (class (nth$ ?i ?a))) "1Estrella") 
 							(eq (str-cat (class (nth$ ?i ?a))) "2Estrella")) then
@@ -212,7 +214,7 @@
 	(if (> (length ?v) 0) then
 		(bind ?r (nth$ 1 ?v))
 		(loop-for-count (?i 2 (length ?v))
-			(if (> (send (nth$ ?i ?v) get-preu-viatge) (send ?r get-preu-viatge) then
+			(if (> (send (nth$ ?i ?v) get-preu-viatge) (send ?r get-preu-viatge)) then
 				(bind ?r (nth$ ?i ?v))
 			)
 		)
@@ -223,7 +225,7 @@
 	(if (> (length ?v) 0) then
 		(bind ?r (nth$ 1 ?v))
 		(loop-for-count (?i 2 (length ?v))
-			(if (< (send (nth$ ?i ?v) get-preu-viatge) (send ?r get-preu-viatge) then
+			(if (< (send (nth$ ?i ?v) get-preu-viatge) (send ?r get-preu-viatge)) then
 				(bind ?r (nth$ ?i ?v))
 			)
 		)
@@ -237,20 +239,20 @@
 	(halt)
 )
 
-(deffunciont imprimeix-ciutats-duracio (?c)
+(deffunction imprimeix-ciutats-duracio (?c)
 	(loop-for-count (?i 1 (length ?c))
 		(bind ?aux (send (nth$ ?i ?c) get-ciutat))
-		(send ?aux:Nom print)
+		(send (?aux:Nom) print)
 		(printout t " (")
 		(send  (nth$ ?i ?c):duracio print)
 		(printout t "), ")
     )
 )
 
-(deffunciont imprimeix-ciutats-activitats (?c)
+(deffunction imprimeix-ciutats-activitats (?c)
 	(loop-for-count (?i 1 (length ?c))
 		(bind ?aux (send (nth$ ?i ?c) get-ciutat))
-		(send ?aux:Nom print)
+		(send (?aux:Nom) print)
 		(printout t ": ")
 		(bind ?v (send (nth$ ?i ?c) get-activitats))
 			(loop-for-count (?j 1 (length ?v))
@@ -263,10 +265,10 @@
     )
 )
 
-(deffunciont imprimeix-ciutats-allotjament (?c)
+(deffunction imprimeix-ciutats-allotjament (?c)
 	(loop-for-count (?i 1 (length ?c))
 		(bind ?aux (send (nth$ ?i ?c) get-ciutat))
-		(send ?aux:Nom print)
+		(send (?aux:Nom) print)
 		(printout t ": ")
 		(bind ?aux (send (nth$ ?i ?c) get-allotjmanet))
 		(send ?aux:nom-allotjament print)
@@ -274,13 +276,13 @@
     )
 )
 
-(deffunciont imprimeix-viatges (?v)
+(deffunction imprimeix-viatges (?v)
 	(loop-for-count (?i 1 (length ?v))
 		(bind ?aux (send (nth$ ?i ?v) get-origen))
-		(send ?aux:Nom print)
+		(send (?aux:Nom) print)
 		(printout t "-")
 		(bind ?aux (send (nth$ ?i ?v) get-desti))
-		(send ?aux:Nom print)
+		(send (?aux:Nom) print)
 		(printout t ": ")
 		(send (nth$ ?i ?v):transport print)
 		(printout t ", ")
