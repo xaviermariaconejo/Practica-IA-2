@@ -4,13 +4,17 @@
 
 ;;		Declaracions i Inicialitzacions
 
+
+
 (defmodule fer-solucio "Fa una instancia de solucio" 
 	(export deftemplate ?ALL)
 	(import tipus_ciutat deftemplate ?ALL)
     (import tipus_usuari deftemplate ?ALL)
 	(import preferencies deftemplate ?ALL)
     (import utils deffunction ?ALL)
+    (import ontologia defclass ?ALL)
 )
+
 
 (definstances solucions
 	([Possible-Solucio1] of Solucio-F (preu-total 0) (duracio-total 0))
