@@ -2,6 +2,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english,catalan]{babel}
 
+%\usepackage[defaultsans]{droidsans}
+%\usepackage[defaultserif]{droidserif}
+%\usepackage[T1]{fontenc}
+
+
 \author{
   Delicado Alcántara, Luis
   \\
@@ -23,14 +28,43 @@
 \section{Anàlisi del problema}
 Aquesta pràctica consisteix en resoldre un problema donat mitjançant un sistema bastat en el coneixement (\emph{SBC}). És primordial a l'hora de dissenyar un \emph{SBC} el fet de realitzar un anàlisi complet del domini del problema des del punt de vista de l'enginyeria del coneixement, ja que usualment, les metodologies clàssiques provinents de l'enginyeria del software no són del tot adequades per a aquesta tasca. Per a resoldre aquest problema hem seguit una versió simplificada d'un d'aquests esquema d'anàlisi i resolució del problema repartit en 5 parts: Identifiació, Conceptuaĺització, Formalització, Implementació i Prova, tal com es proposava a l'enunciat de la pràctica.
 
-Als apartats que venen a continuació s'explica en detall cadascun d'aquests punts juntament amb com els hem desenvolupat i les decisions que hem anat prenent a l'hora de resoldre el problema.
+Als apartats que venen a continuació s'expliquen les decisions que hem pres a l'hora de resoldre el problema.
 
+%==========================================================
+%                      1. IDENTIFICACIÓ
+%==========================================================
 \subsection{Identificació}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros lectus, blandit sit amet velit non, placerat ornare felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum tempus felis neque, non porttitor ipsum laoreet sit amet. Aenean quam justo, rutrum ac congue at, rutrum nec arcu. Phasellus rhoncus efficitur ultrices. Maecenas pharetra nisi nisi, ut euismod ipsum aliquet id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce urna purus, convallis quis faucibus sit amet, bibendum id dolor. Pellentesque sagittis magna nibh, eu condimentum diam ullamcorper ut.
+El primer punt a tractar a l'hora de resoldre qualsevol problema és una correcta identificació d'aquest, prenent les consideracions necessàries, acotant el domini i definint correctament quin objectiu es vol assolir.
 
-Duis et diam suscipit, ornare ligula non, rhoncus arcu. Curabitur sem nisi, molestie eget magna tristique, aliquam tempus quam. Aliquam at sollicitudin ligula. Praesent iaculis pharetra neque, et mollis tortor condimentum a. Duis risus odio, placerat sit amet malesuada ornare, posuere nec est. Nulla finibus tempor ligula vel dictum. Nulla finibus orci eget est tristique suscipit. Praesent congue neque eget consectetur facilisis. Sed nibh enim, scelerisque ac libero et, ultricies euismod enim. Etiam leo sapien, consectetur ac purus scelerisque, sagittis consectetur nibh. Phasellus rhoncus fermentum massa, luctus pulvinar risus dignissim non. Donec vel varius eros. Mauris metus elit, sagittis vel finibus in, vehicula non ante. Duis nisi nisl, dignissim a ligula in, sodales maximus ex. Morbi efficitur libero in pulvinar hendrerit. Sed accumsan augue id vehicula euismod.
+Pel nostre cas, l'objectiu a assolir és la creació d'un \emph{SBC} que serveixi per a recomanar possibles viatges als clients d'una agència de viatges, donades les característiques dels clients, les seves restriccions i/o preferències. Tots els conceptes que hem escollit representar i una justificació pertinent es troben en els apartats de Conceptualització i Formalització.
+\subsubsection{Definició formal de solució}
+Definim més formalment una solució al problema com una llista ordenada de tuples \big \langle Ciutat,Dies\big \rangle{} on, per cada ciutat, es guarda una llista de llocs a visitar i un allotjament d'aquesta ciutat. A més, també cal donar, per cada dos ciutats en el recorregut quin mitjà de transport es farà servir.\\
+Addicionalment s'ha de donar el preu\footnote{Tots els preus calculats són per persona. Hem considerat pertinent fer aquesta simplificació per no haver te tenir en compte els descomptes per grups grans a l'hora de generar la solució.} total del viatge a partir dels preus de totes les coses a realitzar. Tal com es definia a l'enunciat, la resposta del \emph{SBC} ha de ser dues solucions diferents, és a dir, dos recomanacions possibles del viatge.
 
-Quisque sed lacinia quam, at hendrerit sapien. Curabitur est est, lobortis et massa sed, venenatis ornare tellus. Nulla luctus viverra justo non finibus. Donec pharetra posuere fringilla. In vel ante consectetur, suscipit neque ut, convallis tellus. Integer ac cursus nisl, sed scelerisque metus. Vivamus scelerisque lectus ut luctus varius.
+Definim a continuació alguns dels conceptes emprats en la definició:
+
+\begin{description}
+	\item[Visita:] Definim una \emph{visita} (o \emph{activitat}) com un a tupla \big \langle Nom,Preu,Durada\big \rangle{}. Per cada ciutat la suma de les durades de les activitats no poden superar el tems d'estada a la ciutat. Per exemple ("Visita al London Eye (Londres), durada mig dia, preu 25€").
+	\item[Allotjament:] Definim l'\emph{allotjament} anàlogament a la visita, però tenint en compte que la durada d'un allotjament coincideix amb el temps d'estada a la ciutat. Per exemple ("Hotel Juan Carlos I (Barcelona), preu per dia 150€").
+	\item[Mitjà de transport:] Un mitjà de transport es defineix entre un parell de ciutats, amb un nom i un identificador. També té un preu. Per exemple (''Vol: Paris->Londres, preu 200€´´).
+\end{description}
+
+\subsubsection{Justificació de la complexitat del problema}
+No costa gaire convencer-se que la complexitat del problema és bastant superior a quelcom resoluble mitjançant cerca heurística o local.
+
+Veiem que d'entrada el criteri --o criteris-- a optimitzar no són del tot evidents i variaràn en funció del tipus de client. Per exemple, hi pot haver un client ric que vulgui un viatge de luxe sense importar el preu i també un client de classe mitja/baixa amb una clara restricció de preu. Podem repetir aquest argument pràcticament per tots els punts a considerar a l'hora de fer la solució. Resulta evident que condensar tota aquesta capacitat de decisió en una funció heurística resulta massa complicat com per intentar abordar el problema amb mètodes de cerca. Pensant en això també ens adonem que és primordial el coneixement d'un expert en el domini a l'hora de resoldre el problema, ja que en el tema de les recomanacions no existeix la optimalitat objectiva, i per tant la qualitat de les solucions dependrà del coneixement d'aquest expert i de com bo sigui recomanant viatges per tal de transferir el seu coneixement a l'\emph{SBC}. \\\\ Per tots aquests motius es pot justificar que un \emph{SBC} és una opció adecuada a l'hora de resoldre el problema.
+
+\subsubsection{Identificació de les fonts del coneixement}
+Tenint clar que cal resoldre el problema dissenyant un \emph{SBC}, el concepte de coneixement es torna primordial. En concret en aquest apartat justifiquem les fonts de coneixement del domini que ens permetràn dissenyar el sistema.
+
+D'entrada, veiem clar que no disposem d'un expert en el domini del qual extreure el coneixement, és per això que haurem d'actuar nosaltres mateixos com experts en el tema fent servir el sentit comú a l'hora de prendre les decisions. No obstant, això no vol dir que no ens basem en coneixement real del domini, ja que els viatges són un domini on tothom té cert coneixement: ja sigui per experència pròpia o adquirida.
+
+En un escenari més realista per una aplicació real identificariem clarament com a fonts de coneixement els empleats de l'agència de viatges, sobretot els que tinguin contacte directe amb el client, ja que són els que fan justament la feina de l'SBC. Per una altra banda també tenim el coneixement estàtic del món real (ciutats, hotels, etc.) que representarem a l'ontologia del domini.
+
+
+%==========================================================
+%                      2. CONCEPTUALITZACIO
+%==========================================================
 \subsection{Conceptualització}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros lectus, blandit sit amet velit non, placerat ornare felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum tempus felis neque, non porttitor ipsum laoreet sit amet. Aenean quam justo, rutrum ac congue at, rutrum nec arcu. Phasellus rhoncus efficitur ultrices. Maecenas pharetra nisi nisi, ut euismod ipsum aliquet id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce urna purus, convallis quis faucibus sit amet, bibendum id dolor. Pellentesque sagittis magna nibh, eu condimentum diam ullamcorper ut.
 
@@ -38,18 +72,28 @@ Duis et diam suscipit, ornare ligula non, rhoncus arcu. Curabitur sem nisi, mole
 
 Quisque sed lacinia quam, at hendrerit sapien. Curabitur est est, lobortis et massa sed, venenatis ornare tellus. Nulla luctus viverra justo non finibus. Donec pharetra posuere fringilla. In vel ante consectetur, suscipit neque ut, convallis tellus. Integer ac cursus nisl, sed scelerisque metus. Vivamus scelerisque lectus ut luctus varius.
 
+%==========================================================
+%                      3. FORMALITZACIO
+%==========================================================
 \subsection{Formalització}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros lectus, blandit sit amet velit non, placerat ornare felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum tempus felis neque, non porttitor ipsum laoreet sit amet. Aenean quam justo, rutrum ac congue at, rutrum nec arcu. Phasellus rhoncus efficitur ultrices. Maecenas pharetra nisi nisi, ut euismod ipsum aliquet id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce urna purus, convallis quis faucibus sit amet, bibendum id dolor. Pellentesque sagittis magna nibh, eu condimentum diam ullamcorper ut.
 
 Duis et diam suscipit, ornare ligula non, rhoncus arcu. Curabitur sem nisi, molestie eget magna tristique, aliquam tempus quam. Aliquam at sollicitudin ligula. Praesent iaculis pharetra neque, et mollis tortor condimentum a. Duis risus odio, placerat sit amet malesuada ornare, posuere nec est. Nulla finibus tempor ligula vel dictum. Nulla finibus orci eget est tristique suscipit. Praesent congue neque eget consectetur facilisis. Sed nibh enim, scelerisque ac libero et, ultricies euismod enim. Etiam leo sapien, consectetur ac purus scelerisque, sagittis consectetur nibh. Phasellus rhoncus fermentum massa, luctus pulvinar risus dignissim non. Donec vel varius eros. Mauris metus elit, sagittis vel finibus in, vehicula non ante. Duis nisi nisl, dignissim a ligula in, sodales maximus ex. Morbi efficitur libero in pulvinar hendrerit. Sed accumsan augue id vehicula euismod.
 
 Quisque sed lacinia quam, at hendrerit sapien. Curabitur est est, lobortis et massa sed, venenatis ornare tellus. Nulla luctus viverra justo non finibus. Donec pharetra posuere fringilla. In vel ante consectetur, suscipit neque ut, convallis tellus. Integer ac cursus nisl, sed scelerisque metus. Vivamus scelerisque lectus ut luctus varius.
+%==========================================================
+%                      4. IMPLEMENTACIO
+%==========================================================
 \subsection{Implementació}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros lectus, blandit sit amet velit non, placerat ornare felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum tempus felis neque, non porttitor ipsum laoreet sit amet. Aenean quam justo, rutrum ac congue at, rutrum nec arcu. Phasellus rhoncus efficitur ultrices. Maecenas pharetra nisi nisi, ut euismod ipsum aliquet id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce urna purus, convallis quis faucibus sit amet, bibendum id dolor. Pellentesque sagittis magna nibh, eu condimentum diam ullamcorper ut.
 
 Duis et diam suscipit, ornare ligula non, rhoncus arcu. Curabitur sem nisi, molestie eget magna tristique, aliquam tempus quam. Aliquam at sollicitudin ligula. Praesent iaculis pharetra neque, et mollis tortor condimentum a. Duis risus odio, placerat sit amet malesuada ornare, posuere nec est. Nulla finibus tempor ligula vel dictum. Nulla finibus orci eget est tristique suscipit. Praesent congue neque eget consectetur facilisis. Sed nibh enim, scelerisque ac libero et, ultricies euismod enim. Etiam leo sapien, consectetur ac purus scelerisque, sagittis consectetur nibh. Phasellus rhoncus fermentum massa, luctus pulvinar risus dignissim non. Donec vel varius eros. Mauris metus elit, sagittis vel finibus in, vehicula non ante. Duis nisi nisl, dignissim a ligula in, sodales maximus ex. Morbi efficitur libero in pulvinar hendrerit. Sed accumsan augue id vehicula euismod.
 
 Quisque sed lacinia quam, at hendrerit sapien. Curabitur est est, lobortis et massa sed, venenatis ornare tellus. Nulla luctus viverra justo non finibus. Donec pharetra posuere fringilla. In vel ante consectetur, suscipit neque ut, convallis tellus. Integer ac cursus nisl, sed scelerisque metus. Vivamus scelerisque lectus ut luctus varius.
+
+%==========================================================
+%                      5. PROVA
+%==========================================================
 \subsection{Prova}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros lectus, blandit sit amet velit non, placerat ornare felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum tempus felis neque, non porttitor ipsum laoreet sit amet. Aenean quam justo, rutrum ac congue at, rutrum nec arcu. Phasellus rhoncus efficitur ultrices. Maecenas pharetra nisi nisi, ut euismod ipsum aliquet id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce urna purus, convallis quis faucibus sit amet, bibendum id dolor. Pellentesque sagittis magna nibh, eu condimentum diam ullamcorper ut.
 
