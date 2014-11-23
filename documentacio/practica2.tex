@@ -40,7 +40,7 @@ El primer punt a tractar a l'hora de resoldre qualsevol problema és una correct
 Pel nostre cas, l'objectiu a assolir és la creació d'un \emph{SBC} que serveixi per a recomanar possibles viatges als clients d'una agència de viatges, donades les característiques dels clients, les seves restriccions i/o preferències. Tots els conceptes que hem escollit representar i una justificació pertinent es troben en els apartats de Conceptualització i Formalització.
 \subsubsection{Definició formal de solució}
 Definim més formalment una solució al problema com una llista ordenada de tuples \big \langle Ciutat,Dies\big \rangle{} on, per cada ciutat, es guarda una llista de llocs a visitar i un allotjament d'aquesta ciutat. A més, també cal donar, per cada dos ciutats en el recorregut quin mitjà de transport es farà servir.\\
-Addicionalment s'ha de donar el preu\footnote{Tots els preus calculats són per persona. Hem considerat pertinent fer aquesta simplificació per no haver te tenir en compte els descomptes per grups grans a l'hora de generar la solució.} total del viatge a partir dels preus de totes les coses a realitzar. Tal com es definia a l'enunciat, la resposta del \emph{SBC} ha de ser dues solucions diferents, és a dir, dos recomanacions possibles del viatge.
+Addicionalment s'ha de donar el preu\footnote{Tots els preus calculats són per persona. Hem considerat pertinent fer aquesta simplificació per no haver de tenir en compte els descomptes per grups grans a l'hora de generar la solució.} total del viatge a partir dels preus de totes les coses a realitzar. Tal com es definia a l'enunciat, la resposta del \emph{SBC} ha de ser dues solucions diferents, és a dir, dos recomanacions possibles del viatge.
 
 Definim a continuació alguns dels conceptes emprats en la definició:
 
@@ -100,9 +100,10 @@ Tenint ja clars els conceptes que intervenen en el domini i sabent com s'ha subd
 %==========================================================
 \subsection{Implementació}
 \label{sec:implementacio}
-En aquesta secció es detallen les diverses decisions d'implementació que hem pres a l'hora de resoldre el problema plantejat. Cal notar que una explicació més completa sobre l'ontologia del domini es troba a l'apartat de \emph{Documentació de l'ontologia}. 
+En aquesta secció es detallen les diverses decisions d'implementació que hem pres a l'hora de resoldre el problema plantejat. Cal notar que una explicació més completa sobre l'ontologia del domini es troba a l'apartat \ref{sec:ontologia}  
 
 \section{Documentació de l'ontologia}%mirar si ontologia s'escriu amb l'
+\label{sec:ontologia}
 Duis et diam suscipit, ornare ligula non, rhoncus arcu. Curabitur sem nisi, molestie eget magna tristique, aliquam tempus quam. Aliquam at sollicitudin ligula. Praesent iaculis pharetra neque, et mollis tortor condimentum a. Duis risus odio, placerat sit amet malesuada ornare, posuere nec est. Nulla finibus tempor ligula vel dictum. Nulla finibus orci eget est tristique suscipit. Praesent congue neque eget consectetur facilisis. Sed nibh enim, scelerisque ac libero et, ultricies euismod enim. Etiam leo sapien, consectetur ac purus scelerisque, sagittis consectetur nibh. Phasellus rhoncus fermentum massa, luctus pulvinar risus dignissim non. Donec vel varius eros. Mauris metus elit, sagittis vel finibus in, vehicula non ante. Duis nisi nisl, dignissim a ligula in, sodales maximus ex. Morbi efficitur libero in pulvinar hendrerit. Sed accumsan augue id vehicula euismod.
 
 
