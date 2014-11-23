@@ -30,11 +30,23 @@
 		(allowed-values molt_coneguda coneguda poc_coneguda)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(single-slot IA-Practica2_Class0
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot duracio
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot preu-total
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot preu-activitat
 		(type INTEGER)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot dies
+	(single-slot duracio-total
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -43,17 +55,17 @@
 		(allowed-values avio tren autobus vaixell)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(multislot Activitats
-		(type INSTANCE)
-;+		(allowed-classes Activitat)
-		(create-accessor read-write))
 	(single-slot preu-allotjament
 		(type INTEGER)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(multislot estancies
+	(multislot Activitats
 		(type INSTANCE)
-;+		(allowed-classes Total_viatge)
+;+		(allowed-classes Activitat)
+		(create-accessor read-write))
+	(multislot ciutats
+		(type INSTANCE)
+;+		(allowed-classes Solucio-P)
 		(create-accessor read-write))
 	(single-slot Nom
 		(type STRING)
@@ -69,14 +81,9 @@
 		(allowed-values mig-dia un-dia)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot hotel
-		(type INSTANCE)
-;+		(allowed-classes Allotjament)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot viatges
 		(type INSTANCE)
-;+		(allowed-classes Viatege)
+;+		(allowed-classes Viatge)
 		(create-accessor read-write))
 	(single-slot preu-viatge
 		(type INTEGER)
@@ -84,6 +91,11 @@
 		(create-accessor read-write))
 	(single-slot preu
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot allotjament
+		(type INSTANCE)
+;+		(allowed-classes Allotjament)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot IA-Practica2_Class1
@@ -95,7 +107,7 @@
 ;+		(allowed-classes Activitat)
 		(create-accessor read-write)))
 
-(defclass Activitat
+(defclass Activitat "Aquesta classe descriu una activitat que es pot realitzar en una ciutat. Les activitats tenen un nom que les identifica i un preu, sempre especificat com a preu per persona.\n\nAddicionalment també considerem la durada de l'activitat classificant-la en dos categories: Mig dia o dia sencer.\n\nAixí doncs en un dia es poden fer dos activitats d'un dia o una de mig dia."
 	(is-a USER)
 	(role concrete)
 	(single-slot durada-activitat
@@ -175,14 +187,14 @@
 		(type INSTANCE)
 ;+		(allowed-classes Activitat)
 		(create-accessor read-write))
+	(multislot Allotjaments
+		(type INSTANCE)
+;+		(allowed-classes Allotjament)
+		(create-accessor read-write))
 	(single-slot Importancia
 		(type SYMBOL)
 		(allowed-values molt_coneguda coneguda poc_coneguda)
 ;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(multislot Allotjaments
-		(type INSTANCE)
-;+		(allowed-classes Allotjament)
 		(create-accessor read-write)))
 
 (defclass Europa
@@ -205,7 +217,7 @@
 	(is-a Ciutat)
 	(role concrete))
 
-(defclass Nort
+(defclass Nord
 	(is-a America)
 	(role concrete))
 
@@ -241,7 +253,7 @@
 	(is-a Africa)
 	(role concrete))
 
-(defclass Viatege
+(defclass Viatge
 	(is-a USER)
 	(role concrete)
 	(single-slot desti
@@ -272,20 +284,20 @@
 	(is-a %3AUNDEFINED)
 	(role concrete))
 
-(defclass Total_viatge
+(defclass Solucio-P
 	(is-a USER)
 	(role concrete)
+	(single-slot allotjament
+		(type INSTANCE)
+;+		(allowed-classes Allotjament)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot ciutat
 		(type INSTANCE)
 ;+		(allowed-classes Ciutat)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot hotel
-		(type INSTANCE)
-;+		(allowed-classes Allotjament)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot dies
+	(single-slot duracio
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -298,18 +310,25 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass Solucio
+(defclass Solucio-F
 	(is-a USER)
 	(role concrete)
+	(multislot ciutats
+		(type INSTANCE)
+;+		(allowed-classes Solucio-P)
+		(create-accessor read-write))
+	(single-slot preu-total
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(multislot viatges
 		(type INSTANCE)
-;+		(allowed-classes Viatege)
+;+		(allowed-classes Viatge)
 		(create-accessor read-write))
-	(multislot estancies
-		(type INSTANCE)
-;+		(allowed-classes Total_viatge)
+	(single-slot duracio-total
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
-
 ; Wed Nov 19 11:06:21 CET 2014
 ; 
 ;+ (version "3.4.8")
@@ -351,24 +370,24 @@
 	(Importancia molt_coneguda)
 	(Nom "Roma"))
 
-([IA-Practica2_Class10012] of  Viatege
+([IA-Practica2_Class10012] of  Viatge
 
 	(desti [IA-Practica2_Class10011])
 	(origen [IA-Practica2_Class10004])
 	(preu-viatge 65)
 	(transport avio))
 
-([IA-Practica2_Class10014] of  Nort
+([IA-Practica2_Class10014] of  Nord
 
 	(Importancia coneguda)
 	(Nom "Toronto"))
 
-([IA-Practica2_Class10015] of  Nort
+([IA-Practica2_Class10015] of  Nord
 
 	(Importancia molt_coneguda)
 	(Nom "Ciudad de Mexico"))
 
-([IA-Practica2_Class10017] of  Nort
+([IA-Practica2_Class10017] of  Nord
 
 	(Importancia molt_coneguda)
 	(Nom "Los Angeles"))
@@ -428,7 +447,7 @@
 	(Importancia molt_coneguda)
 	(Nom "Londres"))
 
-([IA-Practica2_Class10030] of  Nort
+([IA-Practica2_Class10030] of  Nord
 
 	(Importancia molt_coneguda)
 	(Nom "Nueva York"))
@@ -448,7 +467,7 @@
 	(Importancia coneguda)
 	(Nom "Shanghai"))
 
-([IA-Practica2_Class10034] of  Nort
+([IA-Practica2_Class10034] of  Nord
 
 	(Importancia coneguda)
 	(Nom "Chicago"))
@@ -503,7 +522,7 @@
 	(Importancia molt_coneguda)
 	(Nom "Venecia"))
 
-([IA-Practica2_Class10047] of  Nort
+([IA-Practica2_Class10047] of  Nord
 
 	(Importancia molt_coneguda)
 	(Nom "Cancun"))
@@ -513,7 +532,7 @@
 	(Importancia molt_coneguda)
 	(Nom "Dubai"))
 
-([IA-Practica2_Class10049] of  Nort
+([IA-Practica2_Class10049] of  Nord
 
 	(Importancia molt_coneguda)
 	(Nom "Las Vegas"))
@@ -523,7 +542,7 @@
 	(Importancia molt_coneguda)
 	(Nom "Praga"))
 
-([IA-Practica2_Class10051] of  Nort
+([IA-Practica2_Class10051] of  Nord
 
 	(Importancia molt_coneguda)
 	(Nom "Miami"))
@@ -533,7 +552,7 @@
 	(Importancia molt_coneguda)
 	(Nom "Moscu"))
 
-([IA-Practica2_Class10053] of  Nort
+([IA-Practica2_Class10053] of  Nord
 
 	(Importancia coneguda)
 	(Nom "San Francisco"))
@@ -543,7 +562,7 @@
 	(Importancia coneguda)
 	(Nom "Milan"))
 
-([IA-Practica2_Class10055] of  Nort
+([IA-Practica2_Class10055] of  Nord
 
 	(Importancia coneguda)
 	(Nom "Orlando"))
@@ -553,7 +572,7 @@
 	(Importancia molt_coneguda)
 	(Nom "Munich"))
 
-([IA-Practica2_Class10057] of  Viatege
+([IA-Practica2_Class10057] of  Viatge
 
 	(desti [IA-Practica2_Class10026])
 	(origen [IA-Practica2_Class10001])
@@ -609,4 +628,5 @@
 
 	(nom-allotjament "Juan Carlos I")
 	(preu-allotjament 160))
+
 )
