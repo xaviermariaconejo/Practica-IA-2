@@ -69,16 +69,37 @@ En un escenari més realista per una aplicació real identificariem clarament co
 \subsection{Conceptualització}
 Un cop ben definit quin és el problema a resoldre, cal plantejar-se quins son els conceptes importants del domini per tal de representar-los bé com a regles o bé com a coneixement estàtic a l'ontologia. També cal plantejar-se la divisió del problema gran en subproblemes menors que donin lloc a mòduls concrets d'una implementació posterior.
 
+\subsubsection{Coneixement estàtic: La ontologia}
+
+Un bon punt de partida és la solució del problema. D'allà ja veiem que els conceptes de ciutat, allotjament, mitjà de transport i activitat són necessaris per a l'\emph{SBC}. Aquests conceptes representen el coneixement estàtic del domini del que es disposa sense tenir en compte l'expert. Donada aquesta naturalesa de fets estàtics aquests conceptes seràn els que formaràn part de l'ontologia. Considerem que sense haver d'entrar en detalls d'implementació, la definició d'aquests conceptes ja s'ha fet prou detalladament a l'apartat anterior.
+
+\subsubsection{Procés de resolució: Divisió en subproblemes}
+
+Respecte el problema, hem identificat tres parts ben diferenciades: Determinar l'informació de l'usuari, raonar sobre aquella informació per tal de definir quins tipus de viatge són adecuats per ell i montar el viatge final. Més concretament definim aquests problemes com:
+
+\begin{description}
+	\item[Obtenir informació de l'usuari:] L'objectiu d'aquest problema és ben clar: Fer totes les preguntes necesàries a l'usuari per tal de classificar-lo en diversos tipus de perfil (nivell cultural, preferències, restriccions...) tot definint l'arquetip en el que col·loquem el client. És la part del problema que inclou una interacció directa amb l'usuari. 
+
+	\item[Determinar el model de ciutat] Un cop sabem com és l'usuari, el següent pas és definir quins tipus de ciutats recomanarem a l'usuari, és a dir, construir un arquetip e solució.
+
+	\item[Montar el viatge] L'últim pas és, un cop es té el model abstracte de solució, concretar-lo en un conjunt de ciutats, allotjaments i activitats en el format explicat a la definició de la solució.
+\end{description}
+
+En els apartats \ref{sec:formalitzacio} i \ref{sec:implementacio} es concreten els aspectes formals i tècnics d'aquesta subdivisió de problemes.
+
+
 %==========================================================
 %                      3. FORMALITZACIO
 %==========================================================
 \subsection{Formalització}
+\label{sec:formalitzacio}
 Tenint ja clars els conceptes que intervenen en el domini i sabent com s'ha subdividit el problema en subproblemes menors és el moment de formalitzar aquest coneixement. Cal, per una banda definir una ontologia que representi el coneixement estàtic del domini com un conjunt de classes, atributs i relacions. Per altra banda és necessari definir formalment què ha de resoldre cadascun dels tres subproblemes i quines dades d'entrada i sortida tindrà cadascun d'ells per tal de facilitar l'implementació final.
 
 %==========================================================
 %                      4. IMPLEMENTACIO
 %==========================================================
 \subsection{Implementació}
+\label{sec:implementacio}
 En aquesta secció es detallen les diverses decisions d'implementació que hem pres a l'hora de resoldre el problema plantejat. Cal notar que una explicació més completa sobre l'ontologia del domini es troba a l'apartat de \emph{Documentació de l'ontologia}. 
 
 \section{Documentació de l'ontologia}%mirar si ontologia s'escriu amb l'
