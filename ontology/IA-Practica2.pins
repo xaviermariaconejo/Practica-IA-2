@@ -1,4 +1,4 @@
-; Wed Nov 26 12:29:14 CET 2014
+; Wed Nov 26 12:47:37 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -976,3 +976,241 @@
 	(durada-activitat mig-dia)
 	(nom-activitat "Central Park Carriage")
 	(preu-activitat 40))
+
+([IA-Practica2_Class40042] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10004])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40043] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10043])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40044] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10045])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40045] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10011])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40046] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10046])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40047] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10039])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40048] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10052])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40049] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10047])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40050] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10049])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40051] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10034])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40052] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10030])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40053] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10014])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40054] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10062])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40055] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10065])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40056] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10066])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40057] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10023])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40058] of  Viatge
+
+	(desti [IA-Practica2_Class10000])
+	(origen [IA-Practica2_Class10024])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40063] of  Viatge
+
+	(desti [IA-Practica2_Class10062])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40064] of  Viatge
+
+	(desti [IA-Practica2_Class10066])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40065] of  Viatge
+
+	(desti [IA-Practica2_Class10065])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40066] of  Viatge
+
+	(desti [IA-Practica2_Class10047])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40067] of  Viatge
+
+	(desti [IA-Practica2_Class10034])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40068] of  Viatge
+
+	(desti [IA-Practica2_Class10049])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40069] of  Viatge
+
+	(desti [IA-Practica2_Class10030])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40070] of  Viatge
+
+	(desti [IA-Practica2_Class10014])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40071] of  Viatge
+
+	(desti [IA-Practica2_Class10004])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40072] of  Viatge
+
+	(desti [IA-Practica2_Class10043])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40073] of  Viatge
+
+	(desti [IA-Practica2_Class10045])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40074] of  Viatge
+
+	(desti [IA-Practica2_Class10011])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40075] of  Viatge
+
+	(desti [IA-Practica2_Class10046])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40076] of  Viatge
+
+	(desti [IA-Practica2_Class10039])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40077] of  Viatge
+
+	(desti [IA-Practica2_Class10052])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40078] of  Viatge
+
+	(desti [IA-Practica2_Class10024])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
+
+([IA-Practica2_Class40079] of  Viatge
+
+	(desti [IA-Practica2_Class10023])
+	(origen [IA-Practica2_Class10000])
+	(preu-viatge 65)
+	(transport avio))
