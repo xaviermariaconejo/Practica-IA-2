@@ -1,7 +1,12 @@
-; Sun Nov 23 22:42:09 CET 2014
+; Wed Nov 26 12:29:14 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
+
+([IA-Practica2_Class10000] of  Ciutat
+
+	(Importancia molt_coneguda)
+	(Nom "Origen"))
 
 ([IA-Practica2_Class10001] of  Central
 
@@ -17,10 +22,19 @@
 
 ([IA-Practica2_Class10004] of  Mediterrania
 
-	(Activitats [IA-Practica2_Class10067])
+	(Activitats
+		[IA-Practica2_Class10067]
+		[IA-Practica2_Class30001]
+		[IA-Practica2_Class30002]
+		[IA-Practica2_Class30003]
+		[IA-Practica2_Class30004])
 	(Allotjaments
 		[IA-Practica2_Class10068]
-		[IA-Practica2_Class10069])
+		[IA-Practica2_Class10069]
+		[IA-Practica2_Class20000]
+		[IA-Practica2_Class30005]
+		[IA-Practica2_Class30006]
+		[IA-Practica2_Class30007])
 	(Importancia molt_coneguda)
 	(Nom "Barcelona"))
 
@@ -35,6 +49,21 @@
 
 ([IA-Practica2_Class10011] of  Mediterrania
 
+	(Activitats
+		[IA-Practica2_Class30045]
+		[IA-Practica2_Class30046]
+		[IA-Practica2_Class30047]
+		[IA-Practica2_Class30048]
+		[IA-Practica2_Class30049])
+	(Allotjaments
+		[IA-Practica2_Class30037]
+		[IA-Practica2_Class30038]
+		[IA-Practica2_Class30039]
+		[IA-Practica2_Class30040]
+		[IA-Practica2_Class30041]
+		[IA-Practica2_Class30042]
+		[IA-Practica2_Class30043]
+		[IA-Practica2_Class30044])
 	(Importancia molt_coneguda)
 	(Nom "Roma"))
 
@@ -49,16 +78,6 @@
 
 	(Importancia coneguda)
 	(Nom "Toronto"))
-
-([IA-Practica2_Class10015] of  Nord
-
-	(Importancia molt_coneguda)
-	(Nom "Ciudad de Mexico"))
-
-([IA-Practica2_Class10017] of  Nord
-
-	(Importancia molt_coneguda)
-	(Nom "Los Angeles"))
 
 ([IA-Practica2_Class10019] of  Sud
 
@@ -90,20 +109,10 @@
 	(Importancia coneguda)
 	(Nom "Melbourne"))
 
-([IA-Practica2_Class10025] of  Australia
-
-	(Importancia coneguda)
-	(Nom "Canberra"))
-
 ([IA-Practica2_Class10026] of  Central
 
 	(Importancia molt_coneguda)
 	(Nom "Berlin"))
-
-([IA-Practica2_Class10027] of  Central
-
-	(Importancia molt_coneguda)
-	(Nom "Viena"))
 
 ([IA-Practica2_Class10028] of  Central
 
@@ -117,6 +126,20 @@
 
 ([IA-Practica2_Class10030] of  Nord
 
+	(Activitats
+		[IA-Practica2_Class40038]
+		[IA-Practica2_Class40039]
+		[IA-Practica2_Class40040]
+		[IA-Practica2_Class40041])
+	(Allotjaments
+		[IA-Practica2_Class40030]
+		[IA-Practica2_Class40031]
+		[IA-Practica2_Class40032]
+		[IA-Practica2_Class40033]
+		[IA-Practica2_Class40034]
+		[IA-Practica2_Class40035]
+		[IA-Practica2_Class40036]
+		[IA-Practica2_Class40037])
 	(Importancia molt_coneguda)
 	(Nom "Nueva York"))
 
@@ -130,25 +153,21 @@
 	(Importancia coneguda)
 	(Nom "Singapur"))
 
-([IA-Practica2_Class10033] of  Asia_Oriental
-
-	(Importancia coneguda)
-	(Nom "Shanghai"))
-
 ([IA-Practica2_Class10034] of  Nord
 
+	(Activitats
+		[IA-Practica2_Class40016]
+		[IA-Practica2_Class40017]
+		[IA-Practica2_Class40018])
+	(Allotjaments
+		[IA-Practica2_Class40010]
+		[IA-Practica2_Class40011]
+		[IA-Practica2_Class40012]
+		[IA-Practica2_Class40013]
+		[IA-Practica2_Class40014]
+		[IA-Practica2_Class40015])
 	(Importancia coneguda)
 	(Nom "Chicago"))
-
-([IA-Practica2_Class10035] of  Asia_Oriental
-
-	(Importancia coneguda)
-	(Nom "Seul"))
-
-([IA-Practica2_Class10036] of  Mediterrania
-
-	(Importancia coneguda)
-	(Nom "Lisboa"))
 
 ([IA-Practica2_Class10037] of  Central
 
@@ -162,36 +181,85 @@
 
 ([IA-Practica2_Class10039] of  Nordica
 
+	(Activitats
+		[IA-Practica2_Class30057]
+		[IA-Practica2_Class30058]
+		[IA-Practica2_Class30059]
+		[IA-Practica2_Class30060]
+		[IA-Practica2_Class30061])
+	(Allotjaments
+		[IA-Practica2_Class30050]
+		[IA-Practica2_Class30051]
+		[IA-Practica2_Class30052]
+		[IA-Practica2_Class30053]
+		[IA-Practica2_Class30054]
+		[IA-Practica2_Class30055]
+		[IA-Practica2_Class30056])
 	(Importancia coneguda)
 	(Nom "Estocolmo"))
 
-([IA-Practica2_Class10040] of  Nordica
-
-	(Importancia coneguda)
-	(Nom "San Petersburgo"))
-
-([IA-Practica2_Class10042] of  Central
-
-	(Importancia coneguda)
-	(Nom "Cracovia"))
-
 ([IA-Practica2_Class10043] of  Mediterrania
 
+	(Activitats
+		[IA-Practica2_Class30014]
+		[IA-Practica2_Class30015]
+		[IA-Practica2_Class30016]
+		[IA-Practica2_Class30017])
+	(Allotjaments
+		[IA-Practica2_Class30008]
+		[IA-Practica2_Class30009]
+		[IA-Practica2_Class30010]
+		[IA-Practica2_Class30012]
+		[IA-Practica2_Class30013])
 	(Importancia molt_coneguda)
 	(Nom "Florencia"))
 
 ([IA-Practica2_Class10045] of  Mediterrania
 
+	(Activitats
+		[IA-Practica2_Class30024]
+		[IA-Practica2_Class30025]
+		[IA-Practica2_Class30026])
+	(Allotjaments
+		[IA-Practica2_Class30018]
+		[IA-Practica2_Class30019]
+		[IA-Practica2_Class30021]
+		[IA-Practica2_Class30022]
+		[IA-Practica2_Class30023])
 	(Importancia molt_coneguda)
 	(Nom "Montecarlo"))
 
 ([IA-Practica2_Class10046] of  Mediterrania
 
+	(Activitats
+		[IA-Practica2_Class30027]
+		[IA-Practica2_Class30028]
+		[IA-Practica2_Class30029]
+		[IA-Practica2_Class30030])
+	(Allotjaments
+		[IA-Practica2_Class30031]
+		[IA-Practica2_Class30032]
+		[IA-Practica2_Class30033]
+		[IA-Practica2_Class30034]
+		[IA-Practica2_Class30035]
+		[IA-Practica2_Class30036])
 	(Importancia molt_coneguda)
 	(Nom "Venecia"))
 
 ([IA-Practica2_Class10047] of  Nord
 
+	(Activitats
+		[IA-Practica2_Class30000]
+		[IA-Practica2_Class40001]
+		[IA-Practica2_Class40002]
+		[IA-Practica2_Class40003])
+	(Allotjaments
+		[IA-Practica2_Class40004]
+		[IA-Practica2_Class40005]
+		[IA-Practica2_Class40006]
+		[IA-Practica2_Class40007]
+		[IA-Practica2_Class40008]
+		[IA-Practica2_Class40009])
 	(Importancia molt_coneguda)
 	(Nom "Cancun"))
 
@@ -202,33 +270,38 @@
 
 ([IA-Practica2_Class10049] of  Nord
 
+	(Activitats
+		[IA-Practica2_Class40026]
+		[IA-Practica2_Class40027]
+		[IA-Practica2_Class40028]
+		[IA-Practica2_Class40029])
+	(Allotjaments
+		[IA-Practica2_Class40019]
+		[IA-Practica2_Class40020]
+		[IA-Practica2_Class40021]
+		[IA-Practica2_Class40022]
+		[IA-Practica2_Class40023]
+		[IA-Practica2_Class40024]
+		[IA-Practica2_Class40025])
 	(Importancia molt_coneguda)
 	(Nom "Las Vegas"))
 
-([IA-Practica2_Class10050] of  Central
-
-	(Importancia molt_coneguda)
-	(Nom "Praga"))
-
-([IA-Practica2_Class10051] of  Nord
-
-	(Importancia molt_coneguda)
-	(Nom "Miami"))
-
 ([IA-Practica2_Class10052] of  Nordica
 
+	(Activitats
+		[IA-Practica2_Class30062]
+		[IA-Practica2_Class30063]
+		[IA-Practica2_Class30064]
+		[IA-Practica2_Class30065])
+	(Allotjaments
+		[IA-Practica2_Class30066]
+		[IA-Practica2_Class30067]
+		[IA-Practica2_Class30068]
+		[IA-Practica2_Class30069]
+		[IA-Practica2_Class30070]
+		[IA-Practica2_Class30071])
 	(Importancia molt_coneguda)
 	(Nom "Moscu"))
-
-([IA-Practica2_Class10053] of  Nord
-
-	(Importancia coneguda)
-	(Nom "San Francisco"))
-
-([IA-Practica2_Class10054] of  Mediterrania
-
-	(Importancia coneguda)
-	(Nom "Milan"))
 
 ([IA-Practica2_Class10055] of  Nord
 
@@ -259,12 +332,9 @@
 
 ([IA-Practica2_Class10062] of  Africa_Mediterrania
 
+	(Activitats [IA-Practica2_Class20001])
 	(Importancia molt_coneguda)
 	(Nom "Marrakech"))
-
-([IA-Practica2_Class10063] of  Asia_Oriental
-
-	(Nom "Taipei"))
 
 ([IA-Practica2_Class10064] of  Orient_Proxim
 
@@ -296,3 +366,613 @@
 
 	(nom-allotjament "Juan Carlos I")
 	(preu-allotjament 160))
+
+([IA-Practica2_Class20000] of  4Estrella
+
+	(nom-allotjament "Sagrada Familia")
+	(preu-allotjament 105))
+
+([IA-Practica2_Class20001] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Visita al mercat")
+	(preu-activitat 5))
+
+([IA-Practica2_Class30000] of  Aventura
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Nadar con delfines")
+	(preu-activitat 15))
+
+([IA-Practica2_Class30001] of  Diversio
+
+	(durada-activitat un-dia)
+	(nom-activitat "Tibidabo")
+	(preu-activitat 25))
+
+([IA-Practica2_Class30002] of  Relax
+
+	(durada-activitat un-dia)
+	(nom-activitat "Spa Aire")
+	(preu-activitat 35))
+
+([IA-Practica2_Class30003] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Observatorio Barcelona")
+	(preu-activitat 12))
+
+([IA-Practica2_Class30004] of  Cultural
+
+	(durada-activitat un-dia)
+	(nom-activitat "Visita Montserrat")
+	(preu-activitat 15))
+
+([IA-Practica2_Class30005] of  3Estrella
+
+	(nom-allotjament "Tres Torres")
+	(preu-allotjament 60))
+
+([IA-Practica2_Class30006] of  3Estrella
+
+	(nom-allotjament "Aranea")
+	(preu-allotjament 45))
+
+([IA-Practica2_Class30007] of  1Estrella
+
+	(nom-allotjament "Alberge Pere Tarres")
+	(preu-allotjament 15))
+
+([IA-Practica2_Class30008] of  4Estrella
+
+	(nom-allotjament "NH Firenze")
+	(preu-allotjament 120))
+
+([IA-Practica2_Class30009] of  3Estrella
+
+	(nom-allotjament "Palazzo Ognissanti")
+	(preu-allotjament 95))
+
+([IA-Practica2_Class30010] of  5Estrella
+
+	(nom-allotjament "Rosati Holiday")
+	(preu-allotjament 500))
+
+([IA-Practica2_Class30012] of  2Estrella
+
+	(nom-allotjament "Pontevecchio Relais")
+	(preu-allotjament 35))
+
+([IA-Practica2_Class30013] of  3Estrella
+
+	(nom-allotjament "Mia Cara")
+	(preu-allotjament 70))
+
+([IA-Practica2_Class30014] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Cupula de Brunelleschi")
+	(preu-activitat 9))
+
+([IA-Practica2_Class30015] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Basilica de San Miniato al Monte")
+	(preu-activitat 15))
+
+([IA-Practica2_Class30016] of  Relax
+
+	(durada-activitat un-dia)
+	(nom-activitat "Cinque Terre")
+	(preu-activitat 20))
+
+([IA-Practica2_Class30017] of  Romantic
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Tour con cena")
+	(preu-activitat 45))
+
+([IA-Practica2_Class30018] of  5Estrella
+
+	(nom-allotjament "Hermitage")
+	(preu-allotjament 650))
+
+([IA-Practica2_Class30019] of  5Estrella
+
+	(nom-allotjament "Hotel de Paris")
+	(preu-allotjament 450))
+
+([IA-Practica2_Class30021] of  4Estrella
+
+	(nom-allotjament "Port Palace Hotel")
+	(preu-allotjament 130))
+
+([IA-Practica2_Class30022] of  3Estrella
+
+	(nom-allotjament "Novotel Monte Carlo")
+	(preu-allotjament 90))
+
+([IA-Practica2_Class30023] of  2Estrella
+
+	(nom-allotjament "Columbus Monte-Carlo")
+	(preu-allotjament 45))
+
+([IA-Practica2_Class30024] of  Relax
+
+	(durada-activitat un-dia)
+	(nom-activitat "Japanese Gardens")
+	(preu-activitat 40))
+
+([IA-Practica2_Class30025] of  Diversio
+
+	(durada-activitat un-dia)
+	(nom-activitat "Casino Square")
+	(preu-activitat 50))
+
+([IA-Practica2_Class30026] of  Relax
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Le Bar Americain")
+	(preu-activitat 20))
+
+([IA-Practica2_Class30027] of  Romantic
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Paseo en gondola")
+	(preu-activitat 25))
+
+([IA-Practica2_Class30028] of  Romantic
+
+	(durada-activitat un-dia)
+	(nom-activitat "Pasos de Casanova")
+	(preu-activitat 45))
+
+([IA-Practica2_Class30029] of  Romantic
+
+	(durada-activitat mig-dia)
+	(nom-activitat "cena en Torcello")
+	(preu-activitat 26))
+
+([IA-Practica2_Class30030] of  Cultural
+
+	(durada-activitat un-dia)
+	(nom-activitat "Puentes de Venecia")
+	(preu-activitat 10))
+
+([IA-Practica2_Class30031] of  4Estrella
+
+	(nom-allotjament "Hotel Moresco")
+	(preu-allotjament 143))
+
+([IA-Practica2_Class30032] of  5Estrella
+
+	(nom-allotjament "The Gritti Palace")
+	(preu-allotjament 430))
+
+([IA-Practica2_Class30033] of  2Estrella
+
+	(nom-allotjament "Al Ponte Mocenigo")
+	(preu-allotjament 32))
+
+([IA-Practica2_Class30034] of  3Estrella
+
+	(nom-allotjament "Antiche Figure")
+	(preu-allotjament 85))
+
+([IA-Practica2_Class30035] of  4Estrella
+
+	(nom-allotjament "Hotel Ai Reali")
+	(preu-allotjament 138))
+
+([IA-Practica2_Class30036] of  5Estrella
+
+	(nom-allotjament "Belmond Hotel Cipriani")
+	(preu-allotjament 780))
+
+([IA-Practica2_Class30037] of  5Estrella
+
+	(nom-allotjament "Portrait Roma")
+	(preu-allotjament 860))
+
+([IA-Practica2_Class30038] of  3Estrella
+
+	(nom-allotjament "Hotel Santa Maria")
+	(preu-allotjament 95))
+
+([IA-Practica2_Class30039] of  3Estrella
+
+	(nom-allotjament "Albergo del Senato")
+	(preu-allotjament 75))
+
+([IA-Practica2_Class30040] of  4Estrella
+
+	(nom-allotjament "Barocco Hotel")
+	(preu-allotjament 148))
+
+([IA-Practica2_Class30041] of  2Estrella
+
+	(nom-allotjament "Babuino 181")
+	(preu-allotjament 35))
+
+([IA-Practica2_Class30042] of  5Estrella
+
+	(nom-allotjament "The First Luxury Art Hotel")
+	(preu-allotjament 380))
+
+([IA-Practica2_Class30043] of  1Estrella
+
+	(nom-allotjament "Hotel Dharma")
+	(preu-allotjament 22))
+
+([IA-Practica2_Class30044] of  2Estrella
+
+	(nom-allotjament "Hotel Anahi")
+	(preu-allotjament 19))
+
+([IA-Practica2_Class30045] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Colosseo")
+	(preu-activitat 15))
+
+([IA-Practica2_Class30046] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Fontana di Trevi")
+	(preu-activitat 5))
+
+([IA-Practica2_Class30047] of  Romantic
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Piazza di Spagna")
+	(preu-activitat 5))
+
+([IA-Practica2_Class30048] of  Cultural
+
+	(durada-activitat un-dia)
+	(nom-activitat "Capilla Sixtina")
+	(preu-activitat 15))
+
+([IA-Practica2_Class30049] of  Romantic
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Bocca della Verita")
+	(preu-activitat 10))
+
+([IA-Practica2_Class30050] of  4Estrella
+
+	(nom-allotjament "Hotel Rival")
+	(preu-allotjament 145))
+
+([IA-Practica2_Class30051] of  5Estrella
+
+	(nom-allotjament "Grand Hotel")
+	(preu-allotjament 320))
+
+([IA-Practica2_Class30052] of  4Estrella
+
+	(nom-allotjament "Miss Clara by Nobis")
+	(preu-allotjament 110))
+
+([IA-Practica2_Class30053] of  3Estrella
+
+	(nom-allotjament "Clarion Collection Tapto")
+	(preu-allotjament 90))
+
+([IA-Practica2_Class30054] of  5Estrella
+
+	(nom-allotjament "Nobis Hotel")
+	(preu-allotjament 515))
+
+([IA-Practica2_Class30055] of  2Estrella
+
+	(nom-allotjament "Parlan Hotell")
+	(preu-allotjament 36))
+
+([IA-Practica2_Class30056] of  2Estrella
+
+	(nom-allotjament "Rygerfjord Hotel and Hostel")
+	(preu-allotjament 25))
+
+([IA-Practica2_Class30057] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Kungliga Slottet")
+	(preu-activitat 10))
+
+([IA-Practica2_Class30058] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Museo Vasa")
+	(preu-activitat 15))
+
+([IA-Practica2_Class30059] of  Diversio
+
+	(durada-activitat un-dia)
+	(nom-activitat "Grona Lund")
+	(preu-activitat 20))
+
+([IA-Practica2_Class30060] of  Romantic
+
+	(durada-activitat un-dia)
+	(nom-activitat "Barrio Ostermalm")
+	(preu-activitat 10))
+
+([IA-Practica2_Class30061] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Museo Nobel")
+	(preu-activitat 15))
+
+([IA-Practica2_Class30062] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "El Kremlin")
+	(preu-activitat 20))
+
+([IA-Practica2_Class30063] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Catedral de San Basilio")
+	(preu-activitat 15))
+
+([IA-Practica2_Class30064] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Bunker 42")
+	(preu-activitat 15))
+
+([IA-Practica2_Class30065] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Museo de la Cosmonautica")
+	(preu-activitat 25))
+
+([IA-Practica2_Class30066] of  5Estrella
+
+	(nom-allotjament "Lotte Hotel Moscow")
+	(preu-allotjament 280))
+
+([IA-Practica2_Class30067] of  5Estrella
+
+	(nom-allotjament "Swissotel Krasnye Holmy")
+	(preu-allotjament 430))
+
+([IA-Practica2_Class30068] of  4Estrella
+
+	(nom-allotjament "Mercure Arbat")
+	(preu-allotjament 120))
+
+([IA-Practica2_Class30069] of  4Estrella
+
+	(nom-allotjament "Mercure Moscow Baumanskaya")
+	(preu-allotjament 94))
+
+([IA-Practica2_Class30070] of  3Estrella
+
+	(nom-allotjament "Azimut Moskow Tulskaya")
+	(preu-allotjament 84))
+
+([IA-Practica2_Class30071] of  2Estrella
+
+	(nom-allotjament "Revital Hotel Park")
+	(preu-allotjament 35))
+
+([IA-Practica2_Class40001] of  Aventura
+
+	(durada-activitat un-dia)
+	(nom-activitat "Xpor Tour")
+	(preu-activitat 100))
+
+([IA-Practica2_Class40002] of  Aventura
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Snorkel")
+	(preu-activitat 30))
+
+([IA-Practica2_Class40003] of  Romantic
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Columbus Lobster Cruise")
+	(preu-activitat 30))
+
+([IA-Practica2_Class40004] of  5Estrella
+
+	(nom-allotjament "Le Blanc Spa Resort")
+	(preu-allotjament 350))
+
+([IA-Practica2_Class40005] of  4Estrella
+
+	(nom-allotjament "Sun Palace")
+	(preu-allotjament 90))
+
+([IA-Practica2_Class40006] of  2Estrella
+
+	(nom-allotjament "Cancun Clipper CLub")
+	(preu-allotjament 40))
+
+([IA-Practica2_Class40007] of  1Estrella
+
+	(nom-allotjament "Hotel Margaritas")
+	(preu-allotjament 25))
+
+([IA-Practica2_Class40008] of  2Estrella
+
+	(nom-allotjament "Comfort Inn")
+	(preu-allotjament 35))
+
+([IA-Practica2_Class40009] of  3Estrella
+
+	(nom-allotjament "The Royal Islander")
+	(preu-allotjament 70))
+
+([IA-Practica2_Class40010] of  3Estrella
+
+	(nom-allotjament "ACME Hotel Company Chicago")
+	(preu-allotjament 80))
+
+([IA-Practica2_Class40011] of  5Estrella
+
+	(nom-allotjament "The Langham")
+	(preu-allotjament 225))
+
+([IA-Practica2_Class40012] of  4Estrella
+
+	(nom-allotjament "The Talbott Hotel")
+	(preu-allotjament 85))
+
+([IA-Practica2_Class40013] of  1Estrella
+
+	(nom-allotjament "Chinatown Hotel")
+	(preu-allotjament 15))
+
+([IA-Practica2_Class40014] of  4Estrella
+
+	(nom-allotjament "Thompson")
+	(preu-allotjament 75))
+
+([IA-Practica2_Class40015] of  2Estrella
+
+	(nom-allotjament "Days Inn Chicago")
+	(preu-allotjament 48))
+
+([IA-Practica2_Class40016] of  Diversio
+
+	(durada-activitat un-dia)
+	(nom-activitat "Chicago Beer Experiece")
+	(preu-activitat 40))
+
+([IA-Practica2_Class40017] of  Aventura
+
+	(durada-activitat un-dia)
+	(nom-activitat "Phenix Sailing Charters")
+	(preu-activitat 50))
+
+([IA-Practica2_Class40018] of  Aventura
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Kayak Chicago")
+	(preu-activitat 25))
+
+([IA-Practica2_Class40019] of  2Estrella
+
+	(nom-allotjament "The Carriage House")
+	(preu-allotjament 32))
+
+([IA-Practica2_Class40020] of  5Estrella
+
+	(nom-allotjament "Mandatin Oriental")
+	(preu-allotjament 550))
+
+([IA-Practica2_Class40021] of  5Estrella
+
+	(nom-allotjament "Bellagio")
+	(preu-allotjament 750))
+
+([IA-Practica2_Class40022] of  5Estrella
+
+	(nom-allotjament "Venetian Resort")
+	(preu-allotjament 600))
+
+([IA-Practica2_Class40023] of  3Estrella
+
+	(nom-allotjament "Staybridge")
+	(preu-allotjament 100))
+
+([IA-Practica2_Class40024] of  4Estrella
+
+	(nom-allotjament "Platinum Hotel")
+	(preu-allotjament 90))
+
+([IA-Practica2_Class40025] of  1Estrella
+
+	(nom-allotjament "Traveldge")
+	(preu-allotjament 20))
+
+([IA-Practica2_Class40026] of  Romantic
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Fuentes del Bellagio")
+	(preu-activitat 10))
+
+([IA-Practica2_Class40027] of  Diversio
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Vegas Luxury Rides")
+	(preu-activitat 75))
+
+([IA-Practica2_Class40028] of  Diversio
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Battlefield Vegas")
+	(preu-activitat 40))
+
+([IA-Practica2_Class40029] of  Diversio
+
+	(durada-activitat mig-dia)
+	(nom-activitat "High Roller")
+	(preu-activitat 20))
+
+([IA-Practica2_Class40030] of  1Estrella
+
+	(nom-allotjament "Murray Hill Inn")
+	(preu-allotjament 28))
+
+([IA-Practica2_Class40031] of  1Estrella
+
+	(nom-allotjament "Hotel Carter")
+	(preu-allotjament 22))
+
+([IA-Practica2_Class40032] of  3Estrella
+
+	(nom-allotjament "Distrikt Hotel")
+	(preu-allotjament 68))
+
+([IA-Practica2_Class40033] of  2Estrella
+
+	(nom-allotjament "Hotel 31")
+	(preu-allotjament 45))
+
+([IA-Practica2_Class40034] of  4Estrella
+
+	(nom-allotjament "Casablanca Hotel")
+	(preu-allotjament 96))
+
+([IA-Practica2_Class40035] of  4Estrella
+
+	(nom-allotjament "Library Hotel")
+	(preu-allotjament 105))
+
+([IA-Practica2_Class40036] of  5Estrella
+
+	(nom-allotjament "Refinery Hotel")
+	(preu-allotjament 185))
+
+([IA-Practica2_Class40037] of  5Estrella
+
+	(nom-allotjament "The Surrey")
+	(preu-allotjament 255))
+
+([IA-Practica2_Class40038] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Museo Metropolitano de Arte")
+	(preu-activitat 15))
+
+([IA-Practica2_Class40039] of  Romantic
+
+	(durada-activitat un-dia)
+	(nom-activitat "Central Park")
+	(preu-activitat 5))
+
+([IA-Practica2_Class40040] of  Diversio
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Nintendo orldNew York")
+	(preu-activitat 20))
+
+([IA-Practica2_Class40041] of  Romantic
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Central Park Carriage")
+	(preu-activitat 40))
