@@ -74,6 +74,7 @@ Un cop ben definit quin és el problema a resoldre, cal plantejar-se quins son e
 Un bon punt de partida és la solució del problema. D'allà ja veiem que els conceptes de ciutat, allotjament, mitjà de transport i activitat són necessaris per a l'\emph{SBC}. Aquests conceptes representen el coneixement estàtic del domini del que es disposa sense tenir en compte l'expert. Donada aquesta naturalesa de fets estàtics aquests conceptes seràn els que formaràn part de l'ontologia. Considerem que sense haver d'entrar en detalls d'implementació, la definició d'aquests conceptes ja s'ha fet prou detalladament a l'apartat anterior.
 
 \subsubsection{Procés de resolució: Divisió en subproblemes}
+\label{sec:subprob_informal}
 
 Respecte el problema, hem identificat tres parts ben diferenciades: Determinar l'informació de l'usuari, raonar sobre aquella informació per tal de definir quins tipus de viatge són adecuats per ell i montar el viatge final. Més concretament definim aquests problemes com:
 
@@ -93,7 +94,52 @@ En els apartats \ref{sec:formalitzacio} i \ref{sec:implementacio} es concreten e
 %==========================================================
 \subsection{Formalització}
 \label{sec:formalitzacio}
-Tenint ja clars els conceptes que intervenen en el domini i sabent com s'ha subdividit el problema en subproblemes menors és el moment de formalitzar aquest coneixement. Cal, per una banda definir una ontologia que representi el coneixement estàtic del domini com un conjunt de classes, atributs i relacions. Per altra banda és necessari definir formalment què ha de resoldre cadascun dels tres subproblemes i quines dades d'entrada i sortida tindrà cadascun d'ells per tal de facilitar l'implementació final.
+Tenint ja clars els conceptes que intervenen en el domini i sabent com s'ha subdividit el problema en subproblemes menors és el moment de formalitzar aquest coneixement. Cal, per una banda definir una ontologia\footnote{Veure apartat \ref{sec:ontologia} pels detalls sobre la ontologia, en aquest apartat ens centrarem en la descomposició en subproblemes} que representi el coneixement estàtic del domini com un conjunt de classes, atributs i relacions. Per altra banda és necessari definir formalment què ha de resoldre cadascun dels tres subproblemes i quines dades d'entrada i sortida tindrà cadascun d'ells per tal de facilitar l'implementació final.
+
+Donem, a continuació, la definició formal dels subproblemes que hem utilitzat juntament amb una explicació de tots els punts pertinents. Per una definició més general de cadascun dels mòduls referir-se a la secció \ref{sec:subprob_informal} d'aquest mateix document.
+
+\subsubsection*{Obtenir informació de l'usuari: Classificació}
+
+Podem veure aquest mòdul com una cadena de preguntes que pretén classificar l'usuari en unes categories prefixades. Ja es pot parlar de coneixement expert en aquest mòdul, ja que tot i que s'obté pràcticament tota l'informació de l'usuari mitjançant preguntes, no totes les preguntes són necessàries en cada cas i s'obvien en els casos pertintents.
+
+En aquest cas hem dividit el mòdul principal en dos submòduls. El primer es dedica exclusivament a determinar el tipus de client:
+
+\begin{description}
+	\item[Entrada:] Aquest mòdul no té dependències d'altres mòduls i la seva única font d'informació és l'entrada de l'usuari. 
+
+	\item[Sortida:] La sortida d'aquest mòdul es recull en tota una sèrie de camps obtinguts directament o deduïts a partir de les preguntes que es fan al client.
+	\begin{itemize}
+	\item \emph{Tipus de viatge}. Possibles valors: Cultural, Diversio, Negocis, Romantic, Relax, Aventura.
+	\item \emph{Mitjana d'edat}. Possibles valors: Jove, Adult, Jubilats, Variada.
+	\item \emph{Tipus client}. Possibles valors: Grup Organitzat, Grup Amics, Institut, Familia, Parella, Individual, Companys de feina.
+	\end{itemize}
+
+\end{description}
+
+\subsubsection*{Obtenir informació de l'usuari: Restriccions i preferències}
+
+El segon mòdul està orientat a obtenir les preferències i/o restriccions que l'usuari vulgui imposar sobre el viatge.
+
+\begin{description}
+	\item[Entrada:] En aquest cas l'entrada correspon també només a l'entrada de l'usuari més alguns camps addicionals del submòdul anterior per tal de obviar algunes pregunes segons calgui.
+
+	\item[Sortida:] La sortida d'aquest mòdul es recull en tota una sèrie de camps obtinguts directament o deduïts a partir de les preguntes que es fan al client. Addicionalment, i com una excepcíó, es classifica l'usuari per nivell de vida en aquest mòdul ja que és on es pregunta pel pressupost. Seria argumentable el posar-lo en el mòdul anterior i en tot cas hem optat per aquesta opció per tal de simplificar la gestió dels mòduls.
+	\begin{itemize}
+	\item \emph{Pressupost}. Dos enters, mínim i màxim d'euros.
+	\item \emph{Duració}. Dos enters, mínim i màxim de dies.
+	\item \emph{Nombre de ciutats} Dos enters, mínim i màxim de ciutats a visitar.
+	\item \emph{Prefereix ciutats exòtiques}. Un predicat simple, si és cert vol dir que l'usuari prefereix centrar el seu viatge en ciutats exòtiques.
+	\item \emph{Nivell de vida}. Possibles valors: Molt alt, Alt, Mig, Baix.
+	\end{itemize}
+
+\end{description}
+
+
+\subsubsection*{Determinar el model de ciutat}
+
+\subsubsection*{Montar el viatge}
+
+
 
 %==========================================================
 %                      4. IMPLEMENTACIO
@@ -102,11 +148,13 @@ Tenint ja clars els conceptes que intervenen en el domini i sabent com s'ha subd
 \label{sec:implementacio}
 En aquesta secció es detallen les diverses decisions d'implementació que hem pres a l'hora de resoldre el problema plantejat. Cal notar que una explicació més completa sobre l'ontologia del domini es troba a l'apartat \ref{sec:ontologia}  
 
+\clearpage
+
 \section{Documentació de l'ontologia}%mirar si ontologia s'escriu amb l'
 \label{sec:ontologia}
 Duis et diam suscipit, ornare ligula non, rhoncus arcu. Curabitur sem nisi, molestie eget magna tristique, aliquam tempus quam. Aliquam at sollicitudin ligula. Praesent iaculis pharetra neque, et mollis tortor condimentum a. Duis risus odio, placerat sit amet malesuada ornare, posuere nec est. Nulla finibus tempor ligula vel dictum. Nulla finibus orci eget est tristique suscipit. Praesent congue neque eget consectetur facilisis. Sed nibh enim, scelerisque ac libero et, ultricies euismod enim. Etiam leo sapien, consectetur ac purus scelerisque, sagittis consectetur nibh. Phasellus rhoncus fermentum massa, luctus pulvinar risus dignissim non. Donec vel varius eros. Mauris metus elit, sagittis vel finibus in, vehicula non ante. Duis nisi nisl, dignissim a ligula in, sodales maximus ex. Morbi efficitur libero in pulvinar hendrerit. Sed accumsan augue id vehicula euismod.
 
-
+\clearpage
 
 \section{Jocs de proves}
 Nunc vitae risus rutrum, dignissim metus eget, sollicitudin neque. Nullam luctus condimentum ultricies. Donec lacinia mi et odio convallis sollicitudin. Sed turpis eros, pharetra a odio eget, elementum mattis dolor. Sed rutrum quis orci a porttitor. Phasellus dignissim ante eget nisi facilisis, non mollis libero ullamcorper. Sed facilisis, turpis ut mollis tempor, felis dui commodo sem, et dignissim diam ligula vel dui. Pellentesque ante lectus, malesuada a tristique non, pellentesque non magna.
