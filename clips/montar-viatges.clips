@@ -1625,8 +1625,8 @@
 				(if (eq (str-cat (class (nth$ ?i ?a))) "5Estrella") then
 						(bind ?h (nth$ ?i ?a))
 						(bind ?b TRUE)
-						(bind ?i (+ ?i 1))
 				)
+				(bind ?i (+ ?i 1))
 			)
 		)
 		(case mitja then
@@ -1636,8 +1636,8 @@
 						(eq (str-cat (class (nth$ ?i ?a))) "3Estrella")) then
 						(bind ?h (nth$ ?i ?a))
 						(bind ?b TRUE)
-						(bind ?i (+ ?i 1))
 				)
+				(bind ?i (+ ?i 1))
 			)
 		)
 		(case baixa then
@@ -1647,8 +1647,8 @@
 						(eq (str-cat (class (nth$ ?i ?a))) "2Estrella")) then
 						(bind ?h (nth$ ?i ?a))
 						(bind ?b TRUE)
-						(bind ?i (+ ?i 1))
 				)
+				(bind ?i (+ ?i 1))
 			)
 		)
 	)
@@ -1667,7 +1667,6 @@
 				do
 				(bind ?aux1 (random 1 (length ?a)))
 				(bind ?aux2 (send (nth$ ?aux1 ?a) get-durada-activitat))
-				(bind ?a (delete$ ?a ?aux1 ?aux1))
 				(if (eq ?aux2 mig-dia) then
 					(if (<= (+ ?duracio_act 0.5) ?d) then
 						(bind ?duracio_act (+ ?duracio_act 0.5))
@@ -1680,6 +1679,7 @@
 						(bind ?v (insert$ ?v 1 (nth$ ?aux1 ?a)))					
 					)
 				)
+				(bind ?a (delete$ ?a ?aux1 ?aux1))
 				(bind ?i (+ ?i 1))
 			)
 		)
@@ -1692,7 +1692,6 @@
 				do
 				(bind ?aux1 (random 1 (length ?a)))
 				(bind ?aux2 (send (nth$ ?aux1 ?a) get-durada-activitat))
-				(bind ?a (delete$ ?a ?aux1 ?aux1))
 				(if (eq ?aux2 mig-dia) then
 					(if (<= (+ ?duracio_act 0.5) ?d) then
 						(bind ?duracio_act (+ ?duracio_act 0.5))
@@ -1711,6 +1710,7 @@
 						)			
 					)
 				)
+				(bind ?a (delete$ ?a ?aux1 ?aux1))
 				(bind ?i (+ ?i 1))
 			)
 		)
