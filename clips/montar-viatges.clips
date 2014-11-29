@@ -1607,7 +1607,6 @@
 		(bind ?v (create$))
 		(loop-for-count (?i 1 ?n)
 			(bind ?aux (random 1 (length ?li)))
-			;Nota: insert i delete son funcions pures, s'ha de posar bind -setzer22
 			(bind ?v (insert$ ?v 1 (nth$ ?aux ?li)))
 			(bind ?li (delete$ ?li ?aux ?aux))
 		)
@@ -1615,54 +1614,40 @@
 	)
 )
 
-(deffunction buscar-hotel (?c ?ch ?ip)
+(deffunction buscar-hotel (?c ?ch)
 	(bind ?a (send ?c get-Allotjaments))
-	(if (eq ?ip no) then
-		;@BUGFIX Estava posat length ?c, i ?c no és multifield, he suposat que la idea era
-		;		 fer length ?a -setzer22
-		(if (> (length ?a) 0) then
-			(bind ?h (nth$ 1 ?a))
-			(loop-for-count (?i 2 (length ?a))
-				(if (> (send (nth$ ?i ?a) get-preu-allotjament) (send ?h get-preu-allotjament))
-					then (bind ?h (nth$ ?i ?a)))
+	(bind ?i 1)
+	(bind ?b FALSE)
+	(switch ?ch
+		(case alta then
+			(while (and (<= ?i (length ?a)) (not ?b))
+				do
+				(if (eq (str-cat (class (nth$ ?i ?a))) "5Estrella") then
+						(bind ?h (nth$ ?i ?a))
+						(bind ?b TRUE)
+						(bind ?i (+ ?i 1))
+				)
 			)
 		)
-	else
-		(bind ?i 1)
-		(bind ?b FALSE)
-		(switch ?ch
-			(case alta then
-				(while (and (<= ?i (length ?a)) (not ?b))
-					do
-					(if (or (eq (str-cat (class (nth$ ?i ?a))) "5Estrella") 
-							(eq (str-cat (class (nth$ ?i ?a))) "4Estrella")) then
-							(bind ?h (nth$ ?i ?a))
-							(bind ?b TRUE)
-							(bind ?i (+ ?i 1))
-					)
+		(case mitja then
+			(while (and (<= ?i (length ?a)) (not ?b))
+				do
+				(if (or (eq (str-cat (class (nth$ ?i ?a))) "4Estrella") 
+						(eq (str-cat (class (nth$ ?i ?a))) "3Estrella")) then
+						(bind ?h (nth$ ?i ?a))
+						(bind ?b TRUE)
+						(bind ?i (+ ?i 1))
 				)
 			)
-			(case mitja then
-				(while (and (<= ?i (length ?a)) (not ?b))
-					do
-					(if (or (eq (str-cat (class (nth$ ?i ?a))) "4Estrella") 
-							(eq (str-cat (class (nth$ ?i ?a))) "3Estrella")
-							(eq (str-cat (class (nth$ ?i ?a))) "2Estrella")) then
-							(bind ?h (nth$ ?i ?a))
-							(bind ?b TRUE)
-							(bind ?i (+ ?i 1))
-					)
-				)
-			)
-			(case baixa then
-				(while (and (<= ?i (length ?a)) (not ?b))
-					do
-					(if (or (eq (str-cat (class (nth$ ?i ?a))) "1Estrella") 
-							(eq (str-cat (class (nth$ ?i ?a))) "2Estrella")) then
-							(bind ?h (nth$ ?i ?a))
-							(bind ?b TRUE)
-							(bind ?i (+ ?i 1))
-					)
+		)
+		(case baixa then
+			(while (and (<= ?i (length ?a)) (not ?b))
+				do
+				(if (or (eq (str-cat (class (nth$ ?i ?a))) "1Estrella") 
+						(eq (str-cat (class (nth$ ?i ?a))) "2Estrella")) then
+						(bind ?h (nth$ ?i ?a))
+						(bind ?b TRUE)
+						(bind ?i (+ ?i 1))
 				)
 			)
 		)
@@ -1670,9 +1655,79 @@
 	(return ?h)
 )
 
+(deffunction buscar_activitats (?c ?ta ?ch ?d)
+	(bind ?a (send ?c get-Activitats))
+	(bind ?v (create$))
+	(switch ?ch
+		(case alta then
+			(bind ?duracio_act 0)
+			(bind ?i 1)
+			(bind ?b FALSE)
+			(while (and (<= ?i (length ?a)) (not ?b))
+				do
+				(bind ?aux1 (random 1 (length ?a)))
+				(bind ?aux2 (send (nth$ ?aux1 ?a) get-durada-activitat))
+				(bind ?a (delete$ ?a ?aux1 ?aux1))
+				(if (eq ?aux2 mig-dia) then
+					(if (<= (+ ?duracio_act 0.5) ?d) then
+						(bind ?duracio_act (+ ?duracio_act 0.5))
+						(bind ?v (insert$ ?v 1 (nth$ ?aux ?a)))
+					else (bind ?b TRUE)
+					)
+				else
+					(if (<= (+ ?duracio_act 1.0) ?d) then
+						(bind ?duracio_act (+ ?duracio_act 1))
+						(bind ?v (insert$ ?v 1 (nth$ ?aux ?a)))					
+					)
+				)
+				(bind ?i (+ ?i 1))
+			)
+		)
+		(case mitja then
+			(bind ?duracio_act 0)
+			(bind ?i 1)
+			(bind ?b FALSE)
+			(bind ?num_act (+ (/ ?d 2) 1))
+			(while (and (<= ?i (length ?a)) (not ?b))
+				do
+				(bind ?aux1 (random 1 (length ?a)))
+				(bind ?aux2 (send (nth$ ?aux1 ?a) get-durada-activitat))
+				(bind ?a (delete$ ?a ?aux1 ?aux1))
+				(if (eq ?aux2 mig-dia) then
+					(if (<= (+ ?duracio_act 0.5) ?d) then
+						(bind ?duracio_act (+ ?duracio_act 0.5))
+						(bind ?v (insert$ ?v 1 (nth$ ?aux ?a)))
+						(if (> (length ?v) ?num_act)
+							then (bind ?b TRUE)
+						)
+					else (bind ?b TRUE)
+					)
+				else
+					(if (<= (+ ?duracio_act 1.0) ?d) then
+						(bind ?duracio_act (+ ?duracio_act 1))
+						(bind ?v (insert$ ?v 1 (nth$ ?aux ?a)))		
+						(if (> (length ?v) ?num_act)
+							then (bind ?b TRUE)
+						)			
+					)
+				)
+				(bind ?i (+ ?i 1))
+			)
+		)
+		(case baixa then
+			(bind ?aux1 (random 1 (length ?a)))
+			(bind ?v (insert$ ?v 1 (nth$ ?aux ?a)))
+		)
+	)
+	(return ?v)
+)
+
 (deffunction calcular-preu (?a ?h)
-	(bind ?pa (send ?a get-preu-activitat))
 	(bind ?ph (send ?h get-preu-allotjmanet))
+	(bind ?pa 0)
+	(loop-for-count (?i 1 (length ?a))
+		(bind ?pa (+ ?pa (send (nth$ ?i ?a) get-preu-activitat)))
+	)
 	(return (+ ?pa ?ph))
 )
 
@@ -1702,7 +1757,6 @@
 	(printout t ?x crlf crlf)
 	(send ?x imprimeix)
 	(printout t crlf)
-	(halt)
 )
 
 (deffunction imprimeix-ciutats (?c)
@@ -1770,7 +1824,6 @@
 	(tipus_ciutats (tipus ?tc))
 	(tipus_activitats (tipus ?ta))
 	(cualitat_hotels (tipus ?ch))
-	(importa_preu ?ip)
 	(num_ciutats(min ?num_ciutats_min))
 	(num_dies(dies_min ?num_dies_min))
 	=>
@@ -1778,13 +1831,11 @@
 		(and (eq ?a:Importancia ?tc) (comprovar-activitats ?a:Activitats ?ta))))
 		(bind ?r (triar-ciutats ?c ?num_ciutats_min))
 		(loop-for-count (?i 1 (length ?r))
-			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch ?ip))
+			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch))
+			(bind ?act (buscar_activitats (nth$ ?i ?r) ?ta ?ch (/ ?num_dies_min ?num_ciutats_min)))
    			(make-instance [aux] of Solucio-P
    			(ciutat (nth$ ?i ?r)) (duracio (/ ?num_dies_min ?num_ciutats_min))
-   			;@BUG: Aqui ?ta és un tipus d'activitat, i calcular-preu espera una instància 
-   			;	   d'activitat. La crida no funciona i no se ben bé què es pretenia fer 
-   			;      així que no puc arreglar-ho. -setzer22
-   			(activitats ?ta) (allotjament ?h) (preu (calcular-preu ?ta ?h)))
+   			(activitats ?act) (allotjament ?h) (preu (calcular-preu ?act ?h)))
    			(slot-insert$ ?x ciutats ?i aux)
 		)
 		(halt)
