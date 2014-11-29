@@ -1,7 +1,19 @@
 Buglist: 
 	
+Montar viatges:
+
 	- Para viajes de mas de una ciudad tiene problemas para encontrar hotel
 
 	- El SBC deja vacia la lista de viajes
+		\
+		 --> Quan estigui falta imprimir els viatges al print handler
 
 	- Las actividades no concuerdan con el tipo del viaje
+
+Determinar usuari:
+
+	- S'ignoren les families
+	
+	- En cas de no poder catalogar el client sortir amb un missatge en comptes de tancar de cop
+
+
