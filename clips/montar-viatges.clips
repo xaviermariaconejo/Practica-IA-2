@@ -1607,8 +1607,9 @@
 		(bind ?v (create$))
 		(loop-for-count (?i 1 ?n)
 			(bind ?aux (random 1 (length ?li)))
-			(insert$ ?v 1 (nth$ ?aux ?li))
-			(delete$ ?li ?aux ?aux)
+			;Nota: insert i delete son funcions pures, s'ha de posar bind -setzer22
+			(bind ?v (insert$ ?v 1 (nth$ ?aux ?li)))
+			(bind ?li (delete$ ?li ?aux ?aux))
 		)
 		(return ?v)
 	)
