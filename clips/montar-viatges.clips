@@ -1964,6 +1964,7 @@
 			(if (neq ?j (length ?activitats)) then (printout t ", "))
 		)
 		(printout t crlf)
+		;@BUG No puc fer els viatges encara perquè la llista surt buida -setzer22
 	)
 )
 
