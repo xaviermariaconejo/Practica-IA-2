@@ -1723,7 +1723,7 @@
 )
 
 (deffunction calcular-preu (?a ?h)
-	(bind ?ph (send ?h get-preu-allotjmanet))
+	(bind ?ph (send ?h get-preu-allotjament))
 	(bind ?pa 0)
 	(loop-for-count (?i 1 (length ?a))
 		(bind ?pa (+ ?pa (send (nth$ ?i ?a) get-preu-activitat)))
