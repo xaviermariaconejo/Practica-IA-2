@@ -1781,9 +1781,13 @@
 			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch ?ip))
    			(make-instance [aux] of Solucio-P
    			(ciutat (nth$ ?i ?r)) (duracio (/ ?num_dies_min ?num_ciutats_min))
+   			;@BUG: Aqui ?ta és un tipus d'activitat, i calcular-preu espera una instància 
+   			;	   d'activitat. La crida no funciona i no se ben bé què es pretenia fer 
+   			;      així que no puc arreglar-ho. -setzer22
    			(activitats ?ta) (allotjament ?h) (preu (calcular-preu ?ta ?h)))
    			(slot-insert$ ?x ciutats ?i aux)
 		)
+		(halt)
 )
 
 (defrule determinar-viatge "Determina els viatges entre les ciutats"
