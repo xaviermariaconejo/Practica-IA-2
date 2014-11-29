@@ -1696,7 +1696,7 @@
 				(if (eq ?aux2 mig-dia) then
 					(if (<= (+ ?duracio_act 0.5) ?d) then
 						(bind ?duracio_act (+ ?duracio_act 0.5))
-						(bind ?v (insert$ ?v 1 (nth$ ?aux ?a)))
+						(bind ?v (insert$ ?v 1 (nth$ ?aux1 ?a)))
 						(if (> (length ?v) ?num_act)
 							then (bind ?b TRUE)
 						)
@@ -1705,7 +1705,7 @@
 				else
 					(if (<= (+ ?duracio_act 1.0) ?d) then
 						(bind ?duracio_act (+ ?duracio_act 1))
-						(bind ?v (insert$ ?v 1 (nth$ ?aux ?a)))		
+						(bind ?v (insert$ ?v 1 (nth$ ?aux1 ?a)))		
 						(if (> (length ?v) ?num_act)
 							then (bind ?b TRUE)
 						)			
@@ -1715,7 +1715,7 @@
 			)
 		)
 		(case baixa then
-			(bind ?aux1 (random 1 (length ?a)))
+			(bind ?aux (random 1 (length ?a)))
 			(bind ?v (insert$ ?v 1 (nth$ ?aux ?a)))
 		)
 	)
