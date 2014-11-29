@@ -137,6 +137,24 @@ El segon mòdul està orientat a obtenir les preferències i/o restriccions que 
 
 \subsubsection*{Determinar el model de ciutat}
 
+El tercer mòdul està orientat a obtenir, a partir del primer mòdul i la preferència de si l'usuari vol un viatge exòtic, un model de ciutat que a l'usuari l'interessi.
+
+\begin{description}
+	\item[Entrada:] En aquest cas l'entrada correspon a la descripció obtinguda sobretot en el primer mòdul juntament amb la informació que s'obté en el mòdul de restriccions i preferències. 
+
+	\item[Sortida:] La sortida d'aquest mòdul es recull en tres camps obtinguts a partir de la informació de l'usuari. 
+	\begin{itemize}
+	\item \emph{Tipus de ciutat}. Pot tenir tres valors: molt coneguda, coneguda i desconeguda.
+	Aquest camp es dedueix a partir del tipus d'activitat que s'ha obtingut en el primer mòdul juntament amb el tipus de client i si és un viatge exòtic.
+	\item \emph{Cualitat Hotels}. Pot tenir tres valors: alt, mitja i baix.
+	Aquest camp depèn del nivell de vida de l'usuari i en alguns casos del pressupost i els dies que van de viatge.
+	\item \emph{Tipus d'activitats} Possibles valors: Cultural, Diversio, Negocis, Romantic, Relax, Aventura.
+	
+	\end{itemize}
+
+\end{description}
+
+
 \subsubsection*{Montar el viatge}
 
 
