@@ -1833,10 +1833,10 @@
 		(loop-for-count (?i 1 (length ?r))
 			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch))
 			(bind ?act (buscar_activitats (nth$ ?i ?r) ?ta ?ch (/ ?num_dies_min ?num_ciutats_min)))
-   			(make-instance [aux] of Solucio-P
+   			(bind ?no-llameis-aux-a-las-variables (make-instance of Solucio-P))
    			(ciutat (nth$ ?i ?r)) (duracio (/ ?num_dies_min ?num_ciutats_min))
    			(activitats ?act) (allotjament ?h) (preu (calcular-preu ?act ?h)))
-   			(slot-insert$ ?x ciutats ?i aux)
+   			(slot-insert$ ?x ciutats ?i ?no-llameis-aux-a-las-variables)
 		)
 		(halt)
 )
