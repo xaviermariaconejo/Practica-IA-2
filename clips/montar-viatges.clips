@@ -1618,7 +1618,9 @@
 (deffunction buscar-hotel (?c ?ch ?ip)
 	(bind ?a (send ?c get-Allotjaments))
 	(if (eq ?ip no) then
-		(if (> (length ?c) 0) then
+		;@BUGFIX Estava posat length ?c, i ?c no és multifield, he suposat que la idea era
+		;		 fer length ?a -setzer22
+		(if (> (length ?a) 0) then
 			(bind ?h (nth$ 1 ?a))
 			(loop-for-count (?i 2 (length ?a))
 				(if (> (send (nth$ ?i ?a) get-preu-allotjament) (send ?h get-preu-allotjament))
