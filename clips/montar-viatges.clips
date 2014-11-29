@@ -1740,6 +1740,8 @@
 			)
 		)
 	)
+	;@BUGFIX Crec que aqui feia falta retornar ?v -setzer22
+	(return ?v)
 )
 
 (deffunction viatge-baixa (?v)
@@ -1751,6 +1753,8 @@
 			)
 		)
 	)
+	;@BUGFIX Crec que aqui feia falta retornar ?v -setzer22
+	(return ?v)
 )
 
 (deffunction escriure-solucio (?x)
@@ -1903,12 +1907,14 @@
 		(bind ?c (send ?x get-ciutats))
 		(bind ?aux1 0)
 		(bind ?aux2 0)
+
 		(loop-for-count (?i 1 (length ?c))
 			(bind ?pc (nth$ ?i ?c))
 			(bind ?aux1 (+ ?aux1 (send ?pc get-preu)))
 			(bind ?aux2 (+ ?aux2 (send ?pc get-duracio)))
 		)
 		(bind ?c (send ?x get-viatges))
+		(printout t "determinar-preu-duracio. SolP: ") (printout t ?x) (printout t " ") (printout t ?c) (printout t crlf)			
 		(loop-for-count (?i 1 (length ?c))
 			(bind ?pc (nth$ ?i ?c))
 			(bind ?aux1 (+ ?aux1 (send ?pc get-preu-viatge)))
@@ -1922,6 +1928,7 @@
 	?x <- (object (is-a Solucio-F))
 	=>
 		(escriure-solucio ?x)
+		(halt)
 )
 
 
@@ -1933,7 +1940,7 @@
 	(printout t " euros" crlf)
 	(printout t crlf) 
 	(printout t "Duración del viaje: ")
-	(printout t ?self:duracio-total print)
+	(printout t ?self:duracio-total)
 	(printout t " dias" crlf)
 	(printout t crlf) 
 	(printout t "Ciudades: ")
