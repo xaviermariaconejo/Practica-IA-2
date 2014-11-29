@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1417262819 "practica2.tex" "practica2.pdf" "practica2" 1417263027
+["pdflatex"] 1417270187 "practica2.tex" "practica2.pdf" "practica2" 1417270187
   "/usr/share/texmf-dist/tex/generic/babel-catalan/catalan.ldf" 1407968440 10113 2e7f3b4656572a71a9061a5e27e11e94 ""
   "/usr/share/texmf-dist/tex/generic/babel-english/english.ldf" 1407968440 6963 2e0cb3d93aa64508bdb0db58ae900d97 ""
   "/usr/share/texmf-dist/tex/generic/babel/babel.def" 1407968440 49536 e1475dd245ff2196764ba5b91ac63714 ""
@@ -13,11 +13,11 @@
   "/usr/share/texmf-dist/tex/latex/base/t1enc.dfu" 1407968439 7405 c70c194719f79b7d070eeb68af109b09 ""
   "/usr/share/texmf-dist/tex/latex/base/utf8.def" 1407968439 6275 ac89e3d1c95578574b0b11f34248899e ""
   "/usr/share/texmf-dist/tex/latex/eurosym/eurosym.sty" 1407968439 3028 8faeef64adee9b964b5e7f5e45921024 ""
-  "practica2.aux" 1417262819 1587 d496d75bb168240417af750a34fd5bc7 ""
-  "practica2.tex" 1417263026 14935 c13774694231c0188484bb65fdd0029e ""
-  "practica2.toc" 1417262819 1057 9a5925b38f0a1ca4304ef9ba44446437 ""
+  "practica2.aux" 1417270187 1692 35182f21d9f6335a9cb919f0c1ccd2d4 ""
+  "practica2.tex" 1417270186 16074 cff207546b303d9c7daab98f7eeb3ec1 ""
+  "practica2.toc" 1417270187 1144 e796312b3a41215979a9a67b372a61da ""
   (generated)
-  "practica2.pdf"
-  "practica2.toc"
   "practica2.log"
+  "practica2.pdf"
   "practica2.aux"
+  "practica2.toc"
