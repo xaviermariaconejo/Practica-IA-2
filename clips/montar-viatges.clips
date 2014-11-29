@@ -1671,13 +1671,13 @@
 				(if (eq ?aux2 mig-dia) then
 					(if (<= (+ ?duracio_act 0.5) ?d) then
 						(bind ?duracio_act (+ ?duracio_act 0.5))
-						(bind ?v (insert$ ?v 1 (nth$ ?aux ?a)))
+						(bind ?v (insert$ ?v 1 (nth$ ?aux1 ?a)))
 					else (bind ?b TRUE)
 					)
 				else
 					(if (<= (+ ?duracio_act 1.0) ?d) then
 						(bind ?duracio_act (+ ?duracio_act 1))
-						(bind ?v (insert$ ?v 1 (nth$ ?aux ?a)))					
+						(bind ?v (insert$ ?v 1 (nth$ ?aux1 ?a)))					
 					)
 				)
 				(bind ?i (+ ?i 1))
