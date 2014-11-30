@@ -14,11 +14,14 @@
     (import utils deffunction ?ALL)
 )
 
-; Copiem la ontologia en aquest mòdul per evitar conflictes amb la resolució de instàncies de CLIPS
+;=================================================
+;					Ontologia
+;=================================================
+; tag-inici-ontologia
 
-;========================================
-;               Ontologia
-;========================================
+
+
+; tag-fi-ontologia
 
 
 
