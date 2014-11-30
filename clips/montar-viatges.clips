@@ -1854,8 +1854,7 @@
 		(bind ?c (send ?x get-ciutats))
 		(if (> (length ?c) 0) then
 			(if (eq ?ip no) then
-                (printout t "1")
-				(bind ?v (find-all-instances ((?aux Viatge)) (and (eq (send (send ?aux get-origen) get-Nom) Origen) (eq ?aux:desti (nth$ 1 ?c)))))
+				(bind ?v (find-all-instances ((?aux Viatge)) (and (eq (send (send ?aux get-origen) get-Nom) Origen) (eq ?aux:desti (send (nth$ 1 ?c) get-ciutat)))))
                 (printout t (length ?v))
 				(slot-insert$ ?x viatges 1 (viatge-alta ?v))
                 (printout t "2")
