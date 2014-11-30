@@ -1833,7 +1833,7 @@
 	(num_dies(dies_min ?num_dies_min))
 	=>
 		(bind ?c (find-all-instances ((?a Ciutat))
-		(and (eq ?a:Importancia ?tc) (eq (comprovar-activitats ?a:Activitats ?ta) TRUE))))
+		(and (eq ?a:Importancia ?tc) (comprovar-activitats ?a:Activitats ?ta))))
 		(bind ?r (triar-ciutats ?c ?num_ciutats_min))
 		(loop-for-count (?i 1 (length ?r))
 			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch))
