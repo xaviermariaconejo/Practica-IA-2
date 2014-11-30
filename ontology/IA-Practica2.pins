@@ -1,4 +1,4 @@
-; Wed Nov 26 12:47:37 CET 2014
+; Sun Nov 30 18:13:00 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -11,6 +11,14 @@
 ([IA-Practica2_Class10001] of  Central
 
 	(Activitats [IA-Practica2_Class10003])
+	(Allotjaments
+		[IA-Practica2_Class50006]
+		[IA-Practica2_Class50007]
+		[IA-Practica2_Class50008]
+		[IA-Practica2_Class50009]
+		[IA-Practica2_Class50010]
+		[IA-Practica2_Class50011]
+		[IA-Practica2_Class50012])
 	(Importancia molt_coneguda)
 	(Nom "Paris"))
 
@@ -333,7 +341,14 @@
 ([IA-Practica2_Class10062] of  Africa_Mediterrania
 
 	(Activitats [IA-Practica2_Class20001])
-	(Importancia molt_coneguda)
+	(Allotjaments
+		[IA-Practica2_Class40000]
+		[IA-Practica2_Class50001]
+		[IA-Practica2_Class50002]
+		[IA-Practica2_Class50003]
+		[IA-Practica2_Class50004]
+		[IA-Practica2_Class50005])
+	(Importancia coneguda)
 	(Nom "Marrakech"))
 
 ([IA-Practica2_Class10064] of  Orient_Proxim
@@ -757,6 +772,11 @@
 
 	(nom-allotjament "Revital Hotel Park")
 	(preu-allotjament 35))
+
+([IA-Practica2_Class40000] of  5Estrella
+
+	(nom-allotjament "LA Maison Arabe")
+	(preu-allotjament 274))
 
 ([IA-Practica2_Class40001] of  Aventura
 
@@ -1214,3 +1234,63 @@
 	(origen [IA-Practica2_Class10000])
 	(preu-viatge 65)
 	(transport avio))
+
+([IA-Practica2_Class50001] of  5Estrella
+
+	(nom-allotjament "Riad Dar Anika")
+	(preu-allotjament 154))
+
+([IA-Practica2_Class50002] of  4Estrella
+
+	(nom-allotjament "Raid Al Badia")
+	(preu-allotjament 150))
+
+([IA-Practica2_Class50003] of  3Estrella
+
+	(nom-allotjament "Dar Rocamarra")
+	(preu-allotjament 95))
+
+([IA-Practica2_Class50004] of  3Estrella
+
+	(nom-allotjament "Raid Slawi")
+	(preu-allotjament 75))
+
+([IA-Practica2_Class50005] of  2Estrella
+
+	(nom-allotjament "Dar Tuscia")
+	(preu-allotjament 50))
+
+([IA-Practica2_Class50006] of  5Estrella
+
+	(nom-allotjament "Le Bristol Paris")
+	(preu-allotjament 245))
+
+([IA-Practica2_Class50007] of  4Estrella
+
+	(nom-allotjament "Le 123 Sebastopol")
+	(preu-allotjament 195))
+
+([IA-Practica2_Class50008] of  3Estrella
+
+	(nom-allotjament "Hotel Galileo")
+	(preu-allotjament 75))
+
+([IA-Practica2_Class50009] of  3Estrella
+
+	(nom-allotjament "Hotel Joyce")
+	(preu-allotjament 65))
+
+([IA-Practica2_Class50010] of  2Estrella
+
+	(nom-allotjament "Hotel Darcet")
+	(preu-allotjament 45))
+
+([IA-Practica2_Class50011] of  2Estrella
+
+	(nom-allotjament "Hotel Manet")
+	(preu-allotjament 40))
+
+([IA-Practica2_Class50012] of  1Estrella
+
+	(nom-allotjament "Pacific Hotel")
+	(preu-allotjament 25))
