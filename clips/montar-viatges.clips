@@ -1741,7 +1741,7 @@
 		)
 	)
 	;@BUGFIX Crec que aqui feia falta retornar ?v -setzer22
-	(return ?v)
+	(return ?r)
 )
 
 (deffunction viatge-baixa (?v)
@@ -1754,7 +1754,7 @@
 		)
 	)
 	;@BUGFIX Crec que aqui feia falta retornar ?v -setzer22
-	(return ?v)
+	(return ?r)
 )
 
 (deffunction escriure-solucio (?x)
@@ -1854,9 +1854,11 @@
 		(bind ?c (send ?x get-ciutats))
 		(if (> (length ?c) 0) then
 			(if (eq ?ip no) then
-				(bind ?v (find-all-instances ((?aux Viatge)) (and (eq ?aux:origen Origen) (eq ?aux:desti (nth$ 1 ?c)))))
+                (printout t "1")
+				(bind ?v (find-all-instances ((?aux Viatge)) (and (eq (send (send ?x get-origen) get-nom) Origen) (eq ?aux:desti (nth$ 1 ?c)))))
 				(slot-insert$ ?x viatges 1 (viatge-alta ?v))
-				(loop-for-count (?i 2 (+ (length ?c) -1))
+                (printout t "2")
+				(loop-for-count (?i 2 (length ?c))
 					(bind ?o (nth$ (+ ?i -1) ?c))
 					(bind ?d (nth$ ?i ?c))
 					(bind ?v (find-all-instances ((?aux Viatge)) (and (eq ?aux:origen ?o) (eq ?aux:desti ?d))))
@@ -1868,10 +1870,9 @@
 			else
 				(switch ?ch
 					(case alta then
-						(bind ?v (find-all-instances ((?aux Viatge)) 
-						(and (eq ?aux:origen Origen) (eq ?aux:desti (nth$ 1 ?c)))))
+						(bind ?v (find-all-instances ((?aux Viatge)) (and (eq (send (send ?x get-origen) get-nom) Origen) (eq ?aux:desti (nth$ 1 ?c)))))
 						(slot-insert$ ?x viatges 1 (viatge-alta ?v))
-						(loop-for-count (?i 2 (+ (length ?c) -1))
+						(loop-for-count (?i 2 (length ?c))
 							(bind ?o (nth$ (+ ?i -1) ?c))
 							(bind ?d (nth$ ?i ?c))
 							(bind ?v (find-all-instances ((?aux Viatge)) (and (eq ?aux:origen ?o) (eq ?aux:desti ?d))))
@@ -1882,10 +1883,9 @@
 						(slot-insert$ ?x viatges (length ?c) (viatge-alta ?v))
 					)
 					(default
-						(bind ?v (find-all-instances ((?aux Viatge)) 
-						(and (eq ?aux:origen Origen) (eq ?aux:desti (nth$ 1 ?c)))))
+						(bind ?v (find-all-instances ((?aux Viatge)) (and (eq (send (send ?x get-origen) get-nom) Origen) (eq ?aux:desti (nth$ 1 ?c)))))
 						(slot-insert$ ?x viatges 1 (viatge-baixa ?v))
-						(loop-for-count (?i 2 (+ (length ?c) -1))
+						(loop-for-count (?i 2 (length ?c))
 							(bind ?o (nth$ (+ ?i -1) ?c))
 							(bind ?d (nth$ ?i ?c))
 							(bind ?v (find-all-instances ((?aux Viatge)) (and (eq ?aux:origen ?o) (eq ?aux:desti ?d))))
