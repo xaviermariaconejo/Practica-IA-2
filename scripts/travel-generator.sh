@@ -31,7 +31,7 @@ echo "" > filteredinstances.out
 for i in $(cat $inputfile | grep -E "of"); do 
 	export value=$(echo $i | grep "\[")
 	if [ ! -z "$value" ] ; then
-		echo $value >> filteredinstances.out
+		echo $(expr substr $value 2 $((${#value} - 1))) >> filteredinstances.out
 	fi
 done
 
@@ -42,12 +42,13 @@ for i in $(cat filteredinstances.out); do
 		#print a simple travel for each pair of cities, this should
 		#should work for now
 		if [ "$i" != "$j" ] ; then
-			echo "([IA-Practica2_Class10012] of  Viatge
+			echo "([viatge-$travelcount] of  Viatge
 	(desti $i)
 	(origen $j)
 	(preu-viatge 65)
 	(transport avio))
 " >> $outputfile
+		export travelcount=$(($travelcount + 1))
 		fi
 	done
 done

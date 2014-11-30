@@ -1,0 +1,333 @@
+([IA-Practica2_Class10000] of  Ciutat
+
+	(Importancia molt_coneguda)
+	(Nom "Origen"))
+
+([IA-Practica2_Class10001] of  Central
+
+	(Activitats [IA-Practica2_Class10003])
+	(Allotjaments
+		[IA-Practica2_Class50006]
+		[IA-Practica2_Class50007]
+		[IA-Practica2_Class50008]
+		[IA-Practica2_Class50009]
+		[IA-Practica2_Class50010]
+		[IA-Practica2_Class50011]
+		[IA-Practica2_Class50012])
+	(Importancia molt_coneguda)
+	(Nom "Paris"))
+
+([IA-Practica2_Class10004] of  Mediterrania
+
+	(Activitats
+		[IA-Practica2_Class10067]
+		[IA-Practica2_Class30001]
+		[IA-Practica2_Class30002]
+		[IA-Practica2_Class30003]
+		[IA-Practica2_Class30004])
+	(Allotjaments
+		[IA-Practica2_Class10068]
+		[IA-Practica2_Class10069]
+		[IA-Practica2_Class20000]
+		[IA-Practica2_Class30005]
+		[IA-Practica2_Class30006]
+		[IA-Practica2_Class30007])
+	(Importancia molt_coneguda)
+	(Nom "Barcelona"))
+
+([IA-Practica2_Class10011] of  Mediterrania
+
+	(Activitats
+		[IA-Practica2_Class30045]
+		[IA-Practica2_Class30046]
+		[IA-Practica2_Class30047]
+		[IA-Practica2_Class30048]
+		[IA-Practica2_Class30049])
+	(Allotjaments
+		[IA-Practica2_Class30037]
+		[IA-Practica2_Class30038]
+		[IA-Practica2_Class30039]
+		[IA-Practica2_Class30040]
+		[IA-Practica2_Class30041]
+		[IA-Practica2_Class30042]
+		[IA-Practica2_Class30043]
+		[IA-Practica2_Class30044])
+	(Importancia molt_coneguda)
+	(Nom "Roma"))
+
+([IA-Practica2_Class10014] of  Nord
+
+	(Importancia coneguda)
+	(Nom "Toronto"))
+
+([IA-Practica2_Class10019] of  Sud
+
+	(Importancia molt_coneguda)
+	(Nom "Buenos Aires"))
+
+([IA-Practica2_Class10020] of  Sud
+
+	(Importancia molt_coneguda)
+	(Nom "Rio de Janeiro"))
+
+([IA-Practica2_Class10021] of  Asia_Oriental
+
+	(Importancia molt_coneguda)
+	(Nom "Tokio"))
+
+([IA-Practica2_Class10022] of  Asia_Oriental
+
+	(Importancia molt_coneguda)
+	(Nom "Hong Kong"))
+
+([IA-Practica2_Class10023] of  Australia
+
+	(Importancia molt_coneguda)
+	(Nom "Sidney"))
+
+([IA-Practica2_Class10024] of  Australia
+
+	(Importancia coneguda)
+	(Nom "Melbourne"))
+
+([IA-Practica2_Class10026] of  Central
+
+	(Importancia molt_coneguda)
+	(Nom "Berlin"))
+
+([IA-Practica2_Class10028] of  Central
+
+	(Importancia coneguda)
+	(Nom "Copenhagen"))
+
+([IA-Practica2_Class10029] of  Central
+
+	(Importancia molt_coneguda)
+	(Nom "Londres"))
+
+([IA-Practica2_Class10030] of  Nord
+
+	(Activitats
+		[IA-Practica2_Class40038]
+		[IA-Practica2_Class40039]
+		[IA-Practica2_Class40040]
+		[IA-Practica2_Class40041])
+	(Allotjaments
+		[IA-Practica2_Class40030]
+		[IA-Practica2_Class40031]
+		[IA-Practica2_Class40032]
+		[IA-Practica2_Class40033]
+		[IA-Practica2_Class40034]
+		[IA-Practica2_Class40035]
+		[IA-Practica2_Class40036]
+		[IA-Practica2_Class40037])
+	(Importancia molt_coneguda)
+	(Nom "Nueva York"))
+
+([IA-Practica2_Class10031] of  Asia_Oriental
+
+	(Importancia molt_coneguda)
+	(Nom "Beijing"))
+
+([IA-Practica2_Class10032] of  Asia_Oriental
+
+	(Importancia coneguda)
+	(Nom "Singapur"))
+
+([IA-Practica2_Class10034] of  Nord
+
+	(Activitats
+		[IA-Practica2_Class40016]
+		[IA-Practica2_Class40017]
+		[IA-Practica2_Class40018])
+	(Allotjaments
+		[IA-Practica2_Class40010]
+		[IA-Practica2_Class40011]
+		[IA-Practica2_Class40012]
+		[IA-Practica2_Class40013]
+		[IA-Practica2_Class40014]
+		[IA-Practica2_Class40015])
+	(Importancia coneguda)
+	(Nom "Chicago"))
+
+([IA-Practica2_Class10037] of  Central
+
+	(Importancia coneguda)
+	(Nom "Edimburgo"))
+
+([IA-Practica2_Class10038] of  Central
+
+	(Importancia molt_coneguda)
+	(Nom "Ambsterdam"))
+
+([IA-Practica2_Class10039] of  Nordica
+
+	(Activitats
+		[IA-Practica2_Class30057]
+		[IA-Practica2_Class30058]
+		[IA-Practica2_Class30059]
+		[IA-Practica2_Class30060]
+		[IA-Practica2_Class30061])
+	(Allotjaments
+		[IA-Practica2_Class30050]
+		[IA-Practica2_Class30051]
+		[IA-Practica2_Class30052]
+		[IA-Practica2_Class30053]
+		[IA-Practica2_Class30054]
+		[IA-Practica2_Class30055]
+		[IA-Practica2_Class30056])
+	(Importancia coneguda)
+	(Nom "Estocolmo"))
+
+([IA-Practica2_Class10043] of  Mediterrania
+
+	(Activitats
+		[IA-Practica2_Class30014]
+		[IA-Practica2_Class30015]
+		[IA-Practica2_Class30016]
+		[IA-Practica2_Class30017])
+	(Allotjaments
+		[IA-Practica2_Class30008]
+		[IA-Practica2_Class30009]
+		[IA-Practica2_Class30010]
+		[IA-Practica2_Class30012]
+		[IA-Practica2_Class30013])
+	(Importancia molt_coneguda)
+	(Nom "Florencia"))
+
+([IA-Practica2_Class10045] of  Mediterrania
+
+	(Activitats
+		[IA-Practica2_Class30024]
+		[IA-Practica2_Class30025]
+		[IA-Practica2_Class30026])
+	(Allotjaments
+		[IA-Practica2_Class30018]
+		[IA-Practica2_Class30019]
+		[IA-Practica2_Class30021]
+		[IA-Practica2_Class30022]
+		[IA-Practica2_Class30023])
+	(Importancia molt_coneguda)
+	(Nom "Montecarlo"))
+
+([IA-Practica2_Class10046] of  Mediterrania
+
+	(Activitats
+		[IA-Practica2_Class30027]
+		[IA-Practica2_Class30028]
+		[IA-Practica2_Class30029]
+		[IA-Practica2_Class30030])
+	(Allotjaments
+		[IA-Practica2_Class30031]
+		[IA-Practica2_Class30032]
+		[IA-Practica2_Class30033]
+		[IA-Practica2_Class30034]
+		[IA-Practica2_Class30035]
+		[IA-Practica2_Class30036])
+	(Importancia molt_coneguda)
+	(Nom "Venecia"))
+
+([IA-Practica2_Class10047] of  Nord
+
+	(Activitats
+		[IA-Practica2_Class30000]
+		[IA-Practica2_Class40001]
+		[IA-Practica2_Class40002]
+		[IA-Practica2_Class40003])
+	(Allotjaments
+		[IA-Practica2_Class40004]
+		[IA-Practica2_Class40005]
+		[IA-Practica2_Class40006]
+		[IA-Practica2_Class40007]
+		[IA-Practica2_Class40008]
+		[IA-Practica2_Class40009])
+	(Importancia molt_coneguda)
+	(Nom "Cancun"))
+
+([IA-Practica2_Class10048] of  Orient_Proxim
+
+	(Importancia molt_coneguda)
+	(Nom "Dubai"))
+
+([IA-Practica2_Class10049] of  Nord
+
+	(Activitats
+		[IA-Practica2_Class40026]
+		[IA-Practica2_Class40027]
+		[IA-Practica2_Class40028]
+		[IA-Practica2_Class40029])
+	(Allotjaments
+		[IA-Practica2_Class40019]
+		[IA-Practica2_Class40020]
+		[IA-Practica2_Class40021]
+		[IA-Practica2_Class40022]
+		[IA-Practica2_Class40023]
+		[IA-Practica2_Class40024]
+		[IA-Practica2_Class40025])
+	(Importancia molt_coneguda)
+	(Nom "Las Vegas"))
+
+([IA-Practica2_Class10052] of  Nordica
+
+	(Activitats
+		[IA-Practica2_Class30062]
+		[IA-Practica2_Class30063]
+		[IA-Practica2_Class30064]
+		[IA-Practica2_Class30065])
+	(Allotjaments
+		[IA-Practica2_Class30066]
+		[IA-Practica2_Class30067]
+		[IA-Practica2_Class30068]
+		[IA-Practica2_Class30069]
+		[IA-Practica2_Class30070]
+		[IA-Practica2_Class30071])
+	(Importancia molt_coneguda)
+	(Nom "Moscu"))
+
+([IA-Practica2_Class10055] of  Nord
+
+	(Importancia coneguda)
+	(Nom "Orlando"))
+
+([IA-Practica2_Class10056] of  Central
+
+	(Importancia molt_coneguda)
+	(Nom "Munich"))
+
+([IA-Practica2_Class10058] of  Asia_Oriental
+
+	(Importancia coneguda)
+	(Nom "Bangkok"))
+
+([IA-Practica2_Class10059] of  Asia_Oriental
+
+	(Importancia coneguda)
+	(Nom "Kuala Lumpur"))
+
+([IA-Practica2_Class10062] of  Africa_Mediterrania
+
+	(Activitats [IA-Practica2_Class20001])
+	(Allotjaments
+		[IA-Practica2_Class40000]
+		[IA-Practica2_Class50001]
+		[IA-Practica2_Class50002]
+		[IA-Practica2_Class50003]
+		[IA-Practica2_Class50004]
+		[IA-Practica2_Class50005])
+	(Importancia coneguda)
+	(Nom "Marrakech"))
+
+([IA-Practica2_Class10064] of  Orient_Proxim
+
+	(Importancia coneguda)
+	(Nom "Meca"))
+
+([IA-Practica2_Class10065] of  Sudafrica
+
+	(Importancia molt_coneguda)
+	(Nom "Ciudad del Cabo"))
+
+([IA-Practica2_Class10066] of  Sudafrica
+
+	(Importancia coneguda)
+	(Nom "Johannesburgo"))
