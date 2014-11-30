@@ -1863,7 +1863,7 @@
 					(slot-insert$ ?x viatges ?i (viatge-alta ?v))
 				)
 				(bind ?v (find-all-instances ((?aux Viatge)) (and (eq (send (send ?aux get-desti) get-Nom) "Origen") (eq ?aux:origen (send (nth$ 1 ?c) get-ciutat)))))
-				(slot-insert$ ?x viatges (length ?c) (viatge-alta ?v))
+				(slot-insert$ ?x viatges (+(length ?c) 1) (viatge-alta ?v))
 			else
 				(switch ?ch
 					(case alta then
@@ -1876,7 +1876,7 @@
 							(slot-insert$ ?x viatges ?i (viatge-alta ?v))
 						)
 						(bind ?v (find-all-instances ((?aux Viatge)) (and (eq (send (send ?aux get-desti) get-Nom) "Origen") (eq ?aux:origen (send (nth$ 1 ?c) get-ciutat)))))
-						(slot-insert$ ?x viatges (length ?c) (viatge-alta ?v))
+						(slot-insert$ ?x viatges (+(length ?c) 1) (viatge-alta ?v))
 					)
 					(default
 						(bind ?v (find-all-instances ((?aux Viatge)) (and (eq (send (send ?aux get-origen) get-Nom) "Origen") (eq ?aux:desti (send (nth$ 1 ?c) get-ciutat)))))
@@ -1888,7 +1888,7 @@
 							(slot-insert$ ?x viatges ?i (viatge-baixa ?v))
 						)
 						(bind ?v (find-all-instances ((?aux Viatge)) (and (eq (send (send ?aux get-desti) get-Nom) "Origen") (eq ?aux:origen (send (nth$ 1 ?c) get-ciutat)))))
-						(slot-insert$ ?x viatges (length ?c) (viatge-baixa ?v))
+						(slot-insert$ ?x viatges (+(length ?c) 1) (viatge-baixa ?v))
 					)
 				)
 			)
