@@ -1942,9 +1942,15 @@
 	(printout t " dias" crlf)
 	(printout t crlf) 
 	(bind ?ciutats (send ?self get-ciutats))
+	(bind ?viatges (send ?self get-viatges))
 	(printout t "Itinerari: ")(printout t crlf)(printout t crlf)
+
 	(bind ?i 1)
 	(loop-for-count (?i 1 (length ?ciutats))
+		(bind ?viatge (nth$ ?i ?viatges)) (bind ?orig (send ?viatge get-origen)) (bind ?dest (send ?viatge get-desti))
+		(printout t (send ?orig get-Nom)) (printout t " -> ") (printout t (send ?dest get-Nom)) (printout t " preu: ") 
+			(printout t (send ?viatge get-preu-viatge)) (printout t " euros") (printout t crlf)
+
 		(bind ?c (nth$ ?i ?ciutats))
 		;for (Solucio-P c : ciutats)
 		(printout t ?i) (printout t ". ") (printout t (send (send ?c get-ciutat) get-Nom)) (printout t " (") (printout t (send ?c get-duracio))
@@ -1958,9 +1964,12 @@
 			(printout t (send ?a get-nom-activitat)) 
 			(if (neq ?j (length ?activitats)) then (printout t ", "))
 		)
+
 		(printout t crlf)
-		;@BUG No puc fer els viatges encara perquè la llista surt buida -setzer22
 	)
+		(bind ?viatge (nth$ (length ?viatges) ?viatges)) (bind ?orig (send ?viatge get-origen)) (bind ?dest (send ?viatge get-desti))
+		(printout t (send ?orig get-Nom)) (printout t " -> ") (printout t (send ?dest get-Nom)) (printout t " preu: ") 
+			(printout t (send ?viatge get-preu-viatge)) (printout t " euros") (printout t crlf)
 )
 
 ;(defmessage-handler Solucio-F imprimeix primary ()
