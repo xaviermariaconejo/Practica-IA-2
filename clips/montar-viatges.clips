@@ -1615,6 +1615,7 @@
 )
 
 (deffunction buscar-hotel (?c ?ch)
+	(printout t "Crida a buscar-hotel. Ciutat=") (printout t ?c) (printout t " Qualitat=") (printout t ?ch) (printout t crlf)
 	(bind ?a (send ?c get-Allotjaments))
 	(bind ?i 1)
 	(bind ?b FALSE)
