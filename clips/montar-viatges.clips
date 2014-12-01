@@ -9417,7 +9417,6 @@
 			)
 		)
 	)
-	;@BUGFIX Crec que aqui feia falta retornar ?v -setzer22
 	(return ?r)
 )
 
@@ -9430,7 +9429,6 @@
 			)
 		)
 	)
-	;@BUGFIX Crec que aqui feia falta retornar ?v -setzer22
 	(return ?r)
 )
 
@@ -9439,7 +9437,7 @@
 	(send ?x imprimeix)
 	(printout t crlf)
 )
-
+--------------------------------------------------------------------------------------- SEGUIR POR AQUI
 (deffunction imprimeix-ciutats (?c)
 	(loop-for-count (?i 1 (length ?c))
 		(send (nth$ ?i ?c) print)
