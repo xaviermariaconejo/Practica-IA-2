@@ -9255,117 +9255,152 @@
 	)
 )
 
-(deffunction buscar-hotel (?c ?ch)
-	(printout t "Crida a buscar-hotel. Ciutat=") (printout t ?c) (printout t " Qualitat=") (printout t ?ch) (printout t crlf)
-	(bind ?a (send ?c get-Allotjaments))
-	(bind ?i 1)
-	(bind ?b FALSE)
+(deffunction buscar-hotel (?c ?ch ?ip)
+	(bind ?a (send ?c get-Allotjaments))	
+	(bind ?preu_act -1)
 	(switch ?ch
 		(case alta then
-			(while (and (<= ?i (length ?a)) (not ?b))
-				do
-				(if (eq (str-cat (class (nth$ ?i ?a))) "5Estrella") then
-						(bind ?h (nth$ ?i ?a))
-						(bind ?b TRUE)
+			(loop-for-count (?i 1 (length ?a))
+				(if (> (send (nth$ ?i ?a) get-preu-allotjament) ?preu_act) then
+					(bind ?h (nth$ ?i ?a))
+					(bind ?preu_act (send (nth$ ?i ?a) get-preu-allotjament))
 				)
-				(bind ?i (+ ?i 1))
 			)
 		)
 		(case mitja then
-			(while (and (<= ?i (length ?a)) (not ?b))
-				do
-				(if (or (eq (str-cat (class (nth$ ?i ?a))) "4Estrella") 
-						(eq (str-cat (class (nth$ ?i ?a))) "3Estrella")) then
+			(loop-for-count (?i 1 (length ?a))
+				(if (eq (class (nth$ ?i ?a)) 3Estrella) then
+					(if (< ?preu_act 0) then
 						(bind ?h (nth$ ?i ?a))
-						(bind ?b TRUE)
+						(bind ?preu_act (send (nth$ ?i ?a) get-preu-allotjament))
+					else 
+						(if (< (send (nth$ ?i ?a) get-preu-allotjament) ?preu_act) then
+							(bind ?h (nth$ ?i ?a))
+							(bind ?preu_act (send (nth$ ?i ?a) get-preu-allotjament))
+						)
+					)
 				)
-				(bind ?i (+ ?i 1))
 			)
 		)
 		(case baixa then
-			(while (and (<= ?i (length ?a)) (not ?b))
-				do
-				(if (or (eq (str-cat (class (nth$ ?i ?a))) "1Estrella") 
-						(eq (str-cat (class (nth$ ?i ?a))) "2Estrella")) then
+			(loop-for-count (?i 1 (length ?a))
+				(if (eq (class (nth$ ?i ?a)) 1Estrella) then
+					(if (< ?preu_act 0) then
 						(bind ?h (nth$ ?i ?a))
-						(bind ?b TRUE)
+						(bind ?preu_act (send (nth$ ?i ?a) get-preu-allotjament))
+					else 
+						(if (< (send (nth$ ?i ?a) get-preu-allotjament) ?preu_act) then
+							(bind ?h (nth$ ?i ?a))
+							(bind ?preu_act (send (nth$ ?i ?a) get-preu-allotjament))
+						)
+					)
 				)
-				(bind ?i (+ ?i 1))
 			)
 		)
 	)
 	(return ?h)
 )
 
-(deffunction buscar_activitats (?c ?ta ?ch ?d)
+(deffunction buscar_activitats (?c ?ta ?cv ?ip ?d)
 	(bind ?a (send ?c get-Activitats))
 	(bind ?v (create$))
-	(switch ?ch
-		(case alta then
-			(bind ?duracio_act 0)
-			(bind ?i 1)
-			(bind ?b FALSE)
+	(bind ?duracio_act 0)
+	(bind ?i 1)
+	(bind ?b FALSE)
+	(switch ?cv
+		(case alta then			
 			(while (and (<= ?i (length ?a)) (not ?b))
 				do
-				(bind ?aux1 (random 1 (length ?a)))
-				(bind ?aux2 (send (nth$ ?aux1 ?a) get-durada-activitat))
-				(if (eq ?aux2 mig-dia) then
-					(if (<= (+ ?duracio_act 0.5) ?d) then
-						(bind ?duracio_act (+ ?duracio_act 0.5))
-						(bind ?v (insert$ ?v 1 (nth$ ?aux1 ?a)))
-					else (bind ?b TRUE)
-					)
-				else
-					(if (<= (+ ?duracio_act 1.0) ?d) then
-						(bind ?duracio_act (+ ?duracio_act 1))
-						(bind ?v (insert$ ?v 1 (nth$ ?aux1 ?a)))					
+				(bind ?actv (random 1 (length ?a)))
+				(if (eq (class (nth$ ?actv ?a)) ?ta) then						
+					(bind ?duracio_actv (send (nth$ ?actv ?a) get-durada-activitat))
+					(if (eq ?duracio_actv mig-dia) then
+						(if (<= (+ ?duracio_act 0.5) ?d) then
+							(bind ?duracio_act (+ ?duracio_act 0.5))
+							(bind ?v (insert$ ?v 1 (nth$ ?actv ?a)))
+						else 
+							(bind ?b TRUE)
+						)
+					else
+						(if (<= (+ ?duracio_act 1.0) ?d) then
+							(bind ?duracio_act (+ ?duracio_act 1.0))
+							(bind ?v (insert$ ?v 1 (nth$ ?actv ?a)))					
+						)
 					)
 				)
-				(bind ?a (delete$ ?a ?aux1 ?aux1))
+				(bind ?a (delete$ ?a ?actv ?actv))
 				(bind ?i (+ ?i 1))
 			)
 		)
 		(case mitja then
-			(bind ?duracio_act 0)
-			(bind ?i 1)
-			(bind ?b FALSE)
 			(bind ?num_act (+ (/ ?d 2) 1))
 			(while (and (<= ?i (length ?a)) (not ?b))
 				do
-				(bind ?aux1 (random 1 (length ?a)))
-				(bind ?aux2 (send (nth$ ?aux1 ?a) get-durada-activitat))
-				(if (eq ?aux2 mig-dia) then
-					(if (<= (+ ?duracio_act 0.5) ?d) then
-						(bind ?duracio_act (+ ?duracio_act 0.5))
-						(bind ?v (insert$ ?v 1 (nth$ ?aux1 ?a)))
-						(if (> (length ?v) ?num_act)
-							then (bind ?b TRUE)
+				(bind ?actv (random 1 (length ?a)))
+				(if (eq (class (nth$ ?actv ?a)) ?ta) then
+					(bind ?duracio_actv (send (nth$ ?actv ?a) get-durada-activitat))
+					(if (eq ?duracio_actv mig-dia) then
+						(if (<= (+ ?duracio_act 0.5) ?d) then
+							(bind ?duracio_act (+ ?duracio_act 0.5))
+							(bind ?v (insert$ ?v 1 (nth$ ?actv ?a)))
+							(if (> (length ?v) ?num_act) then
+								(bind ?b TRUE)
+							)
+						else
+							(bind ?b TRUE)
 						)
-					else (bind ?b TRUE)
-					)
-				else
-					(if (<= (+ ?duracio_act 1.0) ?d) then
-						(bind ?duracio_act (+ ?duracio_act 1))
-						(bind ?v (insert$ ?v 1 (nth$ ?aux1 ?a)))		
-						(if (> (length ?v) ?num_act)
-							then (bind ?b TRUE)
-						)			
-					)
+					else
+						(if (<= (+ ?duracio_act 1.0) ?d) then
+							(bind ?duracio_act (+ ?duracio_act 1))
+							(bind ?v (insert$ ?v 1 (nth$ ?actv ?a)))		
+							(if (> (length ?v) ?num_act) then
+								(bind ?b TRUE)
+							)			
+						)
+					)					
 				)
-				(bind ?a (delete$ ?a ?aux1 ?aux1))
+				(bind ?a (delete$ ?a ?actv ?actv))
 				(bind ?i (+ ?i 1))
 			)
 		)
 		(case baixa then
-			(bind ?aux (random 1 (length ?a)))
-			(bind ?v (insert$ ?v 1 (nth$ ?aux ?a)))
+			(bind ?num_act (+ (/ ?d 4) 1))
+			(while (and (<= ?i (length ?a)) (not ?b))
+				do
+				(bind ?actv (random 1 (length ?a)))
+				(if (eq (class (nth$ ?actv ?a)) ?ta) then
+					(bind ?duracio_actv (send (nth$ ?actv ?a) get-durada-activitat))
+					(if (eq ?duracio_actv mig-dia) then
+						(if (<= (+ ?duracio_act 0.5) ?d) then
+							(bind ?duracio_act (+ ?duracio_act 0.5))
+							(bind ?v (insert$ ?v 1 (nth$ ?actv ?a)))
+							(if (> (length ?v) ?num_act) then
+								(bind ?b TRUE)
+							)
+						else
+							(bind ?b TRUE)
+						)
+					else
+						(if (<= (+ ?duracio_act 1.0) ?d) then
+							(bind ?duracio_act (+ ?duracio_act 1))
+							(bind ?v (insert$ ?v 1 (nth$ ?actv ?a)))		
+							(if (> (length ?v) ?num_act) then
+								(bind ?b TRUE)
+							)			
+						)
+					)					
+				)
+				(bind ?a (delete$ ?a ?actv ?actv))
+				(bind ?i (+ ?i 1))
+			)
 		)
 	)
 	(return ?v)
 )
 
-(deffunction calcular-preu (?a ?h)
-	(bind ?ph (send ?h get-preu-allotjament))
+(deffunction calcular-preu (?a ?h ?d)
+	(bind ?d (integer ?d))
+	(bind ?ph (* (send ?h get-preu-allotjament) ?d))
 	(bind ?pa 0)
 	(loop-for-count (?i 1 (length ?a))
 		(bind ?pa (+ ?pa (send (nth$ ?i ?a) get-preu-activitat)))
@@ -9472,16 +9507,17 @@
 	(cualitat_hotels (tipus ?ch))
 	(num_ciutats(min ?num_ciutats_min))
 	(num_dies(dies_min ?num_dies_min))
+	(importa_preu ?ip)
 	=>
 		(bind ?c (find-all-instances ((?a Ciutat))
 		(and (eq ?a:Importancia ?tc) (comprovar-activitats ?a:Activitats ?ta))))
 		(bind ?r (triar-ciutats ?c ?num_ciutats_min))
 		(loop-for-count (?i 1 (length ?r))
-			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch))
-			(bind ?act (buscar_activitats (nth$ ?i ?r) ?ta ?ch (/ ?num_dies_min ?num_ciutats_min)))
+			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch ?ip))
+			(bind ?act (buscar_activitats (nth$ ?i ?r) ?ta ?ch ?ip (/ ?num_dies_min ?num_ciutats_min)))
    			(bind ?no-llameis-aux-a-las-variables (make-instance of Solucio-P
    			(ciutat (nth$ ?i ?r)) (duracio (/ ?num_dies_min ?num_ciutats_min))
-   			(activitats ?act) (allotjament ?h) (preu (calcular-preu ?act ?h))))
+   			(activitats ?act) (allotjament ?h) (preu (calcular-preu ?act ?h (/ ?num_dies_min ?num_ciutats_min)))))
    			(slot-insert$ ?x ciutats ?i ?no-llameis-aux-a-las-variables)
 		)
 		(halt)
