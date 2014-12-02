@@ -283,7 +283,7 @@
 =>
 	; @TODO La pregunta és molt lletja... -setzer22
 	(printout t "Quin nombre minim i maxim de dies vols viatjar?")
-	(modify ?n (dies_max (ask-integer "minim: ")) (dies_min (ask-integer "maxim: "))) 
+	(modify ?n (dies_min (ask-integer "minim: ")) (dies_max (ask-integer "maxim: "))) 
 )
 
 ;@TODO afegir normes perquè si el pressupost no és coherent amb el perfil determinat faci preguntes addicionals per corregir
