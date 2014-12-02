@@ -191,13 +191,14 @@ A part, té una relació amb la classe activitat i un altre amb allotjament ambd
 Un altre aspecte d'aquesta classe és que conté cinc subclasses, que algunes d'aquestes també tenen subclasses, i això ens ajuda a l'hora de crear els vols, ja que, si són d'un altra zona, el preu serà més elevat que si són de la mateixa.
 
 \item[Allotjament:] Aquesta classe conte dos atributs, el nom de l'allotjament, en un String, per poder identificar-ho i un altre atribut que és el preu de l'allotjament per dia i persona, que es guarda com un enter, que ens serveix per calcular els diners que es gastarà un usuari.
-Aquesta classe també té cinc subclasses que s'utilitzen per identificar la qualitat de l'hotel depenent de quantes estrelles té i així, depenent de quin tipus d'usuari demana un viatja, s'ofereix un tipus o un altre.
+Aquesta classe també té cinc subclasses que s'utilitzen per identificar la qualitat de l'hotel depenent de quantes estrelles té i així, depenent de quin tipus d'usuari demana un viatge, s'ofereix un tipus o un altre.
 
 \item[Activitat:] Aquesta classe té tres atributs, el primer, com a les classes anteriors un nom per identificar l'activitat, després tenim el preu que costa fer l'activitat amb un enter, i per últim la durada de l'activitat, que es guarda com un symbol amb dos valors possibles, migdia i un dia, i així es pot saber quantes activitats com a màxim poden fer en el temps que estigui en una ciutat.
 També conte unes subclasses per identificar el tipus de l'activitat i així escollir activitats que els usuaris vulguin.
 
 
-\item[Viatge:]
+\item[Viatge:] Aquesta classe conte dos atributs, el primer, com en les dues ultimes classes, és un enter que s'utilitza per guardar el preu del viatge, el segon, es guarda com un symbol que identifica el tipus de transport que utilitza aquell viatge i pot tenir quatre valors: avio, tren, autobús i vaixell.
+També conte una doble relació amb la classe ciutat. Aquesta relació ens dóna la informació de quin és l'origen i el destí del viatge.
 \end{description}
 
 \subsection{Solució} 
