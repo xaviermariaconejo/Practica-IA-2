@@ -43,6 +43,7 @@ El primer punt a tractar a l'hora de resoldre qualsevol problema és una correct
 
 Pel nostre cas, l'objectiu a assolir és la creació d'un \emph{SBC} que serveixi per a recomanar possibles viatges als clients d'una agència de viatges, donades les característiques dels clients, les seves restriccions i/o preferències. Tots els conceptes que hem escollit representar i una justificació pertinent es troben en els apartats de Conceptualització i Formalització.
 \subsubsection{Definició formal de solució}
+\label{sec:solucio_formal}
 Definim més formalment una solució al problema com una llista ordenada de tuples \big \langle Ciutat,Dies\big \rangle{} on, per cada ciutat, es guarda una llista de llocs a visitar i un allotjament d'aquesta ciutat. A més, també cal donar, per cada dos ciutats en el recorregut quin mitjà de transport es farà servir.\\
 Addicionalment s'ha de donar el preu\footnote{Tots els preus calculats són per persona. Hem considerat pertinent fer aquesta simplificació per no haver de tenir en compte els descomptes per grups grans a l'hora de generar la solució.} total del viatge a partir dels preus de totes les coses a realitzar. Tal com es definia a l'enunciat, la resposta del \emph{SBC} ha de ser dues solucions diferents, és a dir, dos recomanacions possibles del viatge.
 
@@ -102,7 +103,7 @@ Tenint ja clars els conceptes que intervenen en el domini i sabent com s'ha subd
 
 Donem, a continuació, la definició formal dels subproblemes que hem utilitzat juntament amb una explicació de tots els punts pertinents. Per una definició més general de cadascun dels mòduls referir-se a la secció \ref{sec:subprob_informal} d'aquest mateix document.
 
-\subsubsection*{Obtenir informació de l'usuari: Classificació}
+\subsubsection{Informació de l'usuari: Classificació}
 
 Podem veure aquest mòdul com una cadena de preguntes que pretén classificar l'usuari en unes categories prefixades. Ja es pot parlar de coneixement expert en aquest mòdul, ja que tot i que s'obté pràcticament tota l'informació de l'usuari mitjançant preguntes, no totes les preguntes són necessàries en cada cas i s'obvien en els casos pertintents.
 
@@ -120,7 +121,7 @@ En aquest cas hem dividit el mòdul principal en dos submòduls. El primer es de
 
 \end{description}
 
-\subsubsection*{Obtenir informació de l'usuari: Restriccions i preferències}
+\subsubsection[Informació de l'usuari: Preferències]{Obtenir informació de l'usuari: Restriccions i preferències}
 
 El segon mòdul està orientat a obtenir les preferències i/o restriccions que l'usuari vulgui imposar sobre el viatge.
 
@@ -139,7 +140,7 @@ El segon mòdul està orientat a obtenir les preferències i/o restriccions que 
 \end{description}
 
 
-\subsubsection*{Determinar el model de ciutat}
+\subsubsection{Determinar el model de ciutat}
 
 El tercer mòdul està orientat a obtenir, a partir del primer mòdul i algunes preferències de l'usuari, un model de ciutat que li interessi.
 
@@ -159,8 +160,24 @@ El tercer mòdul està orientat a obtenir, a partir del primer mòdul i algunes 
 \end{description}
 
 
-\subsubsection*{Montar el viatge}
+\subsubsection{Montar el viatge}
 
+Aquest últim mòdul té l'objectiu de, donat un arquetip de ciutat i tota l'informació recollida sobre l'usuari, montar un viatge adient per al client tot respectant les restriccions i preferències donades.
+
+
+\begin{description}
+	\item[Entrada:] L'entrada aquest cop correspon a la sortida del segon mòdul més l'informació obtinguda al mòdul de preferències.
+
+	\item[Sortida:] La sortida d'aquest mòdul correspon a una solució especificada a l'apartat \ref{sec:solucio_formal}.	
+\end{description}
+
+\subsubsection{Identificació dels models de problema}
+
+Donades aquestes definicions de problemes ens adonem com, en sí, tota l'aplicació està resolent un problema d'anàlisi mitjançant classificació heurística en 4 parts: Els dos primers mòduls realitzen les fases de recollida d'informació i d'abstracció, el tercer calcula un model de solució i per últim el quart fa un pas final de refinament per tal de convertir aquest model de solució en una solució concreta donada l'informació del domini.
+
+Així mateix, cadascun dels problemes està resolent per si sol un problema més petit, que podem considerar d'anàlisi en tots els casos menys l'últim, on s'està realitzant una tasca clarament de síntesi.
+
+El fet de veure l'aplicació com un agregat de subproblemes desacoplats en gran part, facilita l'ultima tasca d'implementació d'aquesta.
 
 
 %==========================================================
@@ -168,7 +185,21 @@ El tercer mòdul està orientat a obtenir, a partir del primer mòdul i algunes 
 %==========================================================
 \subsection{Implementació}
 \label{sec:implementacio}
-En aquesta secció es detallen les diverses decisions d'implementació que hem pres a l'hora de resoldre el problema plantejat. Cal notar que una explicació més completa sobre l'ontologia del domini es troba a l'apartat \ref{sec:ontologia}  
+En aquesta secció es detallen les diverses decisions d'implementació que hem pres a l'hora de resoldre el problema plantejat. Cal notar que una explicació més completa sobre l'ontologia del domini es troba a l'apartat \ref{sec:ontologia}.
+
+Un cop detallats tots els subproblemes a resoldre cal proporcionar una implementació per a aquests. En el cas d'aquesta pràctica hem escollit un llenguatge de programació basat en regles: CLIPS, juntament amb un editor d'ontologies per a editar l'informació estàtica de l'aplicació: Protégé.
+
+\subsubsection{Implementació en CLIPS}
+Aquesta ha estat potser la part més important de la implementació de la pràctica. Per a abordar el problema hem dissenyat inicialment un proptotip senzill que feia preguntes bàsiques --preguntant a l'usuari els valors dels deftemplate-- i imprimit viatges quasi aleatoris. Posteriorment hem anat iterant sobre aquest proptotip inicial afegint alguns casos que ens han semblat interessants per tal de generar un conjunt adient de jocs de proves variat.
+
+Les ultimes iteracions del problema les hem dedicat especialment a millorar la qualitat dels viatges generats, tenint en compte cada vegada més variables com el pressupost, nombre màxim i mínim de dies i ciutats i d'altres preferències de l'usuari com poden ser el fet que vulgui visitar ciutats exòtiques.
+
+Durant tota l'implementació hem intentat simular en molts punts el coneixement de l'expert prenent decisions anticipades a l'informació que dona l'usuari, o presuposant coses que aquest no ha dit explícitament. Malauradament, al no ser experts en la matèria i sense el coneixement d'un expert real aquests intents de simulació en alguns casos resulten en assumpcions una mica agoserades.
+
+
+\subsubsection{Implementació de l'ontologia}
+L'implementació de l'ontologia ha estat pràcticament una traducció directa de les idees de l'apartat \ref{sec:ontologia} al propi Protégé. La major part de les instàncies s'han omplert manualment. Cal destacar, però, el cas de les instàncies dels viatges, les quals no han estat generades manualment des de Protégé sino que han estat generades a partir d'un script en bash que emparella totes les ciutats amb vols, i aleatoriament, assigna altres mitjans de transport de més baix pressupost com autobusos o trens per ciutats suficientment properes amb preus proporcionals tot calculant preus raonables per a aquests. És per això que les instancies de la classe Viatge es troben en l'ontologia del codi CLIPS però no a la ontologia en Protégé.
+
 
 \clearpage
 
@@ -180,26 +211,51 @@ En aquesta secció es detallen les diverses decisions d'implementació que hem p
 \label{sec:ontologia}
 En aquesta secció explicarem com s'ha construït l'ontologia i analitzarem cadascuna de les classes que la componen. Per analitzar-les veurem per quins atributs estan compostes i quines relacions tenen amb les altres classes. També explicarem el motiu pel qual s'ha creat cadascuna de les classes.
 
-Per explicar l'ontologia el primer que s'ha de comentar és que aquesta està dividida en dues parts diferenciables. Encara que siguin dues parts les classes tenen relació entre elles.
+Per explicar l'ontologia el primer que s'ha de comentar és que aquesta està dividida en dues parts diferenciables. Cal veure que encara que siguin dues parts les classes es troben altament relacionades entre elles.
 
 \subsection{Informació general}
 Aquesta és una part constant que conté la informació que proporciona l'expert i que no té res a veure amb l'usuari. En aquesta part està formada per quatre classes.
 
 \begin{description}
-\item[Ciutat:]
-\item[Allotjament:]
-\item[Activitat:]
-\item[Viatge:]
+\item[Ciutat:]Aquesta classe conte dos atributs, el nom que és un String per identificar-la i la importància, que és un símbol, que pot tenir els valors molt coneguda, coneguda i desconeguda, ja que depenent de l'usuari, aquest voldrà anar a un tipus o un altre.
+
+Aquesta classe està relacionada amb la classe activitat i un altre amb allotjament, ambdós amb un multislot. Aquest serveix per guardar quines són les activitats i l'allotjaments que ofereix cada ciutat i així saber que si una persona va a una ciutat quines activitats pot fer i a quins hotels es pot allotjar.
+
+La classe ciutat queda partida en cinc subclasses, que al mateix temps es divideixen en successives subclasses en alguns casos. Això ens ajuda a l'hora de crear els vols, ja que, si són d'un altra zona, el preu serà més elevat que si són de la mateixa.
+
+\item[Allotjament:] Aquesta classe conte dos atributs, el nom de l'allotjament, en un String, per poder identificar-ho i un altre atribut que és el preu de l'allotjament per dia i persona, que es guarda com un enter, que ens serveix per calcular els diners que es gastarà un usuari.
+
+Aquesta classe també té cinc subclasses que s'utilitzen per identificar la qualitat de l'hotel depenent de quantes estrelles té i així, depenent de quin tipus d'usuari demana un viatge, s'ofereix un tipus o un altre.
+
+\item[Activitat:] Aquesta classe té tres atributs, el primer, com a les classes anteriors un nom per identificar l'activitat, després tenim el seu preu, com un valor enter\footnote{Considerem que comptar els decimals no té massa sentit donat l'ordre de magnitud del preu dels viatges}, i per últim la durada de l'activitat, que es guarda com un símbol amb dos valors possibles, mig dia i un dia, i així es pot saber quantes activitats com a màxim poden fer en el temps que estigui en una ciutat.
+
+També conte unes subclasses per identificar el tipus de l'activitat i així escollir activitats al gust de l'usuari.
+
+
+\item[Viatge:] Aquesta classe conte dos atributs, el primer, com en les dues ultimes classes, és un enter que s'utilitza per guardar el preu del viatge, el segon, es guarda com un symbol que identifica el tipus de transport que utilitza aquell viatge i pot tenir quatre valors: avio, tren, autobús i vaixell.
+
+També conte una doble relació amb la classe ciutat. Aquesta relació ens dóna la informació de quin és l'origen i el destí del viatge.
 \end{description}
 
 \subsection{Solució} 
-Després tenim una part que, com el títol diu, es guarda la informació final que compon un viatge. En aquesta part està formada per dues classes.
+Aquesta part de l'ontologia no representa coneixement estàtic sobre el domini pròpiament dit, sinó que més aviat conté estructures de dades que permetin al sistema expert estructurar la informació sobre les solucions que generi del problema. En aquesta part està formada per dues classes.
 
 \begin{description}
-\item[Solució parcial:]
-\item[Solució final:]
+\item[Solució parcial:] Definim una solució parcial com l'etapa que passa l'usuari en una ciutat del viatge. Amb aquesta definició podem deduïr que tindrà relacions amb tres classes diferents.
+
+Primer tenim la ciutat a la qual correspon aquesta solució parcial, després l'hotel de la ciutat en el que s'allotja i per últim un conjunt d'activitats que són les que es faran.
+
+Després tenim dos atributs, el primer és el preu que costa fer tota la solució parcial que es guarda en un enter i després tenim la durada d'aquest que es guarda en un altre enter i ens facilita el càlcul total del temps i el preu de tot el viatge.
+
+\item[Solució final:] Una instancia de solució final es defineix com un viatge complet i, per tant, té una relació amb la classe solució parcial. Aquesta relació és la que guarda totes les estades de l'usuari per les ciutats que visitarà juntament amb les activitats. També té una altra relació amb la classe viatge per saber com va d'una de les ciutats a la següent. Per últim, té un atribut que conté el preu final del viatge comptant els preus dels viatges i de les estades a cada ciutat.
 
 \end{description}
+
+\clearpage
+
+\subsection{Representació de l'ontologia}
+En aquest apartat s'inclou un a representació gràfica de l'ontologia generada. Cal notar que, per motius evidents no ens ha estat possible incloure-la en un nivell de resolució prou adequat per tal que es puguin observar tots els detalls. És per això que s'adjunta l'arxiu \texttt{ontologia-grafic.png} amb una representació en alta resolució generada pel programa Protégé.
+
 
 \clearpage
 
@@ -207,10 +263,15 @@ Després tenim una part que, com el títol diu, es guarda la informació final q
 %                    6. JOCS DE PROVES
 %==========================================================
 \section{Jocs de proves}
-En aquesta secció presentem diversos jocs de proves generats per tal d'evaluar el rendiment i qualitat del nostre \emph{SBC} tot comentant els resultats obtinguts. Per cadascuna de les proves hem inclòs els objectius, comportament esperat, resultat de la prova. Al final de cada prova s'inclouen comentaris sobre els resultats.
+En aquesta secció presentem diversos jocs de proves generats per tal d'evaluar el rendiment i qualitat del nostre \emph{SBC} tot comentant els resultats obtinguts. Per cadascuna de les proves hem inclòs les condicions\footnote{Cal dir que en aquest document només s'intenta donar una idea qualitativa de quina informació es donarà a l'\emph{SBC}. A l'inici de cada apartat es fa menció al fitxer adjunt que conté l'execució completa.}, comportament esperat i resultat de la prova. Al final de cada prova s'inclouen comentaris sobre els resultats.
 
+
+%==========================================================
+%                    PARELLA
+%==========================================================
 \subsection{Un viatge romàntic de parella}
-Per aquesta prova demanarem una recomanació de viatge d'una parella jove a l'\emph{SBC}.\\
+
+Per aquesta prova demanarem una recomanació de viatge d'una parella jove a l'\emph{SBC}. Es pot consultar l'execució complerta a l'arxiu \texttt{Jocs\_de\_proves\textbackslash viatge\_romantic.txt}.
 
 \noindent
 \begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
@@ -218,6 +279,104 @@ Per aquesta prova demanarem una recomanació de viatge d'una parella jove a l'\e
 \textbf{\mbox{Condicions de la} \mbox{prova}} & Cas típic de viatge de parella de caire romàntic per diverses ciutats poc conegudes. Entre 3 i 5 dies i per menys de 800\euro{} per persona.\\
 \hline
 \textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Donada la naturalesa del viatge demanat esperem que l'SBC esculli un conjunt de ciutats exòtiques arreu del mon. No obstant donada la forta restricció de preu és d'esperar que s'escullin activitats de baix cost i hotels més aviat barats. Cal comentar també que s'espera que les activitats siguin de caire romàntic, donat que és la naturalesa principal del viatge. \\
+\hline
+\textbf{\mbox{Resultats de la} \mbox{prova}} & \\
+\hline
+\end{tabular}
+
+Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequat faucibus enim eget ullamcorper. Sed sapien odio, convallis et risus ac, condimentum tincidunt diam. Phasellus rutrum ullamcorper sem, id finibus lectus maximus sed. Nunc non ornare est, quis sodales ligula. Duis laoreet nisl vel magna auctor imperdiet. Maecenas ac magna vitae enim facilisis pharetra nec nec magna.
+
+
+%==========================================================
+%                    FI DE CURS
+%==========================================================
+\subsection{Un viatge de fi de curs}
+Per aquesta prova demanarem una recomanació de viatge de final de curs a l'\emph{SBC}. Es pot consultar l'execució complerta a l'arxiu \texttt{Jocs\_de\_proves\textbackslash viatge\_fidecurs.txt}.\\
+
+\noindent
+\begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
+\hline
+\textbf{\mbox{Condicions de la} \mbox{prova}} & Es demanarà un viatge per una classe d'institut de 25 persones. Donat el baix pressupost d'aquest tipus de viatges demanarem menys de 350\euro{} per persona. Demanarem activitats de caire cultural. Es demanarà un viatge d'entre 4 i 6 dies, anant com a molt a dues ciutats.\\
+\hline
+\textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Estimem que l'SBC donarà un viatge vàlid dins les restriccions demanades. Tenint en compte el pressupost esperem que s'escullin activitats i hotels de baix pressupost. \\
+\hline
+\textbf{\mbox{Resultats de la} \mbox{prova}} & \\
+\hline
+\end{tabular}
+
+Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequat faucibus enim eget ullamcorper. Sed sapien odio, convallis et risus ac, condimentum tincidunt diam. Phasellus rutrum ullamcorper sem, id finibus lectus maximus sed. Nunc non ornare est, quis sodales ligula. Duis laoreet nisl vel magna auctor imperdiet. Maecenas ac magna vitae enim facilisis pharetra nec nec magna.
+
+%==========================================================
+%                    VIATGE RIC
+%==========================================================
+\subsection{Un viatge de ric}
+Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per una persona de classe social molt alta i amb molts diners. Es pot consultar l'execució complerta a l'arxiu \texttt{Jocs\_de\_proves\textbackslash viatge\_ric.txt}. \\
+
+\noindent
+\begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
+
+\hline
+\textbf{\mbox{Condicions de la} \mbox{prova}} & Es demanarà un viatge sense cap limitació pel pressupost per una única persona d'edat adulta, buscant una temàtica principalment de relax. Com a restriccions es demanarà que el viatge duri dues setmanes i es volen visitar almenys 6 ciutats\\
+\hline
+\textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Creiem que el sistema expert donarà un viatge substancialment més car que en els casos anteriors. Donat l'elevat nombre de ciutats a l'ontologia que ofereixen una temàtica de relax s'espera que pugui generar dos viatges diferents, tot i que amb molta seguretat es repeteixi alguna ciutat. Lògicament el preu de les activitats serà el més elevat.\\
+\hline
+\textbf{\mbox{Resultats de la} \mbox{prova}} & \\
+\hline
+\end{tabular}
+
+Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequat faucibus enim eget ullamcorper. Sed sapien odio, convallis et risus ac, condimentum tincidunt diam. Phasellus rutrum ullamcorper sem, id finibus lectus maximus sed. Nunc non ornare est, quis sodales ligula. Duis laoreet nisl vel magna auctor imperdiet. Maecenas ac magna vitae enim facilisis pharetra nec nec magna.
+
+%==========================================================
+%                    IMSERSO
+%==========================================================
+\subsection{Viatge per l'imserso}
+Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per una persona de classe social molt alta i amb molts diners. Es pot consultar l'execució complerta a l'arxiu \texttt{Jocs\_de\_proves\textbackslash viatge\_imserso.txt} \\
+
+\noindent
+\begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
+\hline
+\textbf{\mbox{Condicions de la} \mbox{prova}} & Es demanarà un viatge sense cap limitació pel pressupost per una única persona d'edat adulta que busca un viatge de relax. \\
+\hline
+\textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Estimem que l'SBC donarà un viatge vàlid dins les restriccions demanades. Tenint en compte el pressupost esperem que s'escullin activitats i hotels de baix pressupost. \\
+\hline
+\textbf{\mbox{Resultats de la} \mbox{prova}} & \\
+\hline
+\end{tabular}
+
+Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequat faucibus enim eget ullamcorper. Sed sapien odio, convallis et risus ac, condimentum tincidunt diam. Phasellus rutrum ullamcorper sem, id finibus lectus maximus sed. Nunc non ornare est, quis sodales ligula. Duis laoreet nisl vel magna auctor imperdiet. Maecenas ac magna vitae enim facilisis pharetra nec nec magna.
+
+
+%==========================================================
+%                    FAMILIA
+%==========================================================
+\subsection{Viatge per una família amb fills}
+Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per una persona de classe social molt alta i amb molts diners. Es pot consultar l'execució complerta a l'arxiu \texttt{Jocs\_de\_proves\textbackslash viatge\_familia.txt}. \\
+
+\noindent
+\begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
+\hline
+\textbf{\mbox{Condicions de la} \mbox{prova}} & Es demanarà un viatge sense cap limitació pel pressupost per una única persona d'edat \\
+\hline
+\textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Estimem que l'SBC donarà un viatge vàlid dins les restriccions demanades. Tenint en compte el pressupost esperem que s'escullin activitats i hotels de baix pressupost. \\
+\hline
+\textbf{\mbox{Resultats de la} \mbox{prova}} & \\
+\hline
+\end{tabular}
+
+Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequat faucibus enim eget ullamcorper. Sed sapien odio, convallis et risus ac, condimentum tincidunt diam. Phasellus rutrum ullamcorper sem, id finibus lectus maximus sed. Nunc non ornare est, quis sodales ligula. Duis laoreet nisl vel magna auctor imperdiet. Maecenas ac magna vitae enim facilisis pharetra nec nec magna.
+
+%==========================================================
+%                    CASTELLERS
+%==========================================================
+\subsection{Viatge per una colla castellera}
+Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per una persona de classe social molt alta i amb molts diners. Es pot consultar l'execució complerta a l'arxiu \texttt{Jocs\_de\_proves\textbackslash viatge\_castellers.txt} \\
+
+\noindent
+\begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
+\hline
+\textbf{\mbox{Condicions de la} \mbox{prova}} & Es demanarà un viatge sense cap limitació pel pressupost per una única persona d'edat\\
+\hline
+\textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Estimem que l'SBC donarà un viatge vàlid dins les restriccions demanades. Tenint en compte el pressupost esperem que s'escullin activitats i hotels de baix pressupost. \\
 \hline
 \textbf{\mbox{Resultats de la} \mbox{prova}} & \\
 \hline

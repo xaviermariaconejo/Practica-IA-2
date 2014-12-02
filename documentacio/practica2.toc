@@ -8,7 +8,22 @@
 \contentsline {subsubsection}{\numberline {1.2.1}Coneixement est\IeC {\`a}tic: La ontologia}{4}
 \contentsline {subsubsection}{\numberline {1.2.2}Proc\IeC {\'e}s de resoluci\IeC {\'o}: Divisi\IeC {\'o} en subproblemes}{4}
 \contentsline {subsection}{\numberline {1.3}Formalitzaci\IeC {\'o}}{5}
+\contentsline {subsubsection}{\numberline {1.3.1}Informaci\IeC {\'o} de l'usuari: Classificaci\IeC {\'o}}{5}
+\contentsline {subsubsection}{\numberline {1.3.2}Informaci\IeC {\'o} de l'usuari: Prefer\IeC {\`e}ncies}{5}
+\contentsline {subsubsection}{\numberline {1.3.3}Determinar el model de ciutat}{6}
+\contentsline {subsubsection}{\numberline {1.3.4}Montar el viatge}{6}
+\contentsline {subsubsection}{\numberline {1.3.5}Identificaci\IeC {\'o} dels models de problema}{7}
 \contentsline {subsection}{\numberline {1.4}Implementaci\IeC {\'o}}{7}
-\contentsline {section}{\numberline {2}Documentaci\IeC {\'o} de l'ontologia}{8}
-\contentsline {section}{\numberline {3}Jocs de proves}{9}
-\contentsline {subsection}{\numberline {3.1}Un viatge rom\IeC {\`a}ntic de parella}{9}
+\contentsline {subsubsection}{\numberline {1.4.1}Implementaci\IeC {\'o} en CLIPS}{7}
+\contentsline {subsubsection}{\numberline {1.4.2}Implementaci\IeC {\'o} de l'ontologia}{8}
+\contentsline {section}{\numberline {2}Documentaci\IeC {\'o} de l'ontologia}{9}
+\contentsline {subsection}{\numberline {2.1}Informaci\IeC {\'o} general}{9}
+\contentsline {subsection}{\numberline {2.2}Soluci\IeC {\'o}}{10}
+\contentsline {subsection}{\numberline {2.3}Representaci\IeC {\'o} de l'ontologia}{11}
+\contentsline {section}{\numberline {3}Jocs de proves}{12}
+\contentsline {subsection}{\numberline {3.1}Un viatge rom\IeC {\`a}ntic de parella}{12}
+\contentsline {subsection}{\numberline {3.2}Un viatge de fi de curs}{12}
+\contentsline {subsection}{\numberline {3.3}Un viatge de ric}{13}
+\contentsline {subsection}{\numberline {3.4}Viatge per l'imserso}{14}
+\contentsline {subsection}{\numberline {3.5}Viatge per una fam\IeC {\'\i }lia amb fills}{14}
+\contentsline {subsection}{\numberline {3.6}Viatge per una colla castellera}{15}

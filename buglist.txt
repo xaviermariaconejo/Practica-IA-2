@@ -2,10 +2,6 @@ Buglist:
 	
 Montar viatges:
 
-	- Para viajes de mas de una ciudad tiene problemas para encontrar hotel
-
-	- Las actividades no concuerdan con el tipo del viaje
-
 Determinar usuari:
 
 	- S'ignoren les families

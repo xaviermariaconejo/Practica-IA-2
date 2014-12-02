@@ -185,7 +185,7 @@
     (pressupost(preu_min ?p))
     (num_dies(dies_min ?d))
 =>
-    (if (<(/ ?p ?d) 750)
+    (if (<(/ ?p ?d) 100)
         then (modify ?n (tipus baixa))
         else (modify ?n (tipus mitja)))
 )
