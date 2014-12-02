@@ -12,5 +12,8 @@
 \contentsline {section}{\numberline {2}Documentaci\IeC {\'o} de l'ontologia}{8}
 \contentsline {subsection}{\numberline {2.1}Informaci\IeC {\'o} general}{8}
 \contentsline {subsection}{\numberline {2.2}Soluci\IeC {\'o}}{9}
-\contentsline {section}{\numberline {3}Jocs de proves}{10}
-\contentsline {subsection}{\numberline {3.1}Un viatge rom\IeC {\`a}ntic de parella}{10}
+\contentsline {subsection}{\numberline {2.3}Representaci\IeC {\'o} de l'ontologia}{10}
+\contentsline {section}{\numberline {3}Jocs de proves}{11}
+\contentsline {subsection}{\numberline {3.1}Un viatge rom\IeC {\`a}ntic de parella}{11}
+\contentsline {subsection}{\numberline {3.2}Un viatge de fi de curs}{11}
+\contentsline {subsection}{\numberline {3.3}Un viatge per un milionari}{12}

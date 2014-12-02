@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2014.12.2)  2 DEC 2014 01:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2014.11.26)  2 DEC 2014 18:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -334,57 +334,110 @@ Overfull \hbox (2.0867pt too wide) in paragraph at lines 88--89
 
 [4] [5] [6] [7] [8
 
-] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
+] [9] [10
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--227
+Underfull \hbox (badness 10000) in paragraph at lines 243--243
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--229
+Underfull \hbox (badness 10000) in paragraph at lines 245--245
 []\OT1/cmr/bx/n/10.95 Comportament
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--231
+Underfull \hbox (badness 10000) in paragraph at lines 247--247
 [][]
  []
 
 
-Overfull \hbox (27.59802pt too wide) in paragraph at lines 224--234
+Overfull \hbox (27.59802pt too wide) in paragraph at lines 240--250
 [] 
  []
 
-[10
 
-] (./practica2.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 261--261
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--263
+[]\OT1/cmr/bx/n/10.95 Comportament
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
+[][]
+ []
+
+
+Overfull \hbox (27.59802pt too wide) in paragraph at lines 258--268
+[] 
+ []
+
+[11
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 273--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 278--278
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--280
+[]\OT1/cmr/bx/n/10.95 Comportament
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--282
+[][]
+ []
+
+
+Overfull \hbox (27.59802pt too wide) in paragraph at lines 275--285
+[] 
+ []
+
+[12] (./practica2.aux) ) 
 Here is how much of TeX's memory you used:
- 1025 strings out of 493108
- 11841 string characters out of 6140725
- 73997 words of memory out of 5000000
- 4515 multiletter control sequences out of 15000+600000
- 11400 words of font info for 40 fonts, out of 8000000 for 9000
+ 1027 strings out of 493108
+ 11865 string characters out of 6140724
+ 74997 words of memory out of 5000000
+ 4516 multiletter control sequences out of 15000+600000
+ 11568 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 23i,9n,23p,1125b,206s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
-10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
-></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
-pfb></usr/share/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
-Output written on practica2.pdf (11 pages, 170878 bytes).
+ 23i,9n,23p,1125b,210s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.
+pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
+10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
+Output written on practica2.pdf (13 pages, 185635 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 103 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

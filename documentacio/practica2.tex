@@ -186,29 +186,45 @@ Per explicar l'ontologia el primer que s'ha de comentar és que aquesta està di
 Aquesta és una part constant que conté la informació que proporciona l'expert i que no té res a veure amb l'usuari. En aquesta part està formada per quatre classes.
 
 \begin{description}
-\item[Ciutat:]Aquesta classe conte dos atributs, el nom que és un String per identificar-les i la importància, que és un symbol, que pot tenir els valors molt coneguda, coneguda i desconeguda, ja que, depenent de l'usuari voldrà anar a un tipus o un altre.
-A part, té una relació amb la classe activitat i un altre amb allotjament ambdós amb un multislot. Aquests serveix per guardar quines són les activitats i l'allotjaments que ofereix cada ciutat i així saber que si una persona va a una ciutat quines activitats pot fer i a quins hotels es poden allotjar.
-Un altre aspecte d'aquesta classe és que conté cinc subclasses, que algunes d'aquestes també tenen subclasses, i això ens ajuda a l'hora de crear els vols, ja que, si són d'un altra zona, el preu serà més elevat que si són de la mateixa.
+\item[Ciutat:]Aquesta classe conte dos atributs, el nom que és un String per identificar-la i la importància, que és un símbol, que pot tenir els valors molt coneguda, coneguda i desconeguda, ja que depenent de l'usuari, aquest voldrà anar a un tipus o un altre.
+
+Aquesta classe està relacionada amb la classe activitat i un altre amb allotjament, ambdós amb un multislot. Aquest serveix per guardar quines són les activitats i l'allotjaments que ofereix cada ciutat i així saber que si una persona va a una ciutat quines activitats pot fer i a quins hotels es pot allotjar.
+
+La classe ciutat queda partida en cinc subclasses, que al mateix temps es divideixen en successives subclasses en alguns casos. Això ens ajuda a l'hora de crear els vols, ja que, si són d'un altra zona, el preu serà més elevat que si són de la mateixa.
 
 \item[Allotjament:] Aquesta classe conte dos atributs, el nom de l'allotjament, en un String, per poder identificar-ho i un altre atribut que és el preu de l'allotjament per dia i persona, que es guarda com un enter, que ens serveix per calcular els diners que es gastarà un usuari.
+
 Aquesta classe també té cinc subclasses que s'utilitzen per identificar la qualitat de l'hotel depenent de quantes estrelles té i així, depenent de quin tipus d'usuari demana un viatge, s'ofereix un tipus o un altre.
 
-\item[Activitat:] Aquesta classe té tres atributs, el primer, com a les classes anteriors un nom per identificar l'activitat, després tenim el preu que costa fer l'activitat amb un enter, i per últim la durada de l'activitat, que es guarda com un symbol amb dos valors possibles, migdia i un dia, i així es pot saber quantes activitats com a màxim poden fer en el temps que estigui en una ciutat.
-També conte unes subclasses per identificar el tipus de l'activitat i així escollir activitats que els usuaris vulguin.
+\item[Activitat:] Aquesta classe té tres atributs, el primer, com a les classes anteriors un nom per identificar l'activitat, després tenim el seu preu, com un valor enter\footnote{Considerem que comptar els decimals no té massa sentit donat l'ordre de magnitud del preu dels viatges}, i per últim la durada de l'activitat, que es guarda com un símbol amb dos valors possibles, mig dia i un dia, i així es pot saber quantes activitats com a màxim poden fer en el temps que estigui en una ciutat.
+
+També conte unes subclasses per identificar el tipus de l'activitat i així escollir activitats al gust de l'usuari.
 
 
 \item[Viatge:] Aquesta classe conte dos atributs, el primer, com en les dues ultimes classes, és un enter que s'utilitza per guardar el preu del viatge, el segon, es guarda com un symbol que identifica el tipus de transport que utilitza aquell viatge i pot tenir quatre valors: avio, tren, autobús i vaixell.
+
 També conte una doble relació amb la classe ciutat. Aquesta relació ens dóna la informació de quin és l'origen i el destí del viatge.
 \end{description}
 
 \subsection{Solució} 
-Després tenim una part que, com el títol diu, es guarda la informació final que compon un viatge. En aquesta part està formada per dues classes.
+Aquesta part de l'ontologia no representa coneixement estàtic sobre el domini pròpiament dit, sinó que més aviat conté estructures de dades que permetin al sistema expert estructurar la informació sobre les solucions que generi del problema. En aquesta part està formada per dues classes.
 
 \begin{description}
-\item[Solució parcial:]
-\item[Solució final:]
+\item[Solució parcial:] Definim una solució parcial com l'etapa que passa l'usuari en una ciutat del viatge. Amb aquesta definició podem deduïr que tindrà relacions amb tres classes diferents.
+
+Primer tenim la ciutat a la qual correspon aquesta solució parcial, després l'hotel de la ciutat en el que s'allotja i per últim un conjunt d'activitats que són les que es faran.
+
+Després tenim dos atributs, el primer és el preu que costa fer tota la solució parcial que es guarda en un enter i després tenim la durada d'aquest que es guarda en un altre enter i ens facilita el càlcul total del temps i el preu de tot el viatge.
+
+\item[Solució final:] Una instancia de solució final es defineix com un viatge complet i, per tant, té una relació amb la classe solució parcial. Aquesta relació és la que guarda totes les estades de l'usuari per les ciutats que visitarà juntament amb les activitats. També té una altra relació amb la classe viatge per saber com va d'una de les ciutats a la següent. Per últim, té un atribut que conté el preu final del viatge comptant els preus dels viatges i de les estades a cada ciutat.
 
 \end{description}
+
+\clearpage
+
+\subsection{Representació de l'ontologia}
+En aquest apartat s'inclou un a representació gràfica de l'ontologia generada. Cal notar que, per motius evidents no ens ha estat possible incloure-la en un nivell de resolució prou adequat per tal que es puguin observar tots els detalls. És per això que s'adjunta l'arxiu \texttt{ontologia-grafic.png} amb una representació en alta resolució generada pel programa Protégé.
+
 
 \clearpage
 
@@ -234,4 +250,38 @@ Per aquesta prova demanarem una recomanació de viatge d'una parella jove a l'\e
 
 Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequat faucibus enim eget ullamcorper. Sed sapien odio, convallis et risus ac, condimentum tincidunt diam. Phasellus rutrum ullamcorper sem, id finibus lectus maximus sed. Nunc non ornare est, quis sodales ligula. Duis laoreet nisl vel magna auctor imperdiet. Maecenas ac magna vitae enim facilisis pharetra nec nec magna.
 
+
+
+\subsection{Un viatge de fi de curs}
+Per aquesta prova demanarem una recomanació de viatge de final de curs a l'\emph{SBC}.\\
+
+\noindent
+\begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
+\hline
+\textbf{\mbox{Condicions de la} \mbox{prova}} & Es demanarà un viatge per una classe d'institut de 25 persones. Donat el baix pressupost d'aquest tipus de viatges demanarem menys de 350\euro{} per persona. Demanarem activitats de caire cultural. Es demanarà un viatge d'entre 4 i 6 dies, anant com a molt a dues ciutats.\\
+\hline
+\textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Estimem que l'SBC donarà un viatge vàlid dins les restriccions demanades. Tenint en compte el pressupost esperem que s'escullin activitats i hotels de baix pressupost. \\
+\hline
+\textbf{\mbox{Resultats de la} \mbox{prova}} & \\
+\hline
+\end{tabular}
+
+Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequat faucibus enim eget ullamcorper. Sed sapien odio, convallis et risus ac, condimentum tincidunt diam. Phasellus rutrum ullamcorper sem, id finibus lectus maximus sed. Nunc non ornare est, quis sodales ligula. Duis laoreet nisl vel magna auctor imperdiet. Maecenas ac magna vitae enim facilisis pharetra nec nec magna.
+
+
+\subsection{Un viatge per un milionari}
+Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per una persona de classe social molt alta i amb molts diners.\\
+
+\noindent
+\begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
+\hline
+\textbf{\mbox{Condicions de la} \mbox{prova}} & \\
+\hline
+\textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Estimem que l'SBC donarà un viatge vàlid dins les restriccions demanades. Tenint en compte el pressupost esperem que s'escullin activitats i hotels de baix pressupost. \\
+\hline
+\textbf{\mbox{Resultats de la} \mbox{prova}} & \\
+\hline
+\end{tabular}
+
+Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequat faucibus enim eget ullamcorper. Sed sapien odio, convallis et risus ac, condimentum tincidunt diam. Phasellus rutrum ullamcorper sem, id finibus lectus maximus sed. Nunc non ornare est, quis sodales ligula. Duis laoreet nisl vel magna auctor imperdiet. Maecenas ac magna vitae enim facilisis pharetra nec nec magna.
 \end{document}
