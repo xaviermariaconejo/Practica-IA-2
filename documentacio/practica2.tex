@@ -187,14 +187,14 @@ Aquesta és una part constant que conté la informació que proporciona l'expert
 
 \begin{description}
 \item[Ciutat:]Aquesta classe conte dos atributs, el nom que és un String per identificar-les i la importància, que és un symbol, que pot tenir els valors molt coneguda, coneguda i desconeguda, ja que, depenent de l'usuari voldrà anar a un tipus o un altre.
-A part, té una relació amb la classe activitat i un altre amb allotjament ambdós amb un multislot. Aquests serveix per guardar quines són les activitats i l'allotjaments que ofereix cada ciutat i així saber que si una persona va a una ciutat quines activitats pot fer i a quins hotels es poden allotjar.
+A part, té una relació amb la classe activitat i un altre amb allotjament ambdós amb un multislot. Aquests serveix per guardar quines són les activitats i l'allotjaments que ofereix cada ciutat i així saber que si una persona va a una ciutat quines activitats pot fer i a quins hotels es poden allotjar.\\
 Un altre aspecte d'aquesta classe és que conté cinc subclasses, que algunes d'aquestes també tenen subclasses, i això ens ajuda a l'hora de crear els vols, ja que, si són d'un altra zona, el preu serà més elevat que si són de la mateixa.
 
-\item[Allotjament:] Aquesta classe conte dos atributs, el nom de l'allotjament, en un String, per poder identificar-ho i un altre atribut que és el preu de l'allotjament per dia i persona, que es guarda com un enter, que ens serveix per calcular els diners que es gastarà un usuari.
+\item[Allotjament:] Aquesta classe conte dos atributs, el nom de l'allotjament, en un String, per poder identificar-ho i un altre atribut que és el preu de l'allotjament per dia i persona, que es guarda com un enter, que ens serveix per calcular els diners que es gastarà un usuari.\\
 Aquesta classe també té cinc subclasses que s'utilitzen per identificar la qualitat de l'hotel depenent de quantes estrelles té i així, depenent de quin tipus d'usuari demana un viatge, s'ofereix un tipus o un altre.
 
-\item[Activitat:] Aquesta classe té tres atributs, el primer, com a les classes anteriors un nom per identificar l'activitat, després tenim el preu que costa fer l'activitat amb un enter, i per últim la durada de l'activitat, que es guarda com un symbol amb dos valors possibles, migdia i un dia, i així es pot saber quantes activitats com a màxim poden fer en el temps que estigui en una ciutat.
-També conte unes subclasses per identificar el tipus de l'activitat i així escollir activitats que els usuaris vulguin.
+\item[Activitat:] Aquesta classe té tres atributs, el primer, com a les classes anteriors un nom per identificar l'activitat, després tenim el preu que costa fer l'activitat amb un enter, i per últim la durada de l'activitat, que es guarda com un symbol amb dos valors possibles, migdia i un dia, i així es pot saber quantes activitats com a màxim poden fer en el temps que estigui en una ciutat.\\
+També conte unes subclasses per identificar el tipus de l'activitat i així escollir activitats al gust de l'usuari.
 
 
 \item[Viatge:] Aquesta classe conte dos atributs, el primer, com en les dues ultimes classes, és un enter que s'utilitza per guardar el preu del viatge, el segon, es guarda com un symbol que identifica el tipus de transport que utilitza aquell viatge i pot tenir quatre valors: avio, tren, autobús i vaixell.
@@ -208,7 +208,8 @@ Després tenim una part que, com el títol diu, es guarda la informació final q
 \item[Solució parcial:] Una solució parcial la podem definir com l'etapa en la qual l'usuari passa en una ciutat del viatge. Amb aquesta definició podem deduir que tindrà tres relacions amb tres classes diferents.
 Primer tenim la ciutat a la qual correspon aquesta solució parcial, després l'hotel de la ciutat en el que s'allotja i per últim un conjunt d'activitats que són les que es faran.
 Després tenim dos atributs, el primer és el preu que costa fer tota la solució parcial que es guarda en un enter i després tenim la durada d'aquest que es guarda en un altre enter i ens facilita el càlcul total del temps i el preu de tot el viatge.
-\item[Solució final:]
+
+\item[Solució final:] Una instancia de solució final es defineix com un viatge complet i, per tant, té una relació amb la classe solució parcial amb un multslot. Aquesta relació és la que guarda totes les estades de l'usuari per les ciutats que visitarà juntament amb les activitats. També té una altra relació amb la classe viatge per saber com va d'una de les ciutats de la relació anterior a la següent. Per últim, conte un atribut que conté el preu final del viatge contant els preus dels viatges i de les estades a cada ciutat.
 
 \end{description}
 
