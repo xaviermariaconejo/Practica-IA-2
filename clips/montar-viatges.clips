@@ -9248,6 +9248,7 @@
 	(bind ?i 1)
 	(bind ?nom-c (send ?c get-Nom))
 	(while (and (<= ?i (length ?lc)) ?b)
+		do
 		(if (eq ?nom-c (send (send (nth$ ?i ?lc) get-ciutat) get-Nom)) then
 			(bind ?b FALSE)
 		)
@@ -9258,7 +9259,9 @@
 
 (deffunction activitats-no-repetides (?c ?acts)
 	(bind ?a (send ?c get-Activitats))
-	(loop-for-count (?i 1 (length ?a))
+	(bind ?i 1)
+	(while (and (<= ?i (length ?a)) (> (length ?a) 0))
+		do
 		(bind ?b FALSE)
 		(bind ?j 1)
 		(while (and (<= ?j (length ?acts)) (not ?b))
@@ -9269,6 +9272,7 @@
 			)
 			(bind ?j (+ ?j 1))
 		)
+		(bind ?i (+ ?i 1))
 	)
 	(return ?a)
 )
@@ -9521,7 +9525,7 @@
 		(bind ?r (triar-ciutats ?c ?num_ciutats_min))
 		(loop-for-count (?i 1 (length ?r))
 			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch))
-			(bind ?act (buscar_activitats (bind ?a (send (nth$ ?i ?r) get-Activitats))
+			(bind ?act (buscar_activitats (send (nth$ ?i ?r) get-Activitats)
 			?ch (/ ?num_dies_min ?num_ciutats_min)))
    			(bind ?no-llameis-aux-a-las-variables (make-instance of Solucio-P
    			(ciutat (nth$ ?i ?r)) (duracio (/ ?num_dies_min ?num_ciutats_min))
@@ -9615,7 +9619,7 @@
 				(bind ?cc (+ ?cc 1))
 				(bind ?d (+ ?d 1))
 				(bind ?h (buscar-hotel (nth$ ?aux ?c) ?ch))
-				(bind ?act (buscar_activitats (bind ?a (send (nth$ ?aux ?c) get-Activitats)) ?ch 1))
+				(bind ?act (buscar_activitats (send (nth$ ?aux ?c) get-Activitats) ?ch 1))
 	   			(bind ?no-llameis-aux-a-las-variables (make-instance of Solucio-P
 	   			(ciutat (nth$ ?aux ?c)) (duracio 1) (activitats ?act) (allotjament ?h)
 	   			(preu (calcular-preu ?act ?h 1))))
@@ -9641,7 +9645,7 @@
 	   			(send ?x put-preu-total (+ (send ?x get-preu-total) (-  (+ ?pv1 ?pv2) ?preu-aux)))
 				(bind ?c (delete$ ?c ?aux ?aux))
 			)
-			(while (> ?num_dies_max ?d)
+			(while (and (> ?num_dies_max ?d) (> (length (send ?x get-ciutats)) 0))
 				do
 				(bind ?d (+ 1 ?d))
 				(bind ?cts (send ?x get-ciutats))
@@ -9668,7 +9672,7 @@
 				(bind ?cc (+ ?cc 1))
 				(bind ?d (+ ?d 1))
 				(bind ?h (buscar-hotel (nth$ ?aux ?c) ?ch))
-				(bind ?act (buscar_activitats (bind ?a (send (nth$ ?aux ?c) get-Activitats)) ?ch 1))
+				(bind ?act (buscar_activitats (send (nth$ ?aux ?c) get-Activitats) ?ch 1))
 	   			(bind ?no-llameis-aux-a-las-variables (make-instance of Solucio-P
 	   			(ciutat (nth$ ?aux ?c)) (duracio 1) (activitats ?act) (allotjament ?h)
 	   			(preu (calcular-preu ?act ?h 1))))
@@ -9698,12 +9702,12 @@
 		   			(bind ?b TRUE)
 	   			)
 			)
-			(while (and (> ?num_dies_max ?d) (not ?b))
+			(bind ?b FALSE)
+			(while (and (> ?num_dies_max ?d) (and (not ?b) (> (length (send ?x get-ciutats)) 0)))
 				do
 				(bind ?d (+ 1 ?d))
 				(bind ?cts (send ?x get-ciutats))
 				(bind ?c (ciutat-menor-dies ?cts))
-				
 				(bind ?acts (buscar_activitats 
 				(activitats-no-repetides (send (nth$ ?c ?cts) get-ciutat) (send (nth$ ?c ?cts) get-activitats))
 				?ch 1))

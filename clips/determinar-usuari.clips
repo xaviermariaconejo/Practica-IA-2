@@ -142,6 +142,9 @@
 		then 
 			(modify ?c (tipus coworkers))
 			(modify ?e (edat adults))
+	else
+		(modify ?c (tipus familia))
+		(modify ?e (edat adults))
 	)
 )
 
@@ -207,7 +210,15 @@
 	(tipus_client (tipus grup_organitzat))
 	?v <- (tipus_viatge (tipus indefinit))
 =>
-	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu? (Aventura, Diversio, Relax)" aventura diversio relax))
+	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu? (aventura, diversio, relax)" aventura diversio relax))
+	(modify ?v (tipus ?response))
+)
+
+(defrule familia "Un grup organitzat sol tenir una temàtica molt concreta en ment"
+	(tipus_client (tipus familia))
+	?v <- (tipus_viatge (tipus indefinit))
+=>
+	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu? (aventura, diversio, relax)" aventura diversio relax))
 	(modify ?v (tipus ?response))
 )
 
