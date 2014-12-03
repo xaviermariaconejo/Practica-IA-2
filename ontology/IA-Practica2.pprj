@@ -1,4 +1,4 @@
-; Sun Nov 30 18:13:00 CET 2014
+; Thu Dec 04 00:39:17 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -20,15 +20,15 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[IA-Practica2_ProjectKB_Class10105]
-		[IA-Practica2_ProjectKB_Class10106]
-		[IA-Practica2_ProjectKB_Class10107]
-		[IA-Practica2_ProjectKB_Class10108]
-		[IA-Practica2_ProjectKB_Class10109]
-		[IA-Practica2_ProjectKB_Class10110]
-		[IA-Practica2_ProjectKB_Class10111]
-		[IA-Practica2_ProjectKB_Class10112]
-		[IA-Practica2_ProjectKB_Class10113]))
+		[IA-Practica2_ProjectKB_Class10309]
+		[IA-Practica2_ProjectKB_Class10310]
+		[IA-Practica2_ProjectKB_Class10311]
+		[IA-Practica2_ProjectKB_Class10312]
+		[IA-Practica2_ProjectKB_Class10313]
+		[IA-Practica2_ProjectKB_Class10314]
+		[IA-Practica2_ProjectKB_Class10315]
+		[IA-Practica2_ProjectKB_Class10316]
+		[IA-Practica2_ProjectKB_Class10317]))
 
 ([CLSES_TAB] of  Widget
 
@@ -57,66 +57,66 @@
 ([IA-Practica2_ProjectKB_Class10] of  Property_List
 )
 
-([IA-Practica2_ProjectKB_Class10105] of  String
+([IA-Practica2_ProjectKB_Class10309] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([IA-Practica2_ProjectKB_Class10106] of  String
+([IA-Practica2_ProjectKB_Class10310] of  String
 
 	(name "Ciutat")
 	(string_value "Nom"))
 
-([IA-Practica2_ProjectKB_Class10107] of  String
+([IA-Practica2_ProjectKB_Class10311] of  String
 
 	(name "Activitat")
 	(string_value "nom-activitat"))
 
-([IA-Practica2_ProjectKB_Class10108] of  String
+([IA-Practica2_ProjectKB_Class10312] of  String
 
 	(name "Sudafrica")
 	(string_value "Nom"))
 
-([IA-Practica2_ProjectKB_Class10109] of  String
+([IA-Practica2_ProjectKB_Class10313] of  String
 
 	(name "Mediterrania")
 	(string_value "Nom"))
 
-([IA-Practica2_ProjectKB_Class10110] of  String
+([IA-Practica2_ProjectKB_Class10314] of  String
 
 	(name "Viatge")
 	(string_value "origen{-%3E}desti"))
 
-([IA-Practica2_ProjectKB_Class10111] of  String
+([IA-Practica2_ProjectKB_Class10315] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([IA-Practica2_ProjectKB_Class10112] of  String
+([IA-Practica2_ProjectKB_Class10316] of  String
 
 	(name "Allotjament")
 	(string_value "nom-allotjament"))
 
-([IA-Practica2_ProjectKB_Class10113] of  String
+([IA-Practica2_ProjectKB_Class10317] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([IA-Practica2_ProjectKB_Class10114] of  Map_Entry
+([IA-Practica2_ProjectKB_Class10318] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([IA-Practica2_ProjectKB_Class10115] of  Map_Entry
+([IA-Practica2_ProjectKB_Class10319] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([IA-Practica2_ProjectKB_Class10116] of  Map_Entry
+([IA-Practica2_ProjectKB_Class10320] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
@@ -502,7 +502,7 @@
 	(is_hidden FALSE)
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
-([KB_100371_Class3] of  Map
+([KB_140030_Class3] of  Map
 )
 
 ([KB_435256_Class0] of  String
@@ -513,9 +513,9 @@
 ([KB_435256_Class1] of  Map
 
 	(entries
-		[IA-Practica2_ProjectKB_Class10114]
-		[IA-Practica2_ProjectKB_Class10115]
-		[IA-Practica2_ProjectKB_Class10116]))
+		[IA-Practica2_ProjectKB_Class10318]
+		[IA-Practica2_ProjectKB_Class10319]
+		[IA-Practica2_ProjectKB_Class10320]))
 
 ([KB_435256_Class100] of  Property_List
 )
@@ -692,11 +692,11 @@
 
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
-		[INSTANCE_ANNOTATION_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET]
 		[STANDARD_SLOT_FORM_WIDGET]
-		[STANDARD_FACET_FORM_WIDGET]
-		[PAL_FORM_WIDGET])
+		[INSTANCE_ANNOTATION_FORM_WIDGET]
+		[PAL_FORM_WIDGET]
+		[STANDARD_FACET_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")
 	(default_facet_metaclass ":STANDARD-FACET")
 	(default_instance_widget_class_name "edu.stanford.smi.protege.widget.FormWidget")
