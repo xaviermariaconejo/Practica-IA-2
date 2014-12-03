@@ -9315,9 +9315,15 @@
 	(return ?v)
 )
 
+(deffunction ordena-bug (?a ?b)
+	(bind ?sa (class-superclasses (class ?a)))
+	(bind ?sb (class-superclasses (class ?b)))
+	(return (> (str-compare (str-cat (nth$ 1 ?sa))(str-cat (nth$ 1 ?sb))) 0))
+)
+
 (deffunction triar-ciutats (?li ?n)
 	(if (> ?n (length ?li)) then
-		(return ?li)
+		(bind ?r ?li)
 	else 
 		(bind ?li (sort ordenar-ciutats ?li))
 		(bind ?l (create$))
@@ -9331,8 +9337,10 @@
 			(bind ?v (insert$ ?v 1 (nth$ ?aux ?l)))
 			(bind ?l (delete$ ?l ?aux ?aux))
 		)
-		(return ?v)
+		(bind ?r ?v)
 	)
+	(bind ?r (sort ordena-bug ?r))
+	(return ?r)
 )
 
 (deffunction buscar-hotel (?c ?ch)
