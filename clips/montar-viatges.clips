@@ -9856,23 +9856,3 @@
 	)
 	(printout t crlf)
 )
-
-
-
-	   		;	(slot-insert$ ?x ciutats ?cc ?no-llameis-aux-a-las-variables)
-	   		;	(bind ?lv (send ?x get-viatges))
-	   		;	(bind ?preu-aux (send (nth$ (length ?lv) ?lv) get-preu-viatge))
-	   		;	(bind ?auxiliar (send (nth$ (length ?lv) ?lv) get-origen))
-	   		;	(bind ?lv (delete$ ?lv (length ?lv) (length ?lv)))
-	   		;	(bind ?v (find-all-instances ((?vaux Viatge))
-			;	(and (eq ?vaux:desti ?auxiliar)
-			;	(eq ?vaux:origen (nth$ ?aux ?c)))))
-			;	(bind ?v1 (viatge-alta ?v))
-			;	(bind ?lv (insert$ ?lv (+ (length ?lv) 1) ?v1))
-			;	(bind ?pv1 (send ?v1 get-preu-viatge))
-	   		;	(bind ?v (find-all-instances ((?vaux Viatge))
-			;	(and (eq (send (send ?vaux get-desti) get-Nom) "Origen")
-			;	(eq ?vaux:origen (nth$ ?aux ?c)))))
-			;	(bind ?v2 (viatge-alta ?v))
-			;	(bind ?lv (insert$ ?lv (+ (length ?lv) 1) ?v2))
-			;	(bind ?pv2 (send ?v2 get-preu-viatge))
