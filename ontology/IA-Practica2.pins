@@ -1,4 +1,4 @@
-; Thu Dec 04 01:17:18 CET 2014
+; Thu Dec 04 01:28:57 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -110,6 +110,12 @@
 
 ([IA-Practica2_Class10020] of  Sud
 
+	(Activitats
+		[IA-Practica2_Class80069]
+		[IA-Practica2_Class80070]
+		[IA-Practica2_Class80071]
+		[IA-Practica2_Class80072]
+		[IA-Practica2_Class80073])
 	(Allotjaments
 		[IA-Practica2_Class80066]
 		[IA-Practica2_Class80067]
@@ -134,6 +140,12 @@
 
 ([IA-Practica2_Class10022] of  Asia_Oriental
 
+	(Activitats
+		[IA-Practica2_Class80074]
+		[IA-Practica2_Class80075]
+		[IA-Practica2_Class80076]
+		[IA-Practica2_Class80077]
+		[IA-Practica2_Class80078])
 	(Allotjaments
 		[IA-Practica2_Class80054]
 		[IA-Practica2_Class80055]
@@ -2414,3 +2426,63 @@
 
 	(nom-allotjament "Miramar Hotel by Windsor")
 	(preu-allotjament 385))
+
+([IA-Practica2_Class80069] of  Aventura
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Rotorfly Vôo Livre")
+	(preu-activitat 40))
+
+([IA-Practica2_Class80070] of  Aventura
+
+	(durada-activitat un-dia)
+	(nom-activitat "Rio Natural Ecotourism")
+	(preu-activitat 15))
+
+([IA-Practica2_Class80071] of  Aventura
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Mar do Rio")
+	(preu-activitat 25))
+
+([IA-Practica2_Class80072] of  Relax
+
+	(durada-activitat un-dia)
+	(nom-activitat "Lavanda Fitness Spa")
+	(preu-activitat 22))
+
+([IA-Practica2_Class80073] of  Relax
+
+	(durada-activitat mig-dia)
+	(nom-activitat "RJ Massagem")
+	(preu-activitat 18))
+
+([IA-Practica2_Class80074] of  Romantic
+
+	(durada-activitat un-dia)
+	(nom-activitat "Skyline de Hong Kong")
+	(preu-activitat 30))
+
+([IA-Practica2_Class80075] of  Diversio
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Sha Tin Racecourse")
+	(preu-activitat 15))
+
+([IA-Practica2_Class80076] of  Diversio
+
+	(durada-activitat un-dia)
+	(nom-activitat "Hong Kong Disneyland")
+	(preu-activitat 22))
+
+([IA-Practica2_Class80077] of  Diversio
+
+	(durada-activitat un-dia)
+	(nom-activitat "Ocean Park")
+	(preu-activitat 24))
+
+([IA-Practica2_Class80078] of  Diversio
+
+	(durada-activitat un-dia)
+	(nom-activitat "Snoopy World")
+	(preu-activitat 27))
