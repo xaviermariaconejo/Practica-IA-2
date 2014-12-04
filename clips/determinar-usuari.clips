@@ -359,6 +359,6 @@
 )
 
 (defrule fi-modul
-(declare (salience -10))
+(declare (salience -20))
 =>
 (focus tipus_ciutat))

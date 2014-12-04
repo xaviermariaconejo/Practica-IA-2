@@ -9767,24 +9767,35 @@
 			(if (and(< (send ?x get-preu-total) ?pmaxim) (not (eq ?ch alta))) then
 				(bind ?c (send ?x get-ciutats))
 				(loop-for-count (?i 1 (length ?c))
-					do
 					(bind ?hact (send (nth$ ?i ?c) get-allotjament))
+					(bind ?hotel (send (nth$ ?i ?c) get-Allotjaments))
 					(switch ?ch
 						(case mitja then
-							(bind ?hotel (find-all-instances ((?a 3Estrella) (?b 4Estrella))TRUE)))
-						(case baixa then
-							(bind ?hotel (find-all-instances ((?a 1Estrella) (?b 2Estrella))TRUE)))
-					)
-					(loop-for-count (?j 1 (length ?hotel))
-						do
-						(if (> (send (nth$ ?j ?hotel) get-preu-allotjament) (send ?hact get-preu-allotjament)) then
-							(bind ?aux (+ (send (nth$ ?i ?c) get-preu)
-							(- (send (nth$ ?j ?hotel) get-preu-allotjament)(send ?hact get-preu-allotjament))))
-							(if (< (+ (- (send ?x get-preu-total) (send (nth$ ?i ?c) get-preu)) ?aux) ?pmaxim) then
-								(send (nth$ ?i ?c) put-allotjament (nth$ ?j ?hotel))
-								(send (nth$ ?i ?c) put-preu ?aux)
+							(loop-for-count (?j 1 (length ?hotel))
+								(if (or (eq (class (nth$ ?j ?hotel)) 3Estrella) (eq (class (nth$ ?j ?hotel)) 4Estrella)) then
+									(if (> (send (nth$ ?j ?hotel) get-preu-allotjament) (send ?hact get-preu-allotjament)) then
+										(bind ?aux (+ (send (nth$ ?i ?c) get-preu)
+										(- (send (nth$ ?j ?hotel) get-preu-allotjament)(send ?hact get-preu-allotjament))))
+										(if (< (+ (- (send ?x get-preu-total) (send (nth$ ?i ?c) get-preu)) ?aux) ?pmaxim) then
+											(send (nth$ ?i ?c) put-allotjament (nth$ ?j ?hotel))
+											(send (nth$ ?i ?c) put-preu ?aux)
+										)
+									)
+								)
 							)
-						)
+						(case baixa then
+							(loop-for-count (?j 1 (length ?hotel))
+								(if (or (eq (class (nth$ ?j ?hotel)) 1Estrella) (eq (class (nth$ ?j ?hotel)) 2Estrella)) then
+									(if (> (send (nth$ ?j ?hotel) get-preu-allotjament) (send ?hact get-preu-allotjament)) then
+										(bind ?aux (+ (send (nth$ ?i ?c) get-preu)
+										(- (send (nth$ ?j ?hotel) get-preu-allotjament)(send ?hact get-preu-allotjament))))
+										(if (< (+ (- (send ?x get-preu-total) (send (nth$ ?i ?c) get-preu)) ?aux) ?pmaxim) then
+											(send (nth$ ?i ?c) put-allotjament (nth$ ?j ?hotel))
+											(send (nth$ ?i ?c) put-preu ?aux)
+										)
+									)
+								)
+							)
 					)
 					(send ?x put-ciutats ?c)
 				)
@@ -9796,16 +9807,17 @@
 	(declare (salience -20))
 	?x <- (object (is-a Solucio-F))
 	(pressupost (preu_max ?pmaxim))
+	(importa_preu ?ip)
 	=>
 		(if (> (length (send ?x get-ciutats)) 0) then
 			(printout t "===============================")(printout t crlf)
 			(printout t "      VIATGE ")(printout t ?x)(printout t crlf)
 			(printout t "===============================")(printout t crlf)
-			(if (> (send ?x get-preu-total) ?pmaxim) then
-			(printout t crlf)
-			(printout t "El viatge trobat es surt del pressupost màxim per: ")
-			(printout t (- (send ?x get-preu-total) ?pmaxim))
-			(printout t " euros")(printout t crlf)(printout t crlf)
+			(if (and (> (send ?x get-preu-total) ?pmaxim) (eq ?ip no)) then
+				(printout t crlf)
+				(printout t "El viatge trobat es surt del pressupost màxim per: ")
+				(printout t (- (send ?x get-preu-total) ?pmaxim))
+				(printout t " euros")(printout t crlf)(printout t crlf)
 			)
 			(send ?x imprimeix)
 			(printout t crlf)
