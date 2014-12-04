@@ -1,4 +1,4 @@
-; Thu Dec 04 11:57:12 CET 2014
+; Thu Dec 04 12:12:04 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -40,7 +40,10 @@
 		[IA-Practica2_Class30001]
 		[IA-Practica2_Class30002]
 		[IA-Practica2_Class30003]
-		[IA-Practica2_Class30004])
+		[IA-Practica2_Class30004]
+		[IA-Practica2_Class90032]
+		[IA-Practica2_Class90024]
+		[IA-Practica2_Class90026])
 	(Allotjaments
 		[IA-Practica2_Class10068]
 		[IA-Practica2_Class10069]
@@ -67,7 +70,8 @@
 		[IA-Practica2_Class30046]
 		[IA-Practica2_Class30047]
 		[IA-Practica2_Class30048]
-		[IA-Practica2_Class30049])
+		[IA-Practica2_Class30049]
+		[IA-Practica2_Class90034])
 	(Allotjaments
 		[IA-Practica2_Class30037]
 		[IA-Practica2_Class30038]
@@ -94,7 +98,9 @@
 		[IA-Practica2_Class90020]
 		[IA-Practica2_Class90021]
 		[IA-Practica2_Class90022]
-		[IA-Practica2_Class90023])
+		[IA-Practica2_Class90023]
+		[IA-Practica2_Class90030]
+		[IA-Practica2_Class90025])
 	(Allotjaments
 		[IA-Practica2_Class60038]
 		[IA-Practica2_Class60039]
@@ -111,7 +117,9 @@
 		[IA-Practica2_Class90013]
 		[IA-Practica2_Class90014]
 		[IA-Practica2_Class90015]
-		[IA-Practica2_Class90016])
+		[IA-Practica2_Class90016]
+		[IA-Practica2_Class90033]
+		[IA-Practica2_Class90029])
 	(Allotjaments
 		[IA-Practica2_Class80063]
 		[IA-Practica2_Class80064]
@@ -141,7 +149,10 @@
 		[IA-Practica2_Class80049]
 		[IA-Practica2_Class80050]
 		[IA-Practica2_Class90017]
-		[IA-Practica2_Class90018])
+		[IA-Practica2_Class90018]
+		[IA-Practica2_Class90034]
+		[IA-Practica2_Class90026]
+		[IA-Practica2_Class90024])
 	(Allotjaments
 		[IA-Practica2_Class80043]
 		[IA-Practica2_Class80044]
@@ -158,7 +169,9 @@
 		[IA-Practica2_Class80075]
 		[IA-Practica2_Class80076]
 		[IA-Practica2_Class80077]
-		[IA-Practica2_Class80078])
+		[IA-Practica2_Class80078]
+		[IA-Practica2_Class90033]
+		[IA-Practica2_Class90026])
 	(Allotjaments
 		[IA-Practica2_Class80054]
 		[IA-Practica2_Class80055]
@@ -171,7 +184,9 @@
 	(Activitats
 		[IA-Practica2_Class80025]
 		[IA-Practica2_Class80026]
-		[IA-Practica2_Class80027])
+		[IA-Practica2_Class80027]
+		[IA-Practica2_Class90033]
+		[IA-Practica2_Class90026])
 	(Allotjaments
 		[IA-Practica2_Class80007]
 		[IA-Practica2_Class80008]
@@ -205,7 +220,9 @@
 
 	(Activitats
 		[IA-Practica2_Class70008]
-		[IA-Practica2_Class70009])
+		[IA-Practica2_Class70009]
+		[IA-Practica2_Class90034]
+		[IA-Practica2_Class90028])
 	(Allotjaments
 		[IA-Practica2_Class60000]
 		[IA-Practica2_Class70001]
@@ -281,7 +298,9 @@
 		[IA-Practica2_Class90009]
 		[IA-Practica2_Class90010]
 		[IA-Practica2_Class90011]
-		[IA-Practica2_Class90012])
+		[IA-Practica2_Class90012]
+		[IA-Practica2_Class90032]
+		[IA-Practica2_Class90027])
 	(Allotjaments
 		[IA-Practica2_Class80060]
 		[IA-Practica2_Class80061]
@@ -294,7 +313,9 @@
 	(Activitats
 		[IA-Practica2_Class40016]
 		[IA-Practica2_Class40017]
-		[IA-Practica2_Class40018])
+		[IA-Practica2_Class40018]
+		[IA-Practica2_Class90025]
+		[IA-Practica2_Class90026])
 	(Allotjaments
 		[IA-Practica2_Class40010]
 		[IA-Practica2_Class40011]
@@ -330,7 +351,9 @@
 		[IA-Practica2_Class70018]
 		[IA-Practica2_Class70019]
 		[IA-Practica2_Class70020]
-		[IA-Practica2_Class70021])
+		[IA-Practica2_Class70021]
+		[IA-Practica2_Class90033]
+		[IA-Practica2_Class90029])
 	(Allotjaments
 		[IA-Practica2_Class70010]
 		[IA-Practica2_Class70011]
@@ -465,7 +488,9 @@
 		[IA-Practica2_Class30062]
 		[IA-Practica2_Class30063]
 		[IA-Practica2_Class30064]
-		[IA-Practica2_Class30065])
+		[IA-Practica2_Class30065]
+		[IA-Practica2_Class90027]
+		[IA-Practica2_Class90024])
 	(Allotjaments
 		[IA-Practica2_Class30066]
 		[IA-Practica2_Class30067]
@@ -564,7 +589,9 @@
 	(Activitats
 		[IA-Practica2_Class80004]
 		[IA-Practica2_Class80005]
-		[IA-Practica2_Class80006])
+		[IA-Practica2_Class80006]
+		[IA-Practica2_Class90033]
+		[IA-Practica2_Class90026])
 	(Allotjaments
 		[IA-Practica2_Class70047]
 		[IA-Practica2_Class70048]
@@ -2659,3 +2686,69 @@
 	(durada-activitat mig-dia)
 	(nom-activitat "Edge Walk at the CN Tower")
 	(preu-activitat 15))
+
+([IA-Practica2_Class90024] of  Negoci
+
+	(durada-activitat un-dia)
+	(nom-activitat "Evento corporativo")
+	(preu-activitat 100))
+
+([IA-Practica2_Class90025] of  Negoci
+
+	(durada-activitat un-dia)
+	(nom-activitat "Evento corporativo")
+	(preu-activitat 50))
+
+([IA-Practica2_Class90026] of  Negoci
+
+	(durada-activitat un-dia)
+	(nom-activitat "Evento corporativo")
+	(preu-activitat 20))
+
+([IA-Practica2_Class90027] of  Negoci
+
+	(durada-activitat un-dia)
+	(nom-activitat "Evento corporativo")
+	(preu-activitat 40))
+
+([IA-Practica2_Class90028] of  Negoci
+
+	(durada-activitat un-dia)
+	(nom-activitat "Evento corporativo")
+	(preu-activitat 60))
+
+([IA-Practica2_Class90029] of  Negoci
+
+	(durada-activitat un-dia)
+	(nom-activitat "Evento corporativo")
+	(preu-activitat 200))
+
+([IA-Practica2_Class90030] of  Negoci
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Cena de empresa")
+	(preu-activitat 50))
+
+([IA-Practica2_Class90031] of  Negoci
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Cena de empresa")
+	(preu-activitat 100))
+
+([IA-Practica2_Class90032] of  Negoci
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Cena de empresa")
+	(preu-activitat 20))
+
+([IA-Practica2_Class90033] of  Negoci
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Cena de empresa")
+	(preu-activitat 20))
+
+([IA-Practica2_Class90034] of  Negoci
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Cena de empresa")
+	(preu-activitat 80))
