@@ -79,7 +79,7 @@
     (llocs_exotics (valor ?e))
 =>
     (if (eq ?e TRUE) then 
-			(modify ?c (tipus desconeguda))
+			(modify ?c (tipus coneguda))
 			 else (modify ?c (tipus molt_coneguda)))
     
 )
