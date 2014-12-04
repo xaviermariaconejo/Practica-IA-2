@@ -114,7 +114,7 @@
 			 	(modify ?e (edat jubilats)
 			 )))
 		else 
-			(if (si-o-no-p "Formeu part d'una organitzacio: equip de futbol, colla castellera...? (s/n)") then (modify ?c (tipus grup_organitzat)))
+			(if (si-o-no-p "Formeu part d'una organitzacio: equip de futbol, colla castellera...?") then (modify ?c (tipus grup_organitzat)))
 	)
 )
 
@@ -122,11 +122,10 @@
 	(tipus_client (tipus grup_organitzat))
 	?e<-(edat_client (edat indefinit))
 =>
-	(if (si-o-no-p "Hi ha nens al grup? (s/n)")
+	(if (si-o-no-p "Hi ha nens al grup?")
 		then (modify ?e (edat variada))
 		else (modify ?e (edat adult))
 	)
-)
 
 (defrule families "Determinar si el grup és una familia amb fills"
 	(num-persones (num ?x&:(> ?x 2)))
@@ -164,7 +163,7 @@
 	(tipus_client (tipus institut))
 	?v<-(tipus_viatge (tipus indefinit))
 =>
-	(bind ?response (ask-question "L'objectiu del viatge és d'aprenentatge o de diversio? Respon: {Cultural, Diversio, cap_dels_dos}" 
+	(bind ?response (ask-question "L'objectiu del viatge és d'aprenentatge o de diversio?" 
 		Cultural Diversio cap_dels_dos))
 	(if (neq ?response cap_dels_dos) 
 		then (modify ?v (tipus ?response))
@@ -179,7 +178,7 @@
 	(tipus_client (tipus individual))
 	?v<-(tipus_viatge (tipus indefinit))
 =>
-	(bind ?response (ask-question "Prefereix un viatge de relax o diversió. Indica: Relax/Diversio" Relax Diversio))
+	(bind ?response (ask-question "Prefereix un viatge de relax o diversió." Relax Diversio))
 	(modify ?v (tipus ?response))
 )
 
@@ -225,7 +224,7 @@
 	(tipus_client (tipus grup_organitzat))
 	?v <- (tipus_viatge (tipus indefinit))
 =>
-	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu? (Aventura, Diversio, Relax)" Aventura Diversio Relax))
+	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu?" Aventura Diversio Relax))
 	(modify ?v (tipus ?response))
 )
 

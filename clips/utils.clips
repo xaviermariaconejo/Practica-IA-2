@@ -8,18 +8,34 @@
    ?answer)
 
 ;;; Obtiene una respuesta de entre un conjunto de respuestas posibles
-(deffunction ask-question (?question $?allowed-values)
-   (printout t ?question)
+(deffunction ask-question-aux (?question $?allowed-values)
+   (printout t ?question) (printout t crlf)
    (bind ?answer (read))
    (while (not (member ?answer ?allowed-values)) do
       (printout t ?question)
       (bind ?answer (read))
    )
+   (printout t crlf)
+   ?answer)
+
+(deffunction ask-question (?question $?allowed-values)
+   (printout t ?question) (printout t " (")
+   (loop-for-count (?i 1 (length ?allowed-values))
+      (printout t (str-cat (nth$ ?i ?allowed-values) " "))
+   )
+   (printout t ")")
+   (printout t crlf)
+   (bind ?answer (read))
+   (while (not (member ?answer ?allowed-values)) do
+      (printout t ?question)
+      (bind ?answer (read))
+   )
+   (printout t crlf)
    ?answer)
 
 ;;; Hace una pregunta a la que hay que responder si o no
 (deffunction si-o-no-p (?question)
-   (bind ?response (ask-question ?question si no s n))
+   (bind ?response (ask-question-aux (str-cat ?question " (si/no)") si no s n))
    (if (or (eq ?response si) (eq ?response s))
        then TRUE 
        else FALSE))
