@@ -125,7 +125,7 @@
 ;+		(allowed-classes Activitat)
 		(create-accessor read-write)))
 
-(defclass Activitat "Aquesta classe descriu una activitat que es pot realitzar en una ciutat. Les activitats tenen un nom que les identifica i un preu, sempre especificat com a preu per persona.\n\nAddicionalment tambeÌ considerem la durada de l'activitat classificant-la en dos categories: Mig dia o dia sencer.\n\nAixiÌ doncs en un dia es poden fer dos activitats d'un dia o una de mig dia."
+(defclass Activitat "Aquesta classe descriu una activitat que es pot realitzar en una ciutat. Les activitats tenen un nom que les identifica i un preu, sempre especificat com a preu per persona.\n\nAddicionalment també considerem la durada de l'activitat classificant-la en dos categories: Mig dia o dia sencer.\n\nAixí doncs en un dia es poden fer dos activitats d'un dia o una de mig dia."
 	(is-a USER)
 	(role concrete)
 	(single-slot durada-activitat
@@ -9216,7 +9216,7 @@
 
 
 ;;================================================
-;;				Inici del mÃ²dul
+;;				Inici del mòdul
 ;;================================================
 
 
@@ -9764,30 +9764,55 @@
 		   			(bind ?b TRUE)
 	   			)
 			)
+			(if (and(< (send ?x get-preu-total) ?pmaxim) (not (eq ?ch alta))) then
+				(bind ?c (send ?x get-ciutats))
+				(loop-for-count (?i 1 (length ?c))
+					do
+					(bind ?hact (send (nth$ ?i ?c) get-allotjament))
+					(switch ?ch
+						(case mitja then
+							(bind ?hotel (find-all-instances ((?a 3Estrella) (?b 4Estrella))TRUE)))
+						(case baixa then
+							(bind ?hotel (find-all-instances ((?a 1Estrella) (?b 2Estrella))TRUE)))
+					)
+					(loop-for-count (?j 1 (length ?hotel))
+						do
+						(if (> (send (nth$ ?j ?hotel) get-preu-allotjament) (send ?hact get-preu-allotjament)) then
+							(bind ?aux (+ (send (nth$ ?i ?c) get-preu)
+							(- (send (nth$ ?j ?hotel) get-preu-allotjament)(send ?hact get-preu-allotjament))))
+							(if (< (+ (- (send ?x get-preu-total) (send (nth$ ?i ?c) get-preu)) ?aux) ?pmaxim) then
+								(send (nth$ ?i ?c) put-allotjament (nth$ ?j ?hotel))
+								(send (nth$ ?i ?c) put-preu ?aux)
+							)
+						)
+					)
+					(send ?x put-ciutats ?c)
+				)
+			)
 		)
 )
 
 (defrule resultado-consejo "Regla salida de consejo"
 	(declare (salience -20))
 	?x <- (object (is-a Solucio-F))
-	(importa_preu ?ip)
 	(pressupost (preu_max ?pmaxim))
 	=>
-		(if (> (length (send ?x get-ciutats)) 0) 
-		then
+		(if (> (length (send ?x get-ciutats)) 0) then
 			(printout t "===============================")(printout t crlf)
 			(printout t "      VIATGE ")(printout t ?x)(printout t crlf)
 			(printout t "===============================")(printout t crlf)
-			(if (and (> (send ?x get-preu-total) ?pmaxim) (eq ?ip si) ) then
+			(if (> (send ?x get-preu-total) ?pmaxim) then
 			(printout t crlf)
-			(printout t "El viatge trobat se surt del pressupost màxim per: ")
+			(printout t "El viatge trobat es surt del pressupost màxim per: ")
 			(printout t (- (send ?x get-preu-total) ?pmaxim))
 			(printout t " euros")(printout t crlf)(printout t crlf)
 			)
 			(send ?x imprimeix)
 			(printout t crlf)
 		else
-			(printout t "El sistema no és capaç de trobar cap viatge. No s'han trobat activitats adients per a vostè. Pot tornar a provar relaxant el pressupost.")(printout t crlf)
+			(printout t "===============================")(printout t crlf)
+			(printout t "  NO HI HA CAP VIATGE POSSIBLE ")(printout t crlf)
+			(printout t "===============================")(printout t crlf)
 		)
 )
 
@@ -9799,7 +9824,7 @@
 	(printout t ?self:preu-total)
 	(printout t " euros" crlf)
 	(printout t crlf) 
-	(printout t "DuraciÃ³ del viatge: ")
+	(printout t "Duració del viatge: ")
 	(printout t ?self:duracio-total)
 	(printout t " dies" crlf)
 	(printout t crlf) 
