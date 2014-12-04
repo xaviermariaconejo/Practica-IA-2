@@ -39,16 +39,26 @@ export travelcount=0
 echo "" > $outputfile
 for i in $(cat filteredinstances.out); do
 	for j in $(cat filteredinstances.out); do
-		#print a simple travel for each pair of cities, this should
-		#should work for now
+
+	export r=$(($RANDOM%100+20))
+
 		if [ "$i" != "$j" ] ; then
 			echo "([viatge-$travelcount] of  Viatge
 	(desti $i)
 	(origen $j)
-	(preu-viatge 65)
+	(preu-viatge $r)
 	(transport avio))
 " >> $outputfile
+
+	export r=$(($RANDOM%20+20))
 		export travelcount=$(($travelcount + 1))
+			echo "([viatge-$travelcount] of  Viatge
+	(desti $i)
+	(origen $j)
+	(preu-viatge $r)
+	(transport tren))
+" >> $outputfile
 		fi
+			
 	done
 done
