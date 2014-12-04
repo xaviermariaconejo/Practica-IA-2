@@ -1,4 +1,4 @@
-; Thu Dec 04 01:28:57 CET 2014
+; Thu Dec 04 11:57:12 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -89,6 +89,12 @@
 
 ([IA-Practica2_Class10014] of  Nord
 
+	(Activitats
+		[IA-Practica2_Class90019]
+		[IA-Practica2_Class90020]
+		[IA-Practica2_Class90021]
+		[IA-Practica2_Class90022]
+		[IA-Practica2_Class90023])
 	(Allotjaments
 		[IA-Practica2_Class60038]
 		[IA-Practica2_Class60039]
@@ -101,6 +107,11 @@
 
 ([IA-Practica2_Class10019] of  Sud
 
+	(Activitats
+		[IA-Practica2_Class90013]
+		[IA-Practica2_Class90014]
+		[IA-Practica2_Class90015]
+		[IA-Practica2_Class90016])
 	(Allotjaments
 		[IA-Practica2_Class80063]
 		[IA-Practica2_Class80064]
@@ -128,7 +139,9 @@
 	(Activitats
 		[IA-Practica2_Class80048]
 		[IA-Practica2_Class80049]
-		[IA-Practica2_Class80050])
+		[IA-Practica2_Class80050]
+		[IA-Practica2_Class90017]
+		[IA-Practica2_Class90018])
 	(Allotjaments
 		[IA-Practica2_Class80043]
 		[IA-Practica2_Class80044]
@@ -263,6 +276,12 @@
 
 ([IA-Practica2_Class10032] of  Asia_Oriental
 
+	(Activitats
+		[IA-Practica2_Class90008]
+		[IA-Practica2_Class90009]
+		[IA-Practica2_Class90010]
+		[IA-Practica2_Class90011]
+		[IA-Practica2_Class90012])
 	(Allotjaments
 		[IA-Practica2_Class80060]
 		[IA-Practica2_Class80061]
@@ -355,7 +374,7 @@
 		[IA-Practica2_Class30010]
 		[IA-Practica2_Class30012]
 		[IA-Practica2_Class30013])
-	(Importancia molt_coneguda)
+	(Importancia coneguda)
 	(Nom "Florencia"))
 
 ([IA-Practica2_Class10045] of  Mediterrania
@@ -472,7 +491,7 @@
 		[IA-Practica2_Class60008]
 		[IA-Practica2_Class60009]
 		[IA-Practica2_Class60010])
-	(Importancia molt_coneguda)
+	(Importancia coneguda)
 	(Nom "Munich"))
 
 ([IA-Practica2_Class10057] of  Viatge
@@ -484,6 +503,11 @@
 
 ([IA-Practica2_Class10058] of  Asia_Oriental
 
+	(Activitats
+		[IA-Practica2_Class80000]
+		[IA-Practica2_Class90001]
+		[IA-Practica2_Class90002]
+		[IA-Practica2_Class90003])
 	(Allotjaments
 		[IA-Practica2_Class80051]
 		[IA-Practica2_Class80052]
@@ -493,6 +517,11 @@
 
 ([IA-Practica2_Class10059] of  Asia_Oriental
 
+	(Activitats
+		[IA-Practica2_Class90004]
+		[IA-Practica2_Class90005]
+		[IA-Practica2_Class90006]
+		[IA-Practica2_Class90007])
 	(Allotjaments
 		[IA-Practica2_Class80057]
 		[IA-Practica2_Class80058]
@@ -2065,6 +2094,12 @@
 	(nom-allotjament "Grand Hotel Toronto")
 	(preu-allotjament 145))
 
+([IA-Practica2_Class80000] of  Relax
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Omroom")
+	(preu-activitat 20))
+
 ([IA-Practica2_Class80001] of  Aventura
 
 	(durada-activitat un-dia)
@@ -2486,3 +2521,141 @@
 	(durada-activitat un-dia)
 	(nom-activitat "Snoopy World")
 	(preu-activitat 27))
+
+([IA-Practica2_Class90001] of  Relax
+
+	(durada-activitat un-dia)
+	(nom-activitat "Lullaby Spa")
+	(preu-activitat 35))
+
+([IA-Practica2_Class90002] of  Diversio
+
+	(durada-activitat un-dia)
+	(nom-activitat "Siam Park City")
+	(preu-activitat 26))
+
+([IA-Practica2_Class90003] of  Aventura
+
+	(durada-activitat un-dia)
+	(nom-activitat "Bangkok By Bike")
+	(preu-activitat 25))
+
+([IA-Practica2_Class90004] of  Romantic
+
+	(durada-activitat un-dia)
+	(nom-activitat "Open Sky Unlimited")
+	(preu-activitat 30))
+
+([IA-Practica2_Class90005] of  Romantic
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Parque Lake Gardens")
+	(preu-activitat 10))
+
+([IA-Practica2_Class90006] of  Aventura
+
+	(durada-activitat un-dia)
+	(nom-activitat "Verticale")
+	(preu-activitat 20))
+
+([IA-Practica2_Class90007] of  Aventura
+
+	(durada-activitat un-dia)
+	(nom-activitat "One Day Pilot")
+	(preu-activitat 45))
+
+([IA-Practica2_Class90008] of  Diversio
+
+	(durada-activitat un-dia)
+	(nom-activitat "Universal Studios Singapore")
+	(preu-activitat 25))
+
+([IA-Practica2_Class90009] of  Aventura
+
+	(durada-activitat un-dia)
+	(nom-activitat "Safari Nocturno")
+	(preu-activitat 35))
+
+([IA-Practica2_Class90010] of  Romantic
+
+	(durada-activitat un-dia)
+	(nom-activitat "Isla redonda")
+	(preu-activitat 25))
+
+([IA-Practica2_Class90011] of  Aventura
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Parque de aves Jurong")
+	(preu-activitat 15))
+
+([IA-Practica2_Class90012] of  Diversio
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Rueda de Singapur")
+	(preu-activitat 10))
+
+([IA-Practica2_Class90013] of  Romantic
+
+	(durada-activitat un-dia)
+	(nom-activitat "Paseo del Rosedal")
+	(preu-activitat 15))
+
+([IA-Practica2_Class90014] of  Romantic
+
+	(durada-activitat un-dia)
+	(nom-activitat "Bosques de Palermo")
+	(preu-activitat 10))
+
+([IA-Practica2_Class90015] of  Relax
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Pez Spa")
+	(preu-activitat 22))
+
+([IA-Practica2_Class90016] of  Relax
+
+	(durada-activitat un-dia)
+	(nom-activitat "Ser Spa Agua Club")
+	(preu-activitat 33))
+
+([IA-Practica2_Class90017] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Meiji Jingu")
+	(preu-activitat 15))
+
+([IA-Practica2_Class90018] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Tokyo Tower")
+	(preu-activitat 20))
+
+([IA-Practica2_Class90019] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Royal Conservatory of Music")
+	(preu-activitat 15))
+
+([IA-Practica2_Class90020] of  Cultural
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Toronto Harbour")
+	(preu-activitat 25))
+
+([IA-Practica2_Class90021] of  Cultural
+
+	(durada-activitat un-dia)
+	(nom-activitat "Old City Hall")
+	(preu-activitat 15))
+
+([IA-Practica2_Class90022] of  Relax
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Advanced Approaches to Massage")
+	(preu-activitat 20))
+
+([IA-Practica2_Class90023] of  Relax
+
+	(durada-activitat mig-dia)
+	(nom-activitat "Edge Walk at the CN Tower")
+	(preu-activitat 15))
