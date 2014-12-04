@@ -1,4 +1,4 @@
-; Thu Dec 04 00:39:17 CET 2014
+; Thu Dec 04 01:14:11 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -20,15 +20,15 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[IA-Practica2_ProjectKB_Class10309]
-		[IA-Practica2_ProjectKB_Class10310]
-		[IA-Practica2_ProjectKB_Class10311]
-		[IA-Practica2_ProjectKB_Class10312]
-		[IA-Practica2_ProjectKB_Class10313]
-		[IA-Practica2_ProjectKB_Class10314]
-		[IA-Practica2_ProjectKB_Class10315]
-		[IA-Practica2_ProjectKB_Class10316]
-		[IA-Practica2_ProjectKB_Class10317]))
+		[IA-Practica2_ProjectKB_Class10333]
+		[IA-Practica2_ProjectKB_Class10334]
+		[IA-Practica2_ProjectKB_Class10335]
+		[IA-Practica2_ProjectKB_Class10336]
+		[IA-Practica2_ProjectKB_Class10337]
+		[IA-Practica2_ProjectKB_Class10338]
+		[IA-Practica2_ProjectKB_Class10339]
+		[IA-Practica2_ProjectKB_Class10340]
+		[IA-Practica2_ProjectKB_Class10341]))
 
 ([CLSES_TAB] of  Widget
 
@@ -57,66 +57,66 @@
 ([IA-Practica2_ProjectKB_Class10] of  Property_List
 )
 
-([IA-Practica2_ProjectKB_Class10309] of  String
+([IA-Practica2_ProjectKB_Class10333] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([IA-Practica2_ProjectKB_Class10310] of  String
+([IA-Practica2_ProjectKB_Class10334] of  String
 
 	(name "Ciutat")
 	(string_value "Nom"))
 
-([IA-Practica2_ProjectKB_Class10311] of  String
+([IA-Practica2_ProjectKB_Class10335] of  String
 
 	(name "Activitat")
 	(string_value "nom-activitat"))
 
-([IA-Practica2_ProjectKB_Class10312] of  String
+([IA-Practica2_ProjectKB_Class10336] of  String
 
 	(name "Sudafrica")
 	(string_value "Nom"))
 
-([IA-Practica2_ProjectKB_Class10313] of  String
+([IA-Practica2_ProjectKB_Class10337] of  String
 
 	(name "Mediterrania")
 	(string_value "Nom"))
 
-([IA-Practica2_ProjectKB_Class10314] of  String
+([IA-Practica2_ProjectKB_Class10338] of  String
 
 	(name "Viatge")
 	(string_value "origen{-%3E}desti"))
 
-([IA-Practica2_ProjectKB_Class10315] of  String
+([IA-Practica2_ProjectKB_Class10339] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([IA-Practica2_ProjectKB_Class10316] of  String
+([IA-Practica2_ProjectKB_Class10340] of  String
 
 	(name "Allotjament")
 	(string_value "nom-allotjament"))
 
-([IA-Practica2_ProjectKB_Class10317] of  String
+([IA-Practica2_ProjectKB_Class10341] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([IA-Practica2_ProjectKB_Class10318] of  Map_Entry
+([IA-Practica2_ProjectKB_Class10342] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([IA-Practica2_ProjectKB_Class10319] of  Map_Entry
+([IA-Practica2_ProjectKB_Class10343] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([IA-Practica2_ProjectKB_Class10320] of  Map_Entry
+([IA-Practica2_ProjectKB_Class10344] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
@@ -513,9 +513,9 @@
 ([KB_435256_Class1] of  Map
 
 	(entries
-		[IA-Practica2_ProjectKB_Class10318]
-		[IA-Practica2_ProjectKB_Class10319]
-		[IA-Practica2_ProjectKB_Class10320]))
+		[IA-Practica2_ProjectKB_Class10342]
+		[IA-Practica2_ProjectKB_Class10343]
+		[IA-Practica2_ProjectKB_Class10344]))
 
 ([KB_435256_Class100] of  Property_List
 )

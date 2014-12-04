@@ -1,4 +1,4 @@
-; Thu Dec 04 00:39:17 CET 2014
+; Thu Dec 04 01:14:11 CET 2014
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -101,11 +101,19 @@
 
 ([IA-Practica2_Class10019] of  Sud
 
-	(Importancia molt_coneguda)
+	(Allotjaments
+		[IA-Practica2_Class80063]
+		[IA-Practica2_Class80064]
+		[IA-Practica2_Class80065])
+	(Importancia coneguda)
 	(Nom "Buenos Aires"))
 
 ([IA-Practica2_Class10020] of  Sud
 
+	(Allotjaments
+		[IA-Practica2_Class80066]
+		[IA-Practica2_Class80067]
+		[IA-Practica2_Class80068])
 	(Importancia molt_coneguda)
 	(Nom "Rio de Janeiro"))
 
@@ -126,6 +134,10 @@
 
 ([IA-Practica2_Class10022] of  Asia_Oriental
 
+	(Allotjaments
+		[IA-Practica2_Class80054]
+		[IA-Practica2_Class80055]
+		[IA-Practica2_Class80056])
 	(Importancia molt_coneguda)
 	(Nom "Hong Kong"))
 
@@ -239,6 +251,10 @@
 
 ([IA-Practica2_Class10032] of  Asia_Oriental
 
+	(Allotjaments
+		[IA-Practica2_Class80060]
+		[IA-Practica2_Class80061]
+		[IA-Practica2_Class80062])
 	(Importancia coneguda)
 	(Nom "Singapur"))
 
@@ -456,11 +472,19 @@
 
 ([IA-Practica2_Class10058] of  Asia_Oriental
 
+	(Allotjaments
+		[IA-Practica2_Class80051]
+		[IA-Practica2_Class80052]
+		[IA-Practica2_Class80053])
 	(Importancia poc_coneguda)
 	(Nom "Bangkok"))
 
 ([IA-Practica2_Class10059] of  Asia_Oriental
 
+	(Allotjaments
+		[IA-Practica2_Class80057]
+		[IA-Practica2_Class80058]
+		[IA-Practica2_Class80059])
 	(Importancia poc_coneguda)
 	(Nom "Kuala Lumpur"))
 
@@ -2300,3 +2324,93 @@
 	(durada-activitat un-dia)
 	(nom-activitat "Tour Sunrise de Sumo")
 	(preu-activitat 30))
+
+([IA-Practica2_Class80051] of  5Estrella
+
+	(nom-allotjament "Oriental Residence Bangkok")
+	(preu-allotjament 225))
+
+([IA-Practica2_Class80052] of  3Estrella
+
+	(nom-allotjament "Aphrodite Inn")
+	(preu-allotjament 65))
+
+([IA-Practica2_Class80053] of  1Estrella
+
+	(nom-allotjament "Tara Place")
+	(preu-allotjament 25))
+
+([IA-Practica2_Class80054] of  1Estrella
+
+	(nom-allotjament "Jiun Long Hotel")
+	(preu-allotjament 30))
+
+([IA-Practica2_Class80055] of  3Estrella
+
+	(nom-allotjament "Rambler Oasis Hotel")
+	(preu-allotjament 72))
+
+([IA-Practica2_Class80056] of  5Estrella
+
+	(nom-allotjament "The Upper House")
+	(preu-allotjament 365))
+
+([IA-Practica2_Class80057] of  5Estrella
+
+	(nom-allotjament "The Upper House")
+	(preu-allotjament 550))
+
+([IA-Practica2_Class80058] of  3Estrella
+
+	(nom-allotjament "Hotel Maison Boutique")
+	(preu-allotjament 75))
+
+([IA-Practica2_Class80059] of  1Estrella
+
+	(nom-allotjament "U Pac Hotel")
+	(preu-allotjament 28))
+
+([IA-Practica2_Class80060] of  1Estrella
+
+	(nom-allotjament "Celestial Resort Pulau Ubin")
+	(preu-allotjament 35))
+
+([IA-Practica2_Class80061] of  3Estrella
+
+	(nom-allotjament "Hoteles en Sentosa Island")
+	(preu-allotjament 85))
+
+([IA-Practica2_Class80062] of  5Estrella
+
+	(nom-allotjament "Four Seasons Hotel Singapore")
+	(preu-allotjament 425))
+
+([IA-Practica2_Class80063] of  5Estrella
+
+	(nom-allotjament "Alvear Palace Hotel")
+	(preu-allotjament 625))
+
+([IA-Practica2_Class80064] of  3Estrella
+
+	(nom-allotjament "Rendez Vous Hotel Buenos Aires")
+	(preu-allotjament 75))
+
+([IA-Practica2_Class80065] of  1Estrella
+
+	(nom-allotjament "Astor Hotel")
+	(preu-allotjament 32))
+
+([IA-Practica2_Class80066] of  1Estrella
+
+	(nom-allotjament "Copinha Hostel")
+	(preu-allotjament 27))
+
+([IA-Practica2_Class80067] of  3Estrella
+
+	(nom-allotjament "Windsor Copa Hotel")
+	(preu-allotjament 86))
+
+([IA-Practica2_Class80068] of  5Estrella
+
+	(nom-allotjament "Miramar Hotel by Windsor")
+	(preu-allotjament 385))
