@@ -9778,7 +9778,7 @@
 			(printout t "===============================")(printout t crlf)
 			(if (> (send ?x get-preu-total) ?pmaxim) then
 			(printout t crlf)
-			(printout t "El viatge trobat es surt del pressupost mÃ xim per: ")
+			(printout t "El viatge trobat se surt del pressupost màxim per: ")
 			(printout t (- (send ?x get-preu-total) ?pmaxim))
 			(printout t " euros")(printout t crlf)(printout t crlf)
 			)

@@ -142,6 +142,9 @@
 		then 
 			(modify ?c (tipus coworkers))
 			(modify ?e (edat adults))
+	else
+		(modify ?c (tipus familia))
+		(modify ?e (edat adults))
 	)
 )
 
@@ -207,7 +210,15 @@
 	(tipus_client (tipus grup_organitzat))
 	?v <- (tipus_viatge (tipus indefinit))
 =>
-	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu? (Aventura, Diversio, Relax)" aventura diversio relax))
+	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu? (aventura, diversio, relax)" aventura diversio relax))
+	(modify ?v (tipus ?response))
+)
+
+(defrule familia "Un grup organitzat sol tenir una temàtica molt concreta en ment"
+	(tipus_client (tipus familia))
+	?v <- (tipus_viatge (tipus indefinit))
+=>
+	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu? (aventura, diversio, relax)" aventura diversio relax))
 	(modify ?v (tipus ?response))
 )
 
@@ -283,7 +294,7 @@
 =>
 	; @TODO La pregunta és molt lletja... -setzer22
 	(printout t "Quin nombre minim i maxim de dies vols viatjar?")
-	(modify ?n (dies_max (ask-integer "minim: ")) (dies_min (ask-integer "maxim: "))) 
+	(modify ?n (dies_min (ask-integer "minim: ")) (dies_max (ask-integer "maxim: "))) 
 )
 
 ;@TODO afegir normes perquè si el pressupost no és coherent amb el perfil determinat faci preguntes addicionals per corregir
