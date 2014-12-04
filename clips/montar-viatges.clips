@@ -9770,13 +9770,15 @@
 (defrule resultado-consejo "Regla salida de consejo"
 	(declare (salience -20))
 	?x <- (object (is-a Solucio-F))
+	(importa_preu ?ip)
 	(pressupost (preu_max ?pmaxim))
 	=>
-		(if (> (length (send ?x get-ciutats)) 0) then
+		(if (> (length (send ?x get-ciutats)) 0) 
+		then
 			(printout t "===============================")(printout t crlf)
 			(printout t "      VIATGE ")(printout t ?x)(printout t crlf)
 			(printout t "===============================")(printout t crlf)
-			(if (> (send ?x get-preu-total) ?pmaxim) then
+			(if (and (> (send ?x get-preu-total) ?pmaxim) (eq ?ip si) ) then
 			(printout t crlf)
 			(printout t "El viatge trobat se surt del pressupost màxim per: ")
 			(printout t (- (send ?x get-preu-total) ?pmaxim))
@@ -9785,9 +9787,7 @@
 			(send ?x imprimeix)
 			(printout t crlf)
 		else
-			(printout t "===============================")(printout t crlf)
-			(printout t "  NO HI HA CAP VIATGE POSSIBLE ")(printout t crlf)
-			(printout t "===============================")(printout t crlf)
+			(printout t "El sistema no és capaç de trobar cap viatge. No s'han trobat activitats adients per a vostè. Pot tornar a provar relaxant el pressupost.")(printout t crlf)
 		)
 )
 
