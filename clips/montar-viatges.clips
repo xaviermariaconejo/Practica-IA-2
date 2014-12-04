@@ -9783,6 +9783,7 @@
 									)
 								)
 							)
+						)
 						(case baixa then
 							(loop-for-count (?j 1 (length ?hotel))
 								(if (or (eq (class (nth$ ?j ?hotel)) 1Estrella) (eq (class (nth$ ?j ?hotel)) 2Estrella)) then
@@ -9796,6 +9797,7 @@
 									)
 								)
 							)
+						)
 					)
 					(send ?x put-ciutats ?c)
 				)
