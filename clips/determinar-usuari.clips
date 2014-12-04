@@ -3,7 +3,7 @@
 ; @author Josep Sanchez Ferreres
 
 ; Input <- User
-; Output -> Tipus viatge = {cultural, diversio, negocis, romantic, relax, aventura}
+; Output -> Tipus viatge = {Cultural, Diversio, Negocis, Romantic, Relax, Aventura}
 ;			Edat mitjana = {jove, adult, jubilats, variada}
 ;           Nivell vida = {molt_alt, alt, mig, baix}
 ;			Restriccions = {preu_min, preu_max}
@@ -54,6 +54,16 @@
 	(modify ?c (num ?response))
 )
 
+(defrule individual "Una persona sola és un individual"
+	(num-persones (num 1))
+	?c<-(tipus_client (tipus indefinit))
+	?e <-(edat_client (edat indefinit))
+=>
+	(modify ?c (tipus individual))
+	(modify ?e (edat adult)); Si viatja sol és adult. Podria ser un jubilat però en tot cas si
+						  ; viatja sol tindrà unes preferències semblants a les d'un adult
+)
+
 (defrule determinar-parella "Decideix si el viatge és de parella. Altrament podria ser de negocis amb 2 persones"
 	(num-persones (num 2))
 	?c<-(tipus_client (tipus indefinit))
@@ -64,7 +74,6 @@
 		then 
 			(modify ?c (tipus parella) )
 			; Les parelles joves solen tenir unes preferències semblants a les dels adults quan viatgen
-			; @nota Vale, m'ho he inventat... però simplifica les coses, al cap i a la fi no soc un expert -setzer22
 			(modify ?e (edat adult) )
 	else (if (si-o-no-p "Viatja per negocis?")
 		then
@@ -74,7 +83,6 @@
 	))
 )
 
-;; @TODO Aquest 15 és completament arbitrari, quin numero hi posem? -setzer22
 (defrule institut "Si viatgen més de 15 persones probablement es tracti d'un viatge d'institut"
 	(num-persones (num ?x&:(>= ?x 15))) 
 	?c<-(tipus_client (tipus indefinit))
@@ -91,7 +99,6 @@
 )
 
 
-;; @TODO Aquest 7 és completament arbitrari, quin numero hi posem? -setzer22
 (defrule grups-grans "Pels grups grans mirem d'esbrinar quin és el tipus de grup amb el que estem tractant"
 	(num-persones (num ?x&:(>= ?x 7))) 
 	?c<-(tipus_client (tipus indefinit|grup_indefinit))
@@ -168,6 +175,14 @@
 	)
 )
 
+(defrule objectiu_individual "Una persona viatjant sola probablement busca relax o diversió"
+	(tipus_client (tipus individual))
+	?v<-(tipus_viatge (tipus indefinit))
+=>
+	(bind ?response (ask-question "Prefereix un viatge de relax o diversió. Indica: Relax/Diversio" Relax Diversio))
+	(modify ?v (tipus ?response))
+)
+
 (defrule objectiu_parella "Les parelles solen voler viatges romàntics"
 	(tipus_client (tipus parella))
 	?v <- (tipus_viatge (tipus indefinit))
@@ -192,7 +207,7 @@
 	(edat_client (edat jove))
 	?v <- (tipus_viatge (tipus indefinit))
 =>
-	(if (si-o-no-p "Us agradaria visitar parcs tematics?") then
+	(if (si-o-no-p "Us agradaria visitar parcs tematics, espectacles o similars?") then
 		(modify ?v (tipus Diversio))
 	 else (modify ?v (tipus Aventura)))
 )
@@ -210,16 +225,17 @@
 	(tipus_client (tipus grup_organitzat))
 	?v <- (tipus_viatge (tipus indefinit))
 =>
-	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu? (aventura, diversio, relax)" aventura diversio relax))
+	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu? (Aventura, Diversio, Relax)" Aventura Diversio Relax))
 	(modify ?v (tipus ?response))
 )
 
-(defrule familia "Un grup organitzat sol tenir una temàtica molt concreta en ment"
+(defrule familia "Les famílies tenen objectius de viatge diferent en funció de si es vol tenir contents als fills o als pares"
 	(tipus_client (tipus familia))
 	?v <- (tipus_viatge (tipus indefinit))
 =>
-	(bind ?response (ask-question "Quin d'aquests tres tipus de viatge preferiu? (aventura, diversio, relax)" aventura diversio relax))
-	(modify ?v (tipus ?response))
+	(if (si-o-no-p "Prefereixes un viatge per tenir als teus fills o per gaudir d'unes vacances") 
+	then (modify ?v (tipus Diversio))
+	else (modify ?v (ripus Relax)))
 )
 
 ;
