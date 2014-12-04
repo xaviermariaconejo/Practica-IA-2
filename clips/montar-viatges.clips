@@ -125,7 +125,7 @@
 ;+		(allowed-classes Activitat)
 		(create-accessor read-write)))
 
-(defclass Activitat "Aquesta classe descriu una activitat que es pot realitzar en una ciutat. Les activitats tenen un nom que les identifica i un preu, sempre especificat com a preu per persona.\n\nAddicionalment també considerem la durada de l'activitat classificant-la en dos categories: Mig dia o dia sencer.\n\nAixí doncs en un dia es poden fer dos activitats d'un dia o una de mig dia."
+(defclass Activitat "Aquesta classe descriu una activitat que es pot realitzar en una ciutat. Les activitats tenen un nom que les identifica i un preu, sempre especificat com a preu per persona.\n\nAddicionalment tambeÌ considerem la durada de l'activitat classificant-la en dos categories: Mig dia o dia sencer.\n\nAixiÌ doncs en un dia es poden fer dos activitats d'un dia o una de mig dia."
 	(is-a USER)
 	(role concrete)
 	(single-slot durada-activitat
@@ -9216,7 +9216,7 @@
 
 
 ;;================================================
-;;				Inici del mòdul
+;;				Inici del mÃ²dul
 ;;================================================
 
 
@@ -9240,7 +9240,41 @@
 		)
 		(bind ?i (+ ?i 1))
 	)
-	(return (eq ?b TRUE))
+	(return ?b)
+)
+
+(deffunction no-repetides (?c ?lc)
+	(bind ?b TRUE)
+	(bind ?i 1)
+	(bind ?nom-c (send ?c get-Nom))
+	(while (and (<= ?i (length ?lc)) ?b)
+		do
+		(if (eq ?nom-c (send (send (nth$ ?i ?lc) get-ciutat) get-Nom)) then
+			(bind ?b FALSE)
+		)
+		(bind ?i (+ ?i 1))
+	)
+	(return ?b)
+)
+
+(deffunction activitats-no-repetides (?c ?acts)
+	(bind ?a (send ?c get-Activitats))
+	(bind ?i 1)
+	(while (and (<= ?i (length ?a)) (> (length ?a) 0))
+		do
+		(bind ?b FALSE)
+		(bind ?j 1)
+		(while (and (<= ?j (length ?acts)) (not ?b))
+			do
+			(if (eq (send (nth$ ?i ?a) get-nom-activitat) (send (nth$ ?j ?acts) get-nom-activitat)) then
+				(bind ?a (delete$ ?a ?i ?i))
+				(bind ?b TRUE)
+			)
+			(bind ?j (+ ?j 1))
+		)
+		(bind ?i (+ ?i 1))
+	)
+	(return ?a)
 )
 
 (deffunction ordenar-ciutats (?a ?b)
@@ -9261,9 +9295,35 @@
 	(return (> ?ca ?cb))
 )
 
+(deffunction ciutat-menor-dies (?l)
+	(if (> (length ?l) 0) then
+		(bind ?v 1)
+		(loop-for-count (?i 1 (length ?l))
+			(if (< (send (nth$ ?i ?l) get-duracio) (send (nth$ ?v ?l) get-duracio)) then
+				(bind ?v ?i)
+			)
+		)
+		(return ?v)
+	)
+)
+
+(deffunction calcular-preu-act (?l)
+	(bind ?v 0)
+	(loop-for-count (?i 1 (length ?l))
+		(bind ?v (+ ?v (send (nth$ ?i ?l) get-preu-activitat)))
+	)
+	(return ?v)
+)
+
+(deffunction ordena-bug (?a ?b)
+	(bind ?sa (class-superclasses (class ?a)))
+	(bind ?sb (class-superclasses (class ?b)))
+	(return (> (str-compare (str-cat (nth$ 1 ?sa))(str-cat (nth$ 1 ?sb))) 0))
+)
+
 (deffunction triar-ciutats (?li ?n)
 	(if (> ?n (length ?li)) then
-		(return ?li)
+		(bind ?r ?li)
 	else 
 		(bind ?li (sort ordenar-ciutats ?li))
 		(bind ?l (create$))
@@ -9277,8 +9337,10 @@
 			(bind ?v (insert$ ?v 1 (nth$ ?aux ?l)))
 			(bind ?l (delete$ ?l ?aux ?aux))
 		)
-		(return ?v)
+		(bind ?r ?v)
 	)
+	(bind ?r (sort ordena-bug ?r))
+	(return ?r)
 )
 
 (deffunction buscar-hotel (?c ?ch)
@@ -9327,8 +9389,7 @@
 	(return ?h)
 )
 
-(deffunction buscar_activitats (?c ?cv ?d)
-	(bind ?a (send ?c get-Activitats))
+(deffunction buscar_activitats (?a ?cv ?d)
 	(bind ?v (create$))
 	(bind ?duracio_act 0)
 	(bind ?b FALSE)
@@ -9472,7 +9533,8 @@
 		(bind ?r (triar-ciutats ?c ?num_ciutats_min))
 		(loop-for-count (?i 1 (length ?r))
 			(bind ?h (buscar-hotel (nth$ ?i ?r) ?ch))
-			(bind ?act (buscar_activitats (nth$ ?i ?r) ?ch (/ ?num_dies_min ?num_ciutats_min)))
+			(bind ?act (buscar_activitats (send (nth$ ?i ?r) get-Activitats)
+			?ch (/ ?num_dies_min ?num_ciutats_min)))
    			(bind ?no-llameis-aux-a-las-variables (make-instance of Solucio-P
    			(ciutat (nth$ ?i ?r)) (duracio (/ ?num_dies_min ?num_ciutats_min))
    			(activitats ?act) (allotjament ?h) (preu (calcular-preu ?act ?h (/ ?num_dies_min ?num_ciutats_min)))))
@@ -9543,33 +9605,206 @@
 		(send ?x put-duracio-total ?duracio-t)
 )
 
-(defrule resultado-consejo "Regla salida de consejo"
+(defrule comprobar-viatge-complet "Intenta arribar al presupost maxim"
 	(declare (salience -10))
 	?x <- (object (is-a Solucio-F))
+	(importa_preu ?ip)
+	(cualitat_hotels (tipus ?ch))
+	(num_ciutats(max ?num_ciutats_max))
+	(num_dies(dies_max ?num_dies_max))
+	(tipus_ciutats (tipus ?tc))
+	(pressupost (preu_max ?pmaxim))
 	=>
-		(printout t ?x crlf crlf)
-		(send ?x imprimeix)
-		(printout t crlf)
+		(bind ?d (send ?x get-duracio-total))
+		(bind ?cc (length (send ?x get-ciutats)))
+		(bind ?c (find-all-instances ((?a Ciutat))
+		(and (eq ?a:Importancia ?tc)
+		(and (comprovar-activitats ?a:Activitats) (no-repetides ?a (send ?x get-ciutats))))))
+		(if (eq ?ip no) then
+			(while (and (> ?num_dies_max ?d) (and (> ?num_ciutats_max ?cc) (> (length ?c) 0)))
+				do
+				(bind ?aux (random 1 (length ?c)))
+				(bind ?cc (+ ?cc 1))
+				(bind ?d (+ ?d 1))
+				(bind ?h (buscar-hotel (nth$ ?aux ?c) ?ch))
+				(bind ?act (buscar_activitats (send (nth$ ?aux ?c) get-Activitats) ?ch 1))
+	   			(bind ?no-llameis-aux-a-las-variables (make-instance of Solucio-P
+	   			(ciutat (nth$ ?aux ?c)) (duracio 1) (activitats ?act) (allotjament ?h)
+	   			(preu (calcular-preu ?act ?h 1))))
+	   			(bind ?posicio 1)
+	   			(bind ?solucions-p (send ?x get-ciutats))
+	   			(if (> (length ?solucions-p) 0) then
+		   			(bind ?ciutat-ins 
+		   			(nth$ 1 (class-superclasses (class (send ?no-llameis-aux-a-las-variables get-ciutat)))))
+		   			(while (< (str-compare (nth$ 1 
+		   			(class-superclasses(class(send (nth$ ?posicio ?solucions-p) get-ciutat)))) ?ciutat-ins) 0)
+		   			do (bind ?posicio (+ ?posicio 1)))
+		   		)
+	   			(slot-insert$ ?x ciutats ?posicio ?no-llameis-aux-a-las-variables)
+	   			(bind ?lv (send ?x get-viatges))
+	   			(bind ?preu-aux 0)
+	   			(bind ?pv2 0)
+	   			(bind ?pv1 0)
+	   			(if (> (length ?lv) 0) then
+	   				(bind ?preu-aux (send (nth$ ?posicio ?lv) get-preu-viatge))
+	   				(bind ?auxiliar1 (send (nth$ ?posicio ?lv) get-origen))	   				
+	   				(bind ?auxiliar2 (send (nth$ ?posicio ?lv) get-desti))
+	   				(bind ?lv (delete$ ?lv ?posicio ?posicio))
+	   				(bind ?v (find-all-instances ((?vaux Viatge))
+					(and (eq ?vaux:desti ?auxiliar2)
+					(eq ?vaux:origen (nth$ ?aux ?c)))))
+	   				(bind ?v1 (viatge-alta ?v))
+					(bind ?lv (insert$ ?lv ?posicio ?v1))
+					(bind ?pv1 (send ?v1 get-preu-viatge))		   			
+		   			(bind ?v (find-all-instances ((?vaux Viatge))
+					(and (eq ?vaux:origen ?auxiliar1)
+					(eq ?vaux:desti (nth$ ?aux ?c)))))
+					(bind ?v2 (viatge-alta ?v))
+					(bind ?lv (insert$ ?lv ?posicio ?v2))
+					(bind ?pv2 (send ?v2 get-preu-viatge))
+				)	   			
+				(send ?x put-viatges ?lv)
+	   			(send ?x put-duracio-total ?d)
+	   			(send ?x put-preu-total (+ (send ?x get-preu-total) (-  (+ ?pv1 ?pv2) ?preu-aux)))
+				(bind ?c (delete$ ?c ?aux ?aux))
+			)
+			(while (and (> ?num_dies_max ?d) (> (length (send ?x get-ciutats)) 0))
+				do
+				(bind ?d (+ 1 ?d))
+				(bind ?cts (send ?x get-ciutats))
+				(bind ?c (ciutat-menor-dies ?cts))
+				(send (nth$ ?c ?cts) put-duracio (+ (send (nth$ ?c ?cts) get-duracio) 1))
+				(bind ?acts (buscar_activitats 
+				(activitats-no-repetides (send (nth$ ?c ?cts) get-ciutat) (send (nth$ ?c ?cts) get-activitats))
+				?ch 1))
+				(bind ?pact (calcular-preu-act ?acts))
+				(loop-for-count (?i 1 (length ?acts))
+					(send (nth$ ?c ?cts) put-activitats
+					(insert$ (send (nth$ ?c ?cts) get-activitats) 1 (nth$ ?i ?acts)))
+				)
+				(send (nth$ ?c ?cts) put-preu (+ (send (nth$ ?c ?cts) get-preu) ?pact))
+				(send ?x put-duracio-total ?d)
+	   			(send ?x put-preu-total (+ (send ?x get-preu-total) ?pact))
+	   			(send ?x put-ciutats ?cts)
+			)
+		else
+			(bind ?b FALSE)
+			(while (and (and (> ?num_dies_max ?d) (and (> ?num_ciutats_max ?cc) (> (length ?c) 0))) (not ?b))
+				do
+				(bind ?aux (random 1 (length ?c)))
+				(bind ?cc (+ ?cc 1))
+				(bind ?d (+ ?d 1))
+				(bind ?h (buscar-hotel (nth$ ?aux ?c) ?ch))
+				(bind ?act (buscar_activitats (send (nth$ ?aux ?c) get-Activitats) ?ch 1))
+	   			(bind ?no-llameis-aux-a-las-variables (make-instance of Solucio-P
+	   			(ciutat (nth$ ?aux ?c)) (duracio 1) (activitats ?act) (allotjament ?h)
+	   			(preu (calcular-preu ?act ?h 1))))	   			
+	   			(bind ?posicio 1)
+	   			(bind ?solucions-p (send ?x get-ciutats))
+	   			(if (> (length ?solucions-p) 0) then
+		   			(bind ?ciutat-ins 
+		   			(nth$ 1 (class-superclasses (class (send ?no-llameis-aux-a-las-variables get-ciutat)))))
+		   			(while (< (str-compare (nth$ 1 
+		   			(class-superclasses(class(send (nth$ ?posicio ?solucions-p) get-ciutat)))) ?ciutat-ins) 0)
+		   			do (bind ?posicio (+ ?posicio 1)))
+		   		)
+	   			(slot-insert$ ?x ciutats ?posicio ?no-llameis-aux-a-las-variables)
+	   			(bind ?lv (send ?x get-viatges))
+	   			(bind ?preu-aux 0)
+	   			(bind ?pv2 0)
+	   			(bind ?pv1 0)
+	   			(if (> (length ?lv) 0) then
+	   				(bind ?preu-aux (send (nth$ ?posicio ?lv) get-preu-viatge))
+	   				(bind ?auxiliar1 (send (nth$ ?posicio ?lv) get-origen))	   				
+	   				(bind ?auxiliar2 (send (nth$ ?posicio ?lv) get-desti))
+	   				(bind ?lv (delete$ ?lv ?posicio ?posicio))
+	   				(bind ?v (find-all-instances ((?vaux Viatge))
+					(and (eq ?vaux:desti ?auxiliar2)
+					(eq ?vaux:origen (nth$ ?aux ?c)))))
+	   				(bind ?v1 (viatge-alta ?v))
+					(bind ?lv (insert$ ?lv ?posicio ?v1))
+					(bind ?pv1 (send ?v1 get-preu-viatge))		   			
+		   			(bind ?v (find-all-instances ((?vaux Viatge))
+					(and (eq ?vaux:origen ?auxiliar1)
+					(eq ?vaux:desti (nth$ ?aux ?c)))))
+					(bind ?v2 (viatge-alta ?v))
+					(bind ?lv (insert$ ?lv ?posicio ?v2))
+					(bind ?pv2 (send ?v2 get-preu-viatge))
+				)	   							
+	   			(if (< (+ (send ?x get-preu-total) (-  (+ ?pv1 ?pv2) ?preu-aux)) ?pmaxim) then
+		   			(send ?x put-viatges ?lv)
+		   			(send ?x put-duracio-total ?d)
+		   			(send ?x put-preu-total (+ (send ?x get-preu-total) (-  (+ ?pv1 ?pv2) ?preu-aux)))
+		   		else
+		   			(bind ?b TRUE)
+	   			)
+	   			(bind ?c (delete$ ?c ?aux ?aux))
+			)
+			(bind ?b FALSE)
+			(while (and (> ?num_dies_max ?d) (and (not ?b) (> (length (send ?x get-ciutats)) 0)))
+				do
+				(bind ?d (+ 1 ?d))
+				(bind ?cts (send ?x get-ciutats))
+				(bind ?c (ciutat-menor-dies ?cts))
+				(bind ?acts (buscar_activitats 
+				(activitats-no-repetides (send (nth$ ?c ?cts) get-ciutat) (send (nth$ ?c ?cts) get-activitats))
+				?ch 1))
+				(bind ?pact (calcular-preu-act ?acts))
+				(if (< (+ (send ?x get-preu-total) ?pact) ?pmaxim) then
+					(loop-for-count (?i 1 (length ?acts))
+						(send (nth$ ?c ?cts) put-activitats
+						(insert$ (send (nth$ ?c ?cts) get-activitats) 1 (nth$ ?i ?acts)))
+					)
+					(send (nth$ ?c ?cts) put-preu (+ (send (nth$ ?c ?cts) get-preu) ?pact))
+					(send ?x put-duracio-total ?d)
+		   			(send ?x put-preu-total (+ (send ?x get-preu-total) ?pact))
+		   			(send ?x put-ciutats ?cts)
+		   			(send (nth$ ?c ?cts) put-duracio (+ (send (nth$ ?c ?cts) get-duracio) 1))
+		   		else
+		   			(bind ?b TRUE)
+	   			)
+			)
+		)
+)
+
+(defrule resultado-consejo "Regla salida de consejo"
+	(declare (salience -20))
+	?x <- (object (is-a Solucio-F))
+	(pressupost (preu_max ?pmaxim))
+	=>
+		(if (> (length (send ?x get-ciutats)) 0) then
+			(printout t "===============================")(printout t crlf)
+			(printout t "      VIATGE ")(printout t ?x)(printout t crlf)
+			(printout t "===============================")(printout t crlf)
+			(if (> (send ?x get-preu-total) ?pmaxim) then
+			(printout t crlf)
+			(printout t "El viatge trobat es surt del pressupost mÃ xim per: ")
+			(printout t (- (send ?x get-preu-total) ?pmaxim))
+			(printout t " euros")(printout t crlf)(printout t crlf)
+			)
+			(send ?x imprimeix)
+			(printout t crlf)
+		else
+			(printout t "===============================")(printout t crlf)
+			(printout t "  NO HI HA CAP VIATGE POSSIBLE ")(printout t crlf)
+			(printout t "===============================")(printout t crlf)
+		)
 )
 
 
 ;;		Handlers
 
 (defmessage-handler Solucio-F imprimeix primary ()
-	(printout t "===============================")(printout t crlf)
-	(printout t "            VIATGE")(printout t crlf)
-	(printout t "===============================")(printout t crlf)
 	(printout t "Preu total (persona): ")
 	(printout t ?self:preu-total)
 	(printout t " euros" crlf)
 	(printout t crlf) 
-	(printout t "Duració del viatge: ")
+	(printout t "DuraciÃ³ del viatge: ")
 	(printout t ?self:duracio-total)
 	(printout t " dies" crlf)
 	(printout t crlf) 
 	(bind ?ciutats (send ?self get-ciutats))
 	(bind ?viatges (send ?self get-viatges))
-
 	(printout t "Ciutats: ")
 	(loop-for-count (?i 1 (length ?ciutats))
 		(bind ?c (nth$ ?i ?ciutats))
@@ -9621,36 +9856,3 @@
 	)
 	(printout t crlf)
 )
-
-;	(printout t "Itinerari: ")(printout t crlf)(printout t crlf)
-;
-;	(bind ?i 1)
-;	(loop-for-count (?i 1 (length ?ciutats))
-		;(bind ?viatge (nth$ ?i ?viatges)) (bind ?orig (send ?viatge get-origen)) (bind ?dest (send ?viatge get-desti))
-		;(printout t (send ?orig get-Nom)) (printout t " -> ") (printout t (send ?dest get-Nom)) (printout t " preu: ") 
-		;	(printout t (send ?viatge get-preu-viatge)) (printout t " euros") (printout t crlf)
-;
-;		(printout t crlf)
-;
-;		(bind ?c (nth$ ?i ?ciutats))
-;		;for (Solucio-P c : ciutats)
-;		(printout t ?i) (printout t ". ") (printout t (send (send ?c get-ciutat) get-Nom)) (printout t " (") (printout t (send ?c get-duracio))
-;			(printout t " dies)") (printout t crlf) 
-;		(printout t "    Allotjament: ") (printout t (send (send ?c get-allotjament) get-nom-allotjament)) (printout t crlf)
-;		(printout t "    Visites: ")
-;		(bind ?activitats (send ?c get-activitats))
-;		(loop-for-count (?j 1 (length ?activitats))
-;			(bind ?a (nth$ ?j ?activitats))
-;			;for (Activitat a : ciutats)
-;			(printout t (send ?a get-nom-activitat)) 
-;			(if (neq ?j (length ?activitats)) then (printout t ", "))
-;		)
-;
-;		(printout t crlf)
-;	)
-;		(printout t crlf)
-;		
-;		(bind ?viatge (nth$ (length ?viatges) ?viatges)) (bind ?orig (send ?viatge get-origen)) (bind ?dest (send ?viatge get-desti))
-		;(printout t (send ?orig get-Nom)) (printout t " -> ") (printout t (send ?dest get-Nom)) (printout t " preu: ") 
-		;	(printout t (send ?viatge get-preu-viatge)) (printout t " euros") (printout t crlf)
-;)
