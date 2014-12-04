@@ -126,6 +126,7 @@
 		then (modify ?e (edat variada))
 		else (modify ?e (edat adult))
 	)
+)
 
 (defrule families "Determinar si el grup és una familia amb fills"
 	(num-persones (num ?x&:(> ?x 2)))
@@ -234,13 +235,14 @@
 =>
 	(if (si-o-no-p "Prefereixes un viatge per tenir als teus fills o per gaudir d'unes vacances") 
 	then (modify ?v (tipus Diversio))
-	else (modify ?v (ripus Relax)))
+	else (modify ?v (tipus Relax)))
 )
 
 ;
 ;		Extra
 ;
 (defrule client-identificat "Un cop s'hagi identificat el client se salta al modul de preferències amb aquesta regla"
+	(declare (salience -10))
 	(not (tipus_client (tipus indefinit)))
 	(not (tipus_viatge (tipus indefinit)))
 	(not (edat_client (edat indefinit)))
@@ -357,6 +359,6 @@
 )
 
 (defrule fi-modul
-(declare (salience -10))
+(declare (salience -20))
 =>
 (focus tipus_ciutat))
