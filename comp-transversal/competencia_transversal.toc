@@ -6,4 +6,4 @@
 \contentsline {section}{\numberline {3}\textsf {Riscos i beneficis de l'innovaci\IeC {\'o}}}{7}{section.3}
 \contentsline {subsection}{\numberline {3.1}\textsf {Per qu\IeC {\`e} Cry translator \IeC {\'e}s un producte innovador?}}{7}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}\textsf {Impacte del producte en l'empresa}}{7}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}\textsf {Impacte del producte en la societat}}{7}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.3}\textsf {Impacte del producte en la societat}}{8}{subsection.3.3}
