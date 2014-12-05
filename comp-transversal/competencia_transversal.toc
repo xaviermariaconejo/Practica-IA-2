@@ -1,9 +1,9 @@
 \select@language {catalan}
 \contentsline {section}{\numberline {1}\textsf {Qu\IeC {\`e} \IeC {\'e}s Cry Translator?}}{2}{section.1}
-\contentsline {section}{\numberline {2}\textsf {T\IeC {\`e}cniques d'IA utilitzades en el producte}}{2}{section.2}
-\contentsline {subsection}{\numberline {2.1}\textsf {Descripci\IeC {\'o} de les t\IeC {\`e}cniques utilitzades}}{2}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}\textsf {\IeC {\'U}s de les t\IeC {\`e}cniques per a l'implementaci\IeC {\'o} del producte}}{5}{subsection.2.2}
-\contentsline {section}{\numberline {3}\textsf {Riscos i beneficis de l'innovaci\IeC {\'o}}}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}\textsf {Per qu\IeC {\`e} Cry translator \IeC {\'e}s un producte innovador?}}{6}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}\textsf {Impacte del producte en l'empresa}}{6}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}\textsf {Impacte del producte en la societat}}{6}{subsection.3.3}
+\contentsline {section}{\numberline {2}\textsf {T\IeC {\`e}cniques d'IA utilitzades en el producte}}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}\textsf {Descripci\IeC {\'o} de les t\IeC {\`e}cniques utilitzades}}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}\textsf {\IeC {\'U}s de les t\IeC {\`e}cniques per a l'implementaci\IeC {\'o} del producte}}{6}{subsection.2.2}
+\contentsline {section}{\numberline {3}\textsf {Riscos i beneficis de l'innovaci\IeC {\'o}}}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}\textsf {Per qu\IeC {\`e} Cry translator \IeC {\'e}s un producte innovador?}}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}\textsf {Impacte del producte en l'empresa}}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}\textsf {Impacte del producte en la societat}}{7}{subsection.3.3}

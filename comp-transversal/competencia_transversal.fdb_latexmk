@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1417780008 "competencia_transversal.tex" "competencia_transversal.pdf" "competencia_transversal" 1417780009
+["pdflatex"] 1417781808 "competencia_transversal.tex" "competencia_transversal.pdf" "competencia_transversal" 1417781809
   "/home/josep/texmf/tex/latex/droid/droid.sty" 1417728236 792 eca7dd46565ee79519a01d0c82aec4a3 ""
   "/home/josep/texmf/tex/latex/droid/droidmono.sty" 1417728236 1090 298d7d357080127a422b39aafb96109e ""
   "/home/josep/texmf/tex/latex/droid/droidsans.sty" 1417728236 1188 7d61c2b52ea67cd43b2b033d4be94bc7 ""
@@ -43,15 +43,17 @@
   "/usr/share/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty" 1407968439 9581 1158efc648bc09d5064db5703c882159 ""
   "/usr/share/texmf-dist/tex/latex/pdftex-def/pdftex.def" 1407968439 55368 3c8a0d99822330f2dfabc0dfb09ce897 ""
   "/usr/share/texmf-dist/tex/latex/url/url.sty" 1407968439 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "competencia_transversal.aux" 1417780009 3498 154d6d2030b98f13060cf618747f1cfe ""
-  "competencia_transversal.out" 1417780009 688 44e5384471ee9d7d88a07acbf0c72b49 ""
-  "competencia_transversal.tex" 1417780007 10962 8da7925f0edfbc8291a6bf150dd96627 ""
-  "competencia_transversal.toc" 1417780009 1001 9e9f01170c98ee0e308daae62df5fbe1 ""
+  "competencia_transversal.aux" 1417781809 4078 a05afcd525049ff45de1d32b909e03eb ""
+  "competencia_transversal.out" 1417781809 688 44e5384471ee9d7d88a07acbf0c72b49 ""
+  "competencia_transversal.tex" 1417781807 12982 90bfd2725302458bd50a3f968f579353 ""
+  "competencia_transversal.toc" 1417781809 1001 ca9b90ef864d57f98e5b8b8dbfef1bac ""
   "fig/fuzzy.png" 1417779452 40381 e348b4077687ab3467a34eb4f988201a ""
+  "fig/peluix.png" 1417781553 101223 3865020fa17bf6d15ad5261d4d576897 ""
   "fig/tls1.png" 1417779931 62402 0faacf0e1a3f375bfb1486921fb8ab35 ""
+  "fig/walkie.png" 1417781582 252555 130299813a13d4ed15a403312c0220c9 ""
   (generated)
-  "competencia_transversal.log"
   "competencia_transversal.toc"
   "competencia_transversal.out"
   "competencia_transversal.aux"
   "competencia_transversal.pdf"
+  "competencia_transversal.log"
