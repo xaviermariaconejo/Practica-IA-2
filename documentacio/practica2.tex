@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english,catalan]{babel}
 \usepackage[gen]{eurosym}
+\usepackage{url}
 
 %\usepackage[defaultsans]{droidsans}
 %\usepackage[defaultserif]{droidserif}
@@ -196,6 +197,40 @@ Les ultimes iteracions del problema les hem dedicat especialment a millorar la q
 
 Durant tota l'implementació hem intentat simular en molts punts el coneixement de l'expert prenent decisions anticipades a l'informació que dona l'usuari, o presuposant coses que aquest no ha dit explícitament. Malauradament, al no ser experts en la matèria i sense el coneixement d'un expert real aquests intents de simulació en alguns casos resulten en assumpcions una mica agoserades.
 
+\subsubsection*{Preguntes a l'usuari\footnote{L'implementació d'aquests dos mòduls es pot consultar a l'arxiu \texttt{determinar-usuari.clips}}}
+
+
+
+Per al mòdul de preguntes a l'usuari hem seguit una estratègia de cadena de preguntes, fent èmfasi en intentar obtenir el màxim d'informació fent el mínim de preguntes per tal de no molestar en excés a l'usuari. No obstant cal notar que el cas d'ús habitual del sistema implica que cada usuari no el farà servir de manera continuada, així que el fet que les preguntes s'extenguin una mica no suposa un problema important.
+
+En la major part dels casos s'ha optat per preguntes directes i inambigues que no facin pensar massa a l'usuari. Per exemple: ``Quin nombre màxim i mínim de dies vols viatjar?''. Aquesta elecció s'ha pres per tal de facilitar la recollida d'informació.
+
+Per tal de fer les preguntes s'han utilitzat les funcions auxiliars del mòdul utils, disponible a \texttt{utils.clips}.
+
+\subsubsection*{Determinar el model de viatge}
+
+Aquest mòdul simplement és un conjunt de regles senzilles, a l'estil d'implicacions de lògica de predicats que mapeja el model de client a un model de ciutat. En aquest pas és on intentem reduïr el nombre de variables per tal que es pugui acotar fàcilment el model de solució.
+
+\subsubsection*{Montar els viatges}
+
+Aquest ha estat el mòdul el qual ha requerit més esforç a l'hora d'implementar-lo. L'implementació es pot consultar a l'arxiu \texttt{montar-viatges.clips}.
+
+Com que determinar les ciutats i els viatges entre aquestes és un problema d'una complexitat considerable (més que exponencial) obtenir una solució òptima no és factible, així que hem optat per una solució voraç.
+
+En primer lloc l'algoritme intenta cobrir els requisits mínims de dies, ciutats i preu del viatge sense passar-se de cap dels tres escollint ciutats de manera pseudo-aleatòria dins de les ciutats de la temàtica sel·leccionada. Un cop escollides les ciutats s'escullen hotels i activitats tenint en compte l'estatus social de l'usuari. Si aquest és molt ric, s'escolliràn tot tipus d'activitats diferents i de preus elevats, altrament s'escolliran activitats més barates i possiblement en menys quantitat.
+
+Posteriorment, si ha sobrat pressupost, l'algoritme intenta fer un segon pas de refinament a la solució per tal de afegir hotels de més qualitat o més activitats, intentant no passar-se del pressupost final.
+
+Per generar les dos solucions alhora utilitzem les pròpies regles de producció que ens ofereix clips, creant dues instàncies de solució i agafant les instàncies de solució a la precondició de cada regla.
+
+A més, per tal d'assolir un comportament més sequencial, hem hagut d'establir la dependència lineal entre els diversos passos de construcció del viatge. 
+
+Un cop s'ha generat una solució de viatge completa s'imprimeix per pantalla amb un message handler.
+
+Cal comentar que ens ha estat impossible carregar l'ontologia en un arxiu a part ja que clips no és capaç de buscar instàncies fora del mòdul actual si no és amb un find-all-instances. Així, si creem una funció que rep una ciutat per paràmetre, els mètodes definits per a aquell paràmetre només es buscaràn dins el mòdul actual. És per això que tota l'ontologia s'inclou en el mateix fitxer que aquest mòdul.
+
+
+
 
 \subsubsection{Implementació de l'ontologia}
 L'implementació de l'ontologia ha estat pràcticament una traducció directa de les idees de l'apartat \ref{sec:ontologia} al propi Protégé. La major part de les instàncies s'han omplert manualment. Cal destacar, però, el cas de les instàncies dels viatges, les quals no han estat generades manualment des de Protégé sino que han estat generades a partir d'un script en bash que emparella totes les ciutats amb vols, i aleatoriament, assigna altres mitjans de transport de més baix pressupost com autobusos o trens per ciutats suficientment properes amb preus proporcionals tot calculant preus raonables per a aquests. És per això que les instancies de la classe Viatge es troben en l'ontologia del codi CLIPS però no a la ontologia en Protégé.
@@ -271,7 +306,7 @@ En aquesta secció presentem diversos jocs de proves generats per tal d'evaluar 
 %==========================================================
 \subsection{Un viatge romàntic de parella}
 
-Per aquesta prova demanarem una recomanació de viatge d'una parella jove a l'\emph{SBC}. Es pot consultar l'execució complerta a l'arxiu \texttt{Jocs\_de\_proves\textbackslash viatge\_romantic.txt}.
+Per aquesta prova demanarem una recomanació de viatge d'una parella jove a l'\emph{SBC}. Es pot consultar l'execució complerta a l'arxiu \url{Jocs_de_proves_viatge_romantic.txt}.
 
 \noindent
 \begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
@@ -292,7 +327,7 @@ Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequa
 %                    FI DE CURS
 %==========================================================
 \subsection{Un viatge de fi de curs}
-Per aquesta prova demanarem una recomanació de viatge de final de curs a l'\emph{SBC}. Es pot consultar l'execució complerta a l'arxiu \texttt{Jocs\_de\_proves\textbackslash viatge\_fidecurs.txt}.\\
+Per aquesta prova demanarem una recomanació de viatge de final de curs a l'\emph{SBC}. Es pot consultar l'execució complerta a l'arxiu \url{Jocs_de_proves_viatge_fidecurs.txt}.\\
 
 \noindent
 \begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
@@ -312,7 +347,7 @@ Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequa
 %                    VIATGE RIC
 %==========================================================
 \subsection{Un viatge de ric}
-Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per una persona de classe social molt alta i amb molts diners. Es pot consultar l'execució complerta a l'arxiu \texttt{Jocs\_de\_proves\textbackslash viatge\_ric.txt}. \\
+Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per una persona de classe social molt alta i amb molts diners. Es pot consultar l'execució complerta a l'arxiu \url{Jocs_de_proves_viatge_ric.txt}. \\
 
 \noindent
 \begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
@@ -333,7 +368,7 @@ Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequa
 %                    IMSERSO
 %==========================================================
 \subsection{Viatge per l'imserso}
-Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per un grup de jubilats. Es pot consultar l'execució complerta a l'arxiu \texttt{Jocs\_de\_proves\textbackslash viatge\_imserso.txt} \\
+Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per un grup de jubilats. Es pot consultar l'execució complerta a l'arxiu \url{Jocs_de_proves_viatge_imserso.txt} \\
 
 \noindent
 \begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
@@ -354,7 +389,7 @@ Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequa
 %                    FAMILIA
 %==========================================================
 \subsection{Viatge per una família amb fills}
-Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per una família amb fills. Es pot consultar l'execució complerta a l'arxiu \texttt{Jocs\_de\_proves\textbackslash viatge\_familia.txt}. \\
+Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per una família amb fills. Es pot consultar l'execució complerta a l'arxiu \url{Jocs_de_proves_viatge_familia.txt}. \\
 
 \noindent
 \begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
@@ -374,7 +409,7 @@ Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequa
 %                    CASTELLERS
 %==========================================================
 \subsection{Viatge per una colla castellera}
-Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per als membres d'una colla castellera. Es pot consultar l'execució complerta a l'arxiu \texttt{Jocs\_de\_proves\textbackslash viatge\_castellers.txt} \\
+Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per als membres d'una colla castellera. Es pot consultar l'execució complerta a l'arxiu \url{Jocs_de_proves_viatge_castellers.txt} \\
 
 \noindent
 \begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
