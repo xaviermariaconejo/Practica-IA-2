@@ -233,7 +233,8 @@
 	(tipus_client (tipus familia))
 	?v <- (tipus_viatge (tipus indefinit))
 =>
-	(if (si-o-no-p "Prefereixes un viatge per tenir als teus fills o per gaudir d'unes vacances") 
+	(bind ?response (ask-question "Prefereixes un viatge per tenir als teus fills o per gaudir d'unes vacances" fills vacances)) 
+	(if (eq ?response fills) 
 	then (modify ?v (tipus Diversio))
 	else (modify ?v (tipus Relax)))
 )
@@ -309,12 +310,15 @@
 (defrule minmax-dies
 	?n <- (num_dies (dies_max -1) (dies_min -1))
 =>
-	; @TODO La pregunta és molt lletja... -setzer22
 	(printout t "Quin nombre minim i maxim de dies vols viatjar?")
-	(modify ?n (dies_min (ask-integer "minim: ")) (dies_max (ask-integer "maxim: "))) 
+	(printout t crlf)
+	(bind ?min (ask-integer "minim: "))
+	(printout t crlf)
+	(bind ?max (ask-integer "maxim: "))
+	(modify ?n (dies_min ?min) (dies_max ?max)) 
+	(printout t crlf)
 )
 
-;@TODO afegir normes perquè si el pressupost no és coherent amb el perfil determinat faci preguntes addicionals per corregir
 (defrule importa_el_preu "Determinem si a l'usuari li importa el preu"
 	?n <- (nivell_vida (valor indefinit))
 	?i <- (importa_preu indefinit)
@@ -337,7 +341,12 @@
 	(importa_preu si)
 =>
 	(printout t "Indiqui pressupost minim i maxim pel viatge (preus per persona)")
-	(modify ?n (preu_min (ask-integer "minim: ")) (preu_max (ask-integer "maxim: "))) 
+	(printout t crlf)
+	(bind ?min (ask-integer "minim: "))
+	(printout t crlf)
+	(bind ?max (ask-integer "maxim: "))
+	(printout t crlf)
+	(modify ?n (preu_min ?min) (preu_max ?max)) 
 )
 
 (defrule minmax-ciutats
@@ -347,14 +356,18 @@
 		then
 			(modify ?n (min 1) (max 1))
 		else
-			(modify ?n (min (ask-integer "minim: ")) (max (ask-integer "maxim: "))) 
+			(printout t crlf)
+			(bind ?min (ask-integer "minim: "))
+			(printout t crlf)
+			(bind ?max (ask-integer "maxim: "))
+			(modify ?n (min ?min) (max ?max)) 
+			(printout t crlf)
 	)
 )
 
 (defrule exotics
 	?n <- (llocs_exotics (valor indefinit))
 =>
-	; @TODO La pregunta és molt lletja... -setzer22
 	(modify ?n (valor (si-o-no-p "Li agradaria viatjar per ciutats poc conegudes?")))
 )
 
