@@ -17967,7 +17967,7 @@
 			(printout t "===============================")(printout t crlf)
 			(printout t "      VIATGE ")(printout t ?x)(printout t crlf)
 			(printout t "===============================")(printout t crlf)
-			(if (and (> (send ?x get-preu-total) ?pmaxim) (eq ?ip no)) then
+			(if (and (> (send ?x get-preu-total) ?pmaxim) (eq ?ip si)) then
 				(printout t crlf)
 				(printout t "El viatge trobat es surt del pressupost màxim per: ")
 				(printout t (- (send ?x get-preu-total) ?pmaxim))
