@@ -17920,7 +17920,7 @@
 				(bind ?c (send ?x get-ciutats))
 				(loop-for-count (?i 1 (length ?c))
 					(bind ?hact (send (nth$ ?i ?c) get-allotjament))
-					(bind ?hotel (send (nth$ ?i ?c) get-Allotjaments))
+					(bind ?hotel (send (send (nth$ ?i ?c) get-ciutat) get-Allotjaments))
 					(switch ?ch
 						(case mitja then
 							(loop-for-count (?j 1 (length ?hotel))
