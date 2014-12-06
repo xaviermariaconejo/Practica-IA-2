@@ -51,13 +51,15 @@ for i in $(cat filteredinstances.out); do
 " >> $outputfile
 
 	export r=$(($RANDOM%20+20))
-		export travelcount=$(($travelcount + 1))
+	export travelcount=$(($travelcount + 1))
 			echo "([viatge-$travelcount] of  Viatge
 	(desti $i)
 	(origen $j)
 	(preu-viatge $r)
 	(transport tren))
 " >> $outputfile
+
+	export travelcount=$(($travelcount + 1))
 		fi
 			
 	done
