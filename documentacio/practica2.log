@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2014.12.2)  6 DEC 2014 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2014.12.2)  7 DEC 2014 12:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -271,36 +271,120 @@ Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
 (/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/share/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip43
+\LTright=\skip44
+\LTpre=\skip45
+\LTpost=\skip46
+\LTchunksize=\count88
+\LTcapwidth=\dimen107
+\LT@head=\box27
+\LT@firsthead=\box28
+\LT@foot=\box29
+\LT@lastfoot=\box30
+\LT@cols=\count89
+\LT@rows=\count90
+\c@LT@tables=\count91
+\c@LT@chunks=\count92
+\LT@p@ftn=\toks16
+)
+(/usr/share/texmf-dist/tex/latex/listings/listings.sty
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+\lst@mode=\count93
+\lst@gtempboxa=\box31
+\lst@token=\toks18
+\lst@length=\count94
+\lst@currlwidth=\dimen108
+\lst@column=\count95
+\lst@pos=\count96
+\lst@lostspace=\dimen109
+\lst@width=\dimen110
+\lst@newlines=\count97
+\lst@lineno=\count98
+\lst@maxwidth=\dimen111
+
+(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
+\c@lstnumber=\count99
+\lst@skipnumbers=\count100
+\lst@framebox=\box32
+)
+(/usr/share/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2014/03/04 1.5c listings configuration
+))
+Package: listings 2014/03/04 1.5c (Carsten Heinz)
+
+(/usr/share/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2014/04/23 v1.1a Standard LaTeX Color (DPC)
+
+(/usr/share/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 137.
+
+(/usr/share/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count101
+))
+(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2014/03/04 1.5c listings language file
 ) (./practica2.aux)
 \openout1 = `practica2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Info: Redefining \l on input line 21.
-LaTeX Info: Redefining \L on input line 21.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Info: Redefining \l on input line 48.
+LaTeX Info: Redefining \L on input line 48.
+\c@lstlisting=\count102
 
-(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+(/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count103
+\scratchdimen=\dimen112
+\scratchbox=\box33
+\nofMPsegments=\count104
+\nofMParguments=\count105
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count106
+\MPscratchDim=\dimen113
+\MPnumerator=\count107
+\makeMPintoPDFobject=\count108
+\everyMPtoPDFconversion=\toks20
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 51.
+ (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <24.88> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 24.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 51.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 24.
+(Font)              <12> on input line 51.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 24.
+(Font)              <8> on input line 51.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 24.
+(Font)              <6> on input line 51.
  [1
 
 
@@ -315,223 +399,227 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 49.
+(Font)              <9> on input line 76.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 49.
+(Font)              <5> on input line 76.
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
  []
 
 [3]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 88.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 115.
 
-Overfull \hbox (7.98909pt too wide) in paragraph at lines 88--89
+Overfull \hbox (7.98909pt too wide) in paragraph at lines 115--116
 []\OT1/cmr/m/n/10.95 L'objectiu d'a-quest pro-ble-ma ^^Ses ben clar:
  []
 
 
-Overfull \hbox (2.0867pt too wide) in paragraph at lines 90--91
+Overfull \hbox (2.0867pt too wide) in paragraph at lines 117--118
 []\OT1/cmr/m/n/10.95 Un cop sa-bem com ^^Ses l'u-su-a-ri, el seg^^?uent
  []
 
 [4] [5] [6]
-Overfull \hbox (0.28584pt too wide) in paragraph at lines 177--178
+Overfull \hbox (0.28584pt too wide) in paragraph at lines 204--205
 \OT1/cmr/m/n/10.95 pli-ca-ci^^So est^^Ra re-so-lent un pro-ble-ma d'an^^Ralisi 
 mit-jan^^Xcant clas-si-fi-ca-ci^^So heur^^S^^Pstica
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 200--200
+Underfull \hbox (badness 10000) in paragraph at lines 227--227
 [][]\OT1/cmr/m/n/9 L'implementaci^^So d'a-quests dos m^^Roduls es pot con-sul-t
 ar a l'ar-xiu
  []
 
 
-Overfull \hbox (6.00415pt too wide) in paragraph at lines 216--217
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
+
+ []
+
+[8]
+Overfull \hbox (6.00415pt too wide) in paragraph at lines 255--256
 \OT1/cmr/m/n/10.95 Aquest ha es-tat el m^^Rodul el qual ha re-que-rit m^^Ses es
 -for^^Xc a l'-ho-ra d'implementar-
  []
 
-[8] [9] [10
+[9] [10] [11
 
-] [11] [12
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 314--314
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 316--316
-[]\OT1/cmr/bx/n/10.95 Comportament
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 318--318
-[][]
- []
-
-
-Overfull \hbox (27.59802pt too wide) in paragraph at lines 311--322
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 330--331
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--335
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--337
-[]\OT1/cmr/bx/n/10.95 Comportament
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 339--339
-[][]
- []
-
-
-Overfull \hbox (27.59802pt too wide) in paragraph at lines 332--343
-[]
- []
-
-[13
+] [12] [13
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 350--351
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 356--356
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--358
+Underfull \hbox (badness 10000) in paragraph at lines 355--355
 []\OT1/cmr/bx/n/10.95 Comportament
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--360
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 [][]
  []
 
 
-Overfull \hbox (27.59802pt too wide) in paragraph at lines 352--364
+Overfull \hbox (27.59802pt too wide) in paragraph at lines 350--361
 []
  []
 
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 371--372
 
+Underfull \hbox (badness 10000) in paragraph at lines 369--370
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
+[][]
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 376--376
-[][]
+[]\OT1/cmr/bx/n/10.95 Comportament
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 378--378
-[]\OT1/cmr/bx/n/10.95 Comportament
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 380--380
 [][]
  []
 
 
-Overfull \hbox (27.59802pt too wide) in paragraph at lines 373--384
+Overfull \hbox (27.59802pt too wide) in paragraph at lines 371--382
 []
  []
 
+[14
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--393
+]
+Underfull \hbox (badness 10000) in paragraph at lines 389--390
 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--395
+[][]
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 397--397
-[][]
+[]\OT1/cmr/bx/n/10.95 Comportament
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 399--399
-[]\OT1/cmr/bx/n/10.95 Comportament
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 401--401
 [][]
  []
 
 
-Overfull \hbox (27.59802pt too wide) in paragraph at lines 394--405
+Overfull \hbox (27.59802pt too wide) in paragraph at lines 391--403
 []
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 412--413
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 415--415
+[][]
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 417--417
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 419--419
 []\OT1/cmr/bx/n/10.95 Comportament
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Overfull \hbox (27.59802pt too wide) in paragraph at lines 412--421
+[]
+ []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 467--468
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 472--472
 [][]
  []
 
 
-Overfull \hbox (27.59802pt too wide) in paragraph at lines 414--425
+Underfull \hbox (badness 10000) in paragraph at lines 474--474
+[]\OT1/cmr/bx/n/10.95 Comportament
+ []
+
+
+Overfull \hbox (27.59802pt too wide) in paragraph at lines 469--478
 []
  []
 
-[16] [17] (./practica2.aux) ) 
+
+Package Listings Warning: Text dropped after begin of listing on input line 480
+.
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 509--510
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 514--514
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 516--516
+[]\OT1/cmr/bx/n/10.95 Comportament
+ []
+
+
+Overfull \hbox (27.59802pt too wide) in paragraph at lines 511--520
+[]
+ []
+
+[18]
+
+Package Listings Warning: Text dropped after begin of listing on input line 522
+.
+
+[19] (./practica2.aux) ) 
 Here is how much of TeX's memory you used:
- 1105 strings out of 493108
- 12781 string characters out of 6140725
- 74997 words of memory out of 5000000
- 4588 multiletter control sequences out of 15000+600000
- 12080 words of font info for 43 fonts, out of 8000000 for 9000
+ 3762 strings out of 493108
+ 47437 string characters out of 6140725
+ 171871 words of memory out of 5000000
+ 7201 multiletter control sequences out of 15000+600000
+ 12248 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 23i,9n,23p,1125b,210s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf
--dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/eurosym/feymr10.pfb>
-Output written on practica2.pdf (18 pages, 219741 bytes).
+ 26i,16n,40p,1125b,1685s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.
+pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
+10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/eurosym/feymr10.pfb>
+Output written on practica2.pdf (20 pages, 232687 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
+ 133 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
