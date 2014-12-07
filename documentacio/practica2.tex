@@ -2,7 +2,34 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english,catalan]{babel}
 \usepackage[gen]{eurosym}
-\usepackage{url}
+\usepackage[pdftex, pdfborderstyle={/S/U/W 0}]{hyperref} % this disables the boxes around links
+\usepackage{longtable}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4,
+  extendedchars=true,
+  literate={á}{{\'a}}1 {à}{{\`a}}1 {é}{{\'e}}1 {ó}{{\'o}}1
+}
 
 %\usepackage[defaultsans]{droidsans}
 %\usepackage[defaultserif]{droidserif}
@@ -211,14 +238,17 @@ Per tal de fer les preguntes s'han utilitzat les funcions auxiliars del mòdul u
 
 Aquest mòdul simplement és un conjunt de regles senzilles, a l'estil d'implicacions de lògica de predicats que mapeja el model de client a un model de ciutat. En aquest pas és on intentem reduïr el nombre de variables per tal que es pugui acotar fàcilment el model de solució.\\
 
-El nombre de variables que hem escollit és de tres, les quals, es generen de diferents maneres.\\
+El nombre de variables que hem escollit és de tres, les quals, es generen de diferents maneres:
 
-\item[Tipus ciutat:]Aquesta variable l'obtenim a partir del tipus d'usuari, el tipus d'activitat que ha escollit, i si vol ciutats conegudes o no. La majoria de les regles tenen la mateixa estructura. En primer lloc depenent de quin tipus d'activitat ha escollit, i en algunes ocasions, depenent quin tipus d'usuari, se seleccionen dos valors dels tres possibles. A vegades, dos tipus d'usuaris diferents amb el mateix tipus d'activitats poden un tenir diferents tipus de ciutat, per exemple, si un institut vol un viatge cultural, sempre serà a citats molt conegudes, metre si és un grup d'amics, pot ser una ciutat coneguda.\\
-Després d'haver eliminat un dels possibles valors, s'escull un dels dos restants depenent si vol ciutats poc conegudes o no, això vol dir que si un usuari intenta que no vol ciutats conegudes les ciutats segur que són poc conegudes, sinó que entre els dos valors serà el més desconegut.
+\begin{description}
+\item[Tipus ciutat:]Aquesta variable l'obtenim a partir del tipus d'usuari, el tipus d'activitat que ha escollit, i si vol ciutats conegudes o no. La majoria de les regles tenen la mateixa estructura. En primer lloc depenent de quin tipus d'activitat ha escollit, i en algunes ocasions, depenent quin tipus d'usuari, se seleccionen dos valors dels tres possibles. A vegades, dos tipus d'usuaris diferents amb el mateix tipus d'activitats poden un tenir diferents tipus de ciutat, per exemple, si un institut vol un viatge cultural, sempre serà a citats molt conegudes, mentre que si és un grup d'amics, pot ser una ciutat menys coneguda.
 
-\item[Cualitat allotjament:]Aquesta variable l'obtenim a partir del nivell de vida de l'usuari, el numero mínim de dies i el pressupost mínim. Si l'usuari té un nivell de vida alt, vol dir que es pot permetre tot i per tant la qualitat de l'allotjament és alta. Per altra banda, si té un nivell de vida mitja, mirem si el seu pressupost mínim per dia és superior a un número fix que és 1500, si ho és, la qualitat és alta, si no la qualitat és mitja. Per últim, si el seu nivell de vida ens baix, tornem a mirar el pressupost mínim per dia i si és superior a 100 la qualitat, és mitja i si no, la qualitat és baixa.
+Després d'haver eliminat un dels possibles valors, s'escull un dels dos restants depenent si vol ciutats poc conegudes o no, això vol dir que si un usuari indica que no vol ciutats conegudes les ciutats segur que són poc conegudes, altrament, d'entre els dos valors s'escollirà el que afavoreixi ciutats més desconegudes.
+
+\item[Cualitat allotjament:]Aquesta variable l'obtenim a partir del nivell de vida de l'usuari, el numero mínim de dies i el pressupost mínim. Si l'usuari té un nivell de vida alt, vol dir que es pot permetre de tot en el viatge i per tant la qualitat de l'allotjament és alta. Per altra banda, si té un nivell de vida mitja, mirem si el seu pressupost mínim per dia és superior a una constant\footnote{Hem escollit 1500 en aquest cas, caldria un estudi posterior per veure si aquest valor és prou correcte. No obstant no comptem amb dades reals a l'ontologia com per fer un anàlisi real}, si ho és, la qualitat és alta, sinó la qualitat és mitja. Per últim, si el seu nivell de vida ens baix, tornem a mirar el pressupost mínim per dia i si és superior a 100 la qualitat, és mitja i si no, la qualitat és baixa.
 
 \item[Tipus activitat:] Aquesta variable és simplement una còpia de la informació obtinguda pel mòdul anterior, ja que no és necessari, de la manera que hem pensat el problema, modificar-la.
+\end{description}
 
 
 \subsubsection*{Montar els viatges}
@@ -243,7 +273,7 @@ Cal comentar que ens ha estat impossible carregar l'ontologia en un arxiu a part
 
 
 \subsubsection{Implementació de l'ontologia}
-L'implementació de l'ontologia ha estat pràcticament una traducció directa de les idees de l'apartat \ref{sec:ontologia} al propi Protégé. La major part de les instàncies s'han omplert manualment. Cal destacar, però, el cas de les instàncies dels viatges, les quals no han estat generades manualment des de Protégé sino que han estat generades a partir d'un script en bash que emparella totes les ciutats amb vols, i aleatoriament, assigna altres mitjans de transport de més baix pressupost com autobusos o trens per ciutats suficientment properes amb preus proporcionals tot calculant preus raonables per a aquests. És per això que les instancies de la classe Viatge es troben en l'ontologia del codi CLIPS però no a la ontologia en Protégé.
+L'implementació de l'ontologia ha estat pràcticament una traducció directa de les idees de l'apartat \ref{sec:ontologia} al propi Protégé. La major part de les instàncies s'han omplert manualment. Cal destacar, però, el cas de les instàncies dels viatges, les quals no han estat generades manualment des de Protégé sino que han estat generades a partir d'un script en bash que emparella totes les ciutats amb vols, i assigna altres mitjans de transport de més baix pressupost. És per això que les instancies de la classe Viatge es troben en l'ontologia del codi CLIPS però no a la ontologia en Protégé. Es pot consultar l'script utilitzat al fitxer adjunt \texttt{travel-generator.sh}
 
 
 \clearpage
@@ -435,34 +465,51 @@ Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per un gru
 \hline
 \textbf{\mbox{Condicions de la} \mbox{prova}} & Es demanarà a l'\emph{SBC} un viatge per un grup de gent gran (40 persones) amb la idea de fer un tour per diverses ciutats (entre 3 i 5), en una setmana. El pressupost serà entre 200 i 300\euro{} per persona. Es demanarà explícitament que s'intenti ajustar al màxim el pressupost.\\
 \hline
-\textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Creiem que l'SBC recomanarà principalment activitats de relax. Escollint hotels i mitjans de transport barats. És possible que amb un pressupost tan baix i demanant tantes ciutats no sigui capaç d'ajustar-se al pressupost màxim.\\
-\hline
-\textbf{\mbox{Resultats de la} \mbox{prova}} & \begin{verbatim}VIATGE 1:
-El viatge trobat es surt del pressupost màxim per: 76 euros
-Preu total (persona): 376 euros
-Duració del viatge: 6.0 dies
-Ciutats: Montecarlo (2.0 dies), Barcelona (2.0 dies), Paris (2.0 dies)
-Visites: Montecarlo: Le Bar Americain, Japanese Gardens; Barcelona: Spa Aire; Paris: Mamabali, Aquamoon Spa
-Allotjament: Montecarlo: Alberge Pere Tarres, Barcelona: Alberge Pere Tarres, Paris: Pacific Hotel
-Viatges: Origen -> Montecarlo: tren, Montecarlo -> Barcelona: tren, Barcelona -> Paris: tren, Paris -> Origen: avio
-
-VIATGE 2:
-El viatge trobat es surt del pressupost màxim per: 76 euros
-Preu total (persona): 376 euros
-Duració del viatge: 6.0 dies
-Ciutats: Montecarlo (2.0 dies), Barcelona (2.0 dies), Paris (2.0 dies)
-Visites: Montecarlo: Le Bar Americain, Japanese Gardens; Barcelona: Spa Aire; Paris: Mamabali, Aquamoon Spa
-Allotjament: Montecarlo: Alberge Pere Tarres, Barcelona: Alberge Pere Tarres, Paris: Pacific Hotel
-Viatges: Origen -> Montecarlo: tren, Montecarlo -> Barcelona: tren, Barcelona -> Paris: tren, Paris -> Origen: avio
-
-
-\end{verbatim} \\
+\textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Creiem que l'SBC recomanarà principalment activitats de relax. Escollint hotels i mitjans de transport barats. És molt possible que amb un pressupost tan baix i demanant tantes ciutats no sigui capaç d'ajustar-se al pressupost màxim.\\
 \hline
 \end{tabular}
+\bigskip
+
+\textbf{Resultats de la prova:} 
+\begin{lstlisting}
+VIATGE 1
+El viatge trobat es surt del pressupost màxim per: 65 euros
+Preu total (persona): 365 euros
+Duració del viatge: 6 dies
+Ciutats: Rio de Janeiro (1 dies), Barcelona (2.0 dies),
+         Montecarlo (2.0 dies), Paris (2.0 dies)
+Visites: Rio de Janeiro: RJ Massagem; 
+         Barcelona: Spa Aire; 
+         Montecarlo: Le Bar Americain, Japanese Gardens; 
+         Paris: Mamabali, Aquamoon Spa
+Allotjament: Rio de Janeiro: Copinha Hostel, Barcelona: Alberge Pere Tarres,
+             Montecarlo: Alberge Pere Tarres, Paris: Pacific Hotel
+Viatges: Origen -> Barcelona: tren, Barcelona -> Montecarlo: tren, 
+         Montecarlo -> Paris: tren, Paris -> Origen: avio
+
+VIATGE 2
+El viatge trobat es surt del pressupost màxim per: 48 euros
+Preu total (persona): 348 euros
+Duració del viatge: 6 dies
+Ciutats: Rio de Janeiro (1 dies), Barcelona (2.0 dies)
+         Paris (2.0 dies), Montecarlo (2.0 dies)
+Visites: Rio de Janeiro: RJ Massagem; Barcelona: Spa Aire; Paris: Mamabali
+         Aquamoon Spa; Montecarlo: Le Bar Americain, Japanese Gardens
+Allotjament: Rio de Janeiro: Copinha Hostel, Barcelona: Alberge Pere Tarres, 
+             Paris: Pacific Hotel, Montecarlo: Alberge Pere Tarres
+Viatges: Origen -> Barcelona: tren, Barcelona -> Paris: tren
+         Paris -> Montecarlo: tren, Montecarlo -> Origen: tren
+
+\end{lstlisting} 
+
 \medskip
+Cal destacar que l'SBC no ha estat capaç de trobar dos viatges diferents donats els requisits dels usuaris --tantes ciutats i tan barates--. No obstant això, per tal de complir la restricció interna que els viatges havíen de ser diferents, observem com l'ordre en que es visisten les ciutats està desordenat. 
 
-Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequat faucibus enim eget ullamcorper. Sed sapien odio, convallis et risus ac, condimentum tincidunt diam. Phasellus rutrum ullamcorper sem, id finibus lectus maximus sed. Nunc non ornare est, quis sodales ligula. Duis laoreet nisl vel magna auctor imperdiet. Maecenas ac magna vitae enim facilisis pharetra nec nec magna.
+Deixant de banda aquest fet, veiem com s'ha quasi-complert la restricció de preu en els dos casos, i que per assolir-ho s'han escollit poques activitats d'entre les més barates de cada ciutat. Respecte els allotjaments veiem com s'han escollit els de pitjor qualitat.
 
+Veiem també com el sistema ha decidit centrar el viatge en una temàtica de relax, i les activitats s'han escollit pertinentment per tal de reflexar aquest fet.
+
+En general, estem satisfets amb el resultat del joc de proves.
 
 %==========================================================
 %                    FAMILIA
@@ -477,33 +524,34 @@ Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per una fa
 \hline
 \textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Creiem que l'\emph{SBC} serà capaç de complir amb els requisits de l'usuari considerant el contingut de l'ontologia. Esperem que es doni un viatge d'almenys 5 dies en una ciutat amb almenys una activitat per cada dos dies\footnote{Si el sistema detecta un pressupost suficientment baix actuarà de manera conservadora planificant menys activitats.}. En no haver-hi múltiples ciutats el pressupost es podrà complir sense cap mena de problema. \\
 \hline
-\textbf{\mbox{Resultats de la} \mbox{prova}} & \begin{verbatim}
-VIATGE 2:
+\end{tabular}
+\bigskip
+
+\textbf{Resultats de la prova:}
+\begin{lstlisting}VIATGE 1:
+VIATGE 1:
 Preu total (persona): 358 euros
 Duració del viatge: 5.0 dies
 Ciutats: Florencia (5.0 dies)
 Visites: Florencia: Cinque Terre
 Allotjament: Florencia: Mia Cara
-Viatges: Origen -> Florencia: avio, 
-         Florencia -> Origen: tren
+Viatges: Origen -> Florencia: avio, Florencia -> Origen: tren
 
-VIATGE 1:
+VIATGE 2:
 Preu total (persona): 384 euros
 Duració del viatge: 5.0 dies
 Ciutats: Toronto (5.0 dies)
-Visites: Toronto: Edge Walk at the CN Tower, 
-                  Advanced Approaches 
-                     to Massage, 
+Visites: Toronto: Edge Walk at the CN Tower, Advanced Approaches to Massage, 
                   Edge Walk at the CN Tower
 Allotjament: Toronto: Bond Place Hotel
-Viatges: Origen -> Toronto: tren
-         Toronto -> Origen: tren
-\end{verbatim}\\
-\hline
-\end{tabular}
-\medskip
+Viatges: Origen -> Toronto: tren, Toronto -> Origen: tren
+\end{lstlisting} 
 
 Veiem que el pressupost s'ha complert, no obstant això el nostre \emph{SBC} ha actuat de manera excessivament conservadora: S'han escollit hotels i activitats massa barats. Caldria fer un estudi en profunditat de quins són els valors òptims per establir els diversos nivells de vida dels usuaris, i totes aquestes dades són coneixement expert (del qual no disposem). Tot i això el viatge segueix el comportament que esperavem.
+
+Es pot observar, que, malauradament s'ha repetit una activitat. Associem aquest problema a un error en la ontologia --l'activitat es trobava definida dues vegades a la llista d'activitats-- I per tant no a un mal funcionament de l'SBC.
+
+Considerem que el resultat d'aquest joc de proves manifesta una mancança del nostre \emph{SBC} que es podría arreglar amb posterior anàlisi del domini i programant regles més realistes en el sistema.
 
 %==========================================================
 %                    CASTELLERS
@@ -518,10 +566,13 @@ Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per als me
 \hline
 \textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Creiem que el sistema complirà totes les restriccions menys possiblement la de preu, la qual es passi una mica de pressupost donat que s'està requerint un viatge a dues ciutats diferents per molt poc preu. Suposem que les dues ciutats escollides seràn prou properes i probablement no s'esculli avió com a mitjà de transport. \\
 \hline
-\textbf{\mbox{Resultats de la} \mbox{prova}} & \begin{verbatim}
+\end{tabular} 
+\bigskip
+
+\textbf{Resultats de la prova:} 
+\begin{lstlisting}VIATGE 1:
 VIATGE 1:
-El viatge trobat es surt del pressupost
-    màxim per: 116 euros 
+El viatge trobat es surt del pressupost màxim per: 116 euros 
 Preu total (persona): 266 euros 
 Duració del viatge: 2.0 dies 
 Ciutats: Sidney (1.0 dies), Munich (1.0 dies) 
@@ -529,27 +580,25 @@ Visites: Sidney: Ocean Extreme;
          Munich: Heliflieger, DAV Kletter 
 Allotjament: Sidney: Highfield Private Hotel,
              Munich: Hotel Modern 
-Viatges: Origen -> Sidney: tren
-         Sidney -> Munich: tren
+Viatges: Origen -> Sidney: tren Sidney -> Munich: tren
          Munich -> Origen: tren 
+
 VIATGE2:
-El viatge trobat es surt del pressupost
-    màxim per: 38 euros 
+El viatge trobat es surt del pressupost màxim per: 38 euros 
 Preu total (persona): 188 euros 
 Duració del viatge: 2.0 dies 
 Ciutats: Chicago (1.0 dies), Sidney (1.0 dies) 
-Visites: Chicago: Kayak Chicago; 
-         Sidney: Ocean Extreme 
-Allotjament: Chicago: Chinatown Hotel, 
-             Sidney: Highfield Private Hotel 
-Viatges: Origen -> Chicago: tren
-         Chicago -> Sidney: tren
+Visites: Chicago: Kayak Chicago, Sidney: Ocean Extreme 
+Allotjament: Chicago: Chinatown Hotel, Sidney: Highfield Private Hotel 
+Viatges: Origen -> Chicago: tren, Chicago -> Sidney: tren
          Sidney -> Origen: tren
-\end{verbatim} \\
-\hline
-\end{tabular} 
-\medskip
+\end{lstlisting} 
 
-Tal com sospitavem, el sistema no ha pogut complir el pressupost mínim i així ens ho indica. Respecte les demés coses, ha complert en els dos casos la durada del viatge, escollint els hotels de més baixa qualitat. Respecte a les activitats podem veure com també s'han escollit les més barates. En general quedem satisfets amb la resposta de l'\emph{SBC} i podem dir que és el que ens esperavem.
+
+Tal com sospitavem, el sistema no ha pogut complir el pressupost mínim i així ens ho indica. Respecte les demés coses, ha complert en els dos casos la durada del viatge, escollint els hotels de més baixa qualitat. Respecte a les activitats podem veure com també s'han escollit les més barates. 
+
+La temàtica del viatge és clarament de diversió, fet que s'ajusta perfectament als potencials gustos d'un grup com podria ser una colla castellera --Almenys segons el coneixement nostre \emph{SBC}--
+
+En general quedem satisfets amb la resposta de l'\emph{SBC} i podem dir que és el que ens esperavem.
 
 \end{document}

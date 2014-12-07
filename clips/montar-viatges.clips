@@ -17926,13 +17926,14 @@
 (defrule resultado-consejo "Regla salida de consejo"
 	(declare (salience -20))
 	?x <- (object (is-a Solucio-F))
+	(importa_preu ?ip)
 	(pressupost (preu_max ?pmaxim))
 	=>
 		(if (> (length (send ?x get-ciutats)) 0) then
 			(printout t "===============================")(printout t crlf)
 			(printout t "      VIATGE ")(printout t ?x)(printout t crlf)
 			(printout t "===============================")(printout t crlf)
-			(if (> (send ?x get-preu-total) ?pmaxim) then
+			(if (and (eq ?ip si) (> (send ?x get-preu-total) ?pmaxim) then
 			(printout t crlf)
 			(printout t "El viatge trobat es surt del pressupost màxim per: ")
 			(printout t (- (send ?x get-preu-total) ?pmaxim))
