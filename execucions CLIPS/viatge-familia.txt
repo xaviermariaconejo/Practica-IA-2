@@ -1,0 +1,114 @@
+CLIPS> (run-main)
+<== f-0     (initial-fact)
+==> f-0     (initial-fact)
+==> f-1     (num-persones (num -1))
+==> f-2     (edat_client (edat indefinit))
+==> f-3     (tipus_client (tipus indefinit))
+==> f-4     (tipus_viatge (tipus indefinit))
+==> f-5     (pressupost (preu_min -1) (preu_max -1))
+==> f-6     (num_dies (dies_min -1) (dies_max -1))
+==> f-7     (num_ciutats (min -1) (max -1))
+==> f-8     (llocs_exotics (valor indefinit))
+==> f-9     (nivell_vida (valor indefinit))
+==> f-10    (tipus_ciutats (tipus indefinit))
+==> f-11    (cualitat_hotels (tipus indefinit))
+==> f-12    (tipus_activitats (tipus indefinit))
+Per quantes persones és el viatge?40
+<== f-1     (num-persones (num -1))
+==> f-13    (num-persones (num 40))
+Ã‰s un viatge per un institut? (si/no)
+no
+
+<== f-3     (tipus_client (tipus indefinit))
+==> f-14    (tipus_client (tipus grup_indefinit))
+Sou un grup d'amics? (si/no)
+si
+
+Menors de 25 anys? (si/no)
+no
+
+Jubilats? (si/no)
+si
+
+<== f-14    (tipus_client (tipus grup_indefinit))
+==> f-15    (tipus_client (tipus grup_amics))
+<== f-2     (edat_client (edat indefinit))
+==> f-16    (edat_client (edat jubilats))
+<== f-4     (tipus_viatge (tipus indefinit))
+==> f-17    (tipus_viatge (tipus Relax))
+Li agradaria viatjar per ciutats poc conegudes? (si/no)
+no
+
+<== f-8     (llocs_exotics (valor indefinit))
+==> f-18    (llocs_exotics (valor FALSE))
+Prefereix centrar el seu viatge a una única ciutat (si/no)
+no
+
+
+minim: 3
+
+maxim: 5
+<== f-7     (num_ciutats (min -1) (max -1))
+==> f-19    (num_ciutats (min 3) (max 5))
+
+Quin nombre mínim i màxim de dies vols viatjar?
+minim: 6
+
+maxim: 10
+<== f-6     (num_dies (dies_min -1) (dies_max -1))
+==> f-20    (num_dies (dies_min 6) (dies_max 10))
+
+==> f-21    (importa_preu indefinit)
+Li importa el preu del viatge? (si/no)
+si
+
+<== f-21    (importa_preu indefinit)
+==> f-22    (importa_preu si)
+Està disposat a sacrificar en qualitat per tal d'ajustar al màxim el pressupost? (si/no)
+si
+
+<== f-9     (nivell_vida (valor indefinit))
+==> f-23    (nivell_vida (valor baix))
+Indiqui pressupost minim i maxim pel viatge (preus per persona)
+minim: 200
+
+maxim: 300
+
+<== f-5     (pressupost (preu_min -1) (preu_max -1))
+==> f-24    (pressupost (preu_min 200) (preu_max 300))
+<== f-11    (cualitat_hotels (tipus indefinit))
+==> f-25    (cualitat_hotels (tipus baixa))
+<== f-10    (tipus_ciutats (tipus indefinit))
+==> f-26    (tipus_ciutats (tipus molt_coneguda))
+<== f-12    (tipus_activitats (tipus indefinit))
+==> f-27    (tipus_activitats (tipus Relax))
+===============================
+      VIATGE <Instance-Possible-Solucio1>
+===============================
+
+El viatge trobat es surt del pressupost màxim per: 65 euros
+
+Preu total (persona): 365 euros
+
+Duració del viatge: 6.0 dies
+
+Ciutats: Rio de Janeiro (1 dies), Barcelona (2.0 dies), Montecarlo (2.0 dies), Paris (2.0 dies)
+Visites: Rio de Janeiro: RJ Massagem; Barcelona: Spa Aire; Montecarlo: Le Bar Americain, Japanese Gardens; Paris: Mamabali, Aquamoon Spa
+Allotjament: Rio de Janeiro: Copinha Hostel, Barcelona: Alberge Pere Tarres, Montecarlo: Alberge Pere Tarres, Paris: Pacific Hotel
+Viatges: Origen -> Barcelona: tren, Barcelona -> Montecarlo: tren, Montecarlo -> Paris: tren, Paris -> Origen: avio
+
+===============================
+      VIATGE <Instance-Possible-Solucio2>
+===============================
+
+El viatge trobat es surt del pressupost màxim per: 48 euros
+
+Preu total (persona): 348 euros
+
+Duració del viatge: 6.0 dies
+
+Ciutats: Rio de Janeiro (1 dies), Barcelona (2.0 dies), Paris (2.0 dies), Montecarlo (2.0 dies)
+Visites: Rio de Janeiro: RJ Massagem; Barcelona: Spa Aire; Paris: Mamabali, Aquamoon Spa; Montecarlo: Le Bar Americain, Japanese Gardens
+Allotjament: Rio de Janeiro: Copinha Hostel, Barcelona: Alberge Pere Tarres, Paris: Pacific Hotel, Montecarlo: Alberge Pere Tarres
+Viatges: Origen -> Barcelona: tren, Barcelona -> Paris: tren, Paris -> Montecarlo: tren, Montecarlo -> Origen: tren
+

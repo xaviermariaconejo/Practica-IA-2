@@ -1,0 +1,116 @@
+CLIPS> (run-main)
+<== f-0     (initial-fact)
+==> f-0     (initial-fact)
+==> f-1     (num-persones (num -1))
+==> f-2     (edat_client (edat indefinit))
+==> f-3     (tipus_client (tipus indefinit))
+==> f-4     (tipus_viatge (tipus indefinit))
+==> f-5     (pressupost (preu_min -1) (preu_max -1))
+==> f-6     (num_dies (dies_min -1) (dies_max -1))
+==> f-7     (num_ciutats (min -1) (max -1))
+==> f-8     (llocs_exotics (valor indefinit))
+==> f-9     (nivell_vida (valor indefinit))
+==> f-10    (tipus_ciutats (tipus indefinit))
+==> f-11    (cualitat_hotels (tipus indefinit))
+==> f-12    (tipus_activitats (tipus indefinit))
+Per quantes persones és el viatge?30
+<== f-1     (num-persones (num -1))
+==> f-13    (num-persones (num 30))
+Ã‰s un viatge per un institut? (si/no)
+no
+
+<== f-3     (tipus_client (tipus indefinit))
+==> f-14    (tipus_client (tipus grup_indefinit))
+Sou un grup d'amics? (si/no)
+no
+
+Formeu part d'una organització: equip de futbol, colla castellera...? (si/no)
+si
+
+<== f-14    (tipus_client (tipus grup_indefinit))
+==> f-15    (tipus_client (tipus grup_organitzat))
+Hi ha nens al grup? (si/no)
+si
+
+<== f-2     (edat_client (edat indefinit))
+==> f-16    (edat_client (edat variada))
+Quin d'aquests tres tipus de viatge preferiu? (Aventura, Diversio, Relax)
+Aventura
+
+<== f-4     (tipus_viatge (tipus indefinit))
+==> f-17    (tipus_viatge (tipus Aventura))
+Li agradaria viatjar per ciutats poc conegudes? (si/no)
+no
+
+<== f-8     (llocs_exotics (valor indefinit))
+==> f-18    (llocs_exotics (valor FALSE))
+Prefereix centrar el seu viatge a una única ciutat (si/no)
+no
+
+
+minim: 2
+
+maxim: 2
+<== f-7     (num_ciutats (min -1) (max -1))
+==> f-19    (num_ciutats (min 2) (max 2))
+
+Quin nombre minim i maxim de dies vols viatjar?
+minim: 2
+
+maxim: 2
+<== f-6     (num_dies (dies_min -1) (dies_max -1))
+==> f-20    (num_dies (dies_min 2) (dies_max 2))
+
+==> f-21    (importa_preu indefinit)
+Li importa el preu del viatge? (si/no)
+si
+
+<== f-21    (importa_preu indefinit)
+==> f-22    (importa_preu si)
+Està disposat a sacrificar en qualitat per tal d'ajustar al màxim el pressupost? (si/no)
+si
+
+<== f-9     (nivell_vida (valor indefinit))
+==> f-23    (nivell_vida (valor baix))
+Indiqui pressupost minim i maxim pel viatge (preus per persona)
+minim: 150
+
+maxim: 150
+
+<== f-5     (pressupost (preu_min -1) (preu_max -1))
+==> f-24    (pressupost (preu_min 150) (preu_max 150))
+<== f-11    (cualitat_hotels (tipus indefinit))
+==> f-25    (cualitat_hotels (tipus baixa))
+<== f-10    (tipus_ciutats (tipus indefinit))
+==> f-26    (tipus_ciutats (tipus coneguda))
+<== f-12    (tipus_activitats (tipus indefinit))
+==> f-27    (tipus_activitats (tipus Aventura))
+===============================
+      VIATGE 1
+===============================
+
+El viatge trobat es surt del pressupost màxim per: 116 euros
+
+Preu total (persona): 266 euros
+
+Duració del viatge: 2.0 dies
+
+Ciutats: Sidney (1.0 dies), Munich (1.0 dies)
+Visites: Sidney: Ocean Extreme; Munich: Heliflieger, DAV Kletter
+Allotjament: Sidney: Highfield Private Hotel, Munich: Hotel Modern
+Viatges: Origen -> Sidney: tren, Sidney -> Munich: tren, Munich -> Origen: tren
+
+===============================
+      VIATGE 2
+===============================
+
+El viatge trobat es surt del pressupost màxim per: 38 euros
+
+Preu total (persona): 188 euros
+
+Duració del viatge: 2.0 dies
+
+Ciutats: Chicago (1.0 dies), Sidney (1.0 dies)
+Visites: Chicago: Kayak Chicago; Sidney: Ocean Extreme
+Allotjament: Chicago: Chinatown Hotel, Sidney: Highfield Private Hotel
+Viatges: Origen -> Chicago: tren, Chicago -> Sidney: tren, Sidney -> Origen: tren
