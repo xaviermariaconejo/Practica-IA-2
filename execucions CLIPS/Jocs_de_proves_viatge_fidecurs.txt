@@ -1,0 +1,57 @@
+Per quantes persones Ã©s el viatge?25
+Ã‰s un viatge per un institut? (si/no)
+si
+
+L'objectiu del viatge Ã©s d'aprenentatge o de diversio? (Cultural Diversio cap_dels_dos )
+Cultural
+
+Li agradaria viatjar per ciutats poc conegudes? (si/no)
+no
+
+Prefereix centrar el seu viatge a una Ãºnica ciutat (si/no)
+no
+
+
+minim: 3
+
+maxim: 3
+
+Quin nombre minim i maxim de dies vols viatjar?
+minim: 3
+
+maxim: 6
+
+Li importa el preu del viatge? (si/no)
+si
+
+EstÃ  disposat a sacrificar en qualitat per tal d'ajustar al mÃ xim el pressupost? (si/no)
+no
+
+Indiqui pressupost minim i maxim pel viatge (preus per persona)
+minim: 200
+
+maxim: 450
+
+===============================
+      VIATGE <Instance-Possible-Solucio2>
+===============================
+Preu total (persona): 399 euros
+
+DuraciÃ³ del viatge: 6.0 dies
+
+Ciutats: Roma (2.0 dies), Venecia (2.0 dies), Paris (2.0 dies)
+Visites: Roma: Capilla Sixtina, Fontana di Trevi, Colosseo; Venecia: Puentes de Venecia; Paris: Museu Louvre, Arco del Triunfo
+Allotjament: Roma: Albergo del Senato, Venecia: Antiche Figure, Paris: Hotel Joyce
+Viatges: Origen -> Roma: tren, Roma -> Venecia: tren, Venecia -> Paris: tren, Paris -> Origen: avio
+
+===============================
+      VIATGE <Instance-Possible-Solucio1>
+===============================
+Preu total (persona): 369 euros
+
+DuraciÃ³ del viatge: 6.0 dies
+
+Ciutats: Nueva York (2.0 dies), Venecia (2.0 dies), Paris (2.0 dies)
+Visites: Nueva York: Museo Metropolitano de Arte; Venecia: Puentes de Venecia; Paris: Arco del Triunfo, Museu Louvre
+Allotjament: Nueva York: Distrikt Hotel, Venecia: Antiche Figure, Paris: Hotel Joyce
+Viatges: Origen -> Nueva York: tren, Nueva York -> Venecia: tren, Venecia -> Paris: tren, Paris -> Origen: avio

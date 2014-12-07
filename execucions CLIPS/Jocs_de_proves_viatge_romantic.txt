@@ -1,0 +1,52 @@
+Per quantes persones Ã©s el viatge?2
+Ã‰s un viatge de parella? (si/no)
+s
+
+Li agradaria un viatge romÃ ntic? (si/no)
+s
+
+Li agradaria viatjar per ciutats poc conegudes? (si/no)
+s
+
+Prefereix centrar el seu viatge a una Ãºnica ciutat (si/no)
+s
+
+Quin nombre minim i maxim de dies vols viatjar?
+minim: 3
+
+maxim: 5
+
+Li importa el preu del viatge? (si/no)
+s
+
+EstÃ  disposat a sacrificar en qualitat per tal d'ajustar al mÃ xim el pressupost? (si/no)
+s
+
+Indiqui pressupost minim i maxim pel viatge (preus per persona)
+minim: 300
+
+maxim: 500
+
+===============================
+      VIATGE <Instance-Possible-Solucio2>
+===============================
+Preu total (persona): 307 euros
+
+DuraciÃ³ del viatge: 5.0 dies
+
+Ciutats: Cancun (5.0 dies)
+Visites: Cancun: Columbus Lobster Cruise
+Allotjament: Cancun: The Royal Islander
+Viatges: Origen -> Cancun: tren, Cancun -> Origen: tren
+
+===============================
+      VIATGE <Instance-Possible-Solucio1>
+===============================
+Preu total (persona): 340 euros
+
+DuraciÃ³ del viatge: 5.0 dies
+
+Ciutats: Estocolmo (5.0 dies)
+Visites: Estocolmo: Barrio Ostermalm
+Allotjament: Estocolmo: Clarion Collection Tapto
+Viatges: Origen -> Estocolmo: tren, Estocolmo -> Origen: tren
