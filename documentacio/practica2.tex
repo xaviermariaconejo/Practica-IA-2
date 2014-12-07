@@ -209,7 +209,17 @@ Per tal de fer les preguntes s'han utilitzat les funcions auxiliars del mòdul u
 
 \subsubsection*{Determinar el model de viatge}
 
-Aquest mòdul simplement és un conjunt de regles senzilles, a l'estil d'implicacions de lògica de predicats que mapeja el model de client a un model de ciutat. En aquest pas és on intentem reduïr el nombre de variables per tal que es pugui acotar fàcilment el model de solució.
+Aquest mòdul simplement és un conjunt de regles senzilles, a l'estil d'implicacions de lògica de predicats que mapeja el model de client a un model de ciutat. En aquest pas és on intentem reduïr el nombre de variables per tal que es pugui acotar fàcilment el model de solució.\\
+
+El nombre de variables que hem escollit és de tres, les quals, es generen de diferents maneres.\\
+
+\item[Tipus ciutat:]Aquesta variable l'obtenim a partir del tipus d'usuari, el tipus d'activitat que ha escollit, i si vol ciutats conegudes o no. La majoria de les regles tenen la mateixa estructura. En primer lloc depenent de quin tipus d'activitat ha escollit, i en algunes ocasions, depenent quin tipus d'usuari, se seleccionen dos valors dels tres possibles. A vegades, dos tipus d'usuaris diferents amb el mateix tipus d'activitats poden un tenir diferents tipus de ciutat, per exemple, si un institut vol un viatge cultural, sempre serà a citats molt conegudes, metre si és un grup d'amics, pot ser una ciutat coneguda.\\
+Després d'haver eliminat un dels possibles valors, s'escull un dels dos restants depenent si vol ciutats poc conegudes o no, això vol dir que si un usuari intenta que no vol ciutats conegudes les ciutats segur que són poc conegudes, sinó que entre els dos valors serà el més desconegut.
+
+\item[Cualitat allotjament:]Aquesta variable l'obtenim a partir del nivell de vida de l'usuari, el numero mínim de dies i el pressupost mínim. Si l'usuari té un nivell de vida alt, vol dir que es pot permetre tot i per tant la qualitat de l'allotjament és alta. Per altra banda, si té un nivell de vida mitja, mirem si el seu pressupost mínim per dia és superior a un número fix que és 1500, si ho és, la qualitat és alta, si no la qualitat és mitja. Per últim, si el seu nivell de vida ens baix, tornem a mirar el pressupost mínim per dia i si és superior a 100 la qualitat, és mitja i si no, la qualitat és baixa.
+
+\item[Tipus activitat:] Aquesta variable és simplement una còpia de la informació obtinguda pel mòdul anterior, ja que no és necessari, de la manera que hem pensat el problema, modificar-la.
+
 
 \subsubsection*{Montar els viatges}
 
