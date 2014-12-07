@@ -13,4 +13,10 @@ entrega:
 	cp scripts/travel-generator.sh Entrega/Documentacio/Script\ Viatges/
 	mkdir Entrega/Ontologia
 	cp ontology/* Entrega/Ontologia
-	tar -zcvf Entrega_SBC.tar.gz Entrega 
+	mkdir Entrega/CLIPS_i_ONTOLOGIA
+	cp -r Entrega/CLIPS Entrega/CLIPS_i_ONTOLOGIA/
+	cp -r Entrega/Ontologia Entrega/CLIPS_i_ONTOLOGIA/
+	cd Entrega;\
+	zip -r CLIPS_i_ONTOLOGIA.zip CLIPS_i_ONTOLOGIA
+	rm -rf Entrega/CLIPS Entrega/Ontologia Entrega/CLIPS_i_ONTOLOGIA
+	zip -y -r -q Entrega_SBC.zip Entrega
