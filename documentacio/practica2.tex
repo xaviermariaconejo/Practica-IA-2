@@ -59,12 +59,12 @@
 \newpage
 
 \section{Anàlisi del problema}
-Aquesta pràctica consisteix en resoldre un problema donat mitjançant un sistema bastat en el coneixement (\emph{SBC}). És primordial a l'hora de dissenyar un \emph{SBC} el fet de realitzar un anàlisi complet del domini del problema des del punt de vista de l'enginyeria del coneixement, ja que usualment, les metodologies clàssiques provinents de l'enginyeria del software no són del tot adequades per a aquesta tasca. Per a resoldre aquest problema hem seguit una versió simplificada d'un d'aquests esquema d'anàlisi i resolució del problema repartit en 5 parts: Identifiació, Conceptualització, Formalització, Implementació i Prova, tal com es proposava a l'enunciat de la pràctica.
+Aquesta pràctica consisteix en resoldre un problema donat mitjançant un sistema bastat en el coneixement (\emph{SBC}). És primordial a l'hora de dissenyar un \emph{SBC} el fet de realitzar un anàlisi complet del domini del problema des del punt de vista de l'enginyeria del coneixement, ja que usualment, les metodologies clàssiques provinents de l'enginyeria del software no són del tot adequades per a aquesta tasca. Per a resoldre aquest problema hem seguit una versió simplificada d'un d'aquests esquema d'anàlisi i resolució del problema repartit en 5 parts: Identificació, Conceptualització, Formalització, Implementació i Prova, tal com es proposava a l'enunciat de la pràctica.
 
 Als apartats que venen a continuació s'expliquen les decisions que hem pres a l'hora de resoldre el problema.
 
 %==========================================================
-%                      1. IDENTIFICACIÓ
+% 1. IDENTIFICACIÓ
 %==========================================================
 \subsection{Identificació}
 El primer punt a tractar a l'hora de resoldre qualsevol problema és una correcta identificació d'aquest, prenent les consideracions necessàries, acotant el domini i definint correctament quin objectiu es vol assolir.
@@ -72,80 +72,79 @@ El primer punt a tractar a l'hora de resoldre qualsevol problema és una correct
 Pel nostre cas, l'objectiu a assolir és la creació d'un \emph{SBC} que serveixi per a recomanar possibles viatges als clients d'una agència de viatges, donades les característiques dels clients, les seves restriccions i/o preferències. Tots els conceptes que hem escollit representar i una justificació pertinent es troben en els apartats de Conceptualització i Formalització.
 \subsubsection{Definició formal de solució}
 \label{sec:solucio_formal}
-Definim més formalment una solució al problema com una llista ordenada de tuples \big \langle Ciutat,Dies\big \rangle{} on, per cada ciutat, es guarda una llista de llocs a visitar i un allotjament d'aquesta ciutat. A més, també cal donar, per cada dos ciutats en el recorregut quin mitjà de transport es farà servir.\\
-Addicionalment s'ha de donar el preu\footnote{Tots els preus calculats són per persona. Hem considerat pertinent fer aquesta simplificació per no haver de tenir en compte els descomptes per grups grans a l'hora de generar la solució.} total del viatge a partir dels preus de totes les coses a realitzar. Tal com es definia a l'enunciat, la resposta del \emph{SBC} ha de ser dues solucions diferents, és a dir, dos recomanacions possibles del viatge.
+Definim més formalment una solució al problema com una llista ordenada de tuples \big \langle Ciutat, Dies\big \rangle{} on, per cada ciutat, es guarda una llista de llocs a visitar i un allotjament d'aquesta ciutat. A més, també cal donar, per cada dues ciutats en el recorregut quin mitjà de transport es farà servir.\\
+Addicionalment s'ha de donar el preu\footnote{Tots els preus calculats són per persona. Hem considerat pertinent fer aquesta simplificació per no haver de tenir en compte els descomptes per grups grans a l'hora de generar la solució.} total del viatge a partir dels preus de totes les coses a realitzar. Tal com es definia a l'enunciat, la resposta del \emph{SBC} ha de ser dues solucions diferents, és a dir, dues recomanacions possibles del viatge.
 
 Definim a continuació alguns dels conceptes emprats en la definició:
 
 \begin{description}
-	\item[Visita:] Definim una \emph{visita} (o \emph{activitat}) com un a tupla \big \langle Nom,Preu,Durada\big \rangle{}. Per cada ciutat la suma de les durades de les activitats no poden superar el tems d'estada a la ciutat. Per exemple (``Visita al London Eye \(Londres\), durada mig dia, preu 25\euro'').
-	\item[Allotjament:] Definim l'\emph{allotjament} anàlogament a la visita, però tenint en compte que la durada d'un allotjament coincideix amb el temps d'estada a la ciutat. Per exemple (``Hotel Juan Carlos I \(Barcelona\), preu per dia 150\euro'').
-	\item[Mitjà de transport:] Un mitjà de transport es defineix entre un parell de ciutats, amb un nom i un identificador. També té un preu. Per exemple (``Vol: Paris-Londres, preu 200\euro'').
+\item[Visita:] Definim una \emph{visita} (o \emph{activitat}) com un a tupla \big \langle Nom, Preu, Durada\big \rangle{}. Per cada ciutat la suma de les durades de les activitats no poden superar el tems d'estada a la ciutat. Per exemple (''Visita al London Eye \(Londres\), durada: mig dia, preu 25\euro'').
+\item[Allotjament:] Definim l'\emph{allotjament} anàlogament a la visita, però tenint en compte que la durada d'un allotjament coincideix amb el temps d'estada a la ciutat. Per exemple (''Hotel Juan Carlos I \(Barcelona\), preu per dia 150\euro'').
+\item[Mitjà de transport:] Un mitjà de transport es defineix entre un parell de ciutats, amb un nom i un identificador. També té un preu. Per exemple (''Vol: Paris-Londres, preu 200\euro'').
 \end{description}
 
 \subsubsection{Justificació de la complexitat del problema}
-No costa gaire convencer-se que la complexitat del problema és bastant superior a quelcom resoluble mitjançant cerca heurística o local.
+No costa gaire convèncer-se que la complexitat del problema és bastant superior a quelcom resoluble mitjançant cerca heurística o local.
 
-Veiem que d'entrada el criteri --o criteris-- a optimitzar no són del tot evidents i variaràn en funció del tipus de client. Per exemple, hi pot haver un client ric que vulgui un viatge de luxe sense importar el preu i també un client de classe mitja/baixa amb una clara restricció de preu. Podem repetir aquest argument pràcticament per tots els punts a considerar a l'hora de fer la solució. Resulta evident que condensar tota aquesta capacitat de decisió en una funció heurística resulta massa complicat com per intentar abordar el problema amb mètodes de cerca. Pensant en això també ens adonem que és primordial el coneixement d'un expert en el domini a l'hora de resoldre el problema, ja que en el tema de les recomanacions no existeix la optimalitat objectiva, i per tant la qualitat de les solucions dependrà del coneixement d'aquest expert i de com bo sigui recomanant viatges per tal de transferir el seu coneixement a l'\emph{SBC}. \\\\ Per tots aquests motius es pot justificar que un \emph{SBC} és una opció adecuada a l'hora de resoldre el problema.
+Veiem que d'entrada el criteri --o criteris-- a optimitzar no són del tot evidents i variaran en funció del tipus de client. Per exemple, hi pot haver un client ric que vulgui un viatge de luxe sense importar el preu i també un client de classe mitjana/baixa amb una clara restricció de preu. Podem repetir aquest argument pràcticament per tots els punts a considerar a l'hora de fer la solució. Resulta evident el fet que condensar tota aquesta capacitat de decisió en una funció heurística resulta massa complicat per a intentar abordar el problema amb mètodes de cerca. Pensant en això també ens adonem que és primordial el coneixement d'un expert en el domini a l'hora de resoldre el problema, ja que en el tema de les recomanacions no existeix la optimalitat objectiva, i per tant la qualitat de les solucions dependrà del coneixement d'aquest expert i de com bo sigui recomanant viatges per tal de transferir el seu coneixement a l'\emph{SBC}. \\\\ Per tots aquests motius es pot justificar que un \emph{SBC} és una opció adequada a l'hora de resoldre el problema.
 
 \subsubsection{Identificació de les fonts del coneixement}
-Tenint clar que cal resoldre el problema dissenyant un \emph{SBC}, el concepte de coneixement es torna primordial. En concret en aquest apartat justifiquem les fonts de coneixement del domini que ens permetràn dissenyar el sistema.
+Tenint clar que cal resoldre el problema dissenyant un \emph{SBC}, el concepte de coneixement es torna primordial. En concret en aquest apartat justifiquem les fonts de coneixement del domini que ens permetran dissenyar el sistema.
 
-D'entrada, veiem clar que no disposem d'un expert en el domini del qual extreure el coneixement, és per això que haurem d'actuar nosaltres mateixos com experts en el tema fent servir el sentit comú a l'hora de prendre les decisions. No obstant, això no vol dir que no ens basem en coneixement real del domini, ja que els viatges són un domini on tothom té cert coneixement: ja sigui per experència pròpia o adquirida.
+D'entrada, veiem clar que no disposem d'un expert en el domini del qual extreure el coneixement, és per això que haurem d'actuar nosaltres mateixos com experts en el tema fent servir el sentit comú a l'hora de prendre les decisions. No obstant això, això no vol dir que no ens basem en coneixement real del domini, ja que els viatges són un domini on tothom té cert coneixement: ja sigui per experiència pròpia o adquirida.
 
-En un escenari més realista per una aplicació real identificariem clarament com a fonts de coneixement els empleats de l'agència de viatges, sobretot els que tinguin contacte directe amb el client, ja que són els que fan justament la feina de l'SBC. Per una altra banda també tenim el coneixement estàtic del món real (ciutats, hotels, etc.) que representarem a l'ontologia del domini.
+En un escenari més realista per una aplicació real identificaríem clarament com a fonts de coneixement els empleats de l'agència de viatges, sobretot els que tinguin contacte directe amb el client, ja que són els que fan justament la feina de l'SBC. Per una altra banda també tenim el coneixement estàtic del món real (ciutats, hotels, etc.) que representarem a l'ontologia del domini.
 
 
 %==========================================================
 %                      2. CONCEPTUALITZACIO
 %==========================================================
 \subsection{Conceptualització}
-Un cop ben definit quin és el problema a resoldre, cal plantejar-se quins son els conceptes importants del domini per tal de representar-los bé com a regles o bé com a coneixement estàtic a l'ontologia. També cal plantejar-se la divisió del problema gran en subproblemes menors que donin lloc a mòduls concrets d'una implementació posterior.
+Un cop ben definit quin és el problema a resoldre, cal plantejar-se quins són els conceptes importants del domini per tal de representar-los bé com a regles o bé com a coneixement estàtic a l'ontologia. També cal plantejar-se la divisió del problema gran en subproblemes menors que donin lloc a mòduls concrets d'una implementació posterior.
 
-\subsubsection{Coneixement estàtic: La ontologia}
+\subsubsection{Coneixement estàtic: L'ontologia}
 
-Un bon punt de partida és la solució del problema. D'allà ja veiem que els conceptes de ciutat, allotjament, mitjà de transport i activitat són necessaris per a l'\emph{SBC}. Aquests conceptes representen el coneixement estàtic del domini del que es disposa sense tenir en compte l'expert. Donada aquesta naturalesa de fets estàtics aquests conceptes seràn els que formaràn part de l'ontologia. Considerem que sense haver d'entrar en detalls d'implementació, la definició d'aquests conceptes ja s'ha fet prou detalladament a l'apartat anterior.
+Un bon punt de partida és la solució del problema. D'allà ja veiem que els conceptes de ciutat, allotjament, mitjà de transport i activitat són necessaris per a l'\emph{SBC}. Aquests conceptes representen el coneixement estàtic del domini del qual es disposa sense tenir en compte l'expert. Donada aquesta naturalesa de fets estàtics aquests conceptes seran els que formaran part de l'ontologia. Considerem que sense haver d'entrar en detalls d'implementació, la definició d'aquests conceptes ja s'ha fet prou detalladament a l'apartat anterior.
 
 \subsubsection{Procés de resolució: Divisió en subproblemes}
 \label{sec:subprob_informal}
 
-Respecte el problema, hem identificat tres parts ben diferenciades: Determinar l'informació de l'usuari, raonar sobre aquella informació per tal de definir quins tipus de viatge són adecuats per ell i montar el viatge final. Més concretament definim aquests problemes com:
+Respecte al problema, hem identificat tres parts ben diferenciades: Determinar la informació de l'usuari, raonar sobre aquella informació per tal de definir quins tipus de viatge són adequats per ell i muntar el viatge final. Més concretament definim aquests problemes com:
 
 \begin{description}
-	\item[Obtenir informació de l'usuari:] L'objectiu d'aquest problema és ben clar: Fer totes les preguntes necesàries a l'usuari per tal de classificar-lo en diversos tipus de perfil (nivell cultural, preferències, restriccions...) tot definint l'arquetip en el que col·loquem el client. És la part del problema que inclou una interacció directa amb l'usuari. 
+\item[Obtenir informació de l'usuari:] L'objectiu d'aquest problema és ben clar: Fer totes les preguntes necessàries a l'usuari per tal de classificar-lo en diversos tipus de perfil (nivell cultural, preferències, restriccions...) tot definint l'arquetip en el qual col·loquem el client. És la part del problema que inclou una interacció directa amb l'usuari.
 
-	\item[Determinar el model de ciutat] Un cop sabem com és l'usuari, el següent pas és definir quins tipus de ciutats recomanarem a l'usuari, és a dir, construir un arquetip e solució.
+\item[Determinar el model de ciutat] Un cop sabem com és l'usuari, el següent pas és definir quins tipus de ciutats recomanarem a l'usuari, és a dir, construir un arquetip e solució.
 
-	\item[Montar el viatge] L'últim pas és, un cop es té el model abstracte de solució, concretar-lo en un conjunt de ciutats, allotjaments i activitats en el format explicat a la definició de la solució.
+\item[Muntar el viatge] L'últim pas és, un cop es té el model abstracte de solució, concretar-lo en un conjunt de ciutats, allotjaments i activitats en el format explicat a la definició de la solució.
 \end{description}
 
 En els apartats \ref{sec:formalitzacio} i \ref{sec:implementacio} es concreten els aspectes formals i tècnics d'aquesta subdivisió de problemes.
-
 
 %==========================================================
 %                      3. FORMALITZACIO
 %==========================================================
 \subsection{Formalització}
 \label{sec:formalitzacio}
-Tenint ja clars els conceptes que intervenen en el domini i sabent com s'ha subdividit el problema en subproblemes menors és el moment de formalitzar aquest coneixement. Cal, per una banda definir una ontologia\footnote{Veure apartat \ref{sec:ontologia} pels detalls sobre la ontologia, en aquest apartat ens centrarem en la descomposició en subproblemes} que representi el coneixement estàtic del domini com un conjunt de classes, atributs i relacions. Per altra banda és necessari definir formalment què ha de resoldre cadascun dels tres subproblemes i quines dades d'entrada i sortida tindrà cadascun d'ells per tal de facilitar l'implementació final.
+Tenint ja clars els conceptes que intervenen en el domini i sabent com s'ha subdividit el problema en subproblemes menors és el moment de formalitzar aquest coneixement. Cal, per una banda definir una ontologia\footnote{Veure apartat \ref{sec:ontologia} pels detalls sobre l'ontologia, en aquest apartat ens centrarem en la descomposició en subproblemes} que representi el coneixement estàtic del domini com un conjunt de classes, atributs i relacions. Per altra banda és necessari definir formalment què ha de resoldre cadascun dels tres subproblemes i quines dades d'entrada i sortida tindrà cadascun d'ells per tal de facilitar la implementació final.
 
 Donem, a continuació, la definició formal dels subproblemes que hem utilitzat juntament amb una explicació de tots els punts pertinents. Per una definició més general de cadascun dels mòduls referir-se a la secció \ref{sec:subprob_informal} d'aquest mateix document.
 
 \subsubsection{Informació de l'usuari: Classificació}
 
-Podem veure aquest mòdul com una cadena de preguntes que pretén classificar l'usuari en unes categories prefixades. Ja es pot parlar de coneixement expert en aquest mòdul, ja que tot i que s'obté pràcticament tota l'informació de l'usuari mitjançant preguntes, no totes les preguntes són necessàries en cada cas i s'obvien en els casos pertintents.
+Podem veure aquest mòdul com una cadena de preguntes que pretén classificar l'usuari en unes categories prefixades. Ja es pot parlar de coneixement expert en aquest mòdul, ja que tot i que s'obté pràcticament tota la informació de l'usuari mitjançant preguntes, no totes les preguntes són necessàries en cada cas i s'obvien en els casos pertinents.
 
 En aquest cas hem dividit el mòdul principal en dos submòduls. El primer es dedica exclusivament a determinar el tipus de client:
 
 \begin{description}
-	\item[Entrada:] Aquest mòdul no té dependències d'altres mòduls i la seva única font d'informació és l'entrada de l'usuari. 
+\item[Entrada:] Aquest mòdul no té dependències d'altres mòduls i la seva única font d'informació és l'entrada de l'usuari.
 
-	\item[Sortida:] La sortida d'aquest mòdul es recull en tota una sèrie de camps obtinguts directament o deduïts a partir de les preguntes que es fan al client.
-	\begin{itemize}
-	\item \emph{Tipus de viatge}. Possibles valors: Cultural, Diversio, Negocis, Romantic, Relax, Aventura.
-	\item \emph{Mitjana d'edat}. Possibles valors: Jove, Adult, Jubilats, Variada.
-	\item \emph{Tipus client}. Possibles valors: Grup Organitzat, Grup Amics, Institut, Familia, Parella, Individual, Companys de feina.
-	\end{itemize}
+\item[Sortida:] La sortida d'aquest mòdul es recull en tota una sèrie de camps obtinguts directament o deduïts a partir de les preguntes que es fan al client.
+\begin{itemize}
+\item \emph{Tipus de viatge}. Possibles valors: Cultural, Diversio, Negocis, Romantic, Relax, Aventura.
+\item \emph{Mitjana d'edat}. Possibles valors: Jove, Adult, Jubilats, Variada.
+\item \emph{Tipus client}. Possibles valors: Grup Organitzat, Grup Amics, Institut, Familia, Parella, Individual, Companys de feina.
+\end{itemize}
 
 \end{description}
 
@@ -154,16 +153,16 @@ En aquest cas hem dividit el mòdul principal en dos submòduls. El primer es de
 El segon mòdul està orientat a obtenir les preferències i/o restriccions que l'usuari vulgui imposar sobre el viatge.
 
 \begin{description}
-	\item[Entrada:] En aquest cas l'entrada correspon també només a l'entrada de l'usuari més alguns camps addicionals del submòdul anterior per tal de obviar algunes pregunes segons calgui.
+\item[Entrada:] En aquest cas l'entrada correspon també només a l'entrada de l'usuari més alguns camps addicionals del submòdul anterior per tal d'obviar algunes preguntes segons calgui.
 
-	\item[Sortida:] La sortida d'aquest mòdul es recull en tota una sèrie de camps obtinguts directament o deduïts a partir de les preguntes que es fan al client. Addicionalment, i com una excepcíó, es classifica l'usuari per nivell de vida en aquest mòdul ja que és on es pregunta pel pressupost. Seria argumentable el posar-lo en el mòdul anterior i en tot cas hem optat per aquesta opció per tal de simplificar la gestió dels mòduls.
-	\begin{itemize}
-	\item \emph{Pressupost}. Dos enters, mínim i màxim d'euros.
-	\item \emph{Duració}. Dos enters, mínim i màxim de dies.
-	\item \emph{Nombre de ciutats} Dos enters, mínim i màxim de ciutats a visitar.
-	\item \emph{Prefereix ciutats exòtiques}. Un predicat simple, si és cert vol dir que l'usuari prefereix centrar el seu viatge en ciutats exòtiques.
-	\item \emph{Nivell de vida}. Possibles valors: Molt alt, Alt, Mig, Baix.
-	\end{itemize}
+\item[Sortida:] La sortida d'aquest mòdul es recull en tota una sèrie de camps obtinguts directament o deduïts a partir de les preguntes que es fan al client. Addicionalment, i com una excepció, es classifica l'usuari per nivell de vida en aquest mòdul, ja que és on es pregunta pel pressupost. Seria argumentable el fet de posar-lo en el mòdul anterior i en tot cas hem optat per aquesta opció per tal de simplificar la gestió dels mòduls.
+\begin{itemize}
+\item \emph{Pressupost}. Dos enters, mínim i màxim d'euros.
+\item \emph{Duració}. Dos enters, mínim i màxim de dies.
+\item \emph{Nombre de ciutats} Dos enters, mínim i màxim de ciutats a visitar.
+\item \emph{Prefereix ciutats exòtiques}. Un predicat simple, si té el valor cert vol dir que l'usuari prefereix centrar el seu viatge en ciutats exòtiques.
+\item \emph{Nivell de vida}. Possibles valors: Molt alt, Alt, Mig, Baix.
+\end{itemize}
 
 \end{description}
 
@@ -190,24 +189,21 @@ El tercer mòdul està orientat a obtenir, a partir del primer mòdul i algunes 
 
 \subsubsection{Montar el viatge}
 
-Aquest últim mòdul té l'objectiu de, donat un arquetip de ciutat i tota l'informació recollida sobre l'usuari, montar un viatge adient per al client tot respectant les restriccions i preferències donades.
-
+Aquest últim mòdul té l'objectiu de, donat un arquetip de ciutat i tota la informació recollida sobre l'usuari, muntar un viatge adient per al client tot respectant les restriccions i preferències donades.
 
 \begin{description}
-	\item[Entrada:] L'entrada aquest cop correspon a la sortida del segon mòdul més l'informació obtinguda al mòdul de preferències.
+\item[Entrada:] L'entrada aquest cop correspon a la sortida del segon mòdul més la informació obtinguda al mòdul de preferències.
 
-	\item[Sortida:] La sortida d'aquest mòdul correspon a una solució especificada a l'apartat \ref{sec:solucio_formal}.	
+\item[Sortida:] La sortida d'aquest mòdul correspon a una solució especificada a l'apartat \ref{sec:solucio_formal}.
 \end{description}
 
 \subsubsection{Identificació dels models de problema}
 
-Donades aquestes definicions de problemes ens adonem com, en sí, tota l'aplicació està resolent un problema d'anàlisi mitjançant classificació heurística en 4 parts: Els dos primers mòduls realitzen les fases de recollida d'informació i d'abstracció, el tercer calcula un model de solució i per últim el quart fa un pas final de refinament per tal de convertir aquest model de solució en una solució concreta donada l'informació del domini.
+Donades aquestes definicions de problemes ens adonem com, en si, tota l'aplicació està resolent un problema d'anàlisi mitjançant classificació heurística en 4 parts: Els dos primers mòduls realitzen les fases de recollida d'informació i d'abstracció, el tercer calcula un model de solució i per últim el quart fa un pas final de refinament per tal de convertir aquest model de solució en una solució concreta donada la informació del domini.
 
 Així mateix, cadascun dels problemes està resolent per si sol un problema més petit, que podem considerar d'anàlisi en tots els casos menys l'últim, on s'està realitzant una tasca clarament de síntesi.
 
-El fet de veure l'aplicació com un agregat de subproblemes desacoplats en gran part, facilita l'ultima tasca d'implementació d'aquesta.
-
-
+El fet de veure l'aplicació com un agregat de subproblemes desacoblats en gran part, facilita l'ultima tasca d'implementació d'aquesta.
 %==========================================================
 %                      4. IMPLEMENTACIO
 %==========================================================
@@ -215,28 +211,26 @@ El fet de veure l'aplicació com un agregat de subproblemes desacoplats en gran 
 \label{sec:implementacio}
 En aquesta secció es detallen les diverses decisions d'implementació que hem pres a l'hora de resoldre el problema plantejat. Cal notar que una explicació més completa sobre l'ontologia del domini es troba a l'apartat \ref{sec:ontologia}.
 
-Un cop detallats tots els subproblemes a resoldre cal proporcionar una implementació per a aquests. En el cas d'aquesta pràctica hem escollit un llenguatge de programació basat en regles: CLIPS, juntament amb un editor d'ontologies per a editar l'informació estàtica de l'aplicació: Protégé.
+Un cop detallats tots els subproblemes a resoldre cal proporcionar una implementació per a aquests. En el cas d'aquesta pràctica hem escollit un llenguatge de programació basat en regles: CLIPS, juntament amb un editor d'ontologies per a editar la informació estàtica de l'aplicació: Protégé.
 
 \subsubsection{Implementació en CLIPS}
-Aquesta ha estat potser la part més important de la implementació de la pràctica. Per a abordar el problema hem dissenyat inicialment un proptotip senzill que feia preguntes bàsiques --preguntant a l'usuari els valors dels deftemplate-- i imprimit viatges quasi aleatoris. Posteriorment hem anat iterant sobre aquest proptotip inicial afegint alguns casos que ens han semblat interessants per tal de generar un conjunt adient de jocs de proves variat.
+Aquesta ha estat potser la part més important de la implementació de la pràctica. Per a abordar el problema hem dissenyat inicialment un prototip senzill que feia preguntes bàsiques --preguntant a l'usuari els valors dels deftemplate-- i imprès viatges quasi aleatoris. Posteriorment hem anat iterant sobre aquest prototip inicial afegint alguns casos que ens han semblat interessants per tal de generar un conjunt adient de jocs de proves variat.
 
-Les ultimes iteracions del problema les hem dedicat especialment a millorar la qualitat dels viatges generats, tenint en compte cada vegada més variables com el pressupost, nombre màxim i mínim de dies i ciutats i d'altres preferències de l'usuari com poden ser el fet que vulgui visitar ciutats exòtiques.
+Per les últimes iteracions del problema ens hem dedicat especialment a millorar la qualitat dels viatges generats, tenint en compte cada vegada més variables com el pressupost, nombre màxim i mínim de dies i ciutats i d'altres preferències de l'usuari com poden ser el fet que vulgui visitar ciutats exòtiques.
 
-Durant tota l'implementació hem intentat simular en molts punts el coneixement de l'expert prenent decisions anticipades a l'informació que dona l'usuari, o presuposant coses que aquest no ha dit explícitament. Malauradament, al no ser experts en la matèria i sense el coneixement d'un expert real aquests intents de simulació en alguns casos resulten en assumpcions una mica agoserades.
+Durant tota la implementació hem intentat simular en molts punts el coneixement de l'expert prenent decisions anticipades a la informació que dóna l'usuari, o pressuposant coses que aquest no ha dit explícitament. Malauradament, com que no som experts en la matèria i sense el coneixement d'un expert real aquests intents de simulació en alguns casos resulten en assumpcions una mica agosarades.
 
-\subsubsection*{Preguntes a l'usuari\footnote{L'implementació d'aquests dos mòduls es pot consultar a l'arxiu \texttt{determinar-usuari.clips}}}
+\subsubsection*{Preguntes a l'usuari\footnote{La implementació d'aquests dos mòduls es pot consultar a l'arxiu \texttt{determinar-usuari.clips}}}
 
+Per al mòdul de preguntes a l'usuari hem seguit una estratègia de cadena de preguntes, fent èmfasi en intentar obtenir el màxim d'informació fent el mínim de preguntes per tal de no molestar en excés a l'usuari. No obstant cal notar que el cas d'ús habitual del sistema implica que cada usuari no el farà servir de manera continuada, així que el fet que les preguntes s'estenguin una mica no suposa un problema important.
 
-
-Per al mòdul de preguntes a l'usuari hem seguit una estratègia de cadena de preguntes, fent èmfasi en intentar obtenir el màxim d'informació fent el mínim de preguntes per tal de no molestar en excés a l'usuari. No obstant cal notar que el cas d'ús habitual del sistema implica que cada usuari no el farà servir de manera continuada, així que el fet que les preguntes s'extenguin una mica no suposa un problema important.
-
-En la major part dels casos s'ha optat per preguntes directes i inambigues que no facin pensar massa a l'usuari. Per exemple: ``Quin nombre màxim i mínim de dies vols viatjar?''. Aquesta elecció s'ha pres per tal de facilitar la recollida d'informació.
+En la major part dels casos s'ha optat per preguntes directes i no ambigües que no facin pensar massa a l'usuari. Per exemple: ``Quin nombre màxim i mínim de dies vols viatjar?''. Aquesta elecció s'ha pres per tal de facilitar la recollida d'informació.
 
 Per tal de fer les preguntes s'han utilitzat les funcions auxiliars del mòdul utils, disponible a \texttt{utils.clips}.
 
 \subsubsection*{Determinar el model de viatge}
 
-Aquest mòdul simplement és un conjunt de regles senzilles, a l'estil d'implicacions de lògica de predicats que mapeja el model de client a un model de ciutat. En aquest pas és on intentem reduïr el nombre de variables per tal que es pugui acotar fàcilment el model de solució.\\
+Aquest mòdul simplement és un conjunt de regles senzilles, a l'estil d'implicacions de lògica de predicats que mapeja el model de client a un model de ciutat. En aquest pas és on intentem reduir el nombre de variables per tal que es pugui acotar fàcilment el model de solució.\\
 
 El nombre de variables que hem escollit és de tres, les quals, es generen de diferents maneres:
 
@@ -245,7 +239,7 @@ El nombre de variables que hem escollit és de tres, les quals, es generen de di
 
 Després d'haver eliminat un dels possibles valors, s'escull un dels dos restants depenent si vol ciutats poc conegudes o no, això vol dir que si un usuari indica que no vol ciutats conegudes les ciutats segur que són poc conegudes, altrament, d'entre els dos valors s'escollirà el que afavoreixi ciutats més desconegudes.
 
-\item[Cualitat allotjament:]Aquesta variable l'obtenim a partir del nivell de vida de l'usuari, el numero mínim de dies i el pressupost mínim. Si l'usuari té un nivell de vida alt, vol dir que es pot permetre de tot en el viatge i per tant la qualitat de l'allotjament és alta. Per altra banda, si té un nivell de vida mitja, mirem si el seu pressupost mínim per dia és superior a una constant\footnote{Hem escollit 1500 en aquest cas, caldria un estudi posterior per veure si aquest valor és prou correcte. No obstant no comptem amb dades reals a l'ontologia com per fer un anàlisi real}, si ho és, la qualitat és alta, sinó la qualitat és mitja. Per últim, si el seu nivell de vida ens baix, tornem a mirar el pressupost mínim per dia i si és superior a 100 la qualitat, és mitja i si no, la qualitat és baixa.
+\item[Qualitat allotjament:]Aquesta variable l'obtenim a partir del nivell de vida de l'usuari, el numero mínim de dies i el pressupost mínim. Si l'usuari té un nivell de vida alt, vol dir que es pot permetre de tot en el viatge i per tant la qualitat de l'allotjament és alta. Per altra banda, si té un nivell de vida mitjà, mirem si el seu pressupost mínim per dia és superior a una constant\footnote{Hem escollit 1500 en aquest cas, caldria un estudi posterior per veure si aquest valor és prou correcte. No obstant no comptem amb dades reals a l'ontologia com per fer un anàlisi real}, si ho és, la qualitat és alta, si no la qualitat és mitja. Per últim, si el seu nivell de vida ens baix, tornem a mirar el pressupost mínim per dia i si és superior a 100 la qualitat, és mitja i si no, la qualitat és baixa.
 
 \item[Tipus activitat:] Aquesta variable és simplement una còpia de la informació obtinguda pel mòdul anterior, ja que no és necessari, de la manera que hem pensat el problema, modificar-la.
 \end{description}
@@ -253,27 +247,25 @@ Després d'haver eliminat un dels possibles valors, s'escull un dels dos restant
 
 \subsubsection*{Montar els viatges}
 
-Aquest ha estat el mòdul el qual ha requerit més esforç a l'hora d'implementar-lo. L'implementació es pot consultar a l'arxiu \texttt{montar-viatges.clips}.
+Aquest ha estat el mòdul el qual ha requerit més esforç a l'hora d'implementar-lo. La implementació es pot consultar a l'arxiu \texttt{montar-viatges.clips}.
 
 Com que determinar les ciutats i els viatges entre aquestes és un problema d'una complexitat considerable (més que exponencial) obtenir una solució òptima no és factible, així que hem optat per una solució voraç.
 
-En primer lloc l'algoritme intenta cobrir els requisits mínims de dies, ciutats i preu del viatge sense passar-se de cap dels tres escollint ciutats de manera pseudo-aleatòria dins de les ciutats de la temàtica sel·leccionada. Un cop escollides les ciutats s'escullen hotels i activitats tenint en compte l'estatus social de l'usuari. Si aquest és molt ric, s'escolliràn tot tipus d'activitats diferents i de preus elevats, altrament s'escolliran activitats més barates i possiblement en menys quantitat.
+En primer lloc l'algoritme intenta cobrir els requisits mínims de dies, ciutats i preu del viatge sense passar-se de cap dels tres escollint ciutats de manera pseudoaleatòria dins de les ciutats de la temàtica seleccionada. Un cop escollides les ciutats s'escullen hotels i activitats tenint en compte l'estatus social de l'usuari. Si aquest és molt ric, s'escolliran tot tipus d'activitats diferents i de preus elevats, altrament s'escolliran activitats més barates i possiblement en menys quantitat.
 
-Posteriorment, si ha sobrat pressupost, l'algoritme intenta fer un segon pas de refinament a la solució per tal de afegir hotels de més qualitat o més activitats, intentant no passar-se del pressupost final.
+Posteriorment, si ha sobrat pressupost, l'algoritme intenta fer un segon pas de refinament a la solució per tal d'afegir hotels de més qualitat o més activitats, intentant no passar-se del pressupost final.
 
-Per generar les dos solucions alhora utilitzem les pròpies regles de producció que ens ofereix clips, creant dues instàncies de solució i agafant les instàncies de solució a la precondició de cada regla.
+Per generar les dues solucions alhora utilitzem les mateixes regles de producció que ens ofereix clips, creant dues instàncies de solució i agafant les instàncies de solució a la precondició de cada regla.
 
-A més, per tal d'assolir un comportament més sequencial, hem hagut d'establir la dependència lineal entre els diversos passos de construcció del viatge. 
+A més, per tal d'assolir un comportament més seqüencial, hem hagut d'establir la dependència lineal entre els diversos passos de construcció del viatge.
 
-Un cop s'ha generat una solució de viatge completa s'imprimeix per pantalla amb un message handler.
+Un cop s'ha generat una solució completa s'imprimeixen els viatges per pantalla amb un message handler.
 
-Cal comentar que ens ha estat impossible carregar l'ontologia en un arxiu a part ja que clips no és capaç de buscar instàncies fora del mòdul actual si no és amb un find-all-instances. Així, si creem una funció que rep una ciutat per paràmetre, els mètodes definits per a aquell paràmetre només es buscaràn dins el mòdul actual. És per això que tota l'ontologia s'inclou en el mateix fitxer que aquest mòdul.
-
-
+Cal comentar que ens ha estat impossible carregar l'ontologia en un arxiu a part, ja que clips no és capaç de buscar instàncies fora del mòdul actual si no és amb un find-all-instances. Així, si creem una funció que rep una ciutat per paràmetre, els mètodes definits per a aquell paràmetre només es buscaran dins el mòdul actual. És per això que tota l'ontologia s'inclou en el mateix fitxer que aquest mòdul.
 
 
 \subsubsection{Implementació de l'ontologia}
-L'implementació de l'ontologia ha estat pràcticament una traducció directa de les idees de l'apartat \ref{sec:ontologia} al propi Protégé. La major part de les instàncies s'han omplert manualment. Cal destacar, però, el cas de les instàncies dels viatges, les quals no han estat generades manualment des de Protégé sino que han estat generades a partir d'un script en bash que emparella totes les ciutats amb vols, i assigna altres mitjans de transport de més baix pressupost. És per això que les instancies de la classe Viatge es troben en l'ontologia del codi CLIPS però no a la ontologia en Protégé. Es pot consultar l'script utilitzat al fitxer adjunt \texttt{travel-generator.sh}
+L'implementació de l'ontologia ha estat pràcticament una traducció directa de les idees de l'apartat \ref{sec:ontologia} al mateix Protégé. La major part de les instàncies s'han omplert manualment. Cal destacar, però, el cas de les instàncies dels viatges, les quals no han estat generades manualment des de Protégé sinó que han estat generades a partir d'un script en bash que emparella totes les ciutats amb vols, i assigna altres mitjans de transport de més baix pressupost. És per això que les instancies de la classe Viatge es troben en l'ontologia del codi CLIPS però no a l'ontologia en Protégé. Es pot consultar l'script utilitzat al fitxer adjunt \texttt{travel-generator.sh} a la carpeta de l'ontologia.
 
 
 \clearpage
@@ -294,9 +286,9 @@ Aquesta és una part constant que conté la informació que proporciona l'expert
 \begin{description}
 \item[Ciutat:]Aquesta classe conte dos atributs, el nom que és un String per identificar-la i la importància, que és un símbol, que pot tenir els valors molt coneguda, coneguda i desconeguda, ja que depenent de l'usuari, aquest voldrà anar a un tipus o un altre.
 
-Aquesta classe està relacionada amb la classe activitat i un altre amb allotjament, ambdós amb un multislot. Aquest serveix per guardar quines són les activitats i l'allotjaments que ofereix cada ciutat i així saber que si una persona va a una ciutat quines activitats pot fer i a quins hotels es pot allotjar.
+Aquesta classe està relacionada amb la classe activitat i un altre amb allotjament, ambdós amb un multislot. Aquest serveix per guardar quines són les activitats i els allotjaments que ofereix cada ciutat i així saber que si una persona va a una ciutat quines activitats pot fer i a quins hotels es pot allotjar.
 
-La classe ciutat queda partida en cinc subclasses, que al mateix temps es divideixen en successives subclasses en alguns casos. Això ens ajuda a l'hora de crear els vols, ja que, si són d'un altra zona, el preu serà més elevat que si són de la mateixa.
+La classe ciutat queda partida en cinc subclasses, que al mateix temps es divideixen en successives subclasses en alguns casos. Això ens ajuda a l'hora de crear els vols, ja que, si són d'una altra zona, el preu serà més elevat que si són de la mateixa.
 
 \item[Allotjament:] Aquesta classe conte dos atributs, el nom de l'allotjament, en un String, per poder identificar-ho i un altre atribut que és el preu de l'allotjament per dia i persona, que es guarda com un enter, que ens serveix per calcular els diners que es gastarà un usuari.
 
@@ -306,17 +298,16 @@ Aquesta classe també té cinc subclasses que s'utilitzen per identificar la qua
 
 També conte unes subclasses per identificar el tipus de l'activitat i així escollir activitats al gust de l'usuari.
 
-
-\item[Viatge:] Aquesta classe conte dos atributs, el primer, com en les dues ultimes classes, és un enter que s'utilitza per guardar el preu del viatge, el segon, es guarda com un symbol que identifica el tipus de transport que utilitza aquell viatge i pot tenir quatre valors: avio, tren, autobús i vaixell.
+\item[Viatge:] Aquesta classe conte dos atributs, el primer, com en les dues ultimes classes, és un enter que s'utilitza per guardar el preu del viatge, el segon, es guarda com un símbol que identifica el tipus de transport que utilitza aquell viatge i pot tenir quatre valors: avio, tren, autobús i vaixell.
 
 També conte una doble relació amb la classe ciutat. Aquesta relació ens dóna la informació de quin és l'origen i el destí del viatge.
 \end{description}
 
-\subsection{Solució} 
+\subsection{Solució}
 Aquesta part de l'ontologia no representa coneixement estàtic sobre el domini pròpiament dit, sinó que més aviat conté estructures de dades que permetin al sistema expert estructurar la informació sobre les solucions que generi del problema. En aquesta part està formada per dues classes.
 
 \begin{description}
-\item[Solució parcial:] Definim una solució parcial com l'etapa que passa l'usuari en una ciutat del viatge. Amb aquesta definició podem deduïr que tindrà relacions amb tres classes diferents.
+\item[Solució parcial:] Definim una solució parcial com l'etapa que passa l'usuari en una ciutat del viatge. Amb aquesta definició podem deduir que tindrà relacions amb tres classes diferents.
 
 Primer tenim la ciutat a la qual correspon aquesta solució parcial, després l'hotel de la ciutat en el que s'allotja i per últim un conjunt d'activitats que són les que es faran.
 
@@ -329,7 +320,7 @@ Després tenim dos atributs, el primer és el preu que costa fer tota la soluci�
 \clearpage
 
 \subsection{Representació de l'ontologia}
-En aquest apartat s'inclou un a representació gràfica de l'ontologia generada. Cal notar que, per motius evidents no ens ha estat possible incloure-la en un nivell de resolució prou adequat per tal que es puguin observar tots els detalls. És per això que s'adjunta l'arxiu \texttt{ontologia-grafic.png} amb una representació en alta resolució generada pel programa Protégé.
+Per motius evidents no ens ha estat possible incloure l'ontologia en un nivell de resolució prou adequat en aquest document per a què es puguin observar tots els detalls. És per això que s'adjunta l'arxiu \texttt{ontologia-grafic.png} amb una representació en alta resolució generada pel programa Protégé.
 
 
 \clearpage
@@ -338,7 +329,7 @@ En aquest apartat s'inclou un a representació gràfica de l'ontologia generada.
 %                    6. JOCS DE PROVES
 %==========================================================
 \section{Jocs de proves}
-En aquesta secció presentem diversos jocs de proves generats per tal d'evaluar el rendiment i qualitat del nostre \emph{SBC} tot comentant els resultats obtinguts. Per cadascuna de les proves hem inclòs les condicions\footnote{Cal dir que en aquest document només s'intenta donar una idea qualitativa de quina informació es donarà a l'\emph{SBC}. A l'inici de cada apartat es fa menció al fitxer adjunt que conté l'execució completa.}, comportament esperat i resultat de la prova. Al final de cada prova s'inclouen comentaris sobre els resultats.
+En aquesta secció presentem diversos jocs de proves generats per tal d'avaluar el rendiment i qualitat del nostre \emph{SBC} tot comentant els resultats obtinguts. Per cadascuna de les proves hem inclòs les condicions\footnote{Cal dir que en aquest document només s'intenta donar una idea qualitativa de quina informació es donarà a l'\emph{SBC}. A l'inici de cada apartat es fa menció al fitxer adjunt que conté l'execució completa.}, comportament esperat i resultat de la prova. Al final de cada prova s'inclouen comentaris sobre els resultats.
 
 
 %==========================================================
