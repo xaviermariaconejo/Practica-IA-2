@@ -342,16 +342,43 @@ Per aquesta prova demanarem una recomanació de viatge d'una parella jove a l'\e
 \noindent
 \begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
 \hline
-\textbf{\mbox{Condicions de la} \mbox{prova}} & Cas típic de viatge de parella de caire romàntic per diverses ciutats poc conegudes. Entre 3 i 5 dies i per menys de 800\euro{} per persona.\\
+\textbf{\mbox{Condicions de la} \mbox{prova}} & Cas típic de viatge de parella de caire romàntic per una ciutat poc coneguda. Entre 3 i 5 dies i per menys de 500\euro{} per persona.\\
 \hline
-\textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Donada la naturalesa del viatge demanat esperem que l'SBC esculli un conjunt de ciutats exòtiques arreu del mon. No obstant donada la forta restricció de preu és d'esperar que s'escullin activitats de baix cost i hotels més aviat barats. Cal comentar també que s'espera que les activitats siguin de caire romàntic, donat que és la naturalesa principal del viatge. \\
-\hline
-\textbf{\mbox{Resultats de la} \mbox{prova}} & \\
+\textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Donada la naturalesa del viatge demanat esperem que l'SBC esculli una ciutats exòtica arreu del mon. No obstant donada la forta restricció de preu és d'esperar que s'escullin activitats de baix cost i hotels més aviat barats. Cal comentar també que s'espera que les activitats siguin de caire romàntic, donat que és la naturalesa principal del viatge. \\
 \hline
 \end{tabular}
+\bigskip
+\textbf{\mbox{Resultats de la} \mbox{prova}}\begin{lstlisting}
+VIATGE 1:
+
+Preu total (persona): 307 euros
+
+DuraciÃ³ del viatge: 5.0 dies
+
+Ciutats: Cancun (5.0 dies)
+Visites: Cancun: Columbus Lobster Cruise
+Allotjament: Cancun: The Royal Islander
+Viatges: Origen -> Cancun: tren, Cancun -> Origen: tren
+
+VIATGE 2:
+
+Preu total (persona): 340 euros
+
+DuraciÃ³ del viatge: 5.0 dies
+
+Ciutats: Estocolmo (5.0 dies)
+Visites: Estocolmo: Barrio Ostermalm
+Allotjament: Estocolmo: Clarion Collection Tapto
+Viatges: Origen -> Estocolmo: tren, Estocolmo -> Origen: tren
+
+\end{lstlisting}
 \medskip
 
-Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequat faucibus enim eget ullamcorper. Sed sapien odio, convallis et risus ac, condimentum tincidunt diam. Phasellus rutrum ullamcorper sem, id finibus lectus maximus sed. Nunc non ornare est, quis sodales ligula. Duis laoreet nisl vel magna auctor imperdiet. Maecenas ac magna vitae enim facilisis pharetra nec nec magna.
+Cal destacar que l'SBC ha estat capaç de trobar dos viatges diferents donats els requisits dels usuaris. No obstant això, podem veure que el preu del viatge està molt per sota de la limitació màxima dels clients i que es podien haver escollit hotels més cars.
+
+Veiem també com el sistema ha decidit centrar el viatge en una temàtica romantica, i les activitats s'han escollit pertinentment per tal de reflexar aquest fet.
+
+En general, estem satisfets amb el resultat del joc de proves.
 
 
 %==========================================================
@@ -363,16 +390,44 @@ Per aquesta prova demanarem una recomanació de viatge de final de curs a l'\emp
 \noindent
 \begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
 \hline
-\textbf{\mbox{Condicions de la} \mbox{prova}} & Es demanarà un viatge per una classe d'institut de 25 persones. Donat el baix pressupost d'aquest tipus de viatges demanarem menys de 350\euro{} per persona. Demanarem activitats de caire cultural. Es demanarà un viatge d'entre 4 i 6 dies, anant com a molt a dues ciutats.\\
+\textbf{\mbox{Condicions de la} \mbox{prova}} & Es demanarà un viatge per una classe d'institut de 25 persones. Donat el baix pressupost d'aquest tipus de viatges demanarem menys de 450\euro{} per persona. Demanarem activitats de caire cultural. Es demanarà un viatge d'entre 3 i 6 dies, anant com a molt a dues ciutats.\\
 \hline
 \textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Estimem que l'SBC donarà un viatge vàlid dins les restriccions demanades. Tenint en compte el pressupost esperem que s'escullin activitats i hotels de baix pressupost. \\
 \hline
-\textbf{\mbox{Resultats de la} \mbox{prova}} & \\
-\hline
 \end{tabular}
+\bigskip
+\textbf{\mbox{Resultats de la} \mbox{prova}}\begin{lstlisting}
+VIATGE 1:
+
+Preu total (persona): 399 euros
+
+DuraciÃ³ del viatge: 6.0 dies
+
+Ciutats: Roma (2.0 dies), Venecia (2.0 dies), Paris (2.0 dies)
+Visites: Roma: Capilla Sixtina, Fontana di Trevi, Colosseo; Venecia: Puentes de Venecia; Paris: Museu Louvre, Arco del Triunfo
+Allotjament: Roma: Albergo del Senato, Venecia: Antiche Figure, Paris: Hotel Joyce
+Viatges: Origen -> Roma: tren, Roma -> Venecia: tren, Venecia -> Paris: tren, Paris -> Origen: avio
+
+VIATGE 2:
+
+Preu total (persona): 369 euros
+
+DuraciÃ³ del viatge: 6.0 dies
+
+Ciutats: Nueva York (2.0 dies), Venecia (2.0 dies), Paris (2.0 dies)
+Visites: Nueva York: Museo Metropolitano de Arte; Venecia: Puentes de Venecia; Paris: Arco del Triunfo, Museu Louvre
+Allotjament: Nueva York: Distrikt Hotel, Venecia: Antiche Figure, Paris: Hotel Joyce
+Viatges: Origen -> Nueva York: tren, Nueva York -> Venecia: tren, Venecia -> Paris: tren, Paris -> Origen: avio
+
+
+\end{lstlisting}
 \medskip
 
-Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequat faucibus enim eget ullamcorper. Sed sapien odio, convallis et risus ac, condimentum tincidunt diam. Phasellus rutrum ullamcorper sem, id finibus lectus maximus sed. Nunc non ornare est, quis sodales ligula. Duis laoreet nisl vel magna auctor imperdiet. Maecenas ac magna vitae enim facilisis pharetra nec nec magna.
+Cal destacar que l'SBC ha estat capaç de trobar dos viatges diferents donats els requisits dels usuaris, ja que, l'ontologia conté una gran quantitat de ciutats amb activitats culturals.
+
+Veiem també com el sistema ha decidit centrar el viatge en una temàtica cultural, i les activitats s'han escollit pertinentment per tal de reflexar aquest fet.
+
+En general, estem satisfets amb el resultat del joc de proves.
 
 %==========================================================
 %                    VIATGE RIC
@@ -384,16 +439,45 @@ Per aquesta prova demanarem una recomanació de viatge a l'\emph{SBC} per una pe
 \begin{tabular}{|p{0.28\textwidth}|p{0.73\textwidth}|}
 
 \hline
-\textbf{\mbox{Condicions de la} \mbox{prova}} & Es demanarà un viatge sense cap limitació pel pressupost per una única persona d'edat adulta, buscant una temàtica principalment de relax. Com a restriccions es demanarà que el viatge duri dues setmanes i es volen visitar almenys 6 ciutats\\
+\textbf{\mbox{Condicions de la} \mbox{prova}} & Es demanarà un viatge sense cap limitació pel pressupost per una única persona d'edat adulta, buscant una temàtica principalment de diversió. Com a restriccions es demanarà que el viatge duri 12 dies i es volen visitar almenys 4 ciutats\\
 \hline
-\textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Creiem que el sistema expert donarà un viatge substancialment més car que en els casos anteriors. Donat l'elevat nombre de ciutats a l'ontologia que ofereixen una temàtica de relax s'espera que pugui generar dos viatges diferents, tot i que amb molta seguretat es repeteixi alguna ciutat. Lògicament el preu de les activitats serà el més elevat.\\
-\hline
-\textbf{\mbox{Resultats de la} \mbox{prova}} & \\
+\textbf{Comportament \mbox{esperat de l'\emph{SBC}}} & Creiem que el sistema expert donarà un viatge substancialment més car que en els casos anteriors. Donat el baix nombre de ciutats a l'ontologia que ofereixen una temàtica de diversió no se sap si els viatges seran diferents. Lògicament el preu de les activitats serà el més elevat.\\
 \hline
 \end{tabular}
+\bigskip
+\textbf{\mbox{Resultats de la} \mbox{prova}} & 
+\begin{lstlisting}
+VIATGE 1:
+Preu total (persona): 4759 euros
+
+DuraciÃ³ del viatge: 12.0 dies
+
+Ciutats: Rio de Janeiro (3.0 dies), Barcelona (3.0 dies), Montecarlo (3.0 dies), Paris (3.0 dies)
+Visites: Rio de Janeiro: Lavanda Fitness Spa, RJ Massagem; Barcelona: Spa Aire; Montecarlo: Japanese Gardens, Le Bar Americain; Paris: Mamabali, Aquamoon Spa
+Allotjament: Rio de Janeiro: Miramar Hotel by Windsor, Barcelona: Juan Carlos I, Montecarlo: Hermitage, Paris: Le Bristol Paris
+Viatges: Origen -> Rio de Janeiro: avio, Rio de Janeiro -> Barcelona: avio, Barcelona -> Montecarlo: avio, Montecarlo -> Paris: avio, Paris -> Origen: tren
+
+VIATGE 2:
+
+Preu total (persona): 4911 euros
+
+DuraciÃ³ del viatge: 12.0 dies
+
+Ciutats: Rio de Janeiro (3.0 dies), Paris (3.0 dies), Barcelona (3.0 dies), Montecarlo (3.0 dies)
+Visites: Rio de Janeiro: RJ Massagem, Lavanda Fitness Spa; Paris: Mamabali, Aquamoon Spa; Barcelona: Spa Aire; Montecarlo: Le Bar Americain, Japanese Gardens
+Allotjament: Rio de Janeiro: Miramar Hotel by Windsor, Paris: Le Bristol Paris, Barcelona: Juan Carlos I, Montecarlo: Hermitage
+Viatges: Origen -> Rio de Janeiro: avio, Rio de Janeiro -> Paris: avio, Paris -> Barcelona: avio, Barcelona -> Montecarlo: avio, Montecarlo -> Origen: avio
+
+
+\end{lstlisting} 
+
 \medskip
 
-Aenean tristique fermentum mauris, a pharetra ex varius rutrum. Aliquam consequat faucibus enim eget ullamcorper. Sed sapien odio, convallis et risus ac, condimentum tincidunt diam. Phasellus rutrum ullamcorper sem, id finibus lectus maximus sed. Nunc non ornare est, quis sodales ligula. Duis laoreet nisl vel magna auctor imperdiet. Maecenas ac magna vitae enim facilisis pharetra nec nec magna.
+Cal destacar que l'SBC ha estat capaç de crear dos viatges diferents donats els requisits dels usuaris. Encara són diferents, aquests viatges tenen les mateixes ciutats, el que vol dir que només canvia l'ordre i es deu a la poca diversitat de ciutats amb els requeriments de l'usuari.
+
+Veiem també com el sistema ha decidit centrar el viatge en una temàtica de diversió, i les activitats s'han escollit pertinentment per tal de reflexar aquest fet.
+
+En general, estem satisfets amb el resultat del joc de proves.
 
 %==========================================================
 %                    IMSERSO

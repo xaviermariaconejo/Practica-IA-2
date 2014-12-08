@@ -1,0 +1,46 @@
+Per quantes persones Ã©s el viatge?1
+Prefereix un viatge de relax o diversiÃ³. (Relax Diversio )
+Relax
+
+Li agradaria viatjar per ciutats poc conegudes? (si/no)
+no
+
+Prefereix centrar el seu viatge a una Ãºnica ciutat (si/no)
+no
+
+
+minim: 4
+
+maxim: 4
+
+Quin nombre minim i maxim de dies vols viatjar?
+minim: 12
+
+maxim: 12
+
+Li importa el preu del viatge? (si/no)
+no
+
+===============================
+      VIATGE <Instance-Possible-Solucio1>
+===============================
+Preu total (persona): 4759 euros
+
+DuraciÃ³ del viatge: 12.0 dies
+
+Ciutats: Rio de Janeiro (3.0 dies), Barcelona (3.0 dies), Montecarlo (3.0 dies), Paris (3.0 dies)
+Visites: Rio de Janeiro: Lavanda Fitness Spa, RJ Massagem; Barcelona: Spa Aire; Montecarlo: Japanese Gardens, Le Bar Americain; Paris: Mamabali, Aquamoon Spa
+Allotjament: Rio de Janeiro: Miramar Hotel by Windsor, Barcelona: Juan Carlos I, Montecarlo: Hermitage, Paris: Le Bristol Paris
+Viatges: Origen -> Rio de Janeiro: avio, Rio de Janeiro -> Barcelona: avio, Barcelona -> Montecarlo: avio, Montecarlo -> Paris: avio, Paris -> Origen: tren
+
+===============================
+      VIATGE <Instance-Possible-Solucio2>
+===============================
+Preu total (persona): 4911 euros
+
+DuraciÃ³ del viatge: 12.0 dies
+
+Ciutats: Rio de Janeiro (3.0 dies), Paris (3.0 dies), Barcelona (3.0 dies), Montecarlo (3.0 dies)
+Visites: Rio de Janeiro: RJ Massagem, Lavanda Fitness Spa; Paris: Mamabali, Aquamoon Spa; Barcelona: Spa Aire; Montecarlo: Le Bar Americain, Japanese Gardens
+Allotjament: Rio de Janeiro: Miramar Hotel by Windsor, Paris: Le Bristol Paris, Barcelona: Juan Carlos I, Montecarlo: Hermitage
+Viatges: Origen -> Rio de Janeiro: avio, Rio de Janeiro -> Paris: avio, Paris -> Barcelona: avio, Barcelona -> Montecarlo: avio, Montecarlo -> Origen: avio
