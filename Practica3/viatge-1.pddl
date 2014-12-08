@@ -22,11 +22,16 @@
     (va-a vuelo3 ciutat1 ciutat2)
     (va-a vuelo4 ciutat3 ciutat2)
     (esta-a ciutat1)
-    (= (actual) 0)
-    (= (ciudades-totales) 2)
   	
   ) 
 
   (:goal
-  	(eq (actual) (dias-totales))
-  ))
+  	(and (exists (?c1 ?c2 ?c3 - ciudad) 
+            (and (not (ciudad-empty ?c1)) 
+                 (not (ciudad-empty ?c2))
+                 (not (ciudad-empty ?c3))                 
+            )
+         )
+    )
+  )
+)

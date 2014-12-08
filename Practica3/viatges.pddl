@@ -1,10 +1,6 @@
 (define (domain viatge)
-	(:requirements :strips :typing :adl :equality :fluents)
+	(:requirements :strips :typing :adl :equality)
 	(:types ciudad hotel vuelo)
-	(:functions
-		(actual)
-		(ciudades-totales)
-	)
 	(:predicates
 		(es-de ?c - ciudad ?h - hotel)
 		(va-a ?v - vuelo ?c1 - ciudad ?c2 - ciudad)
@@ -16,7 +12,7 @@
 	(:action reservar-hotel
 		:parameters (?c - ciudad ?h - hotel)
 		:precondition (and (esta-a ?c) (ciudad-empty ?c) (es-de ?c ?h))
-		:effect(and (not (ciudad-empty ?c)) (allotja-a ?c ?h) (increase (actual) 1))
+		:effect(and (not (ciudad-empty ?c)) (allotja-a ?c ?h))
 	)
 	(:action reservar-vol
 	  	:parameters (?v - vuelo ?c1 - ciudad ?c2 - ciudad)
