@@ -7,6 +7,8 @@
 		(min-dias-total)
 		(min-dias-ciudad)
 		(max-dias-ciudad)
+		(dias-totales)
+		(dias-ciudad ?c - ciudad)
 	)
 	(:predicates
 		(es-de ?c - ciudad ?h - hotel)
@@ -28,8 +30,23 @@
 	)
 	(:action reservar-vol
 	  	:parameters (?v - vuelo ?c1 - ciudad ?c2 - ciudad)
-		:precondition (and (esta-a ?c1) (not (ciudad-empty ?c1)) (ciudad-empty ?c2) (va-a ?v ?c1 ?c2))
-		:effect (and (not (esta-a ?c1)) (esta-a ?c2))
+		:precondition (and (esta-a ?c1) 
+						   (not (ciudad-empty ?c1)) 
+						   (ciudad-empty ?c2) 
+						   (va-a ?v ?c1 ?c2)
+					  )
+		:effect (and (not (esta-a ?c1)) 
+					 (esta-a ?c2) 
+					 (increase (dias-totales) (min-dias-ciudad)) 
+					 (= (dias-ciudad ?c2) (min-dias-ciudad))
+				)
+	)
+
+	(:action mas-dias
+	  :parameters (?c - object)
+	  :precondition (and (not (ciudad-empty ?c)))
+	  :effect (and (increase (dias-totales) 1) 
+				   (increase (dias-ciudad ?c) 1))
 	)
 	
 )

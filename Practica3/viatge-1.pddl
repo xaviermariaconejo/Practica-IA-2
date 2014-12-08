@@ -23,10 +23,14 @@
     (va-a vuelo4 ciutat3 ciutat2)
     (= (actual) 0)
     (= (ciudades-totales) 2)
+    (= (min-dias-totales) 5)
+    (= (min-dias-ciudad) 2)
+    (= (max-dias-max) 3)
+    (= (dias-totales) 0)
   	
   ) 
 
   (:goal
-  	(= (actual) (ciudades-totales))
+  	(and (= (actual) (ciudades-totales)) (>= (dias-totales) (min-dias-totales)))
   )
 )
