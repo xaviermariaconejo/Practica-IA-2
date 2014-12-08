@@ -40,11 +40,11 @@
   "practica2.tex" 1417528854 20721 800a12d7533a3ae5266359a62baf92b6 ""
   "practica2.toc" 1417528874 1287 917838a249be3c5788131724540effc5 ""
   (generated)
-  "practica2.aux"
   "practica2.log"
+  "practica2.aux"
   "practica2.dvi"
   "practica2.toc"
-["pdflatex"] 1418039584 "practica2.tex" "practica2.pdf" "practica2" 1418039690
+["pdflatex"] 1418040627 "practica2.tex" "practica2.pdf" "practica2" 1418040628
   "/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii" 1407968442 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texmf-dist/tex/generic/babel-catalan/catalan.ldf" 1407968440 10113 2e7f3b4656572a71a9061a5e27e11e94 ""
   "/usr/share/texmf-dist/tex/generic/babel-english/english.ldf" 1407968440 6963 2e0cb3d93aa64508bdb0db58ae900d97 ""
@@ -81,13 +81,13 @@
   "/usr/share/texmf-dist/tex/latex/pdftex-def/pdftex.def" 1407968439 55368 3c8a0d99822330f2dfabc0dfb09ce897 ""
   "/usr/share/texmf-dist/tex/latex/tools/longtable.sty" 1407968439 11875 98b91a3f62f8b2871fecd2afa02ea4a3 ""
   "/usr/share/texmf-dist/tex/latex/url/url.sty" 1407968439 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "practica2.aux" 1418039584 4718 51e19a3b0c03297aafcbe3e4f8fd1186 ""
-  "practica2.out" 1418039584 2261 2e9e84ec87cd7ada2e414fe1ec1e353c ""
-  "practica2.tex" 1418039581 43874 73379a2cd95ba4472a0f83a83114271f ""
-  "practica2.toc" 1418039584 2899 da27d27fdccd270458c646a65de07834 ""
+  "practica2.aux" 1418040628 4718 7d5621182300ae7c889d98b1076371da ""
+  "practica2.out" 1418040628 2261 2e9e84ec87cd7ada2e414fe1ec1e353c ""
+  "practica2.tex" 1418040626 46714 fcf9e70efd096df092b1986da54662c1 ""
+  "practica2.toc" 1418040628 2899 a0a9d4e2b09aaf65ffcc04e808894f26 ""
   (generated)
-  "practica2.log"
-  "practica2.aux"
   "practica2.toc"
   "practica2.out"
   "practica2.pdf"
+  "practica2.aux"
+  "practica2.log"

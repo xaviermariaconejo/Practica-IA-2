@@ -22,8 +22,8 @@
 \contentsline {subsection}{\numberline {2.3}Representaci\IeC {\'o} de l'ontologia}{13}{subsection.2.3}
 \contentsline {section}{\numberline {3}Jocs de proves}{14}{section.3}
 \contentsline {subsection}{\numberline {3.1}Un viatge rom\IeC {\`a}ntic de parella}{14}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Un viatge de fi de curs}{14}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Un viatge de ric}{15}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Viatge per l'imserso}{16}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Viatge per una fam\IeC {\'\i }lia amb fills}{17}{subsection.3.5}
-\contentsline {subsection}{\numberline {3.6}Viatge per una colla castellera}{18}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.2}Un viatge de fi de curs}{15}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Un viatge de ric}{16}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Viatge per l'imserso}{17}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Viatge per una fam\IeC {\'\i }lia amb fills}{19}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Viatge per una colla castellera}{20}{subsection.3.6}
