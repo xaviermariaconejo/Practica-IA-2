@@ -1,4 +1,4 @@
-(define (problem problem-name)
+(define (problem primer-viatge)
 	
   (:domain viatge)
 
@@ -21,17 +21,12 @@
     (va-a vuelo2 ciutat2 ciutat3)
     (va-a vuelo3 ciutat1 ciutat2)
     (va-a vuelo4 ciutat3 ciutat2)
-    (esta-a ciutat1)
+    (= (actual) 0)
+    (= (ciudades-totales) 2)
   	
   ) 
 
   (:goal
-  	(and (exists (?c1 ?c2 ?c3 - ciudad) 
-            (and (not (ciudad-empty ?c1)) 
-                 (not (ciudad-empty ?c2))
-                 (not (ciudad-empty ?c3))                 
-            )
-         )
-    )
+  	(eq (actual) (dias-totales))
   )
 )
