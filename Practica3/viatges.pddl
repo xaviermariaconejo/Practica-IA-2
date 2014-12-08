@@ -1,9 +1,12 @@
 (define (domain viatge)
-	(:requirements :strips :typing :adl :equality :numeric-fluents)
+	(:requirements :strips :typing :adl :equality :fluents)
 	(:types ciudad hotel vuelo)
 	(:functions
 		(actual)
 		(ciudades-totales)
+		(min-dias-total)
+		(min-dias-ciudad)
+		(max-dias-ciudad)
 	)
 	(:predicates
 		(es-de ?c - ciudad ?h - hotel)
@@ -14,7 +17,7 @@
 
 	(:action ciudad-inicio
 	  :parameters (?c - ciudad)
-	  :precondition (exists (?x - ciudad) (esta-a ?x))
+	  :precondition (not (exists (?x - ciudad) (esta-a ?x)))
 	  :effect (esta-a ?c)
 	)
 

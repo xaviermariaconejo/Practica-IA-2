@@ -27,6 +27,6 @@
   ) 
 
   (:goal
-  	(eq (actual) (dias-totales))
+  	(= (actual) (ciudades-totales))
   )
 )
