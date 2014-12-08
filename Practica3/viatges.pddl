@@ -4,7 +4,7 @@
 	(:functions
 		(actual)
 		(ciudades-totales)
-		(min-dias-total)
+		(min-dias-totales)
 		(min-dias-ciudad)
 		(max-dias-ciudad)
 		(dias-totales)
@@ -20,7 +20,10 @@
 	(:action ciudad-inicio
 	  :parameters (?c - ciudad)
 	  :precondition (not (exists (?x - ciudad) (esta-a ?x)))
-	  :effect (esta-a ?c)
+	  :effect (and (esta-a ?c)
+	  			   (increase (dias-totales) (min-dias-ciudad)) 
+				   (increase (dias-ciudad ?c) (min-dias-ciudad))
+		       )
 	)
 
 	(:action reservar-hotel
@@ -28,6 +31,7 @@
 		:precondition (and (esta-a ?c) (ciudad-empty ?c) (es-de ?c ?h))
 		:effect(and (not (ciudad-empty ?c)) (increase (actual) 1))
 	)
+
 	(:action reservar-vol
 	  	:parameters (?v - vuelo ?c1 - ciudad ?c2 - ciudad)
 		:precondition (and (esta-a ?c1) 
@@ -38,13 +42,13 @@
 		:effect (and (not (esta-a ?c1)) 
 					 (esta-a ?c2) 
 					 (increase (dias-totales) (min-dias-ciudad)) 
-					 (= (dias-ciudad ?c2) (min-dias-ciudad))
+					 (increase (dias-ciudad ?c2) (min-dias-ciudad))
 				)
 	)
 
 	(:action mas-dias
-	  :parameters (?c - object)
-	  :precondition (and (not (ciudad-empty ?c)))
+	  :parameters (?c - ciudad)
+	  :precondition (not (ciudad-empty ?c))
 	  :effect (and (increase (dias-totales) 1) 
 				   (increase (dias-ciudad ?c) 1))
 	)
