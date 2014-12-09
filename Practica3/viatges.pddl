@@ -48,7 +48,7 @@
 
 	(:action mas-dias
 	  :parameters (?c - ciudad)
-	  :precondition (not (ciudad-empty ?c))
+	  :precondition (and (not (esta-a ?c)) (not (>= (dias-ciudad ?c) (min-dias-ciudad))))
 	  :effect (and (increase (dias-totales) 1) 
 				   (increase (dias-ciudad ?c) 1))
 	)
