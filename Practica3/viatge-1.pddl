@@ -26,9 +26,9 @@
     (= (dias-ciudad ciutat3) 0)
     (= (actual) 0)
     (= (ciudades-totales) 2)
-    (= (min-dias-totales) 5)
+    (= (min-dias-totales) 7)
     (= (min-dias-ciudad) 2)
-    (= (max-dias-ciudad) 3)
+    (= (max-dias-ciudad) 4)
     (= (dias-totales) 0)
   	
   ) 
