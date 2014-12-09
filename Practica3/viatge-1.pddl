@@ -9,6 +9,7 @@
   )
 
   (:init
+  	(inicial)
     (ciudad-empty ciutat1)
     (ciudad-empty ciutat2)
     (ciudad-empty ciutat3)
@@ -24,14 +25,29 @@
     (= (dias-ciudad ciutat1) 0)
     (= (dias-ciudad ciutat2) 0)
     (= (dias-ciudad ciutat3) 0)
+    (= (precio-hotel hotel1) 5)
+    (= (precio-hotel hotel2) 6)
+    (= (precio-hotel hotel3) 4)
+    (= (precio-hotel hotel4) 3)
+    (= (precio-hotel hotel5) 7)
+    (= (precio-vuelo vuelo1) 6)
+    (= (precio-vuelo vuelo2) 4)
+    (= (precio-vuelo vuelo3) 3)
+    (= (precio-vuelo vuelo4) 7)
+    (= (interes ciutat1) 1)
+    (= (interes ciutat2) 2)
+    (= (interes ciutat3) 1)
     (= (actual) 0)
     (= (ciudades-totales) 2)
-    (= (min-dias-totales) 7)
+    (= (min-dias-totales) 3)
     (= (min-dias-ciudad) 2)
     (= (max-dias-ciudad) 4)
     (= (dias-totales) 0)
+    (= (interes-total) 0)
+    (= (precio-total) 0)
   	
   ) 
+  (:metric minimize (+ (* (interes-total) 2) (* (precio-total) 0)))
 
   (:goal
   	(and (= (actual) (ciudades-totales)) (>= (dias-totales) (min-dias-totales)))
