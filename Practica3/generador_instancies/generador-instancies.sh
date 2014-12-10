@@ -2,7 +2,6 @@
 #usage generador-instancies <n_ciutats> <n_ciutats_viatge>
 
 # Probabilitat entre (0,100) d'assignar un vol entre dues ciutats
-export fly_factor=25
 export m=0 #Mínim de dies per ciutat
 export M=5 #Màxim de dies per ciutat
 
@@ -15,6 +14,14 @@ export N=$1 #Nombre de ciutats totals al problema
 export C=$2 #Nombre de ciutats a complir
 export D=$3 #Mínim de dies a complir
 export nomproblema=$4 #Nom del problema
+
+#El fly factor és el ratio entre N·ln(N) i (N·N-1)/2, valor que
+#ens garanteix un graf connex amb alta probabilitat.
+export log=$(echo "100*(($N*l($N))/($N*($N-1)/2))" | bc -l)
+export fly_factor=${log:0:$(($(expr index "$log" ".")-1))}
+if [ -z "$fly_factor" ] ; then 
+	fly_factor=1
+fi
 
 rm -rf ./tmp
 mkdir tmp
