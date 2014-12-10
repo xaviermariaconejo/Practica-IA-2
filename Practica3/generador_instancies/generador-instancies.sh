@@ -25,6 +25,7 @@ for i in $(seq 1 $N); do
 	export r=$(($RANDOM%3))
 	export R=$((2+$RANDOM%4))
 	echo "    (ciudad-empty ciutat-$i)" >> tmp/ciutatsfile.out
+	echo "    (= (dias-ciudad ciutat-$i) 0)" >> tmp/ciutatsfile.out
 	echo "    (= (min-dias-ciudad ciutat-$i) $r)" >> tmp/ciutatsfile.out
 	echo "    (= (max-dias-ciudad ciutat-$i) $R)" >> tmp/ciutatsfile.out
 done
