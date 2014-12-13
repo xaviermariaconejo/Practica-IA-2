@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2014.11.26)  11 DEC 2014 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2014.12.2)  13 DEC 2014 13:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -406,6 +406,46 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \c@LT@tables=\count101
 \c@LT@chunks=\count102
 \LT@p@ftn=\toks17
+)
+(/usr/share/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count103
+\lst@gtempboxa=\box31
+\lst@token=\toks18
+\lst@length=\count104
+\lst@currlwidth=\dimen112
+\lst@column=\count105
+\lst@pos=\count106
+\lst@lostspace=\dimen113
+\lst@width=\dimen114
+\lst@newlines=\count107
+\lst@lineno=\count108
+\lst@maxwidth=\dimen115
+
+(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
+\c@lstnumber=\count109
+\lst@skipnumbers=\count110
+\lst@framebox=\box32
+)
+(/usr/share/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2014/03/04 1.5c listings configuration
+))
+Package: listings 2014/03/04 1.5c (Carsten Heinz)
+
+(/usr/share/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2014/04/23 v1.1a Standard LaTeX Color (DPC)
+
+(/usr/share/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 137.
+
+(/usr/share/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+\Gread@gobject=\count111
+))
+(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2014/03/04 1.5c listings language file
 ) (./practica3.aux)
 \openout1 = `practica3.aux'.
 
@@ -425,7 +465,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
 LaTeX Info: Redefining \l on input line 43.
 LaTeX Info: Redefining \L on input line 43.
-\AtBeginShipoutBox=\box31
+\AtBeginShipoutBox=\box33
 Package hyperref Info: Link coloring OFF on input line 43.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -434,7 +474,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count103
+\c@section@level=\count112
 )
 LaTeX Info: Redefining \ref on input line 43.
 LaTeX Info: Redefining \pageref on input line 43.
@@ -444,9 +484,24 @@ LaTeX Info: Redefining \nameref on input line 43.
 \@outlinefile=\write3
 \openout3 = `practica3.out'.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 47.
+\c@lstlisting=\count113
 
-(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+(/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count114
+\scratchdimen=\dimen116
+\scratchbox=\box34
+\nofMPsegments=\count115
+\nofMParguments=\count116
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen117
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
+\everyMPtoPDFconversion=\toks20
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 47.
+ (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <24.88> not available
@@ -475,33 +530,47 @@ l.54 \newpage
               [1
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 84.
- [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 84.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 73.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 85.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 85.
+ [2] [3] [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 150.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 150.
  (./practica3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 84.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 84.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 150.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 150.
 Package rerunfilecheck Info: File `practica3.out' has not changed.
 (rerunfilecheck)             Checksum: 2FFC499330ADC49668F4B93B04673591;1384.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 84.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 150.
  ) 
 Here is how much of TeX's memory you used:
- 5109 strings out of 493108
- 73774 string characters out of 6140724
- 160748 words of memory out of 5000000
- 8524 multiletter control sequences out of 15000+600000
- 9666 words of font info for 34 fonts, out of 8000000 for 9000
+ 7098 strings out of 493108
+ 101242 string characters out of 6140725
+ 219514 words of memory out of 5000000
+ 10469 multiletter control sequences out of 15000+600000
+ 11092 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,7n,28p,228b,351s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,8n,40p,913b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on practica3.pdf (3 pages, 80773 bytes).
+ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmtt10.pfb>
+Output written on practica3.pdf (6 pages, 174264 bytes).
 PDF statistics:
- 162 PDF objects out of 1000 (max. 8388607)
- 149 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
+ 219 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
  177 words of extra memory for PDF output out of 10000 (max. 10000000)
 
