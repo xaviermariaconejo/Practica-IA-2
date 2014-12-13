@@ -12,6 +12,8 @@
 		(precio-hotel ?h - hotel)
 		(precio-vuelo ?v - vuelo)
 		(precio-total)
+		(max-precio)
+		(min-precio)
 	)
 	(:predicates
 		(es-de ?c - ciudad ?h - hotel)
