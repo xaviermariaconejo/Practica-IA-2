@@ -54,9 +54,59 @@
 \newpage
 
 \section{Model del domini}
+En aquest punt parlarem del domini que utilitzem en les diferents extensions, incloent-hi el bàsic.
+
 \subsection{Variables}
+%Falta una introduccion ha esta parte que la de xavi decia cosas raras
+\item[Bàsic:] actual, indica el nombre de ciutats que ha visitat fins al moment d'execució
+ciudades-totales, conté el nombre total de ciutats que ha de visitar
+
+\item[Extensió1:] Inclou les del Bàsic
+min-dias-totales, conté el nombre mínim de dies que ha de tenir el viatge
+min-dias-ciudad, conté el nombre mínim de dies que s'ha d'estar en una mateixa ciutat
+max-dias-ciudad, conté el nombre màxim de dies que es pot estar en una mateixa ciutat
+dias-totales, indica el nombre de dies que conté el viatge fins al moment d'execució
+dias-ciudad ?c - ciutat, indica per cada ciutat els dies que si aquesta fins al moment d'execució
+
+\item[Extensió2:] Inclou Extensió1
+interes ?c - ciudad, conté per cada ciutat l'interès d'aquesta
+interes-total, indica el número d'interès acumulat per les ciutats visitades fins al moment d'execució
+
+\item[Extensió3:] Inclou Extensió1
+precio-hotel ?h - hotel, conté per cada hotel el preu per passar una nit en aquest
+precio-vuelo ?v - vuelo, conté per cada vol el seu preu
+precio-total, indica el preu del viatge fins al moment d'execució
+max-precio, conté el preu màxim que pot arribar a tenir el viatge
+min-precio, conté el preu mínim que ha de tenir el viatge
+
+\item[Extensió4:] Inclou Extensió2 i Extensió3
+
 \subsection{Predicats}
+Totes les diferents extensions tenen els mateixos predicats, els quals expliquem a continuació:\\
+
+\item[es-de ?c - ciudad ?h - hotel:] Ens serveix per establir la relació per a indicar a quina ciutat pertany un hotel\\
+
+\item[va-a ?v - vuelo ?c1 - ciudad ?c2 - ciudad:] Fa una relació entre dues ciutats, de manera que indica que hi pot haver un vol entre aquestes, on ?c1 és la ciutat origen i ?c2 la destí\\
+
+\item[ciudad-empty ?c - ciudad:] Indica si una ciutat no ha estat visitada\\
+
+\item[esta-a ?c - ciudad:] Ens indica en quina ciutat ens trobem en aquest moment d'execució\\
+
+\item[inicial:] Ens serveix per indicar si ens trobem en la situació que encara no hem visitat la primera ciutat del viatge\\
+
 \subsection{Operadors}
+
+En el cas dels operadors, és obvi que no pot ser que totes les extensions tinguin els mateixos, ja que cada una contempla més factors que l'anterior, per tant començarem explicant els operadors del Bàsic.\\
+
+Aquest té només dos operadors, el primer (ciudad-inicio) s'encarrega d'iniciar el viatge en una ciutat inicial, de manera que actualitzem les variables perquè mantinguin la seva coherència, i el segon operador (reservar-vol-hotel) serveix per enllaçar una ciutat amb un altre mitjançant un vol. Veiem així que és necessari el primer operador, ja que no té cap ciutat abans que ella mateixa, i per tant és impossible relacionar aquesta ciutat inicial amb alguna d'anterior. D'aquesta manera anirem afegint ciutats al viatge fins que complim el nombre de ciutats requerit.\\
+
+Veiem a continuació l'extensió 1, aquesta és molt semblant cas bàsic, però en diferencia que hem de contemplar els dies del viatge de manera que compleixi la nova restricció que el viatge tingui com a mínim un nombre de dies. Per tant els operadors seran els mateixos d'abans però ara hem de tindre cura d'actualitzar més variables. D'aquesta manera només ens queda aconseguir que el viatge compleixi que ha de tindre una duració mínima, per tant afegirem un nou operador (mas-dias), que en el cas que el dia no duri els dies mínims afegirà més dies.\\
+
+Prosseguim amb l'extensió 2, la qual tindrà els mateixos operadors que l'extensió 1 de manera que complís els requisits d'aquesta mateixa. Però ara tenim que cada ciutat té un interès i hem d'aconseguir que la d'aquest de totes les ciutats del viatge sigui mínim, per això no ens fa falta cap operador nou, però si modificar els ja existents, de manera que només hem de fer anar sumant els interessos de les ciutats que anem visitant en la variable "interes-total", ja que és en el problema on hem d'indicar que l'interès sigui mínim i no en el domini.\\
+
+Amb l'extensió 3 passa molt similar que amb la 2, però en comptes d'interès tenim preus, per tant ara en comptes d'actualitzar el "interes-total", tenim que actualitzar el "precio-total", i altre cop, no se'l domini qui s'encarrega d'aconseguir l'optimització del preu mínim, sinó en el problema on ho hem d'indicar.\\
+
+L'extensió 4 és fer la unió de les extensions 2 i 3
 
 \section{Model dels problemes a resoldre}
 \subsection{Objectes}
