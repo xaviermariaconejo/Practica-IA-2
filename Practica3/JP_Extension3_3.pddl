@@ -40,7 +40,7 @@
     (= (dias-ciudad ciutat4) 0)
     (= (dias-ciudad ciutat5) 0)
     (= (actual) 0)
-    (= (ciudades-totales) 5)
+    (= (ciudades-totales) 3)
     (= (min-dias-totales) 6)
     (= (min-dias-ciudad) 1)
     (= (max-dias-ciudad) 2)
