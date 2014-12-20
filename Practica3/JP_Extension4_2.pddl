@@ -51,14 +51,14 @@
     (= (max-dias-ciudad) 2)
     (= (dias-totales) 0)
     (= (precio-total) 0) 
-    (= (max-precio-total) 1000)
-    (= (min-precio-total) 1) 
+    (= (max-precio) 1000)
+    (= (min-precio) 1) 
     (= (interes-total) 0)	
   ) 
 
-  (:metric minimize (+ (* (precio-total) 2) (interes-total))
+  (:metric minimize (+ (* (precio-total) 2) (interes-total)))
 
   (:goal
-  	(and (= (actual) (ciudades-totales)) (>= (dias-totales) (min-dias-totales)) (>= (precio-total) (min-precio)) (<= (precio-total) (max-precio))
+  	(and (= (actual) (ciudades-totales)) (>= (dias-totales) (min-dias-totales)) (>= (precio-total) (min-precio)) (<= (precio-total) (max-precio)))
   )
 )

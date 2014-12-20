@@ -44,9 +44,10 @@
     (= (interes-total) 0)
   	
   ) 
-  (:metric minimize (interes-total))
-
+ 
   (:goal
   	(and (= (actual) (ciudades-totales)) (>= (dias-totales) (min-dias-totales)))
   )
+
+  (:metric minimize (interes-total))
 )
