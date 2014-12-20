@@ -58,75 +58,87 @@ En aquest punt parlarem del domini que utilitzem en les diferents extensions, in
 
 \subsection{Variables}
 %Falta una introduccion ha esta parte que la de xavi decia cosas raras
+\begin{description}
 \item[Bàsic:] actual, indica el nombre de ciutats que ha visitat fins al moment d'execució
 ciudades-totales, conté el nombre total de ciutats que ha de visitar
 
-\item[Extensió1:] Inclou les del Bàsic
+\item[Extensió 1:] Inclou les del Bàsic
 min-dias-totales, conté el nombre mínim de dies que ha de tenir el viatge
 min-dias-ciudad, conté el nombre mínim de dies que s'ha d'estar en una mateixa ciutat
 max-dias-ciudad, conté el nombre màxim de dies que es pot estar en una mateixa ciutat
 dias-totales, indica el nombre de dies que conté el viatge fins al moment d'execució
 dias-ciudad ?c - ciutat, indica per cada ciutat els dies que si aquesta fins al moment d'execució
 
-\item[Extensió2:] Inclou Extensió1
+\item[Extensió 2:] Inclou Extensió1
 interes ?c - ciudad, conté per cada ciutat l'interès d'aquesta
 interes-total, indica el número d'interès acumulat per les ciutats visitades fins al moment d'execució
 
-\item[Extensió3:] Inclou Extensió1
+\item[Extensió 3:] Inclou Extensió1
 precio-hotel ?h - hotel, conté per cada hotel el preu per passar una nit en aquest
 precio-vuelo ?v - vuelo, conté per cada vol el seu preu
 precio-total, indica el preu del viatge fins al moment d'execució
 max-precio, conté el preu màxim que pot arribar a tenir el viatge
 min-precio, conté el preu mínim que ha de tenir el viatge
 
-\item[Extensió4:] Inclou Extensió2 i Extensió3
+\item[Extensió 4:] Inclou Extensió2 i Extensió3
+\end{description}
 
 \subsection{Predicats}
 Totes les diferents extensions tenen els mateixos predicats, els quals expliquem a continuació:\\
 
-\item[es-de ?c - ciudad ?h - hotel:] Ens serveix per establir la relació per a indicar a quina ciutat pertany un hotel\\
+\begin{description}
+\item[\texttt{es-de ?c - ciudad ?h - hotel}:] Ens serveix per establir la relació per a indicar a quina ciutat pertany un hotel\\
 
-\item[va-a ?v - vuelo ?c1 - ciudad ?c2 - ciudad:] Fa una relació entre dues ciutats, de manera que indica que hi pot haver un vol entre aquestes, on ?c1 és la ciutat origen i ?c2 la destí\\
+\item[\texttt{va-a ?v - vuelo ?c1 - ciudad ?c2 - ciudad}:] Fa una relació entre dues ciutats, de manera que indica que hi pot haver un vol entre aquestes, on ?c1 és la ciutat origen i ?c2 la destí\\
 
-\item[ciudad-empty ?c - ciudad:] Indica si una ciutat no ha estat visitada\\
+\item[\texttt{ciudad-empty ?c - ciudad}:] Indica si una ciutat no ha estat visitada\\
 
-\item[esta-a ?c - ciudad:] Ens indica en quina ciutat ens trobem en aquest moment d'execució\\
+\item[\texttt{esta-a ?c - ciudad}:] Ens indica en quina ciutat ens trobem en aquest moment d'execució\\
 
-\item[inicial:] Ens serveix per indicar si ens trobem en la situació que encara no hem visitat la primera ciutat del viatge\\
+\item[\texttt{inicial}:] Ens serveix per indicar si ens trobem en la situació que encara no hem visitat la primera ciutat del viatge\\
+\end{description}
 
 \subsection{Operadors}
 
 En el cas dels operadors, és obvi que no pot ser que totes les extensions tinguin els mateixos, ja que cada una contempla més factors que l'anterior, per tant començarem explicant els operadors del Bàsic.\\
 
-Aquest té només dos operadors, el primer (ciudad-inicio) s'encarrega d'iniciar el viatge en una ciutat inicial, de manera que actualitzem les variables perquè mantinguin la seva coherència, i el segon operador (reservar-vol-hotel) serveix per enllaçar una ciutat amb un altre mitjançant un vol. Veiem així que és necessari el primer operador, ja que no té cap ciutat abans que ella mateixa, i per tant és impossible relacionar aquesta ciutat inicial amb alguna d'anterior. D'aquesta manera anirem afegint ciutats al viatge fins que complim el nombre de ciutats requerit.\\
+Aquest té només dos operadors, el primer (\texttt{ciudad-inicio}) s'encarrega d'iniciar el viatge en una ciutat inicial, de manera que actualitzem les variables perquè mantinguin la seva coherència, i el segon operador (\texttt{reservar-vol-hotel}) serveix per enllaçar una ciutat amb un altre mitjançant un vol. Veiem així que és necessari el primer operador, ja que no té cap ciutat abans que ella mateixa, i per tant és impossible relacionar aquesta ciutat inicial amb alguna d'anterior. D'aquesta manera anirem afegint ciutats al viatge fins que complim el nombre de ciutats requerit.\\
 
-Veiem a continuació l'extensió 1, aquesta és molt semblant cas bàsic, però en diferencia que hem de contemplar els dies del viatge de manera que compleixi la nova restricció que el viatge tingui com a mínim un nombre de dies. Per tant els operadors seran els mateixos d'abans però ara hem de tindre cura d'actualitzar més variables. D'aquesta manera només ens queda aconseguir que el viatge compleixi que ha de tindre una duració mínima, per tant afegirem un nou operador (mas-dias), que en el cas que el dia no duri els dies mínims afegirà més dies.\\
+Veiem a continuació l'extensió 1, aquesta és molt semblant cas bàsic, però en diferencia que hem de contemplar els dies del viatge de manera que compleixi la nova restricció que el viatge tingui com a mínim un nombre de dies. Per tant els operadors seran els mateixos d'abans però ara hem de tindre cura d'actualitzar més variables. D'aquesta manera només ens queda aconseguir que el viatge compleixi que ha de tindre una duració mínima, per tant afegirem un nou operador (\texttt{mas-dias}), que en el cas que el dia no duri els dies mínims afegirà més dies.\\
 
-Prosseguim amb l'extensió 2, la qual tindrà els mateixos operadors que l'extensió 1 de manera que complís els requisits d'aquesta mateixa. Però ara tenim que cada ciutat té un interès i hem d'aconseguir que la d'aquest de totes les ciutats del viatge sigui mínim, per això no ens fa falta cap operador nou, però si modificar els ja existents, de manera que només hem de fer anar sumant els interessos de les ciutats que anem visitant en la variable "interes-total", ja que és en el problema on hem d'indicar que l'interès sigui mínim i no en el domini.\\
+Prosseguim amb l'extensió 2, la qual tindrà els mateixos operadors que l'extensió 1 de manera que complís els requisits d'aquesta mateixa. Però ara tenim que cada ciutat té un interès i hem d'aconseguir que la d'aquest de totes les ciutats del viatge sigui mínim, per això no ens fa falta cap operador nou, però si modificar els ja existents, de manera que només hem de fer anar sumant els interessos de les ciutats que anem visitant en la variable \texttt{interes-total}, ja que és en el problema on hem d'indicar que l'interès sigui mínim i no en el domini.\\
 
-Amb l'extensió 3 passa molt similar que amb la 2, però en comptes d'interès tenim preus, per tant ara en comptes d'actualitzar el "interes-total", tenim que actualitzar el "precio-total", i altre cop, no se'l domini qui s'encarrega d'aconseguir l'optimització del preu mínim, sinó en el problema on ho hem d'indicar.\\
+Amb l'extensió 3 passa molt similar que amb la 2, però en comptes d'interès tenim preus, per tant ara en comptes d'actualitzar l'\texttt{interes-total}, tenim que actualitzar el \texttt{precio-total}, i altre cop, no se'l domini qui s'encarrega d'aconseguir l'optimització del preu mínim, sinó en el problema on ho hem d'indicar.\\
 
 L'extensió 4 és fer la unió de les extensions 2 i 3
 
 \section{Model dels problemes a resoldre}
 \subsection{Objectes}
 En els models de problema dels cinc dominis d'aquesta pràctica trobem tres tipus d'objectes diferents:
+
+\begin{description}
 \item[Ciudad:] Per una banda, tenim l'objecte ciudad, ja que, ens aporta la informació de les ciutats per on pot anar-hi el client per poder construir una ruta.
-\item[Hotel:] Després tenim l'objecte hotel, aquest objecta, juntament amb el predicat es-de explicat anteriorment, ens aporta la informació d'on es pot allotjar el nostre client en una ciutat determinada.
-\item[Vuelo:] Per últim tenim l'objecte vuelo, el qual identifica, utilitzant com en el cas anterior el predicat va-de, quin parell de ciutats estan connectades per poder viatjar d'una a un altre en el recorregut del client.
+\item[Hotel:] Després tenim l'objecte hotel, aquest objecta, juntament amb el predicat \texttt{es-de} explicat anteriorment, ens aporta la informació d'on es pot allotjar el nostre client en una ciutat determinada.
+\item[Vuelo:] Per últim tenim l'objecte vuelo, el qual identifica, utilitzant com en el cas anterior el predicat \texttt{va-de}, quin parell de ciutats estan connectades per poder viatjar d'una a un altre en el recorregut del client.
+\end{description}
+
 \subsection{Estat inicial}
 En aquesta practica el tamany de l'estat inicial a aumentat cada cop que s'afegia una extensió per tant explicarem per cadascuna que s'ha afegit respecta a al seva predecesora.
+\begin{description}
 \item[Cas Base:] 
 \item[Extensió 1:] 
 \item[Extensió 2:] 
 \item[Extensió 3:] 
 \item[Extensió 4:] 
+\end{description}
+
+
 \subsection{Estat final}
 
 \subsection{Generador d'instàncies}
 \label{sec:script}
 
-Com a complement al model del domini en PDDL, hem creat un script en bash que permet generar instàncies aleatòries del problema tenint en compte diversos paràmetres per acotar-ne la mida. L'objectiu d'aquest script és generar un arxiu .pddl complert i directament \emph{parsejable} per \emph{Metric-FF} amb una instància de problema associada a un dels dominis --o extensions--. Aquest script l'utilitzem posteriorment per a experimentar amb el temps d'execució del solver (veure apartat \ref{sec:experiment}).
+Com a complement al model del domini en PDDL, hem creat un script en bash que permet generar instàncies aleatòries del problema tenint en compte diversos paràmetres per acotar-ne la mida. L'objectiu d'aquest script és generar un arxiu .pddl complert i directament \emph{parsejable} per \emph{Metric-FF} amb una instància de problema associada a un dels dominis --o extensions--. Aquest script l'utilitzem posteriorment per a experimentar amb el temps d'execució del solver (veure apartat \ref{sec:experiment}).\\
 
 Els paràmetres que rep l'script són:
 \begin{itemize}
