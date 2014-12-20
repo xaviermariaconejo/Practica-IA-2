@@ -1,0 +1,259 @@
+Juegos de prueba
+
+En aquest apartat explicarem els diferents jocs de prova que hem fet per cada extensió, i comentarem la sortida que dona 
+el nostre programa.
+
+En les sortides només possarem la part que ens aporta informació sobre quina sortida a obtingut. A més, veiem que les sortides, al reservar un hotel, el reserva amb el nombre mínim de díes per ciutat, i al incrementar, afegeix només un dia.
+
+Basic
+
+Primer recordem quin objectiu té aquesta extensió. Molt simple, fer un viatge que compleixi un minimi de ciutats
+a visitar tenint en compte la restriccio de que només es pot anar d'una ciutat a una altre si hi ha un vol que ho
+permet.
+
+JP_Basic1.pddl :
+
+En aquest joc de proves, provarem que efectivament compleix la restricció i no va a la ciutat3, ja que no hi
+ha cap vol que permeti arrivar-hi. La resta de les ciutats estàn conectades, de manera que por haver-hi diverses solucions
+correctes, totes aquelles que visitin com a mínim 3 ciutats.
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT1 HOTEL1
+        1: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+        2: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT4 HOTEL4
+
+Veiem compleix la restricció, i dóna el resultat esperat.
+
+
+JP_Basic2.pddl :
+
+Aquest cas és el mateix que el anterior però amb dos ciutats com a mínim, sobretot fem aquest cas per a veure 
+si la quantitat de ciutats mínim afecta a quina és la ciutat inicial, ja que aquesta ho decideix el sistema.
+
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT1 HOTEL1
+        1: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+
+Veiem compleix la restricció, i dóna el resultat esperat.
+
+
+JP_Basic3.pddl :
+
+En aquest joc de proves fem un "graf" de vols una mica estrany, tenim les següents conexions entre ciutats:
+1-2-3-4-5 i també la conexió 2-5. Possem també que el nombre mínim de ciutats es de 5, de manera que la solucio només
+pot ser una, 1-2-3-4-5, volem veure si l'algoritme tria de manera correcta aquest i no va de la ciutat2 a la ciutat5.
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT1 HOTEL1
+        1: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+        2: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+        3: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+        4: RESERVAR-VOL-HOTEL VUELO4 CIUTAT4 CIUTAT5 HOTEL5
+
+En efecte, l'algorime no ens decepciona i compleix totes les restriccions.
+
+
+Extensió1
+
+En aquesta extensió, apart de complir els objectius i les restriccions del Basic. També tenim en compte la durada del viatge,
+és a dir, hi haurà una quantitat de dies mínim i màxims per ciutat, i una quantitat de dies mínims que té que durar el viatge.
+
+JP_Extensio1_1.pddl :
+
+En aquest cas donem un "graf" de ciutats amb una longitud de 5 ciutats, concretament hem posat el del JP_Basic3.pddl, 
+i hem possat que el nombre minim de ciutats sigui 5, pero 6 díes mínims, i a cada ciutat com a mínim té que estar 1 día,
+i màxim 10, ja que volem veure si compleix les restriccions del nombre mínim de ciutats i alhora el del nombre mínim de dies.
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT1 HOTEL1
+        1: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+        2: MAS-DIAS CIUTAT2
+        3: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+        4: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+        5: MAS-DIAS CIUTAT4
+        6: RESERVAR-VOL-HOTEL VUELO4 CIUTAT4 CIUTAT5 HOTEL5
+
+Veiem que compleix les restriccions, tot i que afegeix un dia de més, pero com no volem optimitzar res, es correcte.
+
+
+JP_Extensio1_2.pddl :
+
+En aquest cas, per comoditat continuem utilitzant els mateixos vols, hotels i ciutats. L'objectiu es comprobar que si restrictim el nombre de ciutats a 1, tot i així incrementa els dies que ha d'estar en aquella ciutat per a complir, l'altre restricció.
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT1 HOTEL1
+        1: MAS-DIAS CIUTAT1
+        2: MAS-DIAS CIUTAT1
+        3: MAS-DIAS CIUTAT1
+        4: MAS-DIAS CIUTAT1
+        5: MAS-DIAS CIUTAT1
+
+En aquest cas no ha passat com el cas anterior i ha afegit un dia extra, a més, compleix totes les restriccions tal com s'esperava.
+
+
+JP_Extensio1_3.pddl :
+
+Aquest joc de proves, es molt semblant al anterior, però ara ens centrarem en els dies que s'asignen a cada ciutat el primer cop que la visitem, per aquest motiu diem que el mínim i màxim son 3, volem visitar 2 ciutats, i com a mínim té que durar 6 dies. D'aquesta manera no té que incrementar cap quantitat de dies per cada ciutat, veurem aixi si només visitar una ciutat ja li assigna els 3 díes necessaris.
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT1 HOTEL1
+        1: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+
+Com hem dit anteriorment, al ser el nombre de dies mínim 2, al reservar per primera vegada el hotel, ja el reserva amb el mínim nombre, per això podem veure que la solució es correcte.
+
+
+JP_Extensio1_4.pddl :
+
+En aquest cas, hem fet un "graf" de ciutats més senzil, tal que els vols són així: 1-2-3-4 i 3-1, d'aquesta manera volem veure, si per complir alguna restricció torna a visitar alguna ciutat que ja ha visitat anteriorment, fet que estaria malament, ja que no té que tornar a visitar, tindria que augmentar els dies que hi està en aquella ciutat. Per això diem que els díes mínims són 6 i les ciutats a visitar 4.
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT1 HOTEL1
+        1: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+        2: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+        3: MAS-DIAS CIUTAT3
+        4: RESERVAR-VOL-HOTEL VUELO4 CIUTAT3 CIUTAT4 HOTEL4
+        5: MAS-DIAS CIUTAT4
+
+I un cop més, el resultat es tal com s'esperava. A més a més, veiem com en aquest cas tampoc ha afegit dies de més, podem deduir que en el primer exemple, quan ho ha fet ha degut de ser causa pel sistema intern i no pel nostre domini, ni problema.
+
+
+Extensió2
+
+Els objectius i restriccions són els mateixos que l'extensió1 però afegint, que cada ciutat conté un interes, representat per un natural, i l'objectiu és màximitzar l'interes total del viatge, lo que s'aconsegueix minimitzant el numero de l'interes. Per això afegim l'optimització en el problema, per tant tenim que veure si ara no dóna una solució correcta, sino també si és optima.
+
+JP_Extensio2_1.pddl :
+
+En aquest primer cas, volem confirmar que al afegir que té que aconseguir una solució optima, continua complint les restriccions, per aquest cas només hi ha una possible solució correcte, que es en la mateixa ciutat afegir dies fins a complir els díes mínims necesaris.
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT1 HOTEL1
+        1: MAS-DIAS CIUTAT1
+        2: MAS-DIAS CIUTAT1
+        3: MAS-DIAS CIUTAT1
+        4: MAS-DIAS CIUTAT1
+        5: MAS-DIAS CIUTAT1
+        6: MAS-DIAS CIUTAT1
+        7: MAS-DIAS CIUTAT1
+        8: MAS-DIAS CIUTAT1
+        9: MAS-DIAS CIUTAT1
+
+En efecte, la solucio compleix les nostres expectetives.
+
+
+JP_Extensio2_2.pddl :
+
+En aquest joc de proves, utilitzem el nostre "graf" de ciutats (1-2-3-4-5 i 2-5), en aquest cas hem dit que la ciutat amb un interes més baix es la ciutat5, per a veure si aconsegueix arribar-hi, dient que té que passar per 3 ciutats, hi han dos solucions que són les més optimes.
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT2 HOTEL2
+        1: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+        2: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+
+Bé, aqui tenim tota una sorpresa, no hi ha hagut optimització. La solucio no es cap de les dues solucions esperades, ja que no es troba la ciutat5, que ha pogut passar? Hem deduït, com ha pasat en l'extensió anterior, que deu de ser algun error del sistema, no del domini. Hem arribat a la conclusió, que pot ser, quan arriba a una solució que compleix totes les restriccions no busca cap altre solució que pugui ser més optima, o si més no, si troba dos solucions seguides que compleixen totes les restriccions i són iguals d'optimes deixa de buscar més possibles solucions.
+
+Aquesta última solució la hem deduït, de que en tots els casos la primera ciutat es la ciutat1, és estrany que en aquesta ocasio sigui la ciutat2 la ciutat inicial, a més podría a ver sigut que la primra solucio que trovés hagues sigut e, viatge 1-2-3, que té el mateix interes que el viatge 2-3-4, i per tant, pot ser que hagi conclós que si aquestes dos solucions tenen el mateix interes, totes les tinguin i per això ha deixat de buscar possibles solucions.
+
+
+JP_Extensio2_3.pddl :
+
+En aquest cas, continuem utilitzant el mateix problema que en el joc de proves anterior, però ara fem que només sigui possible una solucio que sigui la més optima, i per tant, tindria que sortir aquesta solució: 2-3-4-5. De fet, apart d'aquesta solució només hi ha una altre: 1-2-3-4. Per tant es obvi que tindria que aconseguir arribar a la primera solució sense dificultats.
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT2 HOTEL2
+        1: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+        2: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+        3: RESERVAR-VOL-HOTEL VUELO4 CIUTAT4 CIUTAT5 HOTEL5
+
+Veiem que en aquest cas s'ha complert les nostres expectatives, per tant, veiem que si que es capaç de trobar la solució més òptima en cas de que les possibles solucions no tinguin el mateix interes.
+
+
+Extensió3
+
+Al igual que en la extensió anterior, en aquesta es tenen que continuar complint les restriccions i objectius de la extensió 1, i a més a més, ara els vols i els hotels tenen un preu cadascún, i ara l'objectiu es minimtzar el preu total del viatge. A més el preu té que esta acotat per un preu mínim i un preu màxim que es dóna per l'usuari.
+
+JP_Extensio3_1.pddl :
+
+En aquest joc de proves, donarem que sigui possible només una unica solució, direm que el viatge té que visitar 5 ciutats, com a mínim 6 dies, i el preu mínim és de 11 i el màxim de 12. A més direm que el preu de cada vol i cada viatge tenen un cost de 1 (el vol 5 li donem preu de 10, tot i que per la restriccio de que te que anar a 5 ciutats no es possible que l'utiitzi). D'aquesta manera, podem veure com el preu de tots els vols es de 4, i el de un dia per ciutat de 5, a més afegim un dia extra per la restricció de dies mínims, 1. Tot això suma 10, però el preu mínim es de 11, per tant té que afegir un día extra, i cap més per aconseguir l'optimització, tot i que podría afegir un dia més ja que el preu màxim és de 12.
+
+OUTPUT:
+
+
+
+JP_Extensio3_2.pddl :
+
+En aquest cas, es molt semblant al anterior, la diferencia es que ara el preu dels vols són diferents, tots valen 10 excepte el 5 que val 1, pero si tria aquest vol es impossible que compleixi les restriccions, volem "temptar" al algoritme, a veure si cau en la trampa.
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT1 HOTEL1
+        1: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+        2: MAS-DIAS CIUTAT2
+        3: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+        4: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+        5: RESERVAR-VOL-HOTEL VUELO4 CIUTAT4 CIUTAT5 HOTEL5
+
+Hem vist com no hem pogut "enganyar" al algoritme, i ens ha donat una solució que compleix totes les restriccions.
+
+
+JP_Extensio3_3.pddl :
+
+Aquesat vegada, el que cambiem són els preus dels hotels, pero ara si que es possible trobar una solució més optima, volem veure si la tria.
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT3 HOTEL3
+        1: MAS-DIAS CIUTAT3
+        2: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+        3: MAS-DIAS CIUTAT4
+        4: RESERVAR-VOL-HOTEL VUELO4 CIUTAT4 CIUTAT5 HOTEL5
+        5: MAS-DIAS CIUTAT5
+
+En efecte, veiem com a aconseguit optimitzar el viatge i triar la més optima.
+
+
+Extensió4
+
+Aquesta extensió consisteix en juntar les extensions 2 i 3, però podem triar al nostre gust si és més important el preu o l'interes
+
+JP_Extensio4_1.pddl :
+
+Aquest joc de proves, li dona la mateixa importancia als dos, de manera podrem comparar aquesta solucio amb els seguents jocs de proves
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT2 HOTEL2
+        1: MAS-DIAS CIUTAT2
+        2: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+        3: MAS-DIAS CIUTAT3
+        4: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+        5: MAS-DIAS CIUTAT4
+
+Veiem, com a triat el cas que es igual tant per a interes com per a preu.
+
+
+JP_Extensio4_2.pddl :
+
+En aquest multipliquem per deu el preu, de manera que tindrà un major pes en la solucio
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT1 HOTEL1
+        1: MAS-DIAS CIUTAT1
+        2: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+        3: MAS-DIAS CIUTAT2
+        4: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+        5: MAS-DIAS CIUTAT3
+
+Veiem com a triat el cas que es més favorable per a un preu mínim.
+
+
+JP_Extensio4_3.pddl :
+
+En aquest ultim fem al contrari que en el anterior, multipliquem per deu l'interes
+
+OUTPUT:
+step    0: CIUDAD-INICIO CIUTAT3 HOTEL3
+        1: MAS-DIAS CIUTAT3
+        2: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+        3: MAS-DIAS CIUTAT4
+        4: RESERVAR-VOL-HOTEL VUELO4 CIUTAT4 CIUTAT5 HOTEL5
+        5: MAS-DIAS CIUTAT5
+
+Veiem com a triat el cas que es més favorable per a un preu mínim.
