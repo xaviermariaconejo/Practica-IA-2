@@ -421,9 +421,9 @@ Veiem que en aquest cas s'ha complert les nostres expectatives, per tant, veiem 
 Per aquesta extensió, igual que en l'extensió anterior, s'han de continuar complint les restriccions i objectius de l'extensió 1, i a més a més, ara els vols i els hotels tenen un preu cadascun.
 L'objectiu ara és minimitzar el preu total del viatge. A més el preu ha d'estar acotat per un preu mínim i un preu màxim que vénen donats per l'usuari.
 
-\subsubsection*{\texttt{JP\_Extensio3\_2.pddl}}
+\subsubsection*{\texttt{JP\_Extensio3\_1.pddl}}
 
-Aquest cas és molt semblant a l'anterior. La diferencia és que ara el preu dels vols és diferent. Tots valen 10 excepte el vol número 5 que val 1. Tot i això, si l'algoritme tria aquest vol és impossible que es compleixin les restriccions. Volem temptar a l'algoritme per veure si cau en la trampa.
+Aquest cas volem centrar-nos en el preu dels vols, l'altre informació rellevant es que tenim que visitar 5 ciutats i el viatge dura un mínim de 6 díes, tots els vols valen 10 excepte el vol número 5 que val 1. Tot i això, si l'algoritme tria aquest vol és impossible que es compleixin les restriccions. Volem temptar a l'algoritme per veure si cau en la trampa.
 
 \begin{samepage}
 \medskip
@@ -443,7 +443,7 @@ step 0: CIUDAD-INICIO CIUTAT1 HOTEL1
 \medskip
 \end{samepage}
 
-\subsubsection*{\texttt{JP\_Extensio3\_3.pddl}}
+\subsubsection*{\texttt{JP\_Extensio3\_2.pddl}}
 
 Aquesta vegada, el que canviem són els preus dels hotels, però ara sí que és possible agafar la solució amb l'hotel més barat. volem veure si la tria.
 
@@ -472,7 +472,9 @@ En efecte, veiem com a aconseguit optimitzar el viatge i triar la més optima.
 Aquesta extensió consisteix a combinar les extensions 2 i 3, però podem triar al nostre gust --O el de l'usuari, en el seu defecte-- si és més important el preu o l'interès ajustant les ponderacions de la funció a optimitzar.
 
 \begin{verbatim}
-EXPLICAR AQUI QUIN ÉS EL JOC DE PROVES.
+En els tres jocs de proves d'aquesta extensió només varien el valor que tenen que minimitzar, això és per poder comparar les sortides unes amb les altres, i veure que en efecte, segons quina ponderació li donem a cada valor, la sortida és diferent. 
+
+El joc de proves basicament té tres parts, la primera ciutat és la més econòmica, però la que té un interès més alt (per tant, més dolent), les següents tres ciutats són iguals, i la relació interès-preu esta equilibrada (són tres ciutats perquè té que visitar tres ciutats exactament). I per terminar, l'ultima ciutat es el contrari que la primera, és la més cara, però en canvi es la que té un interès més baix.
 \end{verbatim}
 
 \subsubsection*{\texttt{JP\_Extensio4\_1.pddl}}
