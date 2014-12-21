@@ -1,7 +1,5 @@
 #!/bin/bash
-export USG="Usage: $0 <n_ciutats> <n_ciutats_viatge> <minim_dies> <nom_problema>"
-
-#Aquest script permet generar instàncies pel nostre problema en PDDL.
+#usage generador-instancies <n_ciutats> <n_ciutats_viatge>
 
 export m=0 #Mínim de dies per ciutat
 export M=5 #Màxim de dies per ciutat
@@ -13,19 +11,11 @@ export v=1
 # Preu total de tots els hotels del viatge
 export ph=0
 
-# Comprovem si hem rebut tots els paràmetres
-if [[ "$#" != 4 ]]
-then
-	echo $USG
-	exit 0
-fi
-
 # Paràmetres del problema
 export N=$1 #Nombre de ciutats totals al problema
 export C=$2 #Nombre de ciutats a complir
 export D=$3 #Mínim de dies a complir
 export nomproblema=$4 #Nom del problema
-
 
 # El fly factor (probabilitat d'assignar un vol entre 2 ciutats)
 # és el ratio entre N·ln(N) i (N·N-1)/2, valor que ens garanteix
@@ -45,8 +35,8 @@ for i in $(seq 1 $N); do
 	echo "    (ciudad-empty ciutat-$i)" >> tmp/ciutatsfile.out
 	echo "    (= (dias-ciudad ciutat-$i) 0)" >> tmp/ciutatsfile.out
 	# Els dies minim/maxim finalment son globals.
-	echo "    (= (min-dias-ciudad ciutat-$i) $r)" >> tmp/ciutatsfile.out
-	echo "    (= (max-dias-ciudad ciutat-$i) $R)" >> tmp/ciutatsfile.out
+	#echo "    (= (min-dias-ciudad ciutat-$i) $r)" >> tmp/ciutatsfile.out
+	#echo "    (= (max-dias-ciudad ciutat-$i) $R)" >> tmp/ciutatsfile.out
 done
 
 export r=$((1+$RANDOM%2))
@@ -54,16 +44,16 @@ export R=$((2+$RANDOM%4))
 echo "    (= (min-dias-ciudad) $r)" >> tmp/ciutatsfile.out
 echo "    (= (max-dias-ciudad) $R)" >> tmp/ciutatsfile.out
 
-#Interès de les ciutats
-for i in $(seq 1 $N); do
+#Interès de les ciutats - no és de la extensió 3
+#for i in $(seq 1 $N); do
 	#Interès entre 1 i 5
-	export r=$((1+$RANDOM%5))
-	echo "    (= (interes ciutat-$i) $r)" >> tmp/interesciutats.out
-done
+	#export r=$((1+$RANDOM%5))
+	#echo "    (= (interes ciutat-$i) $r)" >> tmp/interesciutats.out
+#done
 
 #Hotels
 for i in $(seq 1 $N); do
-	export h=$((1+$RANDOM%4))
+	export h=1 #$((1+$RANDOM%4))
 	for j in $(seq 1 $h); do
 		echo "    (es-de ciutat-$i hotel-$ho)" >> tmp/hotels.out
 		export ho=$(($ho+1))
@@ -140,10 +130,10 @@ echo "    (= (actual) 0)" >> $nomproblema.pddl
 echo "    (= (min-dias-totales) $D)" >> $nomproblema.pddl
 echo "    (= (ciudades-totales) $C)" >> $nomproblema.pddl
 echo "    (= (dias-totales) 0)" >> $nomproblema.pddl
-echo "    (= (interes-total) 0)" >> $nomproblema.pddl
+#echo "    (= (interes-total) 0)" >> $nomproblema.pddl
 echo "    (= (precio-total) 0)" >> $nomproblema.pddl
 cat tmp/ciutatsfile.out >> $nomproblema.pddl
-cat tmp/interesciutats.out >> $nomproblema.pddl
+#cat tmp/interesciutats.out >> $nomproblema.pddl
 cat tmp/hotels.out >> $nomproblema.pddl
 cat tmp/vols.out >> $nomproblema.pddl
 echo "  )" >> $nomproblema.pddl
