@@ -4,6 +4,7 @@
 \usepackage[gen]{eurosym}
 \usepackage[pdftex, pdfborderstyle={/S/U/W 0}]{hyperref} % this disables the boxes around links
 \usepackage{longtable}
+\usepackage[pdftex]{graphicx}
 
 \usepackage{listings}
 \usepackage{color}
@@ -469,13 +470,11 @@ En efecte, veiem com a aconseguit optimitzar el viatge i triar la més optima.
 
 \subsection{Extensió 4}
 
-Aquesta extensió consisteix a combinar les extensions 2 i 3, però podem triar al nostre gust --O el de l'usuari, en el seu defecte-- si és més important el preu o l'interès ajustant les ponderacions de la funció a optimitzar.
+Aquesta extensió consisteix a combinar les extensions 2 i 3, però podem triar al nostre gust ---O el de l'usuari, en el seu defecte--- si és més important el preu o l'interès ajustant les ponderacions de la funció a optimitzar.
 
-\begin{verbatim}
 En els tres jocs de proves d'aquesta extensió només varien el valor que tenen que minimitzar, això és per poder comparar les sortides unes amb les altres, i veure que en efecte, segons quina ponderació li donem a cada valor, la sortida és diferent. 
 
-El joc de proves basicament té tres parts, la primera ciutat és la més econòmica, però la que té un interès més alt (per tant, més dolent), les següents tres ciutats són iguals, i la relació interès-preu esta equilibrada (són tres ciutats perquè té que visitar tres ciutats exactament). I per terminar, l'ultima ciutat es el contrari que la primera, és la més cara, però en canvi es la que té un interès més baix.
-\end{verbatim}
+El joc de proves basicament té tres parts, la primera ciutat és la més econòmica, però la que té un valor d'interès més alt (per tant, més dolent), les següents tres ciutats són iguals, i la relació interès-preu esta equilibrada (són tres ciutats perquè té que visitar tres ciutats exactament). I per acabar, l'ultima ciutat es el contrari que la primera, és la més cara, però en canvi es la que té un interès més baix.
 
 \subsubsection*{\texttt{JP\_Extensio4\_1.pddl}}
 
@@ -527,10 +526,36 @@ step 0: CIUDAD-INICIO CIUTAT1 HOTEL1
 
 Veiem com ha triat el cas que és més favorable per a un preu mínim.
 
+\subsubsection*{\texttt{JP\_Extensio4\_2.pddl}}
+
+En aquest últim fem al contrari que en l'anterior, multipliquem per deu l'interès (factors de ponderació 1 pel preu i 10 per l'interès).
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT3 HOTEL3
+1: MAS-DIAS CIUTAT3
+2: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+3: MAS-DIAS CIUTAT4
+4: RESERVAR-VOL-HOTEL VUELO4 CIUTAT4 CIUTAT5 HOTEL5
+5: MAS-DIAS CIUTAT5
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+Veiem com ha triat el cas que és més favorable per a un interès mínim.
+
+\clearpage
+
 \section[Experiment extra]{Experiment: Evolució del temps d'execució per problemes de mida creixent}
 \label{sec:experiment}
 
-En aquest apartat ens plantejem estudiar com evoluciona el temps d'execució del solver \emph{Metric-FF} per a instancies del nostre problema de mida creixent en la extensió 3. Per fer-ho, hem generat les instàncies amb l'script explicat en \ref{sec:script} lleugerament modificat\footnote{L'script genera instàncies de l'extensió 4 i crea predicats innecesaris}. En els següents apartats es descriuen els passos que hem seguit per realitzar l'experiment juntament amb els resultats obtinguts.
+En aquest apartat ens plantejem estudiar com evoluciona el temps d'execució del solver \emph{Metric-FF} per a instancies del nostre problema de mida creixent en la extensió 3. Per fer-ho, hem generat les instàncies amb l'script explicat en \ref{sec:script} lleugerament modificat\footnote{L'script original genera instàncies de l'extensió 4 i genera predicats innecesaris}. En els següents apartats es descriuen els passos que hem seguit per realitzar l'experiment juntament amb els resultats obtinguts.
 
 \subsection{Plantejament i hipòtesi}
 
@@ -544,11 +569,64 @@ Per a preparar l'experiment hem generat 60 jocs de prova amb el nostre script am
 
 Cal notar que per cadascuna de les $N$ escollides hem generat 3 jocs de prova diferents per tal de fer la mitjana entre aquests, i que mesurarem els temps d'execució 5 vegades per cadascun dels jocs de proves. Aquest procés el fem per tal de normalitzar els resultats i eliminar qualsevol biaix que un problema particular pugui introduïr en les dades.
 
+Per tal de realitzar l'experiment en aquestes condicions hem optat per utilitzar el següent script per tal de generar les instàncies:
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\texttt{instantiator.sh}
+\rule{0.65\textwidth}{0.5mm}
+\begin{verbatim}
+export i=0
+for (( i=5 ; i <= 300 ; i=$i+5 )); do
+    sh generador-instancies-ext3.sh $i $(($i/5))
+        $(($i/5)) instancia-$i
+    sleep 1
+done
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\end{samepage}
+
+Recordant breument, els paràmetres de l'script son (en aquest ordre): Nombre de ciutats del problema, nombre de ciutats a complir, mínim de dies totals del problema i nom del problema generat.
+
+Així doncs s'ha escollit no demanar al solver que afegeixi més dies a les ciutats per aquest problema, anant a una ciutat per dia, i sempre a $1/5$ de les ciutats del problema. 
+
+Amb aquests requisits pretenem evaluar el rendiment del solver i no pas fer un anàlisi realista amb viatges reals.
+
+
+Per cadascuna de les instàncies generades es recollirà el temps d'execució i la traça generada per \emph{Metric-FF}.
+
+
 \subsection{Resultats de l'experiment}
 
+Degut a limitacions del propi solver, que no és capaç de parsejar arxius suficientment llargs, l'experiment no s'ha pogut dur a terme\footnote{A partir d'aquest valor, per la mida de l'arxiu generat, el parser per alguna extranya raó llegia malament el nom de la funció a optmitzar, juntament amb altres errors extranys i que aparentment no tenen res a veure amb res que haguem fet} per cap instància de mida superior a 10. És per això que hem replantejat l'experiment per tal d'avaluar els resultats del solver a més petita escala. 
+
+Hem provat a reduïr la mida dels fitxers que fallaven eliminant vols i hotels i el solver ha estat capaç de llegir el problema correctament per mides més grans que 10. Per augmentar una mica l'abast de l'experiment hem intentat retallar la mida dels problemes fent que cada ciutat tingui un únic hotel. Malauradament això només ens ha permès augmentar la mida fins a 12. Caldria generar grafs de vols menys densos per tal de retallar encara més la mida, no obstant el nostre enfoc probabilista fa que en triar grafs menys densos no acostumi a haver-hi solució.
+
+Els resultats d'aquest experiment es poden resumir en el gràfic de la figura \ref{fig:grafic_experiment}. Com era d'esperar els temps d'execució creix amb la mida dels problemes, i en el gràfic es pot observar clarament una tendència quadràtica ---o si més no, no lineal--- en el temps d'execució.  
+
+Cal fer especial menció als valors de 0 fins a 6, que s'han completat en un temps molt baix, i exactament el mateix per tots els casos. D'aqui observem que probablement\emph{Metric-FF} si que té un comportament voraç per a problemes suficientment petits. O també podria ser que el temps fos tan baix que la comanda \texttt{time} de bash no tingui prou precisió i indiqui sempre el mateix valor de temps.
+
+\begin{figure}[hbt]
+\includegraphics[width=\textwidth]{./grafic_experiment.png}
+\caption{Temps d'execució de \emph{Metric-FF} en funció del nombre de ciutats del problema.}
+\label{fig:grafic_experiment}
+\end{figure}
 
 
 \subsection{Conclusions}
 
+Podem concloure que el resultat era l'esperat, s'ha obtingut un temps de mida creixent amb un comportament quadràtic per a problemes de mida creixent.
+
+També cal comentar el fet que hem descobert un possible comportament \emph{greedy} per instàncies de mida prou petita, cosa que podria contradir en part el que ens havien comentat a classe de teoria sobre \emph{Fast Forward}\footnote{Tenim entès que Fast Forward no fa una aproximació voraç per problemes d'optimització. No obstant no hem comprovat aquest fet en el codi i ens basem únicament en els resultats empírics}. No obstant cal recordar que aquest programa és producte d'un concurs anual i que està en constant evolució, així que canvis d'aquest estil son d'esperar.
+
+Per últim fa falta dir que desconeixem la causa del problema que ens ha impedit experimentar amb problemes de mida més gran que 12, cosa que hagués augmentat considerablement la validesa d'aquest experiment, però tal com hem comentat, el fet que sigui la mida del fitxer el que genera els errors apunta a que el problema es troba en el parser, i queda totalment fora de l'àmbit d'aquest treball el fet d'arreglar el solver.
+
+\subsection{Replicabilitat}
+
+Per tal d'assegurar la replicabilitat del nostre experiment, o ampliar-lo en cas que es disposi d'una versió arreglada de \emph{Metric-FF}, s'ha inclòs una carpeta \emph{Experiment} juntament amb aquesta entrega amb tots els scripts utilitzats. Des d'un entorn linux de 64 bits es pot repetir l'experiment executant els scripts \texttt{genera\_instancies.sh} i tot seguit \texttt{runner.sh}. 
+
+Canviant l'executable de Metric-FF de la carpeta per un altre de compilat per la plataforma en qüestió aquest experiment s'hauria de poder replicar en qualsevol entorn \emph{Unix} amb un intèrpret de \emph{bash} (o fins i tot \emph{Windows} si es fa servir \emph{Cygwin}).
 
 \end{document}
