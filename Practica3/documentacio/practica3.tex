@@ -188,12 +188,342 @@ Com que l'objectiu de l'script és generar el fitxer pddl complet, també s'incl
 
 
 \section{Jocs de prova}
+
+En aquest apartat explicarem els diferents jocs de prova que hem dissenyat per a cadascuna de les extensions del programa tot comentant-ne la sortida.
+
+Per les sortides només posarem la part que ens aporta informació obviant tota la traça de \emph{Metric-FF}. 
+
+Cal, abans que res clarificar que en les sortides mostrades, en reservar un hotel, aquest es reserva pel nombre mínim de dies que es vol estar en una ciutat, i en incrementar, s'afegeix només un dia més.
+
+Per cadascuna de les extensions del programa s'enumeren els diversos jocs de prova amb els mateixos noms de fitxer que hem usat. Aquests fitxers es poden consultar a la carpeta \texttt{JP} d'aquesta entrega.
+
 \subsection{Bàsic}
+
+Recordem breument l'objectiu d'aquesta extensió: Fer un viatge que compleixi un mínim de ciutats a visitar tenint en compte la restricció que només es pot anar d'una ciutat a un altre si hi ha un vol que ho permeti.
+
+\subsubsection*{\texttt{JP\_Basic1.pddl}}
+
+En aquest joc de proves provarem que, efectivament, es compleix la restricció i no va a la ciutat3, ja que no hi ha cap vol que permeti arribar-hi. La resta de les ciutats estan connectades, de manera que por haver-hi diverses solucions correctes, totes aquelles que visitin com a mínim 3 ciutats.
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT1 HOTEL1
+1: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+2: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT4 HOTEL4
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+Podem veure com compleix la restricció, i dóna el resultat esperat.
+
+\subsubsection*{\texttt{JP\_Basic2.pddl}}
+
+Aquest cas és el mateix que l'anterior però demanant dues ciutats com a mínim, sobretot provem aquest cas per a veure si la quantitat de ciutats mínima afecta per decidir quina és la ciutat inicial, ja que això ho decideix el sistema.
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT1 HOTEL1
+1: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+Podem veure com compleix la restricció, i dóna el resultat esperat.
+
+\subsubsection*{\texttt{JP\_Basic3.pddl}}
+
+En aquest joc de proves fem un graf de vols una mica peculiar, tenim les següents connexions entre ciutats: 1-2-3-4-5 i a més la connexió 2-5. Demanem també que el nombre mínim de ciutats sigui 5, de manera que la solució només pot ser una: 1-2-3-4-5. Volem veure si l'algoritme tria de manera correcta aquest camí i no va de la ciutat2 a la ciutat5.
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT1 HOTEL1
+1: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+2: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+3: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+4: RESERVAR-VOL-HOTEL VUELO4 CIUTAT4 CIUTAT5 HOTEL5
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+En efecte, l'algorisme dóna el resultat esperat ja que compleix totes les restriccions.
+
 \subsection{Extensió 1}
+
+En aquesta extensió, a part de complir els objectius i les restriccions del programa Bàsic també tenim en compte la durada del viatge, és a dir, hi haurà una quantitat de dies mínim i màxims per ciutat, i una quantitat de dies mínims que ha de durar el viatge en total.
+
+\subsubsection*{\texttt{JP\_Extensio1\_1.pddl}}
+
+En aquest cas donem un graf de ciutats amb una longitud de 5 ciutats, concretament hem posat el mateix que el de \texttt{JP\_Basic3.pddl}, i hem volgut que el nombre mínim de ciutats sigui 5, però demanant 6 dies com a mínim, i estant a cada ciutat com a mínim 1 dia, i com a màxim 10. Amb aquests paràmetres esperem veure que l'algoritme sigui capaç de satisfer les restriccions. 
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT1 HOTEL1
+1: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+2: MAS-DIAS CIUTAT2
+3: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+4: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+5: MAS-DIAS CIUTAT4
+6: RESERVAR-VOL-HOTEL VUELO4 CIUTAT4 CIUTAT5 HOTEL5
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+Veiem que compleix les restriccions, tot i que s'afegeix un dia de més, però com que no volem optimitzar res el resultat és correcte.
+
+\subsubsection*{\texttt{JP\_Extensio1\_2.pddl}}
+
+En aquest cas, per comoditat continuem utilitzant els mateixos vols, hotels i ciutats. L'objectiu és comprovar que si restringim el nombre de ciutats a 1, tot i així, s'incrementen els dies que s'ha d'estar en aquella ciutat per tal de complir la restricció de dies mínims.
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT1 HOTEL1
+1: MAS-DIAS CIUTAT1
+2: MAS-DIAS CIUTAT1
+3: MAS-DIAS CIUTAT1
+4: MAS-DIAS CIUTAT1
+5: MAS-DIAS CIUTAT1
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+En aquest cas no ha passat com el cas anterior i no s'ha afegit un dia extra. A més, compleixen totes les restriccions tal com s'esperava.
+
+\subsubsection*{\texttt{JP\_Extensio1\_3.pddl}}
+
+Aquest joc de proves, és molt semblant a l'anterior, però ara ens centrarem en els dies que s'hi assignen a cada ciutat el primer cop que la visitem, per aquest motiu diem que el mínim i màxim de dies son 3, volem visitar 2 ciutats, i com a mínim el viatge ha de durar 6 dies. D'aquesta manera no hauria d'incrementar la quantitat de dies per cap de les ciutats, veurem així si només en visitar una ciutat ja li assigna els 3 dies necessaris.
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT1 HOTEL1
+1: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+Com hem dit anteriorment, en ser el nombre de dies mínim 3, en reservar per primera vegada l'hotel, ja el reserva amb el mínim nombre, per això podem veure que la solució és correcta.
+
 \subsection{Extensió 2}
+
+Per aquesta extensió els objectius i restriccions són els mateixos que per a  la extensió 1 però afegint que cada ciutat té un valor d'interès, representat per un nombre natural\footnote{Per motius de simplicitat, contraintuitivament, com menor és aquest nombre més interessant és la ciutat}. L'objectiu de l'algoritme és maximitzar l'interès total del viatge, el que s'aconsegueix minimitzant el número d'interès total. Per això afegim optimització en el problema. 
+
+En aquest apartat, per tant, no només hem de veure si dóna o no una solució correcta, sinó també analitzar l'optimalitat d'aquesta tenint en compte que \emph{Metric-FF} no garanteix el resultat òptim. 
+
+\subsubsection*{\texttt{JP\_Extensio2\_1.pddl}}
+
+En aquest primer cas, volem confirmar que en afegir el fet que l'algoritme ha de aconseguir una solució òptima, es continüen complint les restriccions. Per aquest cas només hi ha una possible solució correcta, que és continuar afegint dies a la mateixa ciutat, de màxim interès, fins a complir el mínim de dies necessaris.
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT1 HOTEL1
+1: MAS-DIAS CIUTAT1
+2: MAS-DIAS CIUTAT1
+3: MAS-DIAS CIUTAT1
+4: MAS-DIAS CIUTAT1
+5: MAS-DIAS CIUTAT1
+6: MAS-DIAS CIUTAT1
+7: MAS-DIAS CIUTAT1
+8: MAS-DIAS CIUTAT1
+9: MAS-DIAS CIUTAT1
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+En efecte, la solució compleix les nostres expectatives.
+
+\subsubsection*{\texttt{JP\_Extensio2\_2.pddl}}
+
+En aquest joc de proves, utilitzem el nostre graf de ciutats (1-2-3-4-5 i 2-5), en aquest cas hem dit que la ciutat amb un interès més baix és la ciutat 5, per a veure si aconsegueix arribar-hi, dient que ha de passar per 3 ciutats, hi ha dues solucions òptimes.
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT2 HOTEL2
+1: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+2: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+En aquest cas veiem que contra tot pronòstic no hi ha hagut optimització. La solució no es cap de les dues solucions esperades, ja que no es troba la ciutat5 en aquesta. A partir dels fets i nombrosos testejos hem deduït que això es deu a algun problema en el sistema, no del domini. Podria ser que l'algoritme tallés la cerca massa aviat i no arribés a trobar l'òptim. No obstant és sorprenent que això passi amb problemes de mida tan petita.
+
+\subsubsection*{\texttt{JP\_Extensio2\_3.pddl}}
+
+En aquest cas, continuem utilitzant el mateix problema que en el joc de proves anterior, però ara fem que només sigui possible una solució, sent aquesta la més òptima, i per tant, hauria de sortir aquesta solució: 2-3-4-5. De fet, a part d'aquesta solució només hi ha una altra possible: 1-2-3-4. Per tant és obvi que hauria d'aconseguir arribar a la primera solució sense dificultats.
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT2 HOTEL2
+1: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+2: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+3: RESERVAR-VOL-HOTEL VUELO4 CIUTAT4 CIUTAT5 HOTEL5
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+Veiem que en aquest cas s'ha complert les nostres expectatives, per tant, veiem que sí que és capaç de trobar la solució més òptima en cas que les possibles solucions no tinguin el mateix interès.
+
+
 \subsection{Extensió 3}
+
+Per aquesta extensió, igual que en l'extensió anterior, s'han de continuar complint les restriccions i objectius de l'extensió 1, i a més a més, ara els vols i els hotels tenen un preu cadascun.
+L'objectiu ara és minimitzar el preu total del viatge. A més el preu ha d'estar acotat per un preu mínim i un preu màxim que vénen donats per l'usuari.
+
+\subsubsection*{\texttt{JP\_Extensio3\_2.pddl}}
+
+Aquest cas és molt semblant a l'anterior. La diferencia és que ara el preu dels vols és diferent. Tots valen 10 excepte el vol número 5 que val 1. Tot i això, si l'algoritme tria aquest vol és impossible que es compleixin les restriccions. Volem temptar a l'algoritme per veure si cau en la trampa.
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT1 HOTEL1
+1: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+2: MAS-DIAS CIUTAT2
+3: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+4: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+5: RESERVAR-VOL-HOTEL VUELO4 CIUTAT4 CIUTAT5 HOTEL5
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+\subsubsection*{\texttt{JP\_Extensio3\_3.pddl}}
+
+Aquesta vegada, el que canviem són els preus dels hotels, però ara sí que és possible agafar la solució amb l'hotel més barat. volem veure si la tria.
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT3 HOTEL3
+1: MAS-DIAS CIUTAT3
+2: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+3: MAS-DIAS CIUTAT4
+4: RESERVAR-VOL-HOTEL VUELO4 CIUTAT4 CIUTAT5 HOTEL5
+5: MAS-DIAS CIUTAT5
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+En efecte, veiem com a aconseguit optimitzar el viatge i triar la més optima.
+
 \subsection{Extensió 4}
-\subsection{Extensió 4}
+
+Aquesta extensió consisteix a combinar les extensions 2 i 3, però podem triar al nostre gust --O el de l'usuari, en el seu defecte-- si és més important el preu o l'interès ajustant les ponderacions de la funció a optimitzar.
+
+\begin{verbatim}
+EXPLICAR AQUI QUIN ÉS EL JOC DE PROVES.
+\end{verbatim}
+
+\subsubsection*{\texttt{JP\_Extensio4\_1.pddl}}
+
+Aquest joc de proves, li dóna la mateixa importància als dos (factors de ponderació 1 tant per preu com per interès), de manera podrem comparar aquesta solució amb els següents jocs de proves.
+
+Per a aquesta extensió hem decidit provar el mateix cas amb 3 ponderacions diferents, per un joc de proves amb 3 solucions clarament diferenciades en funció de què s'està optimitzant: preu  o interès.
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT2 HOTEL2
+1: MAS-DIAS CIUTAT2
+2: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+3: MAS-DIAS CIUTAT3
+4: RESERVAR-VOL-HOTEL VUELO3 CIUTAT3 CIUTAT4 HOTEL4
+5: MAS-DIAS CIUTAT4
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+Veiem, com ha triat el cas que és igual, tant per a interès, com per a preu.
+
+\subsubsection*{\texttt{JP\_Extensio4\_2.pddl}}
+
+En aquest multipliquem per deu el preu (factors de ponderació 10 pel preu i 1 per l'interès), de manera que aquest tindrà un major pes en la solució.
+
+\begin{samepage}
+\medskip
+\noindent
+\rule{0.1\textwidth}{0.5mm}
+\textbf{Sortida:}
+\rule{0.76\textwidth}{0.5mm}
+\begin{verbatim}
+step 0: CIUDAD-INICIO CIUTAT1 HOTEL1
+1: MAS-DIAS CIUTAT1
+2: RESERVAR-VOL-HOTEL VUELO1 CIUTAT1 CIUTAT2 HOTEL2
+3: MAS-DIAS CIUTAT2
+4: RESERVAR-VOL-HOTEL VUELO2 CIUTAT2 CIUTAT3 HOTEL3
+5: MAS-DIAS CIUTAT3
+\end{verbatim}
+\rule{\textwidth}{0.5mm}
+\medskip
+\end{samepage}
+
+Veiem com ha triat el cas que és més favorable per a un preu mínim.
 
 \section[Experiment extra]{Experiment: Evolució del temps d'execució per problemes de mida creixent}
 \label{sec:experiment}
