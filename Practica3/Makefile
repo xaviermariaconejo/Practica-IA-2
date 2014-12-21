@@ -10,7 +10,7 @@ entrega:
 	mkdir Entrega/Jocs_Prova
 	cp JP* Entrega/Jocs_Prova
 	mkdir Entrega/Experiment
-	cp -r Experimento Entrega/Experiment
+	cp -R Experimento/. Entrega/Experiment
 	cd Entrega;\
 	zip -y -r -q Jocs_Prova.zip Jocs_Prova;\
 	rm -r Jocs_Prova;\
