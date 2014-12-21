@@ -1,0 +1,35 @@
+
+ff: parsing domain file
+domain 'VIATGE' defined
+ ... done.
+ff: parsing problem file
+problem 'INSTANCIA7' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((1.00*[RF7](PRECIO-TOTAL)) - () + 0.00)
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((1.00*[RF7](PRECIO-TOTAL)) - () + 0.00)
+
+advancing to distance:    3
+                          2
+                          0
+
+ff: found legal plan as follows
+
+step    0: CIUDAD-INICIO CIUTAT-2 HOTEL-2
+        1: RESERVAR-VOL-HOTEL VOL-6 CIUTAT-2 CIUTAT-1 HOTEL-1
+        2: RESERVAR-VOL-HOTEL VOL-3 CIUTAT-1 CIUTAT-5 HOTEL-5
+     
+
+time spent:    0.00 seconds instantiating 41 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 23 facts and 41 actions
+               0.00 seconds creating final representation with 23 relevant facts, 19 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 17 states, to a max depth of 0
+               0.00 seconds total time
+
