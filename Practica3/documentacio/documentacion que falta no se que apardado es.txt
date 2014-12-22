@@ -1,9 +1,9 @@
 TITULO
 
-El procés que hem seguit per realitzar aquest treball ha sigut senzill, vam començar per implementar les diferents extensions, començant per la més bàsica i anant fent les demés fins arribar a la quarta. 
+El procés que hem seguit per realitzar aquest treball ha sigut senzill, vam començar per implementar les diferents extensions, començant per la més bàsica i anant fent les altres fins a arribar a la quarta.
 
-Implementar les diferents extensions no ens va portar gaire temps, una vegada vam aprendre lo més bàsic realitzar la implementació va ser tribial. Així que una vegada les vam tindre totes, ens vam enfocar en fer un testeig força profund, per una banda els diferents jocs de proves per cada extensió, i per una altre el generador de scripts. Per realitzar aquestes dues tasques, ens vam repartir la feina equitativament i vam fer el testeig de lues dues maneres alhora.
+Implementar les diferents extensions no vam trigar gaire temps, una vegada vam aprendre el més bàsic realitzar la implementació va ser trivial. Així que una vegada les vam tindre totes, ens vam enfocar en fer un testeig força profund, per una banda els diferents jocs de proves per cada extensió, i per una altra, el generador de scripts. Per realitzar aquestes dues tasques, ens vam repartir la feina equitativament i vam fer el testeig de lues dues maneres alhora.
 
-Per una banda, els jocs de proves, els quals es poden trobar en aquesta mateixa documentació, vam fer els necessaris per provar en cada extensió, a més, com que cada extensió englobaba l'anterior, si en l'extensió 1 comprobavem que un cas determinat el resolia correctament, no caldrà tornar-lo a testejar en una extensió següent.
+Per una banda, els jocs de proves, els quals es poden trobar en aquesta mateixa documentació, vam fer els necessaris per provar en cada extensió, a més, com que cada extensió englobava l'anterior, si en l'extensió 1 comprovàvem que un cas determinat el resolia correctament, no caldrà tornar-lo a testejar en una extensió següent.
 
-I per terminar, el generador de scripts ens va ser útil per terminar de comprobar que les diferents extensions funcionaven perfectament, per si algún cas crític sen's hagués pogut passar en els jocs de proves.
+I per terminar, el generador de scripts ens va ser útil per terminar de comprovar que les diferents extensions funcionaven perfectament, per si algun cas crític sens hagués pogut passar en els jocs de proves.
