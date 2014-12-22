@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1419263554 "practica3.tex" "practica3.pdf" "practica3" 1419263555
+["pdflatex"] 1419275067 "practica3.tex" "practica3.pdf" "practica3" 1419275067
   "/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii" 1407968442 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texmf-dist/tex/generic/babel-catalan/catalan.ldf" 1407968440 10113 2e7f3b4656572a71a9061a5e27e11e94 ""
   "/usr/share/texmf-dist/tex/generic/babel-english/english.ldf" 1407968440 6963 2e0cb3d93aa64508bdb0db58ae900d97 ""
@@ -44,13 +44,13 @@
   "/usr/share/texmf-dist/tex/latex/tools/longtable.sty" 1407968439 11875 98b91a3f62f8b2871fecd2afa02ea4a3 ""
   "/usr/share/texmf-dist/tex/latex/url/url.sty" 1407968439 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "grafic_experiment.png" 1419189469 19167 8dc261b7369c0120d74aa13f5c193a92 ""
-  "practica3.aux" 1419263555 3509 74d1a4fa0b2d36b683538ac78fa20eea ""
-  "practica3.out" 1419263555 1385 69a5a1a3c6c7270ee93f8dbbd12ea978 ""
-  "practica3.tex" 1419263553 38668 44f98c1890caa7f1241d1a73c3c2c554 ""
-  "practica3.toc" 1419263555 1829 1840325f583caf7d68d6735da57cf45c ""
+  "practica3.aux" 1419275067 3567 1bfe31908f40149dccc1d938a88fed1a ""
+  "practica3.out" 1419275067 1385 69a5a1a3c6c7270ee93f8dbbd12ea978 ""
+  "practica3.tex" 1419275023 38687 f2819a02841cb1e8804802ea4b00d870 ""
+  "practica3.toc" 1419275067 1829 1840325f583caf7d68d6735da57cf45c ""
   (generated)
-  "practica3.log"
-  "practica3.out"
-  "practica3.toc"
   "practica3.aux"
+  "practica3.out"
   "practica3.pdf"
+  "practica3.log"
+  "practica3.toc"
