@@ -202,6 +202,11 @@ Com que l'objectiu de l'script és generar el fitxer pddl complet, també s'incl
 
 \section{Descripció de la metodologia de treball}
 
+El procés que hem seguit per realitzar aquest treball ha sigut senzill, vam començar per implementar les diferents extensions, començant per la més bàsica i anant fent les altres fins a arribar a la quarta. Per implementar les diferents extensions no vam trigar gaire temps, una vegada vam aprendre el més bàsic sobre PDDL a les classes de teoria realitzar la implementació va ser relativament senzill. Així que una vegada les vam tenir totes, ens vam enfocar en fer un \emph{testeig} força profund: Per una banda vam dissenyar els diferents jocs de proves per cada extensió (veure apartat \ref{sec:proves}), i per l'altra vam desenvolupar el generador de scripts per fer testejos addicionals amb problemes més grans. Per realitzar aquestes dues tasques, ens vam repartir la feina equitativament i vam fer el testeig de lues dues maneres alhora comentant i arreglant els problemes cada cop que sorgien.
+
+Pels jocs de proves vam fer-ne els necessaris per provar en cada extensió, i a més, com que cada extensió englobava l'anterior en casi tots els casos, si en l'extensió 1 comprovàvem que un cas determinat el resolia correctament, no caldrà tornar-lo a testejar en una extensió següent.
+
+I per acavar, el generador de scripts ens va ser útil per comprovar de manera més general sense cap cas en ment que les diferents extensions funcionaven correctament. Per si algun cas crític se'ns hagués pogut passar en els jocs de proves.
 
 \section{Jocs de prova}
 
