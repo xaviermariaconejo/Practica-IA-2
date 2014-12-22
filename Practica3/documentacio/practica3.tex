@@ -126,15 +126,30 @@ En els models de problema dels cinc dominis d'aquesta pràctica trobem tres tipu
 \subsection{Estat inicial}
 En aquesta practica el tamany de l'estat inicial a aumentat cada cop que s'afegia una extensió per tant explicarem per cadascuna que s'ha afegit respecta a al seva predecesora.
 \begin{description}
-\item[Cas Base:] 
-\item[Extensió 1:] 
-\item[Extensió 2:] 
-\item[Extensió 3:] 
-\item[Extensió 4:] 
+\item[Cas Base:] Pel cas base en primer lloc és necessari posar el predicat d'inici que ens serveix per escollir la ciutat d'inici. Després, col·locar totes les ciutats a empty, ja que no les hem visitat i dir per cada hotel de quina ciutat és i per cada vol d'on a on va.
+Per últim, inicialitzar el nombre de ciutats pel que hem passat a 0 i indicar per quantes ciutats volem anar.
+\item[Extensió 1:] A més a més de la inicialització del cas base, en aquesta extensió s'ha de posar a 0 el nombre de dies que es passa a cada ciutat i el nombre de dies que portem. A part, hem d'indicar el nombre màxim i mínim que podem passar en una ciutat i el mínim nombre de dies que dura el viatge.
+
+\item[Extensió 2:] En aquesta extensió agafem la inicialització anterior i per cada ciutat li afegim l'interès que té aquesta. A part, posem a 0 l'interès total.
+\item[Extensió 3:] En aquesta extensió agafem la inicialització de l'extensió 1 i per cada vol i hotel li afegim un preu. A part, posem a 0 el preu total i indiquem quin és el preu màxim i mínim.
+\item[Extensió 4:] Per últim, en aquesta extensió agafem les dues anteriors i les ajuntem per tenir tant el preu dels vols i hotels que ens proporciona l'extensió 3 com l'interès de les ciutats que el tenim en l'extensió 2.
 \end{description}
 
 
 \subsection{Estat final}
+En aquest apartat, com en l'anterior, per cada extensió explicarem que s'ha afegit respecte a l'extensió anterior
+
+\begin{description}
+\item[Cas Base:] Pel cas base l'única restricció del problema és que el nombre de ciutats que es visiten sigui el que indican en l'estat inicial, per tant, com tenim un comptador del nombre de ciutats pel que passem, la planificació acabarà en el moment que el comptador sigui igual al nombre indicat de ciutats.
+
+\item[Extensió 1:] A més a més de la restriccioó del cas base, en aquesta extensió s'afegeix una restricció d'un nombre mínim de dies del viatge. Per denotar aquest fet tenim un comptador dels dies que dura el viatge i fem que aquest sigui igual o major que la cota que ens donen a l'inici.
+
+\item[Extensió 2:] En aquesta extensió no té més restriccions que en l'anterior per això el goal és igual però hem de minimitzar l'interès de les ciutats, ja que, l'interès està valorat decreixentment. Per això afegim: (:metric minimize (interes-total)).
+\item[Extensió 3:] En aquesta extensió, a part de les restriccions de l'extensió 1, hem d'afegir que el preu del viatge no sigui menor al preu mínim i tampoc major al preu màxim. Per fer-ho, utilitzem un mètode semblant al de l'extensió 1, amb un comptador tenim el preu del viatge i hem de fer que estigui en el llindar que demana l'estat inicial.
+A part, també hem de minimitzar aquest comptador afegint (:metric minimize (precio-total)).
+\item[Extensió 4:] Per últim, en aquesta extensió agafem les dues anteriors i les ajuntem. Les restriccions seran com les de l'apartat anterior però en aquest cas, com hem de minimitzar dues coses amb diferents unitats, hem de ponderar els dos factors per donar la importància que es vulgui a cada part. Com a exemple d'aquest fet podem posar (:metric minimize (+ (* (precio-total) 10) (interes-total))).
+\end{description}
+
 
 \subsection{Generador d'instàncies}
 \label{sec:script}
